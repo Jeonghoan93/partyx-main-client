@@ -2,7 +2,7 @@ import api from "../api";
 
 export type UploadResponse = {
   secure_url: string;
-  [key: string]: any;
+  [key: string]: string;
 };
 
 export const uploadToCloudinary = async (
@@ -22,7 +22,7 @@ export const uploadToCloudinary = async (
     throw new Error("Failed to upload image to cloudinary");
   }
 
-  const data: UploadResponse = await res.json();
+  const data: UploadResponse = await res.data;
 
   return data;
 };

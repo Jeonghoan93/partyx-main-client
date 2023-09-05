@@ -6,7 +6,9 @@ import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
 import { SafeUser } from "src/types";
 
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { logout } from "src/services/auth";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 
@@ -37,17 +39,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
   const handleSignOut = async () => {
     try {
-      // Call Nest.js endpoint to logout. (This step might be optional depending on your setup.)
-      await fetch("/api/logout", {
-        method: "POST",
-      });
+      await logout();
 
-      // Clear any authentication related data
-      localStorage.removeItem("auth_token"); // This depends on where you store your tokens.
-
-      // Update frontend user state
-      // This depends on how you handle global state, e.g., using Redux, Context API, etc.
-      // setUser(null);
+      toast.success("Logged out");
     } catch (error) {
       console.error("Error signing out:", error);
     }
@@ -128,7 +122,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   label="My properties"
                   onClick={() => navigate("/properties")}
                 />
-                <MenuItem label="Airbnb your home" onClick={rentModal.onOpen} />
+                <MenuItem label="List your party" onClick={rentModal.onOpen} />
                 <hr />
                 <MenuItem label="Logout" onClick={handleSignOut} />
               </>

@@ -53,6 +53,7 @@ const LoginModal = () => {
 
   const handleGoogleSignIn = async () => {
     try {
+      //TODO: implement google auth
       const googleToken = ""; // Get this from your Google auth flow
 
       const res = await loginWithGoogle(googleToken);

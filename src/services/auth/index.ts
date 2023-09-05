@@ -21,21 +21,15 @@ export const registerUser = async (data: FieldValues) => {
   }
 };
 
-export const getSession = async () => {
-  try {
-    const res = await api.post("/auth/session");
-    return res.data;
-  } catch (err) {
-    throw new Error("An error occurred while retrieving the session.");
-  }
-};
-
 export const getCurrentUser = async () => {
   try {
     const res = await api.post("/auth/current-user");
+
+    console.log("res data from current user: ", res.data);
     return res.data;
   } catch (err) {
-    throw new Error("An error occurred while fetching the current user.");
+    console.error("Error fetching user:", err);
+    throw new Error("An error occurred while retrieving the user.");
   }
 };
 
@@ -57,8 +51,28 @@ export const login = async (credentials: FieldValues) => {
   }
   try {
     const res = await api.post("/auth/login", { email, password });
+
+    const token = res.data.token || localStorage.getItem("token");
+
+    if (token) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      localStorage.setItem("token", token);
+    }
+
     return res.data;
   } catch (err) {
     throw new Error("An error occurred during login.");
+  }
+};
+
+export const logout = async () => {
+  try {
+    await api.post("/auth/logout");
+
+    localStorage.removeItem("token");
+    delete api.defaults.headers.common["Authorization"];
+  } catch (err) {
+    throw new Error("An error occurred during logout.");
   }
 };

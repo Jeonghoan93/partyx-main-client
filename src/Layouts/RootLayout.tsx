@@ -18,6 +18,8 @@ export default function RootLayout({
   useEffect(() => {
     async function fetchCurrentUser() {
       const user = await getCurrentUser();
+
+      console.log("root layout current user: ", user);
       setCurrentUser(user);
     }
     fetchCurrentUser();
