@@ -9,12 +9,12 @@ import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import ListingCard from "src/components/listings/ListingCard";
 
-interface TripsClientProps {
+interface TicketsClientProps {
   reservations: SafeReservation[];
   currentUser?: SafeUser | null;
 }
 
-const TripsClient: React.FC<TripsClientProps> = ({
+const TicketsClient: React.FC<TicketsClientProps> = ({
   reservations,
   currentUser,
 }) => {
@@ -44,7 +44,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
   return (
     <Container>
       <Heading
-        title="Trips"
+        title="Tickets"
         subtitle="Where you've been and where you're going"
       />
       <div
@@ -77,4 +77,4 @@ const TripsClient: React.FC<TripsClientProps> = ({
   );
 };
 
-export default TripsClient;
+export default TicketsClient;

@@ -4,9 +4,9 @@ import EmptyState from "src/components/EmptyState";
 import { getCurrentUser } from "src/services/auth";
 import { getReservations } from "src/services/reservation";
 
-import TripsClient from "./TripsClient";
+import TicketsClient from "./TicketsClient";
 
-const TripsPage = async () => {
+const TicketsPage = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -23,8 +23,8 @@ const TripsPage = async () => {
     return (
       <ClientOnly>
         <EmptyState
-          title="No trips found"
-          subtitle="Looks like you havent reserved any trips."
+          title="No ticket found"
+          subtitle="Looks like you haven't reserved any ticket."
         />
       </ClientOnly>
     );
@@ -32,9 +32,9 @@ const TripsPage = async () => {
 
   return (
     <ClientOnly>
-      <TripsClient reservations={reservations} currentUser={currentUser} />
+      <TicketsClient reservations={reservations} currentUser={currentUser} />
     </ClientOnly>
   );
 };
 
-export default TripsPage;
+export default TicketsPage;

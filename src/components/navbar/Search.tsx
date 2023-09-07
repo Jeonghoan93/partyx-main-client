@@ -24,7 +24,7 @@ const Search = () => {
       return getByValue(locationValue as string)?.label;
     }
 
-    return "Anywhere";
+    return "Search";
   }, [locationValue, getByValue]);
 
   const durationLabel = useMemo(() => {
@@ -40,7 +40,7 @@ const Search = () => {
       return `${diff} Days`;
     }
 
-    return "Any Time";
+    return "";
   }, [startDate, endDate]);
 
   const guestLabel = useMemo(() => {
@@ -48,7 +48,7 @@ const Search = () => {
       return `${guestCount} Guests`;
     }
 
-    return "Anyone";
+    return "Events";
   }, [guestCount]);
 
   return (
@@ -109,7 +109,20 @@ const Search = () => {
             gap-3
           "
         >
-          <div className="hidden sm:block">{guestLabel}</div>
+          <div
+            className=" 
+            hidden 
+            sm:block 
+            text-sm 
+            font-semibold 
+            pl-3 
+            border-l-[1px] 
+            flex-1 
+            text-center 
+            "
+          >
+            {guestLabel}
+          </div>
           <div
             className="
               p-2 

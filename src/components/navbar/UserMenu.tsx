@@ -109,7 +109,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem label="My trips" onClick={() => navigate("/trips")} />
+                <MenuItem
+                  label="My tickets"
+                  onClick={() => navigate("/tickets")}
+                />
                 <MenuItem
                   label="My favorites"
                   onClick={() => navigate("/favorites")}

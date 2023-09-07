@@ -37,7 +37,7 @@ const LoginModal = () => {
     try {
       const res = await login(credentials);
 
-      if (res?.status === "success") {
+      if (res?.status == "success") {
         toast.success("Logged in");
         navigate("/");
         loginModal.onClose();
@@ -58,7 +58,7 @@ const LoginModal = () => {
 
       const res = await loginWithGoogle(googleToken);
 
-      if (res?.status === "success") {
+      if (res?.status == "success") {
         toast.success("Logged in");
         navigate("/");
         loginModal.onClose();

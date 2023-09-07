@@ -2,17 +2,15 @@ import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
-
-import useLoginModal from "src/hooks/useLoginModal";
-import { SafeListing, SafeReservation, SafeUser } from "src/types";
-
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import ListingHead from "src/components/listings/ListingHead";
 import ListingInfo from "src/components/listings/ListingInfo";
 import ListingReservation from "src/components/listings/ListingReservation";
-import { categories } from "src/components/navbar/Categories";
+import categories from "src/components/navbar/Categories";
+import useLoginModal from "src/hooks/useLoginModal";
 import { createReservation } from "src/services/reservation";
+import { SafeListing, SafeReservation, SafeUser } from "src/types";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -52,7 +50,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
   }, [reservations]);
 
   const category = useMemo(() => {
-    return categories.find((items) => items.label === listing.category);
+    return categories.find(
+      (items: { label: string }) => items.label === listing.category
+    );
   }, [listing.category]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +76,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       if (res?.status === "success") {
         toast.success("Listing reserved!");
         setDateRange(initialDateRange);
-        navigate("/trips");
+        navigate("/tickets");
       }
     } catch (err) {
       toast.error("Something went wrong.");

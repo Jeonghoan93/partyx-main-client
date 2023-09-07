@@ -4,7 +4,7 @@ import EmptyState from "src/components/EmptyState";
 import { getCurrentUser } from "src/services/auth";
 import { getReservations } from "src/services/reservation";
 
-import TripsClient from "./ReservationsClient";
+import TicketsClient from "./ReservationsClient";
 
 const ReservationsPage = async () => {
   const currentUser = await getCurrentUser();
@@ -32,7 +32,7 @@ const ReservationsPage = async () => {
 
   return (
     <ClientOnly>
-      <TripsClient reservations={reservations} currentUser={currentUser} />
+      <TicketsClient reservations={reservations} currentUser={currentUser} />
     </ClientOnly>
   );
 };

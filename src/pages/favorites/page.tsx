@@ -1,9 +1,8 @@
+import ClientOnly from "src/components/ClientOnly";
+import EmptyState from "src/components/EmptyState";
 
-import EmptyState from "@/app/components/EmptyState";
-import ClientOnly from "@/app/components/ClientOnly";
-
-import getCurrentUser from "@/app/actions/getCurrentUser";
-import getFavoriteListings from "@/app/actions/getFavoriteListings";
+import { getCurrentUser } from "src/services/auth";
+import { getFavoriteListings } from "src/services/listing";
 
 import FavoritesClient from "./FavoritesClient";
 
@@ -24,12 +23,9 @@ const ListingPage = async () => {
 
   return (
     <ClientOnly>
-      <FavoritesClient
-        listings={listings}
-        currentUser={currentUser}
-      />
+      <FavoritesClient listings={listings} currentUser={currentUser} />
     </ClientOnly>
   );
-}
- 
+};
+
 export default ListingPage;
