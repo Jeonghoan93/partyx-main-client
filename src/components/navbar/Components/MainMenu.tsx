@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
@@ -8,20 +7,21 @@ import { SafeUser } from "src/types";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useSearchModal from "src/hooks/useSearchModal";
 import { logout } from "src/services/auth";
-import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 
-interface UserMenuProps {
+interface MainMenuProps {
   currentUser?: SafeUser | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
   const navigate = useNavigate();
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
+  const searchModal = useSearchModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,47 +48,58 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative ml-6">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={onRent}
+          onClick={searchModal.onOpen}
           className="
             hidden
-            md:block
+            lg:block
             text-sm 
             font-semibold 
-            py-3 
-            px-4 
+            py-1 
+            px-2 
             rounded-full 
             hover:bg-neutral-100 
             transition 
             cursor-pointer
           "
         >
-          List your party
+          Find a party
         </div>
         <div
-          onClick={toggleOpen}
+          onClick={onRent}
           className="
-          p-4
-          md:py-1
-          md:px-2
-          border-[1px] 
-          border-neutral-200 
-          flex 
-          flex-row 
-          items-center 
-          gap-3 
-          rounded-full 
-          cursor-pointer 
-          hover:shadow-md 
-          transition
+            hidden
+            lg:block
+            text-sm 
+            font-semibold 
+            py-1 
+            px-2 
+            rounded-full 
+            hover:bg-neutral-100 
+            transition 
+            cursor-pointer
           "
         >
-          <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
-          </div>
+          Why PartyX?
+        </div>
+        <div
+          onClick={onRent}
+          className="
+            hidden
+            lg:block
+            text-sm 
+            font-semibold 
+            py-1 
+            px-2 
+            rounded-full 
+            hover:bg-neutral-100 
+            transition 
+            cursor-pointer
+          "
+        >
+          Enterprise
         </div>
       </div>
       {isOpen && (
@@ -142,4 +153,4 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   );
 };
 
-export default UserMenu;
+export default MainMenu;

@@ -64,6 +64,7 @@ const Search = () => {
         hover:shadow-md 
         transition 
         cursor-pointer
+        lg:hidden
       "
     >
       <div
@@ -111,8 +112,6 @@ const Search = () => {
         >
           <div
             className=" 
-            hidden 
-            sm:block 
             text-sm 
             font-semibold 
             pl-3 

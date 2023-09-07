@@ -1,10 +1,11 @@
 import { SafeUser } from "src/types";
 
 import Container from "../Container";
-import Categories from "./Categories";
-import Logo from "./Logo";
-import Search from "./Search";
-import UserMenu from "./UserMenu";
+import Categories from "./Components/Categories";
+import Logo from "./Components/Logo";
+import MainMenu from "./Components/MainMenu";
+import Search from "./Components/Search";
+import UserMenu from "./Components/UserMenu";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -30,7 +31,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             md:gap-0
           "
           >
-            <Logo />
+            <div className="relative hidden md:block">
+              <div className="flex flex-row">
+                <Logo />
+                <MainMenu currentUser={currentUser} />
+              </div>
+            </div>
             <Search />
             <UserMenu currentUser={currentUser} />
           </div>

@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { categories } from "src/utils/constants";
-import CategoryBox from "../CategoryBox";
-import Container from "../Container";
+import CategoryBox from "../../CategoryBox";
+import Container from "../../Container";
 
 const Categories = () => {
   const location = useLocation();

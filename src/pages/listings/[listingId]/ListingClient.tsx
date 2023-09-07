@@ -7,7 +7,7 @@ import Container from "src/components/Container";
 import ListingHead from "src/components/listings/ListingHead";
 import ListingInfo from "src/components/listings/ListingInfo";
 import ListingReservation from "src/components/listings/ListingReservation";
-import categories from "src/components/navbar/Categories";
+import categories from "src/components/navbar/Components/Categories";
 import useLoginModal from "src/hooks/useLoginModal";
 import { createReservation } from "src/services/reservation";
 import { SafeListing, SafeReservation, SafeUser } from "src/types";
