@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.8",
+    "@mui/styled-engine": "^5.14.8",
+    "@mui/x-date-pickers": "^6.12.1",
     "@types/leaflet": "^1.9.4",
     "@types/node": "^20.5.8",
     "@types/react-date-range": "^1.4.4",
@@ -17,6 +22,7 @@
     "aws-sdk": "^2.1448.0",
     "axios": "^1.5.0",
     "cloudinary-react": "^1.8.1",
+    "dayjs": "^1.11.9",
     "leaflet": "^1.9.4",
     "mongoose": "^7.5.0",
     "path": "^0.12.7",

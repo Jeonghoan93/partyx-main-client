@@ -12,11 +12,20 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
   ) => {
     const file = event.target.files?.[0];
 
-    if (!file) {
+    if (file) {
       try {
         const result = await uploadToCloudinary(file);
-        onChange(result.secure_url);
+
+        if (result.result) {
+          onChange(result.result.secure_url);
+        }
+
+        if (result.status === "error") {
+          console.error(result.error);
+          return;
+        }
       } catch (err) {
+        console.error(err);
         throw new Error("Error uploading image");
       }
     }

@@ -1,22 +1,31 @@
 export interface IListingsParams {
   userId?: string;
-  guestCount?: number;
-  roomCount?: number;
-  bathroomCount?: number;
+  minGuests?: number;
+  maxGuests?: number;
   startDate?: string;
   endDate?: string;
   locationValue?: string;
   category?: string;
 }
 
-export type CreateListingDTO = {
-  title: string;
-  description: string;
-  imageSrc: string;
+export interface CreateListingDTO {
   category: string;
-  roomCount: number;
-  bathroomCount: number;
-  guestCount: number;
-  location: { value: string };
+  location: {
+    flag: string;
+    label: string;
+    latlng: [number, number];
+    region: string;
+    value: string;
+  };
+  maxGuests: number;
+  minGuests: number;
+  imageSrc: string;
+  description: string;
+  eventDate: string;
+  eventTime: {
+    hour: number;
+    minute: number;
+  };
+  title: string;
   price: string;
-};
+}

@@ -1,9 +1,5 @@
+import { UploadResponse } from "src/types";
 import api from "../api";
-
-export type UploadResponse = {
-  secure_url: string;
-  [key: string]: string;
-};
 
 export const uploadToCloudinary = async (
   file: File
@@ -18,11 +14,11 @@ export const uploadToCloudinary = async (
     },
   });
 
-  if (res.status !== 200) {
-    throw new Error("Failed to upload image to cloudinary");
-  }
-
   const data: UploadResponse = await res.data;
+
+  if (data.status !== "success" || res.status !== 201) {
+    throw new Error(data.error || "Failed to upload image to cloudinary");
+  }
 
   return data;
 };

@@ -6,12 +6,21 @@ import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconUrl: markerIcon.src,
-  iconRetinaUrl: markerIcon2x.src,
-  shadowUrl: markerShadow.src,
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
+});
+
+const defaultIcon = L.icon({
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41], // default values
+  iconAnchor: [12, 41], // default values
 });
 
 interface MapProps {
@@ -25,13 +34,16 @@ const attribution =
 const Map: React.FC<MapProps> = ({ center }) => {
   return (
     <MapContainer
+      key={center ? center.toString() : "default"}
       center={(center as L.LatLngExpression) || [51, -0.09]}
       zoom={center ? 4 : 2}
       scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >
       <TileLayer url={url} attribution={attribution} />
-      {center && <Marker position={center as L.LatLngExpression} />}
+      {center && (
+        <Marker position={center as L.LatLngExpression} icon={defaultIcon} />
+      )}
     </MapContainer>
   );
 };

@@ -6,6 +6,7 @@ import { BiSearch } from "react-icons/bi";
 
 import useCountries from "src/hooks/useCountries";
 import useSearchModal from "src/hooks/useSearchModal";
+import { formatDate } from "src/utils/formatDate";
 
 const Search = () => {
   const searchModal = useSearchModal();
@@ -27,7 +28,7 @@ const Search = () => {
     return "Search";
   }, [locationValue, getByValue]);
 
-  const durationLabel = useMemo(() => {
+  const dateLabel = useMemo(() => {
     if (startDate && endDate) {
       const start = new Date(startDate as string);
       const end = new Date(endDate as string);
@@ -37,7 +38,11 @@ const Search = () => {
         diff = 1;
       }
 
-      return `${diff} Days`;
+      const startLabel = formatDate(start);
+
+      const endLabel = formatDate(end);
+
+      return `${startLabel} - ${endLabel}`;
     }
 
     return "";
@@ -91,12 +96,12 @@ const Search = () => {
             text-sm 
             font-semibold 
             px-6 
-            border-x-[1px] 
+            border-l-[1px] 
             flex-1 
             text-center
           "
         >
-          {durationLabel}
+          {dateLabel}
         </div>
         <div
           className="

@@ -133,8 +133,8 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
                   onClick={() => navigate("/reservations")}
                 />
                 <MenuItem
-                  label="My properties"
-                  onClick={() => navigate("/properties")}
+                  label="My events"
+                  onClick={() => navigate("/events")}
                 />
                 <MenuItem label="List your party" onClick={rentModal.onOpen} />
                 <hr />

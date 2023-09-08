@@ -8,9 +8,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useSearchModal from "src/hooks/useSearchModal";
 
 import Heading from "../Heading";
-import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
 import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
+import DateRangePicker from "../inputs/DateRangePicker";
 import Modal from "./Modal";
 
 enum STEPS {
@@ -29,8 +29,7 @@ const SearchModal = () => {
 
   const [location, setLocation] = useState<CountrySelectValue>();
   const [guestCount, setGuestCount] = useState(1);
-  const [roomCount, setRoomCount] = useState(1);
-  const [bathroomCount, setBathroomCount] = useState(1);
+
   const [dateRange, setDateRange] = useState<Range>({
     startDate: new Date(),
     endDate: new Date(),
@@ -64,8 +63,6 @@ const SearchModal = () => {
       ...currentQuery,
       locationValue: location?.value,
       guestCount,
-      roomCount,
-      bathroomCount,
     };
 
     if (dateRange.startDate) {
@@ -93,10 +90,8 @@ const SearchModal = () => {
     location,
     navigate,
     guestCount,
-    roomCount,
     dateRange,
     onNext,
-    bathroomCount,
     locationUse.search,
   ]);
 
@@ -140,8 +135,8 @@ const SearchModal = () => {
           title="When do you plan to go?"
           subtitle="Make sure everyone is free!"
         />
-        <Calendar
-          onChange={(value) => setDateRange(value.selection)}
+        <DateRangePicker
+          onChange={(value) => setDateRange(value)}
           value={dateRange}
         />
       </div>
@@ -159,21 +154,6 @@ const SearchModal = () => {
           subtitle="How many guests are coming?"
         />
         <hr />
-        <Counter
-          onChange={(value) => setRoomCount(value)}
-          value={roomCount}
-          title="Rooms"
-          subtitle="How many rooms do you need?"
-        />
-        <hr />
-        <Counter
-          onChange={(value) => {
-            setBathroomCount(value);
-          }}
-          value={bathroomCount}
-          title="Bathrooms"
-          subtitle="How many bahtrooms do you need?"
-        />
       </div>
     );
   }

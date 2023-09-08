@@ -1,10 +1,11 @@
 import { FieldValues } from "react-hook-form";
-import api from "../api";
+import api from "src/services/api";
 
 export const registerUser = async (data: FieldValues) => {
   const email = data.email as string;
   const password = data.password as string;
   const name = data.name as string;
+  const type = data.type ? (data.type as string) : userTypes.CUSTOMER;
 
   if (!email || !password || !name) {
     throw new Error("Invalid data provided.");
@@ -14,6 +15,7 @@ export const registerUser = async (data: FieldValues) => {
       email,
       password,
       name,
+      type,
     });
     return res.data;
   } catch (err) {

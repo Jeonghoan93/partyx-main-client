@@ -1,37 +1,39 @@
-import { BsSnow } from "react-icons/bs";
-import { FaSkiing } from "react-icons/fa";
+import { CiBeerMugFull } from "react-icons/ci";
+import { FaBuildingFlag, FaPeopleRobbery } from "react-icons/fa6";
 import {
-  GiBarn,
-  GiBoatFishing,
-  GiCactus,
-  GiCastle,
   GiCaveEntrance,
+  GiFamilyHouse,
   GiForestCamp,
   GiIsland,
-  GiWindmill,
+  GiSpaceSuit,
 } from "react-icons/gi";
 import { IoDiamond } from "react-icons/io5";
-import { MdOutlineVilla } from "react-icons/md";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
+import { MdFestival, MdOutlineVilla, MdSportsHandball } from "react-icons/md";
+import { TbMountain, TbPool } from "react-icons/tb";
 
 export const categories = [
   {
-    label: "Beach",
-    icon: TbBeach,
-    description: "This Event is close to the beach!",
+    label: "Clubs",
+    icon: FaBuildingFlag,
+    description: "This Event is at festival!",
   },
   {
-    label: "Windmills",
-    icon: GiWindmill,
-    description: "This Event is has windmills!",
+    label: "House",
+    icon: GiFamilyHouse,
+    description: "This Event is at house!",
   },
   {
-    label: "Modern",
+    label: "Festivals",
+    icon: MdFestival,
+    description: "This Event is at festival!",
+  },
+  {
+    label: "Rave",
     icon: MdOutlineVilla,
     description: "This Event is modern!",
   },
   {
-    label: "Countryside",
+    label: "Outdoors",
     icon: TbMountain,
     description: "This Event is in the countryside!",
   },
@@ -46,18 +48,18 @@ export const categories = [
     description: "This Event is on an island!",
   },
   {
-    label: "Lake",
-    icon: GiBoatFishing,
+    label: "Dance",
+    icon: FaPeopleRobbery,
     description: "This Event is near a lake!",
   },
   {
-    label: "Skiing",
-    icon: FaSkiing,
+    label: "Costume",
+    icon: GiSpaceSuit,
     description: "This Event has skiing activies!",
   },
   {
-    label: "Castles",
-    icon: GiCastle,
+    label: "Pub",
+    icon: CiBeerMugFull,
     description: "This Event is an ancient castle!",
   },
   {
@@ -71,18 +73,8 @@ export const categories = [
     description: "This Event offers camping activities!",
   },
   {
-    label: "Arctic",
-    icon: BsSnow,
-    description: "This Event is in arctic environment!",
-  },
-  {
-    label: "Desert",
-    icon: GiCactus,
-    description: "This Event is in the desert!",
-  },
-  {
-    label: "Barns",
-    icon: GiBarn,
+    label: "Sports",
+    icon: MdSportsHandball,
     description: "This Event is in a barn!",
   },
   {

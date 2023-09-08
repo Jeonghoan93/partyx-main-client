@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
 import useLoginModal from "src/hooks/useLoginModal";
@@ -8,6 +8,7 @@ import { SafeUser } from "src/types";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useOnClickOutside from "src/hooks/userOnClickOutside";
 import { logout } from "src/services/auth";
 import Avatar from "../../Avatar";
 import MenuItem from "./MenuItem";
@@ -24,6 +25,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const menuRef = useRef(null);
+  useOnClickOutside([menuRef], () => setIsOpen(false));
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -54,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           onClick={onRent}
           className="
             hidden
-            md:block
+            lg:block
             text-sm 
             font-semibold 
             py-3 
@@ -93,12 +97,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       </div>
       {isOpen && (
         <div
+          ref={menuRef}
           className="
             absolute 
             rounded-xl 
-            shadow-md
+            shadow-lg
             w-[40vw]
-            md:w-3/4 
+            lg:w-3/4 
             bg-white 
             overflow-hidden 
             right-0 
@@ -122,8 +127,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => navigate("/reservations")}
                 />
                 <MenuItem
-                  label="My properties"
-                  onClick={() => navigate("/properties")}
+                  label="My events"
+                  onClick={() => navigate("/events")}
                 />
                 <MenuItem label="List your party" onClick={rentModal.onOpen} />
                 <hr />
