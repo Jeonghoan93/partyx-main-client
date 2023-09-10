@@ -1,0 +1,9 @@
+deploy_frontend:
+  image: node:latest
+  script:
+    - cd frontend-directory
+    - npm install
+    - npm run build
+    - aws s3 sync build/ s3://your-s3-bucket-name/
+  only:
+    - main
