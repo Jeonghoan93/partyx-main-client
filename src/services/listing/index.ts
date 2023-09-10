@@ -2,6 +2,25 @@ import { Types } from "mongoose";
 import api from "../api";
 import { CreateListingDTO, IListingsParams } from "./dto";
 
+export const createListing = async (data: CreateListingDTO) => {
+  const token = localStorage.getItem("token");
+
+  console.log("token from createListing: ", token);
+
+  if (!token) {
+    throw new Error("User is not authenticated.");
+  }
+
+  try {
+    const res = await api.post("/listing", data, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return res.data;
+  } catch (err) {
+    throw new Error("An error occurred while creating the listing.");
+  }
+};
+
 export const getListingById = async (listingIdStr: string) => {
   const listingId = new Types.ObjectId(listingIdStr);
 
@@ -37,15 +56,6 @@ export const deleteFavoriteListing = async (listingId: Types.ObjectId) => {
     return res.data;
   } catch (err) {
     throw new Error("An error occurred while removing the favorite listing.");
-  }
-};
-
-export const createListing = async (data: CreateListingDTO) => {
-  try {
-    const res = await api.post("/listing", data);
-    return res.data;
-  } catch (err) {
-    throw new Error("An error occurred while creating the listing.");
   }
 };
 

@@ -1,20 +1,21 @@
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeListing, SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import ListingCard from "src/components/listings/ListingCard";
 import { deleteListing } from "src/services/listing";
+import { SafeListing } from "src/types/listing";
 
-interface PropertiesClientProps {
+interface EventsClientProps {
   listings: SafeListing[];
   currentUser?: SafeUser | null;
 }
 
-const PropertiesClient: React.FC<PropertiesClientProps> = ({
+const EventsClient: React.FC<EventsClientProps> = ({
   listings,
   currentUser,
 }) => {
@@ -41,7 +42,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
 
   return (
     <Container>
-      <Heading title="Properties" subtitle="List of your properties" />
+      <Heading title="Events" subtitle="List of your properties" />
       <div
         className="
           mt-10
@@ -71,4 +72,4 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
   );
 };
 
-export default PropertiesClient;
+export default EventsClient;

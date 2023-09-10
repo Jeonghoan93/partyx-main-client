@@ -1,7 +1,7 @@
 import { IconType } from "react-icons";
 
 import useCountries from "src/hooks/useCountries";
-import { SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import { Suspense, lazy } from "react";
 import Avatar from "../Avatar";
@@ -12,9 +12,13 @@ const Map = lazy(() => import("../Map"));
 interface ListingInfoProps {
   user: SafeUser;
   description: string;
-  guestCount: number;
-  roomCount: number;
-  bathroomCount: number;
+  minGuests: number;
+  maxGuests: number;
+  eventTime: {
+    hour: number;
+    minute: number;
+  };
+  eventDate: string;
   category:
     | {
         icon: IconType;
@@ -22,21 +26,30 @@ interface ListingInfoProps {
         description: string;
       }
     | undefined;
-  locationValue: string;
+  location:
+    | {
+        flag: string;
+        label: string;
+        latlng: [number, number];
+        region: string;
+        value: string;
+      }
+    | undefined;
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
   user,
   description,
-  guestCount,
-  roomCount,
-  bathroomCount,
+  minGuests,
+  maxGuests,
+  eventTime,
+  eventDate,
   category,
-  locationValue,
+  location,
 }) => {
   const { getByValue } = useCountries();
 
-  const coordinates = getByValue(locationValue)?.latlng;
+  const coordinates = location && getByValue(location.value)?.latlng;
 
   return (
     <div className="col-span-4 flex flex-col gap-8">
@@ -64,9 +77,13 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             text-neutral-500
           "
         >
-          <div>{guestCount} guests</div>
-          <div>{roomCount} rooms</div>
-          <div>{bathroomCount} bathrooms</div>
+          <div>
+            {minGuests} - {maxGuests} guests
+          </div>
+          <div>
+            {eventTime?.hour} {eventTime?.minute}{" "}
+          </div>
+          <div>{eventDate} </div>
         </div>
       </div>
       <hr />

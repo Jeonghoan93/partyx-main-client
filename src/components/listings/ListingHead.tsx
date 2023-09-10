@@ -1,15 +1,23 @@
 import useCountries from "src/hooks/useCountries";
-import { SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 
 interface ListingHeadProps {
   title: string;
-  locationValue: string;
   imageSrc: string;
   id: string;
   currentUser?: SafeUser | null;
+  locationValue:
+    | {
+        flag: string;
+        label: string;
+        latlng: [number, number];
+        region: string;
+        value: string;
+      }
+    | undefined;
 }
 
 const ListingHead: React.FC<ListingHeadProps> = ({
@@ -21,7 +29,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
 }) => {
   const { getByValue } = useCountries();
 
-  const location = getByValue(locationValue);
+  const location = locationValue ? getByValue(locationValue.value) : undefined;
 
   return (
     <>

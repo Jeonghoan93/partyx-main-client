@@ -27,3 +27,13 @@ export interface User {
   type?: UserTypes;
   reviews?: string[];
 }
+
+export type SafeUser = Omit<
+  User,
+  "createdAt" | "updatedAt" | "emailVerified" | "favoriteIds"
+> & {
+  createdAt: string;
+  updatedAt: string;
+  emailVerified: string | null;
+  favoriteIds: string[];
+};

@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
-import { SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -23,11 +23,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
   const rentModal = useRentModal();
   const searchModal = useSearchModal();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
-  }, []);
+  const [isOpen] = useState(false);
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -40,8 +36,8 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
   const handleSignOut = async () => {
     try {
       await logout();
-
       toast.success("Logged out");
+      navigate("/");
     } catch (error) {
       console.error("Error signing out:", error);
     }

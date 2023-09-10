@@ -1,15 +1,14 @@
 import { useCallback, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
-import { SafeUser } from "src/types";
-
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import useOnClickOutside from "src/hooks/userOnClickOutside";
 import { logout } from "src/services/auth";
+import { SafeUser } from "src/types/user";
 import Avatar from "../../Avatar";
 import MenuItem from "./MenuItem";
 

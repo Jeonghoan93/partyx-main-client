@@ -2,9 +2,11 @@ import { format } from "date-fns";
 import { useCallback, useMemo } from "react";
 
 import useCountries from "src/hooks/useCountries";
-import { SafeListing, SafeReservation, SafeUser } from "src/types";
 
 import { useNavigate } from "react-router-dom";
+import { SafeListing } from "src/types/listing";
+import { SafeReservation } from "src/types/reservation";
+import { SafeUser } from "src/types/user";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
 
@@ -30,7 +32,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   const navigate = useNavigate();
   const { getByValue } = useCountries();
 
-  const location = getByValue(data.locationValue);
+  const location = getByValue(data.location.value);
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {

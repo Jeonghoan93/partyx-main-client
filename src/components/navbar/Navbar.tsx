@@ -1,4 +1,4 @@
-import { SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import Container from "../Container";
 import Categories from "./Components/Categories";

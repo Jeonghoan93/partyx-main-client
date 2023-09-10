@@ -1,3 +1,4 @@
+import { IconType } from "react-icons";
 import { CiBeerMugFull } from "react-icons/ci";
 import { FaBuildingFlag, FaPeopleRobbery } from "react-icons/fa6";
 import {
@@ -11,7 +12,12 @@ import { IoDiamond } from "react-icons/io5";
 import { MdFestival, MdOutlineVilla, MdSportsHandball } from "react-icons/md";
 import { TbMountain, TbPool } from "react-icons/tb";
 
-export const categories = [
+export type Category = {
+  label: string;
+  icon: IconType;
+  description: string;
+};
+export const categories: Category[] = [
   {
     label: "Clubs",
     icon: FaBuildingFlag,

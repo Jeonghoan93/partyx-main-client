@@ -10,7 +10,9 @@ import ListingReservation from "src/components/listings/ListingReservation";
 import categories from "src/components/navbar/Components/Categories";
 import useLoginModal from "src/hooks/useLoginModal";
 import { createReservation } from "src/services/reservation";
-import { SafeListing, SafeReservation, SafeUser } from "src/types";
+import { SafeListing } from "src/types/listing";
+import { SafeReservation } from "src/types/reservation";
+import { SafeUser } from "src/types/user";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -63,14 +65,25 @@ const ListingClient: React.FC<ListingClientProps> = ({
     if (!currentUser) {
       return loginModal.onOpen();
     }
+
+    if (!dateRange.startDate || !dateRange.endDate) {
+      // Handle this case - maybe show a toast or set default values
+      toast.error("Start date or end date is not defined.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
       const res = await createReservation({
         totalPrice,
-        startDate: dateRange.startDate,
-        endDate: dateRange.endDate,
-        listingId: listing?._id,
+        startDate: dateRange.startDate?.toISOString(),
+        endDate: dateRange.endDate?.toISOString(),
+        listingId: listing._id,
+        userId: currentUser._id,
+        createdAt: new Date().toISOString(),
+        listing: listing,
+        user: currentUser,
       });
 
       if (res?.status === "success") {
@@ -84,12 +97,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
       setIsLoading(false);
     }
   }, [
-    totalPrice,
-    dateRange,
-    listing?._id.toString(),
-    navigate,
     currentUser,
+    dateRange.startDate,
+    dateRange.endDate,
     loginModal,
+    totalPrice,
+    listing,
+    navigate,
   ]);
 
   useEffect(() => {
@@ -116,7 +130,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
           <ListingHead
             title={listing.title}
             imageSrc={listing.imageSrc}
-            locationValue={listing.locationValue}
+            locationValue={listing.location}
             id={listing._id.toString()}
             currentUser={currentUser}
           />
@@ -133,10 +147,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
               user={listing.user}
               category={category}
               description={listing.description}
-              roomCount={listing.roomCount}
-              guestCount={listing.guestCount}
-              bathroomCount={listing.bathroomCount}
-              locationValue={listing.locationValue}
+              minGuests={listing.minGuests}
+              maxGuests={listing.maxGuests}
+              eventDate={listing.eventDate}
+              location={listing.location}
+              eventTime={listing.eventTime}
             />
             <div
               className="

@@ -2,8 +2,6 @@ import { Types } from "mongoose";
 import { User } from "src/types/user";
 
 export interface Account {
-  _id: Types.ObjectId;
-
   userId: Types.ObjectId;
 
   type: string;

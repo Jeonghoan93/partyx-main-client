@@ -6,7 +6,7 @@ import ListingCard from "src/components/listings/ListingCard";
 import { getCurrentUser } from "src/services/auth";
 import { getListings } from "src/services/listing";
 import { IListingsParams } from "src/services/listing/dto";
-import { SafeListing } from "src/types";
+import { SafeListing } from "src/types/listing";
 
 interface HomeProps {
   searchParams: IListingsParams;

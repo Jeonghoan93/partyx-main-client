@@ -5,7 +5,7 @@ export const registerUser = async (data: FieldValues) => {
   const email = data.email as string;
   const password = data.password as string;
   const name = data.name as string;
-  const type = data.type ? (data.type as string) : userTypes.CUSTOMER;
+  const type = data.type ? (data.type as string) : "Customer";
 
   if (!email || !password || !name) {
     throw new Error("Invalid data provided.");
@@ -25,7 +25,9 @@ export const registerUser = async (data: FieldValues) => {
 
 export const getCurrentUser = async () => {
   try {
-    const res = await api.post("/auth/current-user");
+    const res = await api.get("/auth/current-user", {
+      withCredentials: true,
+    });
 
     console.log("res data from current user: ", res.data);
     return res.data;
@@ -52,15 +54,12 @@ export const login = async (credentials: FieldValues) => {
     throw new Error("Invalid credentials provided.");
   }
   try {
-    const res = await api.post("/auth/login", { email, password });
+    const res = await api.post("/auth/login", {
+      email,
+      password,
+    });
 
-    const token = res.data.token || localStorage.getItem("token");
-
-    if (token) {
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-      localStorage.setItem("token", token);
-    }
+    console.log("res data from login: ", res.data);
 
     return res.data;
   } catch (err) {
@@ -71,9 +70,6 @@ export const login = async (credentials: FieldValues) => {
 export const logout = async () => {
   try {
     await api.post("/auth/logout");
-
-    localStorage.removeItem("token");
-    delete api.defaults.headers.common["Authorization"];
   } catch (err) {
     throw new Error("An error occurred during logout.");
   }

@@ -1,5 +1,5 @@
 import api from "src/services/api";
-import { SafeReservation } from "src/types";
+import { NewReservationPayload } from "src/types/reservation";
 
 export const getReservations = async (query: {
   listingId?: string;
@@ -15,7 +15,7 @@ export const getReservations = async (query: {
   }
 };
 
-export const createReservation = async (dto: SafeReservation) => {
+export const createReservation = async (dto: NewReservationPayload) => {
   try {
     const res = await api.post("/reservations", dto);
 

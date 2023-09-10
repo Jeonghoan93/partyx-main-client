@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/types";
+import { SafeUser } from "src/types/user";
 
 import { useNavigate } from "react-router-dom";
 import { addToFavorites, deleteFromFavorites } from "src/services/favorites";
@@ -33,16 +32,12 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
       }
 
       try {
-        let request;
-
         if (hasFavorited) {
           await addToFavorites(listingId);
-          request = () => axios.delete(`/api/favorites/${listingId}`);
         } else {
           await deleteFromFavorites(listingId);
         }
 
-        await request();
         navigate("/");
         toast.success("Success");
       } catch (error) {

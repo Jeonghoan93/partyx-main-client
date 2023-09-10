@@ -39,8 +39,8 @@ const LoginModal = () => {
 
       if (res?.status == "success") {
         toast.success("Logged in");
-        navigate("/");
         loginModal.onClose();
+        navigate("/");
       } else {
         toast.error(res?.message || "Unknown error");
       }
