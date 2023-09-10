@@ -2,6 +2,7 @@ import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
+import { GiAbstract001 } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import ListingHead from "src/components/listings/ListingHead";
@@ -13,6 +14,7 @@ import { createReservation } from "src/services/reservation";
 import { SafeListing } from "src/types/listing";
 import { SafeReservation } from "src/types/reservation";
 import { SafeUser } from "src/types/user";
+import { Category } from "src/utils/constants";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -52,9 +54,17 @@ const ListingClient: React.FC<ListingClientProps> = ({
   }, [reservations]);
 
   const category = useMemo(() => {
-    return categories.find(
-      (items: { label: string }) => items.label === listing.category
-    );
+    if (categories instanceof Array) {
+      return categories.find(
+        (item: Category) => item.label === listing.category
+      );
+    } else {
+      return {
+        label: "Unknown",
+        icon: GiAbstract001,
+        description: "No description available",
+      };
+    }
   }, [listing.category]);
 
   const [isLoading, setIsLoading] = useState(false);
