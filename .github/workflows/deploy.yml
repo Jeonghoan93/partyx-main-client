@@ -13,11 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Change to React App directory
-        run: cd react
-
       - name: Install and Build
         run: |
+          cd react
           npm install
           npm run build
 
