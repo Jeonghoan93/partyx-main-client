@@ -2,9 +2,7 @@ import { formatISO } from "date-fns";
 import qs from "query-string";
 import { Suspense, lazy, useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
-
 import { useLocation, useNavigate } from "react-router-dom";
-
 import useSearchModal from "src/hooks/useSearchModal";
 
 import Heading from "../Heading";
@@ -136,7 +134,7 @@ const SearchModal = () => {
           subtitle="Make sure everyone is free!"
         />
         <DateRangePicker
-          onChange={(value) => setDateRange(value)}
+          onChange={(value) => setDateRange(value.selection)}
           value={dateRange}
         />
       </div>

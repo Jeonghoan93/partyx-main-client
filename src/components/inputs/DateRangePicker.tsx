@@ -7,7 +7,6 @@ interface DateRangePickerProps {
   value: Range;
   onChange: (value: RangeKeyDict) => void;
   disabledDates?: Date[];
-  singleDate?: boolean;
 }
 
 const DateRangePicker: React.FC<DateRangePickerProps> = ({

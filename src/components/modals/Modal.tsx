@@ -91,7 +91,6 @@ const Modal: React.FC<ModalProps> = ({
           xl:w-2/5
           my-6
           mx-auto 
-          h-full 
           lg:h-auto
           md:h-auto
           "
@@ -101,7 +100,6 @@ const Modal: React.FC<ModalProps> = ({
             className={`
             translate
             duration-300
-            h-full
             ${showModal ? "translate-y-0" : "translate-y-full"}
             ${showModal ? "opacity-100" : "opacity-0"}
           `}
@@ -112,6 +110,8 @@ const Modal: React.FC<ModalProps> = ({
               h-full
               lg:h-auto
               md:h-auto
+              max-h-[calc(100vh-0rem)]
+              overflow-y-auto
               border-0 
               rounded-lg 
               shadow-lg 
