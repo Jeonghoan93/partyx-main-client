@@ -1,5 +1,5 @@
 import { ICity } from "country-state-city";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "react-select";
 import useCities from "src/hooks/useCities";
 
@@ -12,43 +12,46 @@ export type CitySelectValue = {
 };
 
 interface CitySelectProps {
+  countryCode?: string;
   value?: CitySelectValue;
   onChange: (value: CitySelectValue) => void;
 }
 
-const CitySelect: React.FC<CitySelectProps> = ({ value, onChange }) => {
+const CitySelect: React.FC<CitySelectProps> = ({
+  countryCode,
+  value,
+  onChange,
+}) => {
   const { searchCities } = useCities();
-
   const [options, setOptions] = useState<CitySelectValue[]>([]);
 
-  const handleInputChange = (newValue: string) => {
-    // Split by comma for multi-search
-    const searchTermsArray = newValue.split(",").map((term) => term.trim());
-
-    // Fetch cities based on input value
-    const cities = searchCities(searchTermsArray);
-
-    // Transform the cities into the format react-select expects
-    const formattedCities: CitySelectValue[] = cities.map((city: ICity) => ({
-      value: city.name,
-      label: city.name,
-      isoCode: city.stateCode,
-      countryCode: city.countryCode,
-      coordinates: [
-        city.latitude ? parseFloat(city.latitude) : 0,
-        city.longitude ? parseFloat(city.longitude) : 0,
-      ],
-    }));
-    setOptions(formattedCities);
-  };
+  useEffect(() => {
+    if (countryCode) {
+      const cities = searchCities(countryCode);
+      if (cities) {
+        const formattedCities: CitySelectValue[] = cities.map(
+          (city: ICity) => ({
+            value: city.name,
+            label: city.name,
+            isoCode: city.stateCode,
+            countryCode: city.countryCode,
+            coordinates: [
+              city.latitude ? parseFloat(city.latitude) : 0,
+              city.longitude ? parseFloat(city.longitude) : 0,
+            ],
+          })
+        );
+        setOptions(formattedCities);
+      }
+    }
+  }, [countryCode, searchCities]);
 
   return (
     <div>
       <Select
-        placeholder="Anywhere"
+        placeholder="Select a city"
         isClearable
         options={options}
-        onInputChange={handleInputChange}
         value={value}
         onChange={(selectedValue) => onChange(selectedValue as CitySelectValue)}
         formatOptionLabel={(option: CitySelectValue) => (

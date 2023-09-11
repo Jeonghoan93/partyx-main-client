@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useSearchModal from "src/hooks/useSearchModal";
 
 import Heading from "../Heading";
+import CitySelect, { CitySelectValue } from "../inputs/CitySelect";
 import Counter from "../inputs/Counter";
 import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
 import DateRangePicker from "../inputs/DateRangePicker";
@@ -25,7 +26,9 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  const [county, setCountry] = useState<CountrySelectValue>();
+  const [country, setCountry] = useState<CountrySelectValue>();
+  const [city, setCity] = useState<CitySelectValue>();
+
   const [guestCount, setGuestCount] = useState(1);
 
   const [dateRange, setDateRange] = useState<Range>({
@@ -59,7 +62,7 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      locationValue: county?.value,
+      locationValue: country?.value,
       guestCount,
     };
 
@@ -85,7 +88,7 @@ const SearchModal = () => {
   }, [
     step,
     searchModal,
-    county,
+    country,
     navigate,
     guestCount,
     dateRange,
@@ -113,16 +116,26 @@ const SearchModal = () => {
     <div className="flex flex-col gap-8">
       <Heading
         title="Where do you wanna go?"
-        subtitle="Find the perfect county!"
+        subtitle="Find the perfect country!"
       />
       <CountrySelect
-        value={county}
+        value={country}
         onChange={(value) => setCountry(value as CountrySelectValue)}
       />
+      {country?.isoCode && (
+        <CitySelect
+          countryCode={country?.isoCode}
+          value={city}
+          onChange={(value) => setCity(value as CitySelectValue)}
+        />
+      )}
+
       <hr />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Map center={county?.coordinates} />
-      </Suspense>
+      {city && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Map center={city?.coordinates} />
+        </Suspense>
+      )}
     </div>
   );
 
