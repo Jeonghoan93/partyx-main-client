@@ -62,7 +62,8 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      locationValue: country?.value,
+      countryValue: country?.value,
+      cityValue: city?.value,
       guestCount,
     };
 
@@ -89,6 +90,7 @@ const SearchModal = () => {
     step,
     searchModal,
     country,
+    city,
     navigate,
     guestCount,
     dateRange,
@@ -116,7 +118,7 @@ const SearchModal = () => {
     <div className="flex flex-col gap-8">
       <Heading
         title="Where do you wanna go?"
-        subtitle="Find the perfect country!"
+        subtitle="Find the perfect place!"
       />
       <CountrySelect
         value={country}
@@ -157,7 +159,7 @@ const SearchModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading title="More information" subtitle="Find your perfect place!" />
+        <Heading title="More information" subtitle="more types..!" />
         <Counter
           onChange={(value) => setGuestCount(value)}
           value={guestCount}

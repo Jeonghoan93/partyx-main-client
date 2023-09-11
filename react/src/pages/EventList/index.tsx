@@ -12,7 +12,7 @@ interface HomeProps {
   searchParams: IListingsParams;
 }
 
-function Main({ searchParams }: HomeProps) {
+function EventList({ searchParams }: HomeProps) {
   const [listings, setListings] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -51,4 +51,4 @@ function Main({ searchParams }: HomeProps) {
   );
 }
 
-export default Main;
+export default EventList;

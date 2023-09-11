@@ -25,13 +25,13 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
 
   const [isOpen] = useState(false);
 
-  const onRent = useCallback(() => {
-    if (!currentUser) {
-      return loginModal.onOpen();
-    }
+  const navigateToWhy = useCallback(() => {
+    navigate("/why");
+  }, [navigate]);
 
-    rentModal.onOpen();
-  }, [loginModal, rentModal, currentUser]);
+  const navigateToEnterprise = useCallback(() => {
+    navigate("/enterprise");
+  }, [navigate]);
 
   const handleSignOut = async () => {
     try {
@@ -64,7 +64,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
           Find a party
         </div>
         <div
-          onClick={onRent}
+          onClick={navigateToWhy}
           className="
             hidden
             lg:block
@@ -81,7 +81,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
           Why PartyX?
         </div>
         <div
-          onClick={onRent}
+          onClick={navigateToEnterprise}
           className="
             hidden
             lg:block

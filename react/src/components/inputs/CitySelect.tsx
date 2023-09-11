@@ -5,7 +5,6 @@ import useCities from "src/hooks/useCities";
 
 export type CitySelectValue = {
   value: string; // will store the city name
-  label: string; // Will be displayed in the dropdown
   isoCode: string;
   countryCode: string;
   coordinates: number[];
@@ -32,7 +31,6 @@ const CitySelect: React.FC<CitySelectProps> = ({
         const formattedCities: CitySelectValue[] = cities.map(
           (city: ICity) => ({
             value: city.name,
-            label: city.name,
             isoCode: city.stateCode,
             countryCode: city.countryCode,
             coordinates: [
@@ -59,9 +57,8 @@ const CitySelect: React.FC<CitySelectProps> = ({
             className="
           flex flex-row items-center gap-3"
           >
-            <div>{option.label}</div>
             <div>
-              {option.isoCode},
+              {option.value},
               <span className="text-neutral-500 ml-1">
                 {option.countryCode}
               </span>
