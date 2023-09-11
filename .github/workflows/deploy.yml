@@ -19,6 +19,12 @@ jobs:
           yarn install
           yarn build
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3-pip
+          sudo pip3 install awscli
+
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
