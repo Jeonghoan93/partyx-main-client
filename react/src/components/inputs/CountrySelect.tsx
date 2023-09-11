@@ -3,11 +3,10 @@ import Select from "react-select";
 import useCountries from "src/hooks/useCountries";
 
 export type CountrySelectValue = {
-  flag: string;
-  label: string;
-  latlng: number[];
-  region: string;
   value: string;
+  flag: string;
+  coordinates: number[];
+  isoCode: string;
 };
 
 interface CountrySelectProps {
@@ -16,14 +15,14 @@ interface CountrySelectProps {
 }
 
 const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
-  const { getAll } = useCountries();
+  const { getAllCountries } = useCountries();
 
   return (
     <div>
       <Select
         placeholder="Anywhere"
         isClearable
-        options={getAll()}
+        options={getAllCountries()}
         value={value}
         onChange={(value) => onChange(value as CountrySelectValue)}
         formatOptionLabel={(option: CountrySelectValue) => (
@@ -33,8 +32,8 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
           >
             <div>{option.flag}</div>
             <div>
-              {option.label},
-              <span className="text-neutral-500 ml-1">{option.region}</span>
+              {option.isoCode},
+              <span className="text-neutral-500 ml-1">{option.value}</span>
             </div>
           </div>
         )}

@@ -11,7 +11,7 @@ import { formatDate } from "src/utils/formatDate";
 const Search = () => {
   const searchModal = useSearchModal();
   const location = useLocation();
-  const { getByValue } = useCountries();
+  const { getCountryByValue } = useCountries();
 
   const params = new URLSearchParams(location.search);
 
@@ -22,11 +22,11 @@ const Search = () => {
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
-      return getByValue(locationValue as string)?.label;
+      return getCountryByValue(locationValue as string)?.value;
     }
 
     return "Search";
-  }, [locationValue, getByValue]);
+  }, [locationValue, getCountryByValue]);
 
   const dateLabel = useMemo(() => {
     if (startDate && endDate) {

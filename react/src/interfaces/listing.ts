@@ -1,4 +1,5 @@
 import { Types } from "mongoose";
+import { City } from "src/services/city";
 import { Reservation } from "./reservation";
 import { SafeUser, User } from "./user";
 
@@ -11,13 +12,7 @@ export interface Listing {
   category: string;
   maxGuests: number;
   minGuests: number;
-  location: {
-    flag: string;
-    label: string;
-    latlng: [number, number];
-    region: string;
-    value: string;
-  };
+  location: City;
   eventDate: string; // or Date if you adjust it in the backend
   eventTime: {
     hour: number;

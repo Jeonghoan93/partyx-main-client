@@ -2,13 +2,13 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/types/user";
+import { SafeUser } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import ListingCard from "src/components/listings/ListingCard";
-import { SafeReservation } from "src/types/reservation";
+import { SafeReservation } from "src/interfaces/reservation";
 
 interface TicketsClientProps {
   reservations: SafeReservation[];

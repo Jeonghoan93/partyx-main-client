@@ -1,4 +1,4 @@
-import { UploadResponse } from "src/types/image-upload";
+import { UploadResponse } from "src/interfaces/image-upload";
 import api from "../api";
 
 export const uploadToCloudinary = async (

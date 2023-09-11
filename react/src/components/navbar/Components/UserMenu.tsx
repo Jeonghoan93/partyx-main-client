@@ -7,8 +7,8 @@ import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
 import useOnClickOutside from "src/hooks/userOnClickOutside";
+import { SafeUser } from "src/interfaces/user";
 import { logout } from "src/services/auth";
-import { SafeUser } from "src/types/user";
 import Avatar from "../../Avatar";
 import MenuItem from "./MenuItem";
 

@@ -10,10 +10,10 @@ import ListingInfo from "src/components/listings/ListingInfo";
 import ListingReservation from "src/components/listings/ListingReservation";
 import categories from "src/components/navbar/Components/Categories";
 import useLoginModal from "src/hooks/useLoginModal";
+import { SafeListing } from "src/interfaces/listing";
+import { SafeReservation } from "src/interfaces/reservation";
+import { SafeUser } from "src/interfaces/user";
 import { createReservation } from "src/services/reservation";
-import { SafeListing } from "src/types/listing";
-import { SafeReservation } from "src/types/reservation";
-import { SafeUser } from "src/types/user";
 import { Category } from "src/utils/constants";
 
 const initialDateRange = {

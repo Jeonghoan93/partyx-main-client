@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
-import { Account } from "src/types/account";
-import { Listing } from "src/types/listing";
-import { Reservation } from "src/types/reservation";
+import { Account } from "src/interfaces/account";
+import { Listing } from "src/interfaces/listing";
+import { Reservation } from "src/interfaces/reservation";
 
 export enum UserTypes {
   ADMIN = "ADMIN",

@@ -1,14 +1,14 @@
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/types/user";
+import { SafeUser } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import ListingCard from "src/components/listings/ListingCard";
+import { SafeListing } from "src/interfaces/listing";
 import { deleteListing } from "src/services/listing";
-import { SafeListing } from "src/types/listing";
 
 interface EventsClientProps {
   listings: SafeListing[];

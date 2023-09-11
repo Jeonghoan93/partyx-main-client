@@ -25,7 +25,7 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  const [location, setLocation] = useState<CountrySelectValue>();
+  const [county, setCountry] = useState<CountrySelectValue>();
   const [guestCount, setGuestCount] = useState(1);
 
   const [dateRange, setDateRange] = useState<Range>({
@@ -59,7 +59,7 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      locationValue: location?.value,
+      locationValue: county?.value,
       guestCount,
     };
 
@@ -85,7 +85,7 @@ const SearchModal = () => {
   }, [
     step,
     searchModal,
-    location,
+    county,
     navigate,
     guestCount,
     dateRange,
@@ -113,15 +113,15 @@ const SearchModal = () => {
     <div className="flex flex-col gap-8">
       <Heading
         title="Where do you wanna go?"
-        subtitle="Find the perfect location!"
+        subtitle="Find the perfect county!"
       />
       <CountrySelect
-        value={location}
-        onChange={(value) => setLocation(value as CountrySelectValue)}
+        value={county}
+        onChange={(value) => setCountry(value as CountrySelectValue)}
       />
       <hr />
       <Suspense fallback={<div>Loading...</div>}>
-        <Map center={location?.latlng} />
+        <Map center={county?.coordinates} />
       </Suspense>
     </div>
   );

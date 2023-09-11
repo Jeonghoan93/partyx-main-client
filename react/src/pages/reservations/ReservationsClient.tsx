@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import ListingCard from "src/components/listings/ListingCard";
-import { SafeReservation } from "src/types/reservation";
-import { SafeUser } from "src/types/user";
+import { SafeReservation } from "src/interfaces/reservation";
+import { SafeUser } from "src/interfaces/user";
 
 interface ReservationsClientProps {
   reservations: SafeReservation[];

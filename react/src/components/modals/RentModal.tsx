@@ -3,17 +3,19 @@ import { Suspense, lazy, useMemo, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Heading from "src/components/Heading";
+import CategoryInput from "src/components/inputs/CategoryInput";
+import Counter from "src/components/inputs/Counter";
+import CountrySelect, {
+  CountrySelectValue,
+} from "src/components/inputs/CountrySelect";
+import DateTimePicker from "src/components/inputs/DateTimePicker";
+import ImageUpload from "src/components/inputs/ImageUpload";
+import Input from "src/components/inputs/Input";
 import useRentModal from "src/hooks/useRentModal";
 import { createListing } from "src/services/listing";
 import { CreateListingDTO } from "src/services/listing/dto";
 import { categories } from "src/utils/constants";
-import Heading from "../Heading";
-import CategoryInput from "../inputs/CategoryInput";
-import Counter from "../inputs/Counter";
-import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
-import DateTimePicker from "../inputs/DateTimePicker";
-import ImageUpload from "../inputs/ImageUpload";
-import Input from "../inputs/Input";
 import Modal from "./Modal";
 
 enum STEPS {
@@ -70,7 +72,7 @@ const RentModal = () => {
   const minGuests = watch("minGuests");
   const imageSrc = watch("imageSrc");
 
-  const Map = lazy(() => import("../Map"));
+  const Map = lazy(() => import("src/components/Map"));
 
   const setCustomValue = (id: string, value: CustomValue) => {
     setValue(id, value, {
@@ -170,7 +172,7 @@ const RentModal = () => {
           onChange={(value) => setCustomValue("location", value)}
         />
         <Suspense fallback={<div>Loading...</div>}>
-          <Map center={location?.latlng} />
+          <Map center={location?.coordinates} />
         </Suspense>
       </div>
     );

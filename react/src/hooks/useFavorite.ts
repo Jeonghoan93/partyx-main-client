@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/types/user";
+import { SafeUser } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import { addToFavorites, deleteFromFavorites } from "src/services/favorites";

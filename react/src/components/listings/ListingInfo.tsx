@@ -1,10 +1,11 @@
 import { IconType } from "react-icons";
 
 import useCountries from "src/hooks/useCountries";
-import { SafeUser } from "src/types/user";
+import { SafeUser } from "src/interfaces/user";
 
 import { Suspense, lazy } from "react";
 import Avatar from "../Avatar";
+import { CountrySelectValue } from "../inputs/CountrySelect";
 import ListingCategory from "./ListingCategory";
 
 const Map = lazy(() => import("../Map"));
@@ -26,15 +27,7 @@ interface ListingInfoProps {
         description: string;
       }
     | undefined;
-  location:
-    | {
-        flag: string;
-        label: string;
-        latlng: [number, number];
-        region: string;
-        value: string;
-      }
-    | undefined;
+  location: CountrySelectValue | undefined;
 }
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
@@ -47,9 +40,10 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   category,
   location,
 }) => {
-  const { getByValue } = useCountries();
+  const { getCountryByValue } = useCountries();
 
-  const coordinates = location && getByValue(location.value)?.latlng;
+  const coordinates =
+    location && getCountryByValue(location.value)?.coordinates;
 
   return (
     <div className="col-span-4 flex flex-col gap-8">

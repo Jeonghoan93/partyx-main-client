@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
-import { SafeUser } from "src/types/user";
+import { SafeUser } from "src/interfaces/user";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";

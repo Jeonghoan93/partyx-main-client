@@ -1,5 +1,5 @@
+import { NewReservationPayload } from "src/interfaces/reservation";
 import api from "src/services/api";
-import { NewReservationPayload } from "src/types/reservation";
 
 export const getReservations = async (query: {
   listingId?: string;

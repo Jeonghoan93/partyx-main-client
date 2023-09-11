@@ -1,23 +1,24 @@
-import countries from "world-countries";
+import { Country, ICountry } from "country-state-city";
 
-const formattedCountries = countries.map((country) => ({
-  value: country.cca2,
-  label: country.name.common,
+const countries = Country.getAllCountries();
+
+const formattedCountries = countries.map((country: ICountry) => ({
+  value: country.name,
   flag: country.flag,
-  latlng: country.latlng,
-  region: country.region,
+  coordinates: [parseFloat(country.latitude), parseFloat(country.longitude)],
+  isoCode: country.isoCode,
 }));
 
 const useCountries = () => {
-  const getAll = () => formattedCountries;
+  const getAllCountries = () => formattedCountries;
 
-  const getByValue = (value: string) => {
+  const getCountryByValue = (value: string) => {
     return formattedCountries.find((item) => item.value === value);
   };
 
   return {
-    getAll,
-    getByValue,
+    getAllCountries,
+    getCountryByValue,
   };
 };
 

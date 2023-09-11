@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { User } from "src/types/user";
+import { User } from "src/interfaces/user";
 
 export interface Account {
   userId: Types.ObjectId;

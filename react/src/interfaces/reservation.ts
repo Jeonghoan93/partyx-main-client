@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
-import { Listing, SafeListing } from "src/types/listing";
-import { SafeUser, User } from "src/types/user";
+import { Listing, SafeListing } from "src/interfaces/listing";
+import { SafeUser, User } from "src/interfaces/user";
 
 export interface Reservation {
   _id: Types.ObjectId;
