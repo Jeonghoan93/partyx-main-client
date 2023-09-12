@@ -42,9 +42,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug - Print current working directory
+        run: pwd
+        working-directory: ${{ github.workspace }}/react
+
       - name: Check Build Status
         run: |
-          if [ -d ${{ github.workspace }}/react/dist ]; then
+          if [ -d ${{ github.workspace }}/react/dist/ ]; then
             if [ -f ${{ github.workspace }}/react/dist/index.html ]; then
               echo "Build successful, proceeding to deploy"
             else
