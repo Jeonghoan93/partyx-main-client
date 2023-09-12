@@ -23,7 +23,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          set -e # Stop the script if any command fails
+          set -e
           cd react
           yarn install
           yarn build
@@ -37,6 +37,8 @@ jobs:
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
+          source: "react/build"
+          destination: "s3://partyx-frontend/"
           args: --acl bucket-owner-full-control
         env:
           AWS_S3_BUCKET: "partyx-frontend"
