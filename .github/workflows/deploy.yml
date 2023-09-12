@@ -23,10 +23,14 @@ jobs:
 
       - name: Install and Build
         run: |
-          set -e
-          cd react
-          yarn install
-          yarn build
+          yarn install --cwd ${{ github.workspace }}/react
+          yarn build --cwd ${{ github.workspace }}/react
+
+      - name: List Root Directory Content
+        run: ls -la ${{ github.workspace }}
+
+      - name: List React Directory Content
+        run: ls -la ${{ github.workspace }}/react/
 
   deploy:
     needs: build
