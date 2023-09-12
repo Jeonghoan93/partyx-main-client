@@ -26,7 +26,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
   const [isOpen] = useState(false);
 
   const navigateToWhy = useCallback(() => {
-    navigate("/why");
+    navigate("/solution");
   }, [navigate]);
 
   const navigateToEnterprise = useCallback(() => {

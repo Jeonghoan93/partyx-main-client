@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import RootLayout from "src/layouts/RootLayout";
 import Enterprise from "src/pages/Enterprise";
 import EventList from "src/pages/EventList";
-import WhyPartyX from "src/pages/WhyPartyx";
+import Solution from "src/pages/Solution";
 
 const AppRoutes = () => {
   return (
@@ -10,7 +10,7 @@ const AppRoutes = () => {
       <RootLayout>
         <Routes>
           <Route path="/" element={<EventList searchParams={{}} />} />
-          <Route path="/why" element={<WhyPartyX />} />
+          <Route path="/solution" element={<Solution />} />
           <Route path="/enterprise" element={<Enterprise />} />
 
           {/* Add your future routes here */}

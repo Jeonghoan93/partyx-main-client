@@ -1,4 +1,4 @@
-const WhyPartyX: React.FC = () => {
+const Solution: React.FC = () => {
   return (
     <div className="whyPartyXContainer">
       <h1>Why Choose PartyX?</h1>
@@ -24,4 +24,4 @@ const WhyPartyX: React.FC = () => {
   );
 };
 
-export default WhyPartyX;
+export default Solution;
