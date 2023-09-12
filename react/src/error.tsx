@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect } from "react";
 
 import EmptyState from "src/components/EmptyState";

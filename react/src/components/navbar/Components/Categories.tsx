@@ -10,9 +10,9 @@ const Categories = () => {
 
   const category = params?.get("category");
   const pathname = location.pathname;
-  const isMainPage = pathname === "/";
+  const isEventsPage = pathname === "/events";
 
-  if (!isMainPage) {
+  if (!isEventsPage) {
     return null;
   }
 
@@ -20,12 +20,13 @@ const Categories = () => {
     <Container>
       <div
         className="
-          pt-4
+          pt-3
           flex 
           flex-row 
           items-center 
           justify-between
           overflow-x-auto
+          gap-2   
         "
       >
         {categories.map((item) => (

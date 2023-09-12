@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
@@ -24,14 +24,6 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
   const searchModal = useSearchModal();
 
   const [isOpen] = useState(false);
-
-  const navigateToWhy = useCallback(() => {
-    navigate("/solution");
-  }, [navigate]);
-
-  const navigateToEnterprise = useCallback(() => {
-    navigate("/enterprise");
-  }, [navigate]);
 
   const handleSignOut = async () => {
     try {
@@ -63,8 +55,9 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
         >
           Find a party
         </div>
+
         <div
-          onClick={navigateToWhy}
+          onClick={() => navigate("/solution")}
           className="
             hidden
             lg:block
@@ -81,7 +74,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
           Why PartyX?
         </div>
         <div
-          onClick={navigateToEnterprise}
+          onClick={() => navigate("/enterprise")}
           className="
             hidden
             lg:block

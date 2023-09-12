@@ -137,6 +137,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem label="Login" onClick={loginModal.onOpen} />
                 <MenuItem label="Sign up" onClick={registerModal.onOpen} />
+
                 <div
                   className="
                   block
@@ -146,6 +147,30 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   <MenuItem
                     label="List your party"
                     onClick={currentUser ? rentModal.onOpen : loginModal.onOpen}
+                  />
+                </div>
+                <hr />
+                <div
+                  className="
+                  block
+                  md:hidden
+                "
+                >
+                  <MenuItem label="Home" onClick={() => navigate("/")} />
+                </div>
+                <div
+                  className="
+                  block
+                  lg:hidden
+                "
+                >
+                  <MenuItem
+                    label="Why PartyX"
+                    onClick={() => navigate("/solution")}
+                  />
+                  <MenuItem
+                    label="Enterprise"
+                    onClick={() => navigate("/enterprise")}
                   />
                 </div>
               </>
