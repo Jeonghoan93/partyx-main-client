@@ -4,29 +4,27 @@ import { useLocation } from "react-router-dom";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
 
-import useCountries from "src/hooks/useCountries";
 import useSearchModal from "src/hooks/useSearchModal";
 import { formatDate } from "src/utils/formatDate";
 
 const Search = () => {
   const searchModal = useSearchModal();
   const location = useLocation();
-  const { getCountryByValue } = useCountries();
 
   const params = new URLSearchParams(location.search);
 
-  const locationValue = params?.get("locationValue");
+  const locationValue = params?.get("cityValue");
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
   const guestCount = params?.get("guestCount");
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
-      return getCountryByValue(locationValue as string)?.value;
+      return locationValue;
     }
 
     return "Search";
-  }, [locationValue, getCountryByValue]);
+  }, [locationValue]);
 
   const dateLabel = useMemo(() => {
     if (startDate && endDate) {

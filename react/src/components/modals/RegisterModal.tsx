@@ -123,6 +123,7 @@ const RegisterModal = () => {
           <span
             onClick={onToggle}
             className="
+              ml-3
               text-neutral-800
               cursor-pointer 
               hover:underline

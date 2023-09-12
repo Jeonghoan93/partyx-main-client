@@ -137,6 +137,17 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem label="Login" onClick={loginModal.onOpen} />
                 <MenuItem label="Sign up" onClick={registerModal.onOpen} />
+                <div
+                  className="
+                  block
+                  lg:hidden
+                "
+                >
+                  <MenuItem
+                    label="List your party"
+                    onClick={currentUser ? rentModal.onOpen : loginModal.onOpen}
+                  />
+                </div>
               </>
             )}
           </div>

@@ -135,7 +135,7 @@ const SearchModal = () => {
       <hr />
       {city && (
         <Suspense fallback={<div>Loading...</div>}>
-          <Map center={city?.coordinates} />
+          <Map center={city?.coordinates} key={country?.isoCode} />
         </Suspense>
       )}
     </div>

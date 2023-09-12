@@ -112,15 +112,17 @@ const LoginModal = () => {
       text-neutral-500 text-center mt-4 font-light"
       >
         <p>
-          First time using PartyX?
+          New here?
           <span
             onClick={onToggle}
             className="
+              ml-3
               text-neutral-800
               cursor-pointer 
               hover:underline
             "
           >
+            {" "}
             Create an account
           </span>
         </p>
