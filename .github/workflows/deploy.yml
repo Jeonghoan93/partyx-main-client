@@ -30,11 +30,14 @@ jobs:
           yarn install 
           yarn build
 
-      - name: List Root Directory Content
-        run: ls -la ${{ github.workspace }}
+      - name: List build directory content
+        run: ls -la ${{ github.workspace }}/react/dist/
 
-      - name: List React Directory Content
-        run: ls -la ${{ github.workspace }}/react/
+      - name: Archieve production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ${{ github.workspace }}/react/dist/
 
   deploy:
     needs: build
@@ -42,6 +45,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download production artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: ${{ github.workspace }}/react
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
