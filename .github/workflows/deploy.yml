@@ -49,8 +49,8 @@ jobs:
       # Invalidate CloudFront Distribution
       - name: Invalidate CloudFront Distribution
         run: |
-          set -e # Stop the script if any command fails
-          aws cloudfront create-invalidation --distribution-id E1KAIII2BCH8CW --paths "/*"
+          set -e
+          aws cloudfront create-invalidation --distribution-id E1KAIII2BCH8CW --paths "/*" || (echo "Invalidation failed" && exit 1)
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
