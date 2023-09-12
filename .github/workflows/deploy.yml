@@ -34,12 +34,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@v0.5.1
-        with:
-          source: "react/build"
-          destination: "s3://partyx-frontend/"
-          args: --acl bucket-owner-full-control
+      - name: Deploy to S3 using AWS CLI
+        run: |
+          aws s3 sync react/build/ s3://partyx-frontend/ --acl bucket-owner-full-control
         env:
           AWS_S3_BUCKET: "partyx-frontend"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
