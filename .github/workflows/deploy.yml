@@ -42,6 +42,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check Build Status
+        run: |
+          if [ -d ${{ github.workspace }}/react/dist ]; then
+            if [ -f ${{ github.workspace }}/react/dist/index.html ]; then
+              echo "Build successful, proceeding to deploy"
+            else
+              echo "Build failed, no index.html found"
+              exit 1
+            fi
+          else
+            echo "Build directory not found. Exiting."
+            exit 1
+          fi
       - name: Deploy to S3 using AWS CLI
         run: |
           aws s3 sync ${{ github.workspace }}/react/dist/ s3://partyx-frontend/ --acl bucket-owner-full-control
