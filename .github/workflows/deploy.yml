@@ -21,10 +21,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Debug - List Root Directory Content
+        run: ls -la ${{ github.workspace }}/react/
+
       - name: Install and Build
         run: |
-          yarn install --cwd ${{ github.workspace }}/react
-          yarn build --cwd ${{ github.workspace }}/react
+          cd ${{ github.workspace }}/react
+          yarn install 
+          yarn build
 
       - name: List Root Directory Content
         run: ls -la ${{ github.workspace }}
