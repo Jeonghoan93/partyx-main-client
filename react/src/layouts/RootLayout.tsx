@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
+import { Footer } from "src/components/footer";
 import LoginModal from "src/components/modals/LoginModal";
 import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Navbar currentUser={currentUser} />
       </ClientOnly>
       <div className="pb-20 pt-28">{children}</div>
+      <Footer />
     </>
   );
 }
