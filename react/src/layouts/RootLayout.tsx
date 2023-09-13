@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
-import { Footer } from "src/components/footer";
+import Footer from "src/components/footer";
 import LoginModal from "src/components/modals/LoginModal";
 import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";

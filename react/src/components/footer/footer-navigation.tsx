@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
 import { FC } from "react";
-import { FooterSectionTitle } from "src/components/footer";
+import FooterSectionTitle from "src/components/footer/footer-section-title";
 import Link from "src/components/Link";
 
 export interface Navigation {
@@ -45,7 +45,7 @@ const NavigationItem: FC<Navigation> = ({ label, path }) => {
         sx={{
           display: "block",
           mb: 1,
-          color: "primary.contrastText",
+          color: "#333",
         }}
       >
         {label}

@@ -18,7 +18,7 @@ const FooterSectionTitle: FC<Props> = ({ title }: Props) => {
       <Typography
         component="p"
         variant="h5"
-        sx={{ color: "primary.contrastText", fontWeight: "700" }}
+        sx={{ color: "#111", fontWeight: "700" }}
       >
         {title}
       </Typography>

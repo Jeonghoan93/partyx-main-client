@@ -3,16 +3,16 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { FC } from "react";
-import { FooterNavigation, FooterSocialLinks } from "src/components/footer";
+import FooterNavigation from "src/components/footer/footer-navigation";
 
 const Footer: FC = () => {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "primary.main",
+        backgroundColor: "#f5f5f5",
         py: { xs: 6, md: 10 },
-        color: "primary.contrastText",
+        color: "#333",
       }}
     >
       <Container>
@@ -25,7 +25,6 @@ const Footer: FC = () => {
               <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 2 }}>
                 Stockholm, Sweden
               </Typography>
-              <FooterSocialLinks />
             </Box>
           </Grid>
           <Grid item xs={12} md={7}>
