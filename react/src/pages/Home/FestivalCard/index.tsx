@@ -1,20 +1,20 @@
 import Container from "src/components/Container";
-import Events from "./Components/Events";
+import FestivalSlider from "./Components/FestivalSlider";
 
-const NewestCard = () => {
+const FestivalCard = () => {
   return (
     <Container>
       <section className="mt-4 p-2">
         <div className="mb-2">
-          <h2 className="text-[13pt] font-bold">Newest in Sweden</h2>
+          <h2 className="text-[13pt] font-bold">Hottest Festivals</h2>
           <span className="text-[11pt] text-gray-600 font-semibold">
-            Explore the newest parties in Sweden
+            Wait for the best festivals in Europe
           </span>
         </div>
+        <FestivalSlider />
       </section>
-      <Events />
     </Container>
   );
 };
 
-export default NewestCard;
+export default FestivalCard;
