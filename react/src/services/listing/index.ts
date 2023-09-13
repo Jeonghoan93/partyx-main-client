@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 import api from "../api";
-import { CreateListingDTO, IListingsReturn, SafeListingReturn } from "./dto";
+import { CreateListingDTO } from "./dto";
 
 export const createListing = async (data: CreateListingDTO) => {
   const token = localStorage.getItem("token");
@@ -32,7 +32,7 @@ export const getListingById = async (listingIdStr: string) => {
   }
 };
 
-export const getListings = async (query: any): Promise<IListingsReturn> => {
+export const getListings = async (query: any): Promise<any> => {
   try {
     const res = await api.get("/listing", { params: query });
     return res.data;
@@ -41,9 +41,7 @@ export const getListings = async (query: any): Promise<IListingsReturn> => {
   }
 };
 
-export const getListingsByCity = async (
-  cityName: any
-): Promise<IListingsReturn> => {
+export const getListingsByCity = async (cityName: any): Promise<any> => {
   try {
     const res = await api.get("/listing/city", { params: cityName });
     return res.data;
@@ -52,9 +50,7 @@ export const getListingsByCity = async (
   }
 };
 
-export const getListingByType = async (
-  eventType: string[]
-): Promise<SafeListingReturn> => {
+export const getListingByType = async (eventType: string[]): Promise<any> => {
   try {
     const res = await api.get("/listing/type", { params: eventType });
     return res.data;
