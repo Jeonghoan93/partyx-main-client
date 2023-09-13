@@ -11,8 +11,9 @@ const Categories = () => {
   const category = params?.get("category");
   const pathname = location.pathname;
   const isEventsPage = pathname === "/events";
+  const isHomePage = pathname === "/";
 
-  if (!isEventsPage) {
+  if (!isEventsPage && !isHomePage) {
     return null;
   }
 
@@ -26,7 +27,7 @@ const Categories = () => {
           items-center 
           justify-between
           overflow-x-auto
-          gap-2   
+          gap-2
         "
       >
         {categories.map((item) => (

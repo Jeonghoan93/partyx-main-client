@@ -23,6 +23,11 @@ export interface Listing {
   reservations?: Reservation[];
 }
 
+export interface ListingData {
+  data: Listing[];
+  total: number;
+}
+
 export type SafeListing = Omit<Listing, "createdAt" | "user"> & {
   createdAt: string;
   user: SafeUser;

@@ -1,3 +1,5 @@
+import { SafeListing } from "src/interfaces/listing";
+
 export interface IListingsParams {
   userId?: string;
   minGuests?: number;
@@ -6,6 +8,19 @@ export interface IListingsParams {
   endDate?: string;
   locationValue?: string;
   category?: string;
+  featured?: boolean;
+}
+
+export interface IListingsReturn {
+  data: IListingsParams[];
+  total: number;
+  limit: number;
+}
+
+export interface SafeListingReturn {
+  data: SafeListing[];
+  total: number;
+  limit: number;
 }
 
 export interface CreateListingDTO {

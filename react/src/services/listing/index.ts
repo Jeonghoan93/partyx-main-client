@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 import api from "../api";
-import { CreateListingDTO, IListingsParams } from "./dto";
+import { CreateListingDTO, IListingsReturn, SafeListingReturn } from "./dto";
 
 export const createListing = async (data: CreateListingDTO) => {
   const token = localStorage.getItem("token");
@@ -32,9 +32,31 @@ export const getListingById = async (listingIdStr: string) => {
   }
 };
 
-export const getListings = async (query: IListingsParams) => {
+export const getListings = async (query: any): Promise<IListingsReturn> => {
   try {
     const res = await api.get("/listing", { params: query });
+    return res.data;
+  } catch (err) {
+    throw new Error("An error occurred while fetching listings.");
+  }
+};
+
+export const getListingsByCity = async (
+  cityName: any
+): Promise<IListingsReturn> => {
+  try {
+    const res = await api.get("/listing/city", { params: cityName });
+    return res.data;
+  } catch (err) {
+    throw new Error("An error occurred while fetching listings.");
+  }
+};
+
+export const getListingByType = async (
+  eventType: string[]
+): Promise<SafeListingReturn> => {
+  try {
+    const res = await api.get("/listing/type", { params: eventType });
     return res.data;
   } catch (err) {
     throw new Error("An error occurred while fetching listings.");

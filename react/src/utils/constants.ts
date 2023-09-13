@@ -1,8 +1,8 @@
 import { IconType } from "react-icons";
+import { AiOutlineFire } from "react-icons/ai";
 import { CiBeerMugFull } from "react-icons/ci";
 import { FaBuildingFlag, FaPeopleRobbery } from "react-icons/fa6";
 import {
-  GiCaveEntrance,
   GiFamilyHouse,
   GiForestCamp,
   GiIsland,
@@ -10,7 +10,7 @@ import {
 } from "react-icons/gi";
 import { IoDiamond } from "react-icons/io5";
 import { MdFestival, MdOutlineVilla, MdSportsHandball } from "react-icons/md";
-import { TbMountain, TbPool } from "react-icons/tb";
+import { TbPool } from "react-icons/tb";
 
 export type Category = {
   label: string;
@@ -39,12 +39,12 @@ export const categories: Category[] = [
     description: "This Event is modern!",
   },
   {
-    label: "Outdoors",
-    icon: TbMountain,
-    description: "This Event is in the countryside!",
+    label: "Trending",
+    icon: AiOutlineFire,
+    description: "This Event is trending!",
   },
   {
-    label: "Pools",
+    label: "Water",
     icon: TbPool,
     description: "This is Event has a beautiful pool!",
   },
@@ -67,11 +67,6 @@ export const categories: Category[] = [
     label: "Pub",
     icon: CiBeerMugFull,
     description: "This Event is an ancient castle!",
-  },
-  {
-    label: "Caves",
-    icon: GiCaveEntrance,
-    description: "This Event is in a spooky cave!",
   },
   {
     label: "Camping",

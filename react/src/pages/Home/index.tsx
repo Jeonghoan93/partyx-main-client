@@ -4,6 +4,7 @@ import EmptyState from "src/components/EmptyState";
 import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import { getCurrentUser } from "src/services/auth";
+import ProductsCard from "./Components/ProductsCard";
 
 const Home: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -25,30 +26,34 @@ const Home: React.FC = () => {
     );
   }
   return (
-    <ClientOnly>
-      <Container>
-        <div
-          className="relative rounded-lg overflow-hidden shadow-2xl"
-          style={{
-            height: "40vw",
-          }}
-        >
+    <>
+      <ClientOnly>
+        <Container>
           <div
-            className="absolute w-full h-full"
+            className="mt-20 relative rounded-lg overflow-hidden shadow-2xl"
             style={{
-              backgroundImage:
-                "url(https://cdn.pixabay.com/photo/2018/01/15/21/50/concert-3084876_1280.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              height: "50vw",
             }}
-          ></div>
+          >
+            <div
+              className="absolute w-full h-full"
+              style={{
+                backgroundImage:
+                  "url(https://cdn.pixabay.com/photo/2018/01/15/21/50/concert-3084876_1280.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
 
-          <div className="hidden md:block z-10 h-full w-full bg-white bg-opacity-90 rounded-lg shadow-xl">
-            hi
+            <div className="hidden md:block z-10 h-full w-full bg-white bg-opacity-90 rounded-lg shadow-xl">
+              hi
+            </div>
           </div>
-        </div>
-      </Container>
-    </ClientOnly>
+        </Container>
+      </ClientOnly>
+
+      <ProductsCard />
+    </>
   );
 };
 
