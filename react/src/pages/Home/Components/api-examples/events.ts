@@ -2,6 +2,7 @@ export const events = [
   {
     title: "Party 1",
     img: "https://via.placeholder.com/150?text=Party+1",
+    currency: "SEK",
     price: 100,
     desc: "Party description 1",
     userName: "John Doe",
@@ -10,6 +11,7 @@ export const events = [
   {
     title: "Party 2",
     img: "https://via.placeholder.com/150?text=Party+2",
+    currency: "SEK",
     price: 150,
     desc: "Party description 2",
     userName: "Jane Smith",
@@ -18,6 +20,7 @@ export const events = [
   {
     title: "Party 3",
     img: "https://via.placeholder.com/150?text=Party+3",
+    currency: "SEK",
     price: 90,
     desc: "Party description 3",
     userName: "Mike Johnson",
@@ -26,6 +29,7 @@ export const events = [
   {
     title: "Party 4",
     img: "https://via.placeholder.com/150?text=Party+4",
+    currency: "SEK",
     price: 120,
     desc: "Party description 4",
     userName: "Emily Brown",
@@ -34,6 +38,7 @@ export const events = [
   {
     title: "Party 5",
     img: "https://via.placeholder.com/150?text=Party+5",
+    currency: "SEK",
     price: 80,
     desc: "Party description 5",
     userName: "Chris White",
@@ -42,6 +47,7 @@ export const events = [
   {
     title: "Party 6",
     img: "https://via.placeholder.com/150?text=Party+6",
+    currency: "SEK",
     price: 170,
     desc: "Party description 6",
     userName: "Ashley Black",
@@ -50,6 +56,7 @@ export const events = [
   {
     title: "Party 7",
     img: "https://via.placeholder.com/150?text=Party+7",
+    currency: "SEK",
     price: 110,
     desc: "Party description 7",
     userName: "Matthew Green",
@@ -58,6 +65,7 @@ export const events = [
   {
     title: "Party 8",
     img: "https://via.placeholder.com/150?text=Party+8",
+    currency: "SEK",
     price: 140,
     desc: "Party description 8",
     userName: "Ava Blue",
@@ -66,6 +74,7 @@ export const events = [
   {
     title: "Party 9",
     img: "https://via.placeholder.com/150?text=Party+9",
+    currency: "SEK",
     price: 130,
     desc: "Party description 9",
     userName: "Liam Yellow",
@@ -74,6 +83,7 @@ export const events = [
   {
     title: "Party 10",
     img: "https://via.placeholder.com/150?text=Party+10",
+    currency: "SEK",
     price: 60,
     desc: "Party description 10",
     userName: "Sophia Purple",
