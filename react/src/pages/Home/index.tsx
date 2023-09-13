@@ -1,10 +1,12 @@
-import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
 
 import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import { getCurrentUser } from "src/services/auth";
-import ProductsCard from "./Components/ProductsCard";
+import FeaturedCard from "./FeaturedCard";
+import HomeCard from "./HomeCard";
+import NewestCard from "./NewestCard";
+import TrendingCard from "./TrendingCard";
 
 const Home: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -28,31 +30,11 @@ const Home: React.FC = () => {
   return (
     <>
       <ClientOnly>
-        <Container>
-          <div
-            className="mt-20 relative rounded-lg overflow-hidden shadow-2xl"
-            style={{
-              height: "50vw",
-            }}
-          >
-            <div
-              className="absolute w-full h-full"
-              style={{
-                backgroundImage:
-                  "url(https://cdn.pixabay.com/photo/2018/01/15/21/50/concert-3084876_1280.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            ></div>
-
-            <div className="hidden md:block z-10 h-full w-full bg-white bg-opacity-90 rounded-lg shadow-xl">
-              hi
-            </div>
-          </div>
-        </Container>
+        <HomeCard />
+        <FeaturedCard />
+        <TrendingCard />
+        <NewestCard />
       </ClientOnly>
-
-      <ProductsCard />
     </>
   );
 };

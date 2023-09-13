@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Container from "src/components/Container";
+import { events } from "src/pages/Home/api-examples/events";
 import EventBox from "./EventBox";
-import { events } from "./api-examples/events";
 
 const Events = () => {
   const location = useLocation();

@@ -63,7 +63,7 @@ const EventBox: React.FC<CategoryBoxProps> = ({
         items-center 
         justify-center 
         gap-2
-        p-3
+        p-1
         border-b-2
         hover:text-neutral-900
         transition

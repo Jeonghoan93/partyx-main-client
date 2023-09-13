@@ -32,10 +32,7 @@ const EventSlider: React.FC<EventSliderProps> = ({ events }) => {
         style={{ transform: `translateX(-${startIndex * 100}%)` }}
       >
         {events.map((event) => (
-          <div
-            key={event.title}
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-2"
-          >
+          <div key={event.title} className="w-full  px-2">
             <EventCard {...event} />
           </div>
         ))}
