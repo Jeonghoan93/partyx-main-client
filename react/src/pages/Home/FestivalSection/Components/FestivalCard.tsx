@@ -24,7 +24,7 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
       <div
         className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
-          height: "50vw",
+          height: "500px",
         }}
       >
         {/* Background Image */}
@@ -49,11 +49,9 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
             <img
               src={userPhoto}
               alt={userName}
-              className="hidden sm:block w-8 h-8 rounded-full mr-2"
+              className=" w-8 h-8 rounded-full mr-2"
             />
-            <span className="hidden sm:block text-white text-sm">
-              {userName}
-            </span>
+            <span className=" text-white text-sm">{userName}</span>
           </div>
           <span className="text-white sm:mt-2 block">${price}</span>
         </div>

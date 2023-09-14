@@ -27,7 +27,7 @@ const EventCard: React.FC<EventCardProps> = ({
     <div
       className="relative rounded-lg overflow-hidden bg-transparent"
       style={{
-        height: "65vw",
+        height: "350px",
       }}
     >
       <img src={img} alt={title} className="w-full h-40 object-cover" />
