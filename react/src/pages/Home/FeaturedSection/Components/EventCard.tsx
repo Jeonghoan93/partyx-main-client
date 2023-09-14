@@ -27,11 +27,11 @@ const EventCard: React.FC<EventCardProps> = ({
     <div
       className="relative rounded-lg overflow-hidden bg-transparent"
       style={{
-        height: "350px",
+        height: "320px",
       }}
     >
       <img src={img} alt={title} className="w-full h-40 object-cover" />
-      <div className="p-4">
+      <div className="p-3">
         <h2 className="text-[12pt] font-bold my-1">{title}</h2>
         <p className="text-[10pt] text-gray-600">{desc}</p>
         <p className="font-medium my-1">
@@ -41,9 +41,9 @@ const EventCard: React.FC<EventCardProps> = ({
           <img
             src={userPhoto}
             alt={userName}
-            className="w-10 h-10 rounded-full"
+            className="w-6 h-6 rounded-full"
           />
-          <span className="ml-4 text-lg">{userName}</span>
+          <span className="ml-2 text-[6t]">{userName}</span>
         </div>
       </div>
     </div>
