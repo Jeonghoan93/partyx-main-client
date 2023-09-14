@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
-import FestivalBox from "./FestivalBox";
+import EventCard from "./EventCard";
 
-type Festivals = {
+type Events = {
   title: string;
   img: string;
   price: number;
   desc: string;
+  currency: string;
   userName: string;
   userPhoto: string;
 };
 
-type FestivalSliderProps = {
-  festivals: Festivals[];
+type FeaturedEventSliderProps = {
+  events: Events[];
 };
 
-const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
+const FeaturedEventSlider: React.FC<FeaturedEventSliderProps> = ({
+  events,
+}) => {
   const isClient = typeof window === "object";
   const initialWidth = isClient ? window.innerWidth : 1200;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
@@ -34,7 +37,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
   const isSmallScreen = windowWidth < 768;
 
   const handleNext = () => {
-    setStartIndex((prevIndex) => Math.min(prevIndex + 1, festivals.length - 1));
+    setStartIndex((prevIndex) => Math.min(prevIndex + 1, events.length - 1));
   };
 
   const handlePrev = () => {
@@ -46,31 +49,31 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
       <div
         className="flex transition-transform duration-500"
         style={{
-          width: `${100 * festivals.length}%`,
-          transform: `translateX(-${(startIndex * 100) / festivals.length}%)`,
+          width: `${100 * events.length}%`,
+          transform: `translateX(-${(startIndex * 100) / events.length}%)`,
         }}
       >
-        {festivals.map((festival) => (
-          <FestivalBox
+        {events.map((festival) => (
+          <EventCard
             {...festival}
             boxKey={festival.title}
             containerStyle={{
-              width: isSmallScreen ? "100%" : `${100 / festivals.length}%`,
+              width: isSmallScreen ? "100%" : `${100 / events.length}%`,
             }}
           />
         ))}
       </div>
       {startIndex > 0 && (
         <button
-          className="ml-2 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-full"
+          className="ml-2 absolute left-0 top-1/4 transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
           onClick={handlePrev}
         >
           ←
         </button>
       )}
-      {startIndex < festivals.length - 1 && (
+      {startIndex < events.length - 1 && (
         <button
-          className="mr-2 absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-full"
+          className="mr-2 absolute right-0 top-1/4 transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
           onClick={handleNext}
         >
           →
@@ -80,4 +83,4 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
   );
 };
 
-export default FestivalSlider;
+export default FeaturedEventSlider;

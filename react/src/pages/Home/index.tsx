@@ -2,12 +2,13 @@ import EmptyState from "src/components/EmptyState";
 
 import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
+import Container from "src/components/Container";
 import { getCurrentUser } from "src/services/auth";
-import FeaturedCard from "./FeaturedCard";
-import FestivalCard from "./FestivalCard";
-import HomeCard from "./HomeCard";
-import NewestCard from "./NewestCard";
-import TrendingCard from "./TrendingCard";
+import FeaturedSection from "./FeaturedSection";
+import FestivalSection from "./FestivalSection";
+import HomeSection from "./HomeSection";
+import NewestSection from "./NewestSection";
+import TrendingSection from "./TrendingSection";
 
 const Home: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -29,15 +30,17 @@ const Home: React.FC = () => {
     );
   }
   return (
-    <>
-      <ClientOnly>
-        <HomeCard />
-        <FestivalCard />
-        <FeaturedCard />
-        <TrendingCard />
-        <NewestCard />
-      </ClientOnly>
-    </>
+    <Container>
+      <div className="mt-20">
+        <ClientOnly>
+          <HomeSection />
+          <FestivalSection />
+          <FeaturedSection />
+          <TrendingSection />
+          <NewestSection />
+        </ClientOnly>
+      </div>
+    </Container>
   );
 };
 

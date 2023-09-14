@@ -2,7 +2,7 @@ import qs from "query-string";
 import { useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-interface CategoryBoxProps {
+interface CategoryCardProps {
   imgSrc: string;
   title: string;
   desc: string;
@@ -15,7 +15,7 @@ type QueryParams = Record<string, string | undefined> & {
   category?: string;
 };
 
-const EventBox: React.FC<CategoryBoxProps> = ({
+const EventCard: React.FC<CategoryCardProps> = ({
   imgSrc,
   title,
   desc,
@@ -84,4 +84,4 @@ const EventBox: React.FC<CategoryBoxProps> = ({
   );
 };
 
-export default EventBox;
+export default EventCard;

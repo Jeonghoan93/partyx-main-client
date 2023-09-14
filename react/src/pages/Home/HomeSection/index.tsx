@@ -1,12 +1,10 @@
-import Container from "src/components/Container";
-
-const HomeCard: React.FC = () => {
+const HomeSection: React.FC = () => {
   return (
-    <Container>
+    <>
       <div
-        className="mt-20 relative rounded-lg overflow-hidden shadow-2xl"
+        className="mb-5 relative rounded-lg overflow-hidden shadow-2xl"
         style={{
-          height: "50vw",
+          height: "40vw",
         }}
       >
         <div
@@ -19,8 +17,8 @@ const HomeCard: React.FC = () => {
           }}
         ></div>
       </div>
-    </Container>
+    </>
   );
 };
 
-export default HomeCard;
+export default HomeSection;

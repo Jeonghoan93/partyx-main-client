@@ -1,4 +1,4 @@
-type FestivalBoxProps = {
+type FestivalCardProps = {
   title: string;
   img: string;
   price: number;
@@ -9,7 +9,7 @@ type FestivalBoxProps = {
   containerStyle: React.CSSProperties;
 };
 
-const FestivalBox: React.FC<FestivalBoxProps> = ({
+const FestivalCard: React.FC<FestivalCardProps> = ({
   title,
   img,
   price,
@@ -22,7 +22,7 @@ const FestivalBox: React.FC<FestivalBoxProps> = ({
   return (
     <div key={boxKey} style={containerStyle}>
       <div
-        className="relative rounded-lg overflow-hidden shadow-2xl bg-transparent"
+        className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
           height: "50vw",
         }}
@@ -62,4 +62,4 @@ const FestivalBox: React.FC<FestivalBoxProps> = ({
   );
 };
 
-export default FestivalBox;
+export default FestivalCard;

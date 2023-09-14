@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Container from "src/components/Container";
 import { events } from "src/pages/Home/api-examples/events";
-import EventBox from "./EventBox";
+import EventCard from "./EventCard";
 
 const Events = () => {
   const location = useLocation();
@@ -31,7 +31,7 @@ const Events = () => {
         "
       >
         {events.map((item) => (
-          <EventBox
+          <EventCard
             key={item.title}
             title={item.title}
             desc={item.desc}
