@@ -1,4 +1,5 @@
 import Container from "src/components/Container";
+import festivals from "../api-examples/festivals";
 import FestivalSlider from "./Components/FestivalSlider";
 
 const FestivalCard = () => {
@@ -11,7 +12,7 @@ const FestivalCard = () => {
             Wait for the best festivals in Europe
           </span>
         </div>
-        <FestivalSlider />
+        <FestivalSlider festivals={festivals} />
       </section>
     </Container>
   );
