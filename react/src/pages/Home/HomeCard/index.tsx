@@ -18,10 +18,6 @@ const HomeCard: React.FC = () => {
             backgroundPosition: "center",
           }}
         ></div>
-
-        <div className="hidden md:block z-10 h-full w-full bg-white bg-opacity-90 rounded-lg shadow-xl">
-          hi
-        </div>
       </div>
     </Container>
   );

@@ -51,19 +51,18 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
         }}
       >
         {festivals.map((festival) => (
-          <div
-            key={festival.title}
-            style={{
+          <FestivalBox
+            {...festival}
+            boxKey={festival.title}
+            containerStyle={{
               width: isSmallScreen ? "100%" : `${100 / festivals.length}%`,
             }}
-          >
-            <FestivalBox {...festival} />
-          </div>
+          />
         ))}
       </div>
       {startIndex > 0 && (
         <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+          className="ml-2 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-full"
           onClick={handlePrev}
         >
           ←
@@ -71,7 +70,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
       )}
       {startIndex < festivals.length - 1 && (
         <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+          className="mr-2 absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-full"
           onClick={handleNext}
         >
           →
