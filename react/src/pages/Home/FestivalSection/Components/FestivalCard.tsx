@@ -2,6 +2,7 @@ type FestivalCardProps = {
   title: string;
   img: string;
   price: number;
+  currency: string;
   desc: string;
   userName: string;
   userPhoto: string;
@@ -13,6 +14,7 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
   title,
   img,
   price,
+  currency,
   desc,
   userName,
   userPhoto,
@@ -24,7 +26,7 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
       <div
         className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
-          height: "500px",
+          height: "400px",
         }}
       >
         {/* Background Image */}
@@ -39,10 +41,10 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
         {/* Gradient */}
         <div
           className="absolute w-full bottom-0 h-1/3 bg-gradient-to-t from-black opacity-70"
-          style={{ height: "30%" }}
+          style={{ height: "40%" }}
         ></div>
         {/* Content */}
-        <div className="absolute w-full bottom-0 p-4" style={{ height: "30%" }}>
+        <div className="absolute w-full bottom-0 p-4" style={{ height: "37%" }}>
           <h3 className="text-white font-bold">{title}</h3>
           <p className=" text-gray-300 text-sm">{desc}</p>
           <div className="flex items-center mt-2">
@@ -53,7 +55,9 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
             />
             <span className=" text-white text-sm">{userName}</span>
           </div>
-          <span className="text-white sm:mt-2 block">${price}</span>
+          <span className="text-white font-bold sm:mt-2 block">
+            {currency} {price}
+          </span>
         </div>
       </div>
     </div>

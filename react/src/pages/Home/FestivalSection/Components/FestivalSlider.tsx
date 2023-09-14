@@ -5,6 +5,7 @@ type Festivals = {
   title: string;
   img: string;
   price: number;
+  currency: string;
   desc: string;
   userName: string;
   userPhoto: string;
