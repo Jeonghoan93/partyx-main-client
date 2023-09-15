@@ -16,6 +16,7 @@ export const events = [
     avgRating: 4.92,
     reviewCounts: 51,
     address: {
+      country: "Sweden",
       street: "14 Hypoteksvägen",
       postalCode: "129 30",
       area: "Hägersten",
@@ -36,6 +37,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 1,
         reviewDesc:
           "A great place to go for the weekend. The cottage is very small but well-designed. I was worried about if it is going to be fun, but it was amazing.",
@@ -46,6 +48,7 @@ export const events = [
         reviewDate: new Date(),
       },
       {
+        rating: 5,
         reviewId: 2,
         reviewDesc: "Host is an awesome person, would go again!",
         user: {
@@ -56,6 +59,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 100,
     hostName: "John Doe",
     hostProfilePhoto: "https://via.placeholder.com/50?text=J",
@@ -72,6 +77,7 @@ export const events = [
     avgRating: 4.5,
     reviewCounts: 25,
     address: {
+      country: "Sweden",
       street: "22 Vine St",
       postalCode: "45678",
       area: "Placeholder",
@@ -87,6 +93,7 @@ export const events = [
     eventType: "Outdoor",
     reviews: [
       {
+        rating: 5,
         reviewId: 3,
         reviewDesc: "Amazing wine selection!",
         user: {
@@ -97,6 +104,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 150,
     hostName: "Jane Smith",
     hostProfilePhoto: "https://via.placeholder.com/50?text=JS",
@@ -110,6 +119,7 @@ export const events = [
     avgRating: 4.3,
     reviewCounts: 20,
     address: {
+      country: "Sweden",
       street: "33 Tech Avenue",
       postalCode: "78901",
       area: "Placeholder",
@@ -125,6 +135,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 4,
         reviewDesc: "Incredible vibe and atmosphere!",
         user: {
@@ -135,6 +146,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 90,
     hostName: "Mike Johnson",
     hostProfilePhoto: "https://via.placeholder.com/50?text=MJ",
@@ -148,6 +161,7 @@ export const events = [
     avgRating: 4.7,
     reviewCounts: 35,
     address: {
+      country: "Sweden",
       street: "44 Masquerade Way",
       postalCode: "10112",
       area: "Placeholder",
@@ -163,6 +177,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 5,
         reviewDesc: "A magical night I won't forget.",
         user: {
@@ -173,6 +188,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 120,
     hostName: "Emily Brown",
     hostProfilePhoto: "https://via.placeholder.com/50?text=EB",
@@ -186,6 +203,7 @@ export const events = [
     avgRating: 4.6,
     reviewCounts: 45,
     address: {
+      country: "Sweden",
       street: "55 Art Lane",
       postalCode: "12345",
       area: "Placeholder",
@@ -201,6 +219,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 6,
         reviewDesc: "Loved the art! Such a unique event.",
         user: {
@@ -211,6 +230,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 80,
     hostName: "Chris White",
     hostProfilePhoto: "https://via.placeholder.com/50?text=CW",
@@ -227,6 +248,7 @@ export const events = [
     avgRating: 4.9,
     reviewCounts: 60,
     address: {
+      country: "Sweden",
       street: "66 Beat Street",
       postalCode: "67890",
       area: "Placeholder",
@@ -242,6 +264,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 7,
         reviewDesc: "Best party I've been to this year!",
         user: {
@@ -252,6 +275,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 170,
     hostName: "Ashley Black",
     hostProfilePhoto: "https://via.placeholder.com/50?text=AB",
@@ -265,6 +290,7 @@ export const events = [
     avgRating: 4.2,
     reviewCounts: 22,
     address: {
+      country: "Sweden",
       street: "77 Beach Blvd",
       postalCode: "11223",
       area: "Placeholder",
@@ -280,6 +306,7 @@ export const events = [
     eventType: "Club",
     reviews: [
       {
+        rating: 5,
         reviewId: 8,
         reviewDesc: "A beach party to remember!",
         user: {
@@ -290,6 +317,8 @@ export const events = [
       },
     ],
     currency: "SEK",
+    updatedAt: new Date(),
+    createdAt: new Date(),
     price: 110,
     hostName: "Matthew Green",
     hostProfilePhoto: "https://via.placeholder.com/50?text=MG",

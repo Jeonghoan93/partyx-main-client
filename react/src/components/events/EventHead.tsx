@@ -1,37 +1,31 @@
 import useCountries from "src/hooks/useCountries";
 import { SafeUser } from "src/interfaces/user";
 
+import { Address } from "src/interfaces/event";
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
-import { CountrySelectValue } from "../inputs/CountrySelect";
 
 interface EventHeadProps {
   title: string;
-  imageSrc: string;
-  id: string;
+  img: string;
+  eventId: number;
   currentUser?: SafeUser | null;
-  locationValue: CountrySelectValue | undefined;
+  address: Address | undefined;
 }
 
 const EventHead: React.FC<EventHeadProps> = ({
   title,
-  locationValue,
-  imageSrc,
-  id,
+  address,
+  img,
+  eventId,
   currentUser,
 }) => {
   const { getCountryByValue } = useCountries();
 
-  const location = locationValue
-    ? getCountryByValue(locationValue.value)
-    : undefined;
+  const location = address ? getCountryByValue(address.country) : undefined;
 
   return (
     <>
-      <Heading
-        title={title}
-        subtitle={`${location?.flag}, ${location?.value}`}
-      />
       <div
         className="
           w-full
@@ -42,7 +36,7 @@ const EventHead: React.FC<EventHeadProps> = ({
         "
       >
         <img
-          src={imageSrc}
+          src={img}
           style={{ width: "100%", height: "100%" }}
           className="object-cover w-full"
           alt="Image"
@@ -54,9 +48,13 @@ const EventHead: React.FC<EventHeadProps> = ({
             right-5
           "
         >
-          <HeartButton eventId={id} currentUser={currentUser} />
+          <HeartButton eventId={eventId} currentUser={currentUser} />
         </div>
       </div>
+      <Heading
+        title={title}
+        subtitle={`${location?.flag}, ${location?.value}`}
+      />
     </>
   );
 };

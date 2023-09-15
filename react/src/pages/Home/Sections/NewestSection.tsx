@@ -1,5 +1,5 @@
+import { events } from "../../../services/api-examples/events";
 import EventSlider from "../Components/EventSlider";
-import { events } from "../api-examples/events";
 
 const NewestSection = () => {
   return (

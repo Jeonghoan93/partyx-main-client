@@ -1,49 +1,37 @@
-import { IconType } from "react-icons";
-
 import useCountries from "src/hooks/useCountries";
-import { SafeUser } from "src/interfaces/user";
 
 import { Suspense, lazy } from "react";
-import Avatar from "../Avatar";
-import { CountrySelectValue } from "../inputs/CountrySelect";
-import EventCategory from "./EventCategory";
+import Avatar from "src/components/Avatar";
+import { Address } from "src/interfaces/event";
+import { formatDate } from "src/utils/formatDate";
 
-const Map = lazy(() => import("../Map"));
+const Map = lazy(() => import("src/components/Map"));
 
 interface EventInfoProps {
-  user: SafeUser;
-  description: string;
+  hostName: string;
+  hostProfilePhoto: string;
+  desc: string;
   minGuests: number;
   maxGuests: number;
-  eventTime: {
-    hour: number;
-    minute: number;
-  };
-  eventDate: string;
-  category:
-    | {
-        icon: IconType;
-        label: string;
-        description: string;
-      }
-    | undefined;
-  location: CountrySelectValue | undefined;
+  startDate: Date;
+  endDate: Date;
+  address: Address;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({
-  user,
-  description,
+  hostName,
+  hostProfilePhoto,
+  desc,
   minGuests,
   maxGuests,
-  eventTime,
-  eventDate,
-  category,
-  location,
+  startDate,
+  endDate,
+  address,
 }) => {
   const { getCountryByValue } = useCountries();
 
   const coordinates =
-    location && getCountryByValue(location.value)?.coordinates;
+    address && getCountryByValue(address.country)?.coordinates;
 
   return (
     <div className="col-span-4 flex flex-col gap-8">
@@ -58,8 +46,8 @@ const EventInfo: React.FC<EventInfoProps> = ({
             gap-2
           "
         >
-          <div>Hosted by {user?.name}</div>
-          <Avatar src={user?.image} />
+          <div>Hosted by {hostName}</div>
+          <Avatar src={hostProfilePhoto} />
         </div>
         <div
           className="
@@ -74,26 +62,15 @@ const EventInfo: React.FC<EventInfoProps> = ({
           <div>
             {minGuests} - {maxGuests} guests
           </div>
-          <div>
-            {eventTime?.hour} {eventTime?.minute}{" "}
-          </div>
-          <div>{eventDate} </div>
+          <div>{formatDate(startDate, true, endDate)}</div>
         </div>
       </div>
-      <hr />
-      {category && (
-        <EventCategory
-          icon={category.icon}
-          label={category?.label}
-          description={category?.description}
-        />
-      )}
       <hr />
       <div
         className="
       text-lg font-light text-neutral-500"
       >
-        {description}
+        {desc}
       </div>
       <hr />
       <Suspense fallback={<div>Loading...</div>}>

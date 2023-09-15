@@ -10,12 +10,13 @@ export enum UserTypes {
 
 export interface User {
   _id: Types.ObjectId;
+  userId: number;
   name: string;
   email: string;
   hashedPassword: string;
   emailVerified?: Date;
   isEmailVerified?: boolean;
-  image?: string;
+  img?: string;
   createdAt: Date;
   updatedAt: Date;
   favoriteIds?: Types.ObjectId[];
@@ -32,8 +33,8 @@ export type SafeUser = Omit<
   User,
   "createdAt" | "updatedAt" | "emailVerified" | "favoriteIds"
 > & {
-  createdAt: string;
-  updatedAt: string;
-  emailVerified: string | null;
-  favoriteIds: string[];
+  createdAt?: string;
+  updatedAt?: string;
+  emailVerified?: string | null;
+  favoriteIds?: number[];
 };

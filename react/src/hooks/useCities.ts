@@ -12,6 +12,7 @@ const useCities = () => {
     },
     []
   );
+
   return {
     searchCities,
   };

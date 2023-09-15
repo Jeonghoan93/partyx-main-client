@@ -1,8 +1,6 @@
-import { Types } from "mongoose";
 import api from "../api";
 
-export const addToFavorites = async (eventIdStr: string) => {
-  const eventId = new Types.ObjectId(eventIdStr);
+export const addToFavorites = async (eventId: number) => {
   try {
     const res = await api.post(`/favorites/${eventId}`);
     return res.data;
@@ -11,8 +9,7 @@ export const addToFavorites = async (eventIdStr: string) => {
   }
 };
 
-export const deleteFromFavorites = async (eventIdStr: string) => {
-  const eventId = new Types.ObjectId(eventIdStr);
+export const deleteFromFavorites = async (eventId: number) => {
   try {
     const res = await api.delete(`/favorites/${eventId}`);
     return res.data;

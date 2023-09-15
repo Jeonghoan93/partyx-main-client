@@ -2,19 +2,16 @@ import { differenceInDays, eachDayOfInterval } from "date-fns";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
-import { GiAbstract001 } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import EventHead from "src/components/events/EventHead";
-import EventInfo from "src/components/events/EventInfo";
 import EventReservation from "src/components/events/EventReservation";
-import categories from "src/components/navbar/Components/Categories";
 import useLoginModal from "src/hooks/useLoginModal";
-import { SafeEvent } from "src/interfaces/event";
-import { SafeReservation } from "src/interfaces/reservation";
+import { Event } from "src/interfaces/event";
+import { Reservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
 import { createReservation } from "src/services/reservation";
-import { Category } from "src/utils/constants";
+import EventInfo from "./EventInfo";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -23,10 +20,8 @@ const initialDateRange = {
 };
 
 interface EventClientProps {
-  reservations?: SafeReservation[];
-  event: SafeEvent & {
-    user: SafeUser;
-  };
+  reservations?: Reservation[];
+  event: Event;
   currentUser?: SafeUser | null;
 }
 
@@ -41,7 +36,7 @@ const EventClient: React.FC<EventClientProps> = ({
   const disabledDates = useMemo(() => {
     let dates: Date[] = [];
 
-    reservations.forEach((reservation: SafeReservation) => {
+    reservations.forEach((reservation: Reservation) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
@@ -52,18 +47,6 @@ const EventClient: React.FC<EventClientProps> = ({
 
     return dates;
   }, [reservations]);
-
-  const category = useMemo(() => {
-    if (categories instanceof Array) {
-      return categories.find((item: Category) => item.label === event.category);
-    } else {
-      return {
-        label: "Unknown",
-        icon: GiAbstract001,
-        description: "No description available",
-      };
-    }
-  }, [event.category]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(event.price);
@@ -87,8 +70,8 @@ const EventClient: React.FC<EventClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate?.toISOString(),
         endDate: dateRange.endDate?.toISOString(),
-        eventId: event._id,
-        userId: currentUser._id,
+        eventId: event.eventId,
+        userId: currentUser.userId,
         createdAt: new Date().toISOString(),
         event: event,
         user: currentUser,
@@ -137,9 +120,9 @@ const EventClient: React.FC<EventClientProps> = ({
         <div className="flex flex-col gap-6">
           <EventHead
             title={event.title}
-            imageSrc={event.imageSrc}
-            locationValue={event.location}
-            id={event._id.toString()}
+            img={event.img}
+            address={event.address}
+            eventId={event.eventId}
             currentUser={currentUser}
           />
           <div
@@ -152,14 +135,14 @@ const EventClient: React.FC<EventClientProps> = ({
             "
           >
             <EventInfo
-              user={event.user}
-              category={category}
-              description={event.description}
+              hostName={event.hostName}
+              hostProfilePhoto={event.hostProfilePhoto}
+              desc={event.desc}
               minGuests={event.minGuests}
               maxGuests={event.maxGuests}
-              eventDate={event.eventDate}
-              location={event.location}
-              eventTime={event.eventTime}
+              startDate={event.startDate}
+              endDate={event.endDate}
+              address={event.address}
             />
             <div
               className="

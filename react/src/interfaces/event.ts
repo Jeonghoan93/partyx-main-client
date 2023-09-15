@@ -1,26 +1,38 @@
-import { Types } from "mongoose";
-import { Reservation } from "./reservation";
-import { SafeUser, User } from "./user";
+import { Review } from "./review";
+import { SafeUser } from "./user";
+
+export interface Address {
+  street: string;
+  postalCode: string;
+  area: string;
+  city: string;
+  country: string;
+}
 
 export interface Event {
-  _id: Types.ObjectId;
+  eventId: number;
+  img: string;
+  avgRating: number;
+  reviewCounts: number;
+  address: Address;
   title: string;
-  description: string;
-  imageSrc: string;
-  createdAt: Date;
-  category: string;
-  maxGuests: number;
   minGuests: number;
-  location: any;
-  eventDate: string; // or Date if you adjust it in the backend
-  eventTime: {
-    hour: number;
-    minute: number;
-  };
+  maxGuests: number;
+  desc: string;
+  offers: string[];
+  startDate: Date;
+  endDate: Date;
+  eventType: string;
+  reviews: Review[];
+  currency: string;
   price: number;
-  userId: Types.ObjectId;
-  user?: User;
-  reservations?: Reservation[];
+  hostName: string;
+  hostProfilePhoto: string;
+  cancellationPolicy: string;
+  eventRules: string[];
+  safety: string[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface EventData {

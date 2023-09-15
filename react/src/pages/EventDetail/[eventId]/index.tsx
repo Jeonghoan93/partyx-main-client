@@ -1,25 +1,31 @@
-import { getCurrentUser } from "src/services/auth";
-import { getEventById } from "src/services/event";
-import { getReservations } from "src/services/reservation";
-
-import ClientOnly from "src/components/ClientOnly";
 import EmptyState from "src/components/EmptyState";
 
+import { useParams } from "react-router-dom";
+import ClientOnly from "src/components/ClientOnly";
+import { Event } from "src/interfaces/event";
+import { events } from "src/services/api-examples/events";
+import { getMockedReservations } from "src/services/api-examples/reservation";
+import { MockedUser } from "src/services/api-examples/user";
 import EventClient from "./Components/EventClient";
 
-interface IParams {
-  eventId?: string;
-}
+const EventDetail: React.FC = () => {
+  const { eventId } = useParams<{ eventId: string }>();
 
-const EventDetail = async ({ params }: { params: IParams }) => {
-  if (!params.eventId) {
-    return;
+  if (!eventId) {
+    return (
+      <EmptyState title="Event Not Found" subtitle="Event id doesn't exist" />
+    );
   }
-  const event = await getEventById(params.eventId);
-  const reservations = await getReservations(params);
-  const currentUser = await getCurrentUser();
+  // const event = getEventById(params.eventId);
+  const eventData = events.find(
+    (event: Event) => event.eventId === Number(eventId)
+  );
+  // const reservations = getReservationsById()
+  const reservations = getMockedReservations(Number(eventId));
+  // const currenUser = getCurrentUser;
+  const currentUser = MockedUser;
 
-  if (!event) {
+  if (!eventData) {
     return (
       <ClientOnly>
         <EmptyState />
@@ -30,7 +36,7 @@ const EventDetail = async ({ params }: { params: IParams }) => {
   return (
     <ClientOnly>
       <EventClient
-        event={event}
+        event={eventData}
         reservations={reservations}
         currentUser={currentUser}
       />

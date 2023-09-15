@@ -4,7 +4,7 @@ import useFavorite from "src/hooks/useFavorite";
 import { SafeUser } from "src/interfaces/user";
 
 interface HeartButtonProps {
-  eventId: string;
+  eventId: number;
   currentUser?: SafeUser | null;
 }
 

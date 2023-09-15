@@ -4,8 +4,8 @@ import { SafeUser, User } from "src/interfaces/user";
 
 export interface Reservation {
   _id: Types.ObjectId;
-  userId: Types.ObjectId;
-  eventId: Types.ObjectId;
+  userId: number;
+  eventId: number;
   startDate: Date;
   endDate: Date;
   currency?: string;

@@ -8,7 +8,7 @@ import { addToFavorites, deleteFromFavorites } from "src/services/favorites";
 import useLoginModal from "./useLoginModal";
 
 interface IUseFavorite {
-  eventId: string;
+  eventId: number;
   currentUser?: SafeUser | null;
 }
 

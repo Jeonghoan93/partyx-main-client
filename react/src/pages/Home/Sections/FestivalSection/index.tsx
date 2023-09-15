@@ -1,4 +1,4 @@
-import festivals from "../../api-examples/festivals";
+import festivals from "../../../../services/api-examples/festivals";
 import FestivalSlider from "./Components/FestivalSlider";
 
 const FestivalSection = () => {

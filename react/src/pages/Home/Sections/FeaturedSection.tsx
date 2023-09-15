@@ -1,5 +1,5 @@
 import EventSlider from "src/pages/Home/Components/EventSlider";
-import { events } from "../api-examples/events";
+import { events } from "../../../services/api-examples/events";
 
 const FeaturedSection = () => {
   return (
