@@ -6,7 +6,7 @@ export const festivals = [
     currency: "SEK",
     desc: "A massive rock festival featuring the world's top rock bands.",
     userName: "John Doe",
-    userPhoto: "https://example.com/users/johndoe.jpg",
+    userPhoto: "https://via.placeholder.com/50?text=JD",
   },
   {
     title: "Jazz and Blues Fest",

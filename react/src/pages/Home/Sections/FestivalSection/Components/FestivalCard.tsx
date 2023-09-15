@@ -46,7 +46,9 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
         {/* Content */}
         <div className="absolute w-full bottom-0 p-4" style={{ height: "37%" }}>
           <h3 className="text-white font-bold">{title}</h3>
-          <p className=" text-gray-300 text-sm">{desc}</p>
+          <p className=" text-gray-300 text-sm">
+            {desc.length > 50 ? desc.substring(0, 50) + "..." : desc}
+          </p>
           <div className="flex items-center mt-2">
             <img
               src={userPhoto}

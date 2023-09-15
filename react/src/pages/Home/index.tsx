@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import { getCurrentUser } from "src/services/auth";
-import FeaturedSection from "./FeaturedSection";
-import FestivalSection from "./FestivalSection";
-import HomeSection from "./HomeSection";
-import NewestSection from "./NewestSection";
-import TrendingSection from "./TrendingSection";
+import FeaturedSection from "./Sections/FeaturedSection";
+import FestivalSection from "./Sections/FestivalSection";
+import HomeSection from "./Sections/HomeSection";
+import NewestSection from "./Sections/NewestSection";
+import TrendingSection from "./Sections/TrendingSection";
 
 const Home: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(null);

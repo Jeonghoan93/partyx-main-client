@@ -1,13 +1,13 @@
+import EventSlider from "src/pages/Home/Components/EventSlider";
 import { events } from "../api-examples/events";
-import EventSlider from "./Components/EventSlider";
 
-const FeaturedSection = () => {
+const TrendingSection = () => {
   return (
     <section className="mt-4 p-1">
       <div className="mb-2">
-        <h2 className="text-[13pt] font-bold">Featured parties near you</h2>
+        <h2 className="text-[13pt] font-bold">Trending in Sweden</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          Everyone's looking into it
+          Don't miss the most popular parties in Sweden
         </span>
       </div>
       <EventSlider events={events} />
@@ -15,4 +15,4 @@ const FeaturedSection = () => {
   );
 };
 
-export default FeaturedSection;
+export default TrendingSection;

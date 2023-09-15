@@ -4,7 +4,7 @@ const HomeSection: React.FC = () => {
       <div
         className="mb-5 relative rounded-lg overflow-hidden shadow-2xl"
         style={{
-          height: "40vw",
+          height: "300px",
         }}
       >
         <div

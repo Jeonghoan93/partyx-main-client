@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import EventCard from "./EventCard";
+import EventCard from "./EventCard.tsx";
 
 type Events = {
   title: string;
@@ -11,13 +11,11 @@ type Events = {
   userPhoto: string;
 };
 
-type FeaturedEventSliderProps = {
+type EventSliderProps = {
   events: Events[];
 };
 
-const FeaturedEventSlider: React.FC<FeaturedEventSliderProps> = ({
-  events,
-}) => {
+const EventSlider: React.FC<EventSliderProps> = ({ events }) => {
   const isClient = typeof window === "object";
   const initialWidth = isClient ? window.innerWidth : 1200;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
@@ -83,4 +81,4 @@ const FeaturedEventSlider: React.FC<FeaturedEventSliderProps> = ({
   );
 };
 
-export default FeaturedEventSlider;
+export default EventSlider;
