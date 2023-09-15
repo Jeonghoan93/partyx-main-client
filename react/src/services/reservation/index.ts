@@ -2,7 +2,7 @@ import { NewReservationPayload } from "src/interfaces/reservation";
 import api from "src/services/api";
 
 export const getReservations = async (query: {
-  listingId?: string;
+  eventId?: string;
   userId?: string;
   authorId?: string;
 }) => {

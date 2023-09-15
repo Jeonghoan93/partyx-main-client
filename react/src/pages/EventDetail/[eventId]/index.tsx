@@ -1,25 +1,25 @@
 import { getCurrentUser } from "src/services/auth";
-import { getListingById } from "src/services/listing";
+import { getEventById } from "src/services/event";
 import { getReservations } from "src/services/reservation";
 
 import ClientOnly from "src/components/ClientOnly";
 import EmptyState from "src/components/EmptyState";
 
-import ListingClient from "./ListingClient";
+import EventClient from "./Components/EventClient";
 
 interface IParams {
-  listingId?: string;
+  eventId?: string;
 }
 
-const ListingPage = async ({ params }: { params: IParams }) => {
-  if (!params.listingId) {
+const EventDetail = async ({ params }: { params: IParams }) => {
+  if (!params.eventId) {
     return;
   }
-  const listing = await getListingById(params.listingId);
+  const event = await getEventById(params.eventId);
   const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
 
-  if (!listing) {
+  if (!event) {
     return (
       <ClientOnly>
         <EmptyState />
@@ -29,8 +29,8 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 
   return (
     <ClientOnly>
-      <ListingClient
-        listing={listing}
+      <EventClient
+        event={event}
         reservations={reservations}
         currentUser={currentUser}
       />
@@ -38,4 +38,4 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   );
 };
 
-export default ListingPage;
+export default EventDetail;

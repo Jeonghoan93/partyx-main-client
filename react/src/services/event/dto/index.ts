@@ -1,6 +1,6 @@
-import { SafeListing } from "src/interfaces/listing";
+import { SafeEvent } from "src/interfaces/event";
 
-export interface IListingsParams {
+export interface IEventsParams {
   userId?: string;
   minGuests?: number;
   maxGuests?: number;
@@ -11,19 +11,19 @@ export interface IListingsParams {
   featured?: boolean;
 }
 
-export interface IListingsReturn {
-  data: IListingsParams[];
+export interface IEventsReturn {
+  data: IEventsParams[];
   total: number;
   limit: number;
 }
 
-export interface SafeListingReturn {
-  data: SafeListing[];
+export interface SafeEventReturn {
+  data: SafeEvent[];
   total: number;
   limit: number;
 }
 
-export interface CreateListingDTO {
+export interface CreateEventDTO {
   category: string;
   location: {
     flag: string;

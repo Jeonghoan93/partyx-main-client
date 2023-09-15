@@ -13,8 +13,8 @@ import DateTimePicker from "src/components/inputs/DateTimePicker";
 import ImageUpload from "src/components/inputs/ImageUpload";
 import Input from "src/components/inputs/Input";
 import useRentModal from "src/hooks/useRentModal";
-import { createListing } from "src/services/listing";
-import { CreateListingDTO } from "src/services/listing/dto";
+import { createEvent } from "src/services/event";
+import { CreateEventDTO } from "src/services/event/dto";
 import { categories } from "src/utils/constants";
 import Modal from "./Modal";
 
@@ -98,10 +98,10 @@ const RentModal = () => {
     setIsLoading(true);
 
     try {
-      const res = await createListing(data as CreateListingDTO);
+      const res = await createEvent(data as CreateEventDTO);
 
       if (res?.status === "success") {
-        toast.success("Listing created!");
+        toast.success("Event created!");
         navigate("/");
         reset();
         setStep(STEPS.CATEGORY);

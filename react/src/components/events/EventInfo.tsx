@@ -6,11 +6,11 @@ import { SafeUser } from "src/interfaces/user";
 import { Suspense, lazy } from "react";
 import Avatar from "../Avatar";
 import { CountrySelectValue } from "../inputs/CountrySelect";
-import ListingCategory from "./ListingCategory";
+import EventCategory from "./EventCategory";
 
 const Map = lazy(() => import("../Map"));
 
-interface ListingInfoProps {
+interface EventInfoProps {
   user: SafeUser;
   description: string;
   minGuests: number;
@@ -30,7 +30,7 @@ interface ListingInfoProps {
   location: CountrySelectValue | undefined;
 }
 
-const ListingInfo: React.FC<ListingInfoProps> = ({
+const EventInfo: React.FC<EventInfoProps> = ({
   user,
   description,
   minGuests,
@@ -82,7 +82,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       </div>
       <hr />
       {category && (
-        <ListingCategory
+        <EventCategory
           icon={category.icon}
           label={category?.label}
           description={category?.description}
@@ -103,4 +103,4 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   );
 };
 
-export default ListingInfo;
+export default EventInfo;

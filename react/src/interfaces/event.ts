@@ -2,7 +2,7 @@ import { Types } from "mongoose";
 import { Reservation } from "./reservation";
 import { SafeUser, User } from "./user";
 
-export interface Listing {
+export interface Event {
   _id: Types.ObjectId;
   title: string;
   description: string;
@@ -23,12 +23,12 @@ export interface Listing {
   reservations?: Reservation[];
 }
 
-export interface ListingData {
-  data: Listing[];
+export interface EventData {
+  data: Event[];
   total: number;
 }
 
-export type SafeListing = Omit<Listing, "createdAt" | "user"> & {
+export type SafeEvent = Omit<Event, "createdAt" | "user"> & {
   createdAt: string;
   user: SafeUser;
 };

@@ -2,31 +2,31 @@ import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
-import ListingCard from "src/components/listings/ListingCard";
-import { SafeListing } from "src/interfaces/listing";
+import EventCard from "src/components/events/EventCard";
+import { SafeEvent } from "src/interfaces/event";
 import { getCurrentUser } from "src/services/auth";
-import { getListings } from "src/services/listing";
-import { IListingsParams } from "src/services/listing/dto";
+import { getEvents } from "src/services/event";
+import { IEventsParams } from "src/services/event/dto";
 
 interface HomeProps {
-  searchParams: IListingsParams;
+  searchParams: IEventsParams;
 }
 
 function EventList({ searchParams }: HomeProps) {
-  const [listings, setListings] = useState([]);
+  const [events, setEvents] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getListings(searchParams);
+      const data = await getEvents(searchParams);
       const user = await getCurrentUser();
-      setListings(data);
+      setEvents(data);
       setCurrentUser(user);
     }
     fetchData();
   }, [searchParams]);
 
-  if (listings.length === 0) {
+  if (events.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -38,11 +38,11 @@ function EventList({ searchParams }: HomeProps) {
     <ClientOnly>
       <Container>
         <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {listings.map((listing: SafeListing) => (
-            <ListingCard
+          {events.map((event: SafeEvent) => (
+            <EventCard
               currentUser={currentUser}
-              key={listing._id.toString()}
-              data={listing}
+              key={event._id.toString()}
+              data={event}
             />
           ))}
         </div>

@@ -6,19 +6,16 @@ import { SafeUser } from "src/interfaces/user";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import ListingCard from "src/components/listings/ListingCard";
-import { SafeListing } from "src/interfaces/listing";
-import { deleteListing } from "src/services/listing";
+import EventCard from "src/components/events/EventCard";
+import { SafeEvent } from "src/interfaces/event";
+import { deleteEvent } from "src/services/event";
 
 interface EventsClientProps {
-  listings: SafeListing[];
+  events: SafeEvent[];
   currentUser?: SafeUser | null;
 }
 
-const EventsClient: React.FC<EventsClientProps> = ({
-  listings,
-  currentUser,
-}) => {
+const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
   const navigate = useNavigate();
   const [deletingId, setDeletingId] = useState("");
 
@@ -27,9 +24,9 @@ const EventsClient: React.FC<EventsClientProps> = ({
       setDeletingId(id);
 
       try {
-        deleteListing(id);
+        deleteEvent(id);
 
-        toast.success("Listing deleted");
+        toast.success("Event deleted");
         navigate("/");
       } catch (err) {
         toast.error("Unknown error");
@@ -56,13 +53,13 @@ const EventsClient: React.FC<EventsClientProps> = ({
           gap-8
         "
       >
-        {listings.map((listing: SafeListing) => (
-          <ListingCard
-            key={listing._id.toString()}
-            data={listing}
-            actionId={listing._id.toString()}
+        {events.map((event: SafeEvent) => (
+          <EventCard
+            key={event._id.toString()}
+            data={event}
+            actionId={event._id.toString()}
             onAction={onDelete}
-            disabled={deletingId === listing._id.toString()}
+            disabled={deletingId === event._id.toString()}
             actionLabel="Delete event"
             currentUser={currentUser}
           />

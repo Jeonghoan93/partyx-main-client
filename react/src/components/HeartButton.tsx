@@ -4,16 +4,13 @@ import useFavorite from "src/hooks/useFavorite";
 import { SafeUser } from "src/interfaces/user";
 
 interface HeartButtonProps {
-  listingId: string;
+  eventId: string;
   currentUser?: SafeUser | null;
 }
 
-const HeartButton: React.FC<HeartButtonProps> = ({
-  listingId,
-  currentUser,
-}) => {
+const HeartButton: React.FC<HeartButtonProps> = ({ eventId, currentUser }) => {
   const { hasFavorited, toggleFavorite } = useFavorite({
-    listingId,
+    eventId,
     currentUser,
   });
 

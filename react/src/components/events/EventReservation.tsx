@@ -5,7 +5,7 @@ import { Range } from "react-date-range";
 import Button from "../Button";
 import Calendar from "../inputs/DateRangePicker";
 
-interface ListingReservationProps {
+interface EventReservationProps {
   price: number;
   dateRange: Range;
   totalPrice: number;
@@ -15,7 +15,7 @@ interface ListingReservationProps {
   disabledDates: Date[];
 }
 
-const ListingReservation: React.FC<ListingReservationProps> = ({
+const EventReservation: React.FC<EventReservationProps> = ({
   price,
   dateRange,
   totalPrice,
@@ -70,4 +70,4 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
   );
 };
 
-export default ListingReservation;
+export default EventReservation;

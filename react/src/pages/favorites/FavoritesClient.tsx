@@ -1,16 +1,16 @@
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import ListingCard from "src/components/listings/ListingCard";
-import { SafeListing } from "src/interfaces/listing";
+import EventCard from "src/components/events/EventCard";
+import { SafeEvent } from "src/interfaces/event";
 import { SafeUser } from "src/interfaces/user";
 
 interface FavoritesClientProps {
-  listings: SafeListing[];
+  events: SafeEvent[];
   currentUser?: SafeUser | null;
 }
 
 const FavoritesClient: React.FC<FavoritesClientProps> = ({
-  listings,
+  events,
   currentUser,
 }) => {
   return (
@@ -29,11 +29,11 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
           gap-8
         "
       >
-        {listings.map((listing: SafeListing) => (
-          <ListingCard
+        {events.map((event: SafeEvent) => (
+          <EventCard
             currentUser={currentUser}
-            key={listing._id.toString()}
-            data={listing}
+            key={event._id.toString()}
+            data={event}
           />
         ))}
       </div>

@@ -1,23 +1,7 @@
 import React, { useEffect, useState } from "react";
-import EventCard from "./EventCard";
+import EventCard, { EventProps } from "./EventCard";
 
-type Events = {
-  title: string;
-  img: string;
-  price: number;
-  time: string;
-  date: string;
-  desc: string;
-  currency: string;
-  userName?: string;
-  userPhoto?: string;
-};
-
-type EventSliderProps = {
-  events: Events[];
-};
-
-const EventSlider: React.FC<EventSliderProps> = ({ events }) => {
+const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
   const isClient = typeof window === "object";
   const initialWidth = isClient ? window.innerWidth : 1200;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
@@ -55,7 +39,7 @@ const EventSlider: React.FC<EventSliderProps> = ({ events }) => {
           {events.map((festival) => (
             <EventCard
               {...festival}
-              boxKey={festival.title}
+              key={festival.title}
               containerStyle={{
                 width: "100%",
               }}
@@ -88,7 +72,7 @@ const EventSlider: React.FC<EventSliderProps> = ({ events }) => {
         {events.map((festival) => (
           <EventCard
             {...festival}
-            boxKey={festival.title}
+            key={festival.title}
             containerStyle={{
               display: "inline-block",
               maxWidth: "375px",

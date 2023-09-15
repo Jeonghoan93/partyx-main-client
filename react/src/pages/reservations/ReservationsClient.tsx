@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import ListingCard from "src/components/listings/ListingCard";
+import EventCard from "src/components/events/EventCard";
 import { SafeReservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
 
@@ -58,9 +58,9 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
         "
       >
         {reservations.map((reservation: SafeReservation) => (
-          <ListingCard
+          <EventCard
             key={reservation._id.toString()}
-            data={reservation.listing}
+            data={reservation.event}
             reservation={reservation}
             actionId={reservation._id.toString()}
             onAction={onCancel}

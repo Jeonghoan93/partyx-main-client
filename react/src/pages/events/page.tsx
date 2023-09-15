@@ -2,7 +2,7 @@ import ClientOnly from "src/components/ClientOnly";
 import EmptyState from "src/components/EmptyState";
 
 import { getCurrentUser } from "src/services/auth";
-import { getListings } from "src/services/listing";
+import { getEvents } from "src/services/event";
 
 import PropertiesClient from "./PropertiesClient";
 
@@ -13,9 +13,9 @@ const PropertiesPage = async () => {
     return <EmptyState title="Unauthorized" subtitle="Please login" />;
   }
 
-  const listings = await getListings({ userId: currentUser.id });
+  const events = await getEvents({ userId: currentUser.id });
 
-  if (listings.length === 0) {
+  if (events.length === 0) {
     return (
       <ClientOnly>
         <EmptyState
@@ -28,7 +28,7 @@ const PropertiesPage = async () => {
 
   return (
     <ClientOnly>
-      <PropertiesClient listings={listings} currentUser={currentUser} />
+      <PropertiesClient events={events} currentUser={currentUser} />
     </ClientOnly>
   );
 };

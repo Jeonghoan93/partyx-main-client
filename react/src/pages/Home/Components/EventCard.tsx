@@ -1,29 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "src/utils/formatDate";
 
-type EventCardProps = {
+export type EventProps = {
+  eventId?: number;
   title: string;
   img: string;
   price: number;
   desc: string;
   currency: string;
-  userName?: string;
-  userPhoto?: string;
-  time: string;
-  date: string;
-  boxKey: string;
-  containerStyle: React.CSSProperties;
+  HostName?: string;
+  hostPhoto?: string;
+  startDate: Date;
+  endDate: Date;
+  containerStyle?: React.CSSProperties;
 };
 
-const EventCard: React.FC<EventCardProps> = ({
+const EventCard: React.FC<EventProps> = ({
+  eventId,
   title,
   img,
   price,
   currency,
   desc,
-  time,
-  date,
-  boxKey,
+  startDate,
+  endDate,
   containerStyle,
 }) => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <div
       className={"cursor-pointer"}
-      onClick={() => navigate("/")}
-      key={boxKey}
+      onClick={() => navigate(`/events/${eventId}`)}
+      key={eventId}
       style={containerStyle}
     >
       <div
@@ -48,7 +49,7 @@ const EventCard: React.FC<EventCardProps> = ({
             {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
           </p>
           <div className="flex text-[9pt] font-mono font-semibold items-center mt-2">
-            {time}, {date}
+            {formatDate(startDate, true, endDate)}
           </div>
           <p className="text-[12pt] mt-2 font-bold my-1">
             {currency} {price}

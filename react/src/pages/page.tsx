@@ -1,22 +1,22 @@
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
-import ListingCard from "src/components/listings/ListingCard";
+import EventCard from "src/components/events/EventCard";
 
 import ClientOnly from "src/components/ClientOnly";
-import { SafeListing } from "src/interfaces/listing";
+import { SafeEvent } from "src/interfaces/event";
 import { getCurrentUser } from "src/services/auth";
-import { getListings } from "src/services/listing";
-import { IListingsParams } from "src/services/listing/dto";
+import { getEvents } from "src/services/event";
+import { IEventsParams } from "src/services/event/dto";
 
 interface HomeProps {
-  searchParams: IListingsParams;
+  searchParams: IEventsParams;
 }
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
+  const events = await getEvents(searchParams);
   const currentUser = await getCurrentUser();
 
-  if (listings.length === 0) {
+  if (events.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -40,11 +40,11 @@ const Home = async ({ searchParams }: HomeProps) => {
             gap-8
           "
         >
-          {listings.map((listing: SafeListing) => (
-            <ListingCard
+          {events.map((event: SafeEvent) => (
+            <EventCard
               currentUser={currentUser}
-              key={listing._id.toString()}
-              data={listing}
+              key={event._id.toString()}
+              data={event}
             />
           ))}
         </div>

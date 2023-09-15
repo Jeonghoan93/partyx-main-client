@@ -8,11 +8,11 @@ import { addToFavorites, deleteFromFavorites } from "src/services/favorites";
 import useLoginModal from "./useLoginModal";
 
 interface IUseFavorite {
-  listingId: string;
+  eventId: string;
   currentUser?: SafeUser | null;
 }
 
-const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
+const useFavorite = ({ eventId, currentUser }: IUseFavorite) => {
   const navigate = useNavigate();
 
   const loginModal = useLoginModal();
@@ -20,8 +20,8 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
   const hasFavorited = useMemo(() => {
     const list = currentUser?.favoriteIds || [];
 
-    return list.includes(listingId);
-  }, [currentUser, listingId]);
+    return list.includes(eventId);
+  }, [currentUser, eventId]);
 
   const toggleFavorite = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
@@ -33,9 +33,9 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
 
       try {
         if (hasFavorited) {
-          await addToFavorites(listingId);
+          await addToFavorites(eventId);
         } else {
-          await deleteFromFavorites(listingId);
+          await deleteFromFavorites(eventId);
         }
 
         navigate("/");
@@ -44,7 +44,7 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
         toast.error("Something went wrong.");
       }
     },
-    [currentUser, hasFavorited, listingId, loginModal, navigate]
+    [currentUser, hasFavorited, eventId, loginModal, navigate]
   );
 
   return {

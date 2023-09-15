@@ -5,7 +5,7 @@ import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 import { CountrySelectValue } from "../inputs/CountrySelect";
 
-interface ListingHeadProps {
+interface EventHeadProps {
   title: string;
   imageSrc: string;
   id: string;
@@ -13,7 +13,7 @@ interface ListingHeadProps {
   locationValue: CountrySelectValue | undefined;
 }
 
-const ListingHead: React.FC<ListingHeadProps> = ({
+const EventHead: React.FC<EventHeadProps> = ({
   title,
   locationValue,
   imageSrc,
@@ -54,11 +54,11 @@ const ListingHead: React.FC<ListingHeadProps> = ({
             right-5
           "
         >
-          <HeartButton listingId={id} currentUser={currentUser} />
+          <HeartButton eventId={id} currentUser={currentUser} />
         </div>
       </div>
     </>
   );
 };
 
-export default ListingHead;
+export default EventHead;

@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 import { Account } from "src/interfaces/account";
-import { Listing } from "src/interfaces/listing";
+import { Event } from "src/interfaces/event";
 import { Reservation } from "src/interfaces/reservation";
 
 export enum UserTypes {
@@ -20,7 +20,7 @@ export interface User {
   updatedAt: Date;
   favoriteIds?: Types.ObjectId[];
   accounts?: Account[];
-  listings?: Listing[];
+  events?: Event[];
   reservations?: Reservation[];
   otp?: number;
   otpExpiryTime?: Date;

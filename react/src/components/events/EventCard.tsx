@@ -4,14 +4,14 @@ import { useCallback, useMemo } from "react";
 import useCountries from "src/hooks/useCountries";
 
 import { useNavigate } from "react-router-dom";
-import { SafeListing } from "src/interfaces/listing";
+import { SafeEvent } from "src/interfaces/event";
 import { SafeReservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
 
-interface ListingCardProps {
-  data: SafeListing;
+interface EventCardProps {
+  data: SafeEvent;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
@@ -20,7 +20,7 @@ interface ListingCardProps {
   currentUser?: SafeUser | null;
 }
 
-const ListingCard: React.FC<ListingCardProps> = ({
+const EventCard: React.FC<EventCardProps> = ({
   data,
   reservation,
   onAction,
@@ -68,7 +68,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   return (
     <div
-      onClick={() => navigate(`/listings/${data._id}`)}
+      onClick={() => navigate(`/events/${data._id}`)}
       className="col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full">
@@ -91,7 +91,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
               transition
             "
             src={data.imageSrc}
-            alt="Listing"
+            alt="Event"
           />
           <div
             className="
@@ -101,7 +101,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           "
           >
             <HeartButton
-              listingId={data._id.toString()}
+              eventId={data._id.toString()}
               currentUser={currentUser}
             />
           </div>
@@ -129,4 +129,4 @@ const ListingCard: React.FC<ListingCardProps> = ({
   );
 };
 
-export default ListingCard;
+export default EventCard;

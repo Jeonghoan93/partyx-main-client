@@ -1,86 +1,114 @@
 import { IconType } from "react-icons";
-import { AiOutlineFire } from "react-icons/ai";
-import { CiBeerMugFull } from "react-icons/ci";
-import { FaBuildingFlag, FaPeopleRobbery } from "react-icons/fa6";
+import { AiOutlineCrown, AiOutlineFire, AiOutlineHome } from "react-icons/ai";
+import { BsFillPeopleFill, BsMusicNoteBeamed } from "react-icons/bs";
+import { FaBuilding, FaMask } from "react-icons/fa";
+import { GiForestCamp, GiPentacle } from "react-icons/gi";
+import { IoMdBeer } from "react-icons/io";
+import { MdFestival, MdOutdoorGrill, MdSportsHandball } from "react-icons/md";
 import {
-  GiFamilyHouse,
-  GiForestCamp,
-  GiIsland,
-  GiSpaceSuit,
-} from "react-icons/gi";
-import { IoDiamond } from "react-icons/io5";
-import { MdFestival, MdOutlineVilla, MdSportsHandball } from "react-icons/md";
-import { TbPool } from "react-icons/tb";
+  RiGamepadLine,
+  RiInkBottleLine,
+  RiMovie2Line,
+  RiSearchLine,
+} from "react-icons/ri";
+
+import { SiBytedance } from "react-icons/si";
 
 export type Category = {
   label: string;
   icon: IconType;
   description: string;
 };
+
 export const categories: Category[] = [
   {
     label: "Clubs",
-    icon: FaBuildingFlag,
-    description: "This Event is at festival!",
+    icon: FaBuilding,
+    description: "Event in a lively club setting!",
   },
   {
     label: "House",
-    icon: GiFamilyHouse,
-    description: "This Event is at house!",
+    icon: AiOutlineHome,
+    description: "Homey event vibes!",
   },
   {
     label: "Festivals",
     icon: MdFestival,
-    description: "This Event is at festival!",
+    description: "Feel the festival spirit!",
   },
   {
     label: "Rave",
-    icon: MdOutlineVilla,
-    description: "This Event is modern!",
+    icon: BsMusicNoteBeamed,
+    description: "Dance to the beat!",
   },
   {
     label: "Trending",
     icon: AiOutlineFire,
-    description: "This Event is trending!",
+    description: "Stay in the trend with this event!",
   },
   {
-    label: "Water",
-    icon: TbPool,
-    description: "This is Event has a beautiful pool!",
+    label: "Outdoor",
+    icon: MdOutdoorGrill,
+    description: "Experience the great outdoors!",
   },
   {
-    label: "Islands",
-    icon: GiIsland,
-    description: "This Event is on an island!",
+    label: "Hangout",
+    icon: BsFillPeopleFill,
+    description: "Chill and hang out!",
   },
   {
     label: "Dance",
-    icon: FaPeopleRobbery,
-    description: "This Event is near a lake!",
+    icon: SiBytedance,
+    description: "Move to the rhythm!",
   },
   {
     label: "Costume",
-    icon: GiSpaceSuit,
-    description: "This Event has skiing activies!",
+    icon: FaMask,
+    description: "Show up in your best costume!",
   },
   {
     label: "Pub",
-    icon: CiBeerMugFull,
-    description: "This Event is an ancient castle!",
+    icon: IoMdBeer,
+    description: "Relax with some brews!",
   },
   {
     label: "Camping",
     icon: GiForestCamp,
-    description: "This Event offers camping activities!",
+    description: "Become one with nature!",
   },
   {
     label: "Sports",
     icon: MdSportsHandball,
-    description: "This Event is in a barn!",
+    description: "Get sporty and active!",
   },
   {
     label: "Lux",
-    icon: IoDiamond,
-    description: "This Event is brand new and luxurious!",
+    icon: AiOutlineCrown,
+    description: "A touch of luxury!",
+  },
+  {
+    label: "Mystery",
+    icon: GiPentacle,
+    description: "Unravel the event's secrets!",
+  },
+  {
+    label: "Beach",
+    icon: RiSearchLine,
+    description: "Soak up the sun on the beach!",
+  },
+  {
+    label: "Movie",
+    icon: RiMovie2Line,
+    description: "Watch top movies under the stars!",
+  },
+  {
+    label: "Gaming",
+    icon: RiGamepadLine,
+    description: "Engage in thrilling game battles!",
+  },
+  {
+    label: "Wine",
+    icon: RiInkBottleLine,
+    description: "Savor the finest wines!",
   },
 ];

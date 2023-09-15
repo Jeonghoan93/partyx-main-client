@@ -5,12 +5,12 @@ import { toast } from "react-hot-toast";
 import { GiAbstract001 } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
-import ListingHead from "src/components/listings/ListingHead";
-import ListingInfo from "src/components/listings/ListingInfo";
-import ListingReservation from "src/components/listings/ListingReservation";
+import EventHead from "src/components/events/EventHead";
+import EventInfo from "src/components/events/EventInfo";
+import EventReservation from "src/components/events/EventReservation";
 import categories from "src/components/navbar/Components/Categories";
 import useLoginModal from "src/hooks/useLoginModal";
-import { SafeListing } from "src/interfaces/listing";
+import { SafeEvent } from "src/interfaces/event";
 import { SafeReservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
 import { createReservation } from "src/services/reservation";
@@ -22,16 +22,16 @@ const initialDateRange = {
   key: "selection",
 };
 
-interface ListingClientProps {
+interface EventClientProps {
   reservations?: SafeReservation[];
-  listing: SafeListing & {
+  event: SafeEvent & {
     user: SafeUser;
   };
   currentUser?: SafeUser | null;
 }
 
-const ListingClient: React.FC<ListingClientProps> = ({
-  listing,
+const EventClient: React.FC<EventClientProps> = ({
+  event,
   reservations = [],
   currentUser,
 }) => {
@@ -55,9 +55,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   const category = useMemo(() => {
     if (categories instanceof Array) {
-      return categories.find(
-        (item: Category) => item.label === listing.category
-      );
+      return categories.find((item: Category) => item.label === event.category);
     } else {
       return {
         label: "Unknown",
@@ -65,10 +63,10 @@ const ListingClient: React.FC<ListingClientProps> = ({
         description: "No description available",
       };
     }
-  }, [listing.category]);
+  }, [event.category]);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(listing.price);
+  const [totalPrice, setTotalPrice] = useState(event.price);
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
   const onCreateReservation = useCallback(async () => {
@@ -89,15 +87,15 @@ const ListingClient: React.FC<ListingClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate?.toISOString(),
         endDate: dateRange.endDate?.toISOString(),
-        listingId: listing._id,
+        eventId: event._id,
         userId: currentUser._id,
         createdAt: new Date().toISOString(),
-        listing: listing,
+        event: event,
         user: currentUser,
       });
 
       if (res?.status === "success") {
-        toast.success("Listing reserved!");
+        toast.success("Event reserved!");
         setDateRange(initialDateRange);
         navigate("/tickets");
       }
@@ -112,7 +110,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     dateRange.endDate,
     loginModal,
     totalPrice,
-    listing,
+    event,
     navigate,
   ]);
 
@@ -120,13 +118,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
     if (dateRange.startDate && dateRange.endDate) {
       const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate);
 
-      if (dayCount && listing.price) {
-        setTotalPrice(dayCount * listing.price);
+      if (dayCount && event.price) {
+        setTotalPrice(dayCount * event.price);
       } else {
-        setTotalPrice(listing.price);
+        setTotalPrice(event.price);
       }
     }
-  }, [dateRange, listing.price]);
+  }, [dateRange, event.price]);
 
   return (
     <Container>
@@ -137,11 +135,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
         "
       >
         <div className="flex flex-col gap-6">
-          <ListingHead
-            title={listing.title}
-            imageSrc={listing.imageSrc}
-            locationValue={listing.location}
-            id={listing._id.toString()}
+          <EventHead
+            title={event.title}
+            imageSrc={event.imageSrc}
+            locationValue={event.location}
+            id={event._id.toString()}
             currentUser={currentUser}
           />
           <div
@@ -153,15 +151,15 @@ const ListingClient: React.FC<ListingClientProps> = ({
               mt-6
             "
           >
-            <ListingInfo
-              user={listing.user}
+            <EventInfo
+              user={event.user}
               category={category}
-              description={listing.description}
-              minGuests={listing.minGuests}
-              maxGuests={listing.maxGuests}
-              eventDate={listing.eventDate}
-              location={listing.location}
-              eventTime={listing.eventTime}
+              description={event.description}
+              minGuests={event.minGuests}
+              maxGuests={event.maxGuests}
+              eventDate={event.eventDate}
+              location={event.location}
+              eventTime={event.eventTime}
             />
             <div
               className="
@@ -171,8 +169,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 md:col-span-3
               "
             >
-              <ListingReservation
-                price={listing.price}
+              <EventReservation
+                price={event.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}
@@ -188,4 +186,4 @@ const ListingClient: React.FC<ListingClientProps> = ({
   );
 };
 
-export default ListingClient;
+export default EventClient;
