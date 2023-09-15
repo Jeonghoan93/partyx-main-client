@@ -7,8 +7,10 @@ type Festivals = {
   price: number;
   currency: string;
   desc: string;
-  userName: string;
-  userPhoto: string;
+  userName?: string;
+  userPhoto?: string;
+  time: string;
+  date: string;
 };
 
 type FestivalSliderProps = {

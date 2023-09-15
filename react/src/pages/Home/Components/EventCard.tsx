@@ -7,8 +7,10 @@ type EventCardProps = {
   price: number;
   desc: string;
   currency: string;
-  userName: string;
-  userPhoto: string;
+  userName?: string;
+  userPhoto?: string;
+  time: string;
+  date: string;
   boxKey: string;
   containerStyle: React.CSSProperties;
 };
@@ -19,8 +21,8 @@ const EventCard: React.FC<EventCardProps> = ({
   price,
   currency,
   desc,
-  userName,
-  userPhoto,
+  time,
+  date,
   boxKey,
   containerStyle,
 }) => {
@@ -43,19 +45,14 @@ const EventCard: React.FC<EventCardProps> = ({
         <div className="p-3">
           <h2 className="text-[12pt] font-bold my-1">{title}</h2>
           <p className="text-[10pt] text-gray-600">
-            {desc.length > 50 ? desc.substring(0, 50) + "..." : desc}
+            {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
           </p>
-          <p className="text-[12pt] font-bold my-1">
+          <div className="flex text-[9pt] font-mono font-semibold items-center mt-2">
+            {time}, {date}
+          </div>
+          <p className="text-[12pt] mt-2 font-bold my-1">
             {currency} {price}
           </p>
-          <div className="flex items-center mt-2">
-            <img
-              src={userPhoto}
-              alt={userName}
-              className="w-6 h-6 rounded-full"
-            />
-            <span className="ml-2 text-[6t]">{userName}</span>
-          </div>
         </div>
       </div>
     </div>

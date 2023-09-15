@@ -7,6 +7,8 @@ export const events = [
     desc: "Lose yourself to the mellifluous rhythms of jazz as the sun sets. Cocktail attire recommended.",
     userName: "John Doe",
     userPhoto: "https://via.placeholder.com/50?text=J",
+    date: "Oct 15",
+    time: "19:00 - 22:30",
   },
   {
     title: "Vintage Wine Gala",
@@ -16,6 +18,8 @@ export const events = [
     desc: "For the wine aficionados! Come taste rare and exotic wines from around the globe.",
     userName: "Jane Smith",
     userPhoto: "https://via.placeholder.com/50?text=JS",
+    date: "Oct 15",
+    time: "19:00 - 22:30",
   },
   {
     title: "Smooth Electronics & Conversations",
@@ -25,6 +29,8 @@ export const events = [
     desc: "Mingle with fellow beer lovers, and let the conversations flow as smoothly as our on-tap selections.",
     userName: "Mike Johnson",
     userPhoto: "https://via.placeholder.com/50?text=MJ",
+    date: "Oct 12",
+    time: "21:00 - 22:30",
   },
   {
     title: "Masquerade Mystique",
@@ -34,6 +40,8 @@ export const events = [
     desc: "A night of secrets and allure. Don your masks and let the mystery ensue.",
     userName: "Emily Brown",
     userPhoto: "https://via.placeholder.com/50?text=EB",
+    date: "Oct 15",
+    time: "18:00 - 21:30",
   },
   {
     title: "Art & Aperitifs",
@@ -43,6 +51,8 @@ export const events = [
     desc: "For the love of art and wine. Explore handpicked art exhibits while sipping on curated cocktails.",
     userName: "Chris White",
     userPhoto: "https://via.placeholder.com/50?text=CW",
+    date: "Oct 15",
+    time: "17:00 - 22:30",
   },
   {
     title: "Electro Nights",
@@ -52,6 +62,8 @@ export const events = [
     desc: "Feel the beat drop and let the electronic vibes take over. Perfect for EDM enthusiasts.",
     userName: "Ashley Black",
     userPhoto: "https://via.placeholder.com/50?text=AB",
+    date: "Oct 15",
+    time: "20:00 - 23:30",
   },
   {
     title: "Tropical Beach Bash",
@@ -61,5 +73,7 @@ export const events = [
     desc: "Bring out the beachwear! Groove to tropical tunes and sip on exotic tiki cocktails.",
     userName: "Matthew Green",
     userPhoto: "https://via.placeholder.com/50?text=MG",
+    date: "Oct 15",
+    time: "17:00 - 23:30",
   },
 ];

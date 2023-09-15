@@ -4,8 +4,10 @@ type FestivalCardProps = {
   price: number;
   currency: string;
   desc: string;
-  userName: string;
-  userPhoto: string;
+  date: string;
+  time: string;
+  userName?: string;
+  userPhoto?: string;
   boxKey: string;
   containerStyle: React.CSSProperties;
 };
@@ -16,8 +18,8 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
   price,
   currency,
   desc,
-  userName,
-  userPhoto,
+  time,
+  date,
   containerStyle,
   boxKey,
 }) => {
@@ -26,7 +28,7 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
       <div
         className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
-          height: "400px",
+          height: "375px",
         }}
       >
         {/* Background Image */}
@@ -44,20 +46,15 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
           style={{ height: "40%" }}
         ></div>
         {/* Content */}
-        <div className="absolute w-full bottom-0 p-4" style={{ height: "37%" }}>
+        <div className="absolute w-full bottom-0 p-4" style={{ height: "40%" }}>
           <h3 className="text-white font-bold">{title}</h3>
           <p className=" text-gray-300 text-sm">
-            {desc.length > 50 ? desc.substring(0, 50) + "..." : desc}
+            {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
           </p>
-          <div className="flex items-center mt-2">
-            <img
-              src={userPhoto}
-              alt={userName}
-              className=" w-8 h-8 rounded-full mr-2"
-            />
-            <span className=" text-white text-sm">{userName}</span>
+          <div className="flex text-red-50 font-serif text-[10pt] items-center mt-2">
+            {time}, {date}
           </div>
-          <span className="text-white font-bold sm:mt-2 block">
+          <span className="text-white font-bold mt-2 block">
             {currency} {price}
           </span>
         </div>

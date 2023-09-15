@@ -7,6 +7,8 @@ export const festivals = [
     desc: "A massive rock festival featuring the world's top rock bands.",
     userName: "John Doe",
     userPhoto: "https://via.placeholder.com/50?text=JD",
+    date: "Oct 11",
+    time: "16:00 - 18:30",
   },
   {
     title: "Jazz and Blues Fest",
@@ -16,6 +18,8 @@ export const festivals = [
     desc: "Dive deep into the rhythms of jazz and blues from global artists.",
     userName: "Alice Johnson",
     userPhoto: "https://example.com/users/alice.jpg",
+    date: "Oct 15",
+    time: "17:00 - 19:30",
   },
   {
     title: "Country Music Bonanza",
@@ -25,6 +29,8 @@ export const festivals = [
     desc: "Enjoy the twang and tales of country music under the open sky.",
     userName: "Bob Dylan",
     userPhoto: "https://example.com/users/bob.jpg",
+    date: "Oct 26",
+    time: "20:00 - 22:30",
   },
   {
     title: "Electro Beat Drop",
@@ -34,6 +40,8 @@ export const festivals = [
     desc: "Dance away in this electric festival pulsating with energy.",
     userName: "Charlie Puth",
     userPhoto: "https://example.com/users/charlie.jpg",
+    date: "Oct 12",
+    time: "22:00 - 23:30",
   },
   {
     title: "Classical Echoes",
@@ -43,6 +51,8 @@ export const festivals = [
     desc: "Experience the serene sounds of classical music in a tranquil setting.",
     userName: "Diana Ross",
     userPhoto: "https://example.com/users/diana.jpg",
+    date: "Oct 15",
+    time: "21:00 - 0:30",
   },
   {
     title: "Reggae Rhythms",
@@ -52,6 +62,8 @@ export const festivals = [
     desc: "Relax and feel the vibes of the island rhythms in this reggae fest.",
     userName: "Frank Ocean",
     userPhoto: "https://example.com/users/frank.jpg",
+    date: "Oct 15",
+    time: "16:00 - 2:30",
   },
 ];
 
