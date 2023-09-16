@@ -32,7 +32,7 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
         {events.map((event: SafeEvent) => (
           <EventCard
             currentUser={currentUser}
-            key={event._id.toString()}
+            key={event.eventId}
             data={event}
           />
         ))}

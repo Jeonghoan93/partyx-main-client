@@ -55,11 +55,11 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
       >
         {events.map((event: SafeEvent) => (
           <EventCard
-            key={event._id.toString()}
+            key={event.eventId}
             data={event}
-            actionId={event._id.toString()}
+            actionId={event.eventId}
             onAction={onDelete}
-            disabled={deletingId === event._id.toString()}
+            disabled={deletingId === event.eventId}
             actionLabel="Delete event"
             currentUser={currentUser}
           />

@@ -32,7 +32,7 @@ const EventCard: React.FC<EventCardProps> = ({
   const navigate = useNavigate();
   const { getCountryByValue } = useCountries();
 
-  const location = getCountryByValue(data.location.value);
+  const location = getCountryByValue(data.address.country);
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -68,7 +68,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <div
-      onClick={() => navigate(`/events/${data._id}`)}
+      onClick={() => navigate(`/events/${data.eventId}`)}
       className="col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full">
@@ -90,7 +90,7 @@ const EventCard: React.FC<EventCardProps> = ({
               group-hover:scale-110 
               transition
             "
-            src={data.imageSrc}
+            src={data.img}
             alt="Event"
           />
           <div
@@ -100,17 +100,14 @@ const EventCard: React.FC<EventCardProps> = ({
             right-3
           "
           >
-            <HeartButton
-              eventId={data._id.toString()}
-              currentUser={currentUser}
-            />
+            <HeartButton eventId={data.eventId} currentUser={currentUser} />
           </div>
         </div>
         <div className="font-semibold text-lg">
           {location?.flag}, {location?.value}
         </div>
         <div className="font-light text-neutral-500">
-          {reservationDate || data.category}
+          {reservationDate || data.eventType}
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {price}</div>

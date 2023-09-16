@@ -59,12 +59,12 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
       >
         {reservations.map((reservation: SafeReservation) => (
           <EventCard
-            key={reservation._id.toString()}
+            key={reservation.eventId}
             data={reservation.event}
             reservation={reservation}
-            actionId={reservation._id.toString()}
+            eventId={reservation.eventId}
             onAction={onCancel}
-            disabled={deletingId === reservation._id.toString()}
+            disabled={deletingId === reservation.eventId}
             actionLabel="Cancel guest reservation"
             currentUser={currentUser}
           />
