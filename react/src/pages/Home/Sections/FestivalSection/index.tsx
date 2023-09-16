@@ -1,7 +1,8 @@
-import festivals from "../../../../services/api-examples/festivals";
+import { events } from "src/services/api-examples/events";
 import FestivalSlider from "./Components/FestivalSlider";
 
 const FestivalSection = () => {
+  const festivals = events.slice(7, 13);
   return (
     <section className="mt-4 p-1">
       <div className="mb-2">

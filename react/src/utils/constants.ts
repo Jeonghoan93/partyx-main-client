@@ -1,8 +1,13 @@
 import { IconType } from "react-icons";
 import { AiOutlineCrown, AiOutlineFire, AiOutlineHome } from "react-icons/ai";
-import { BsFillPeopleFill, BsMusicNoteBeamed } from "react-icons/bs";
+import {
+  BsFillPeopleFill,
+  BsLightningCharge,
+  BsMusicNoteBeamed,
+} from "react-icons/bs";
 import { FaBuilding, FaMask } from "react-icons/fa";
 import { GiForestCamp, GiPentacle } from "react-icons/gi";
+import { HiOutlineSparkles } from "react-icons/hi";
 import { IoMdBeer } from "react-icons/io";
 import { MdFestival, MdOutdoorGrill, MdSportsHandball } from "react-icons/md";
 import {
@@ -21,6 +26,21 @@ export type Category = {
 };
 
 export const categories: Category[] = [
+  {
+    label: "Trending",
+    icon: AiOutlineFire,
+    description: "Stay in the trend with this event!",
+  },
+  {
+    label: "Now",
+    icon: BsLightningCharge,
+    description: "Happening now!",
+  },
+  {
+    label: "New",
+    icon: HiOutlineSparkles,
+    description: "New in town!",
+  },
   {
     label: "Clubs",
     icon: FaBuilding,
@@ -41,11 +61,7 @@ export const categories: Category[] = [
     icon: BsMusicNoteBeamed,
     description: "Dance to the beat!",
   },
-  {
-    label: "Trending",
-    icon: AiOutlineFire,
-    description: "Stay in the trend with this event!",
-  },
+
   {
     label: "Outdoor",
     icon: MdOutdoorGrill,

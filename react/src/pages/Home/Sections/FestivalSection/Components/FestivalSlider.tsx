@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Event } from "src/interfaces/event";
 import FestivalCard from "./FestivalCard";
 
-type Festivals = {
-  title: string;
-  img: string;
-  price: number;
-  currency: string;
-  desc: string;
-  userName?: string;
-  userPhoto?: string;
-  time: string;
-  date: string;
-};
-
 type FestivalSliderProps = {
-  festivals: Festivals[];
+  festivals: Event[];
 };
 
 const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
@@ -55,8 +44,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
       >
         {festivals.map((festival) => (
           <FestivalCard
-            {...festival}
-            boxKey={festival.title}
+            event={festival}
             containerStyle={{
               width: isSmallScreen ? "100%" : `${100 / festivals.length}%`,
             }}
