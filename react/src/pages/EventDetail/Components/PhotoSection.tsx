@@ -7,7 +7,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ img }) => {
     <section
       className="
           w-full
-          h-[60vh]
+          h-[50vh]
           overflow-hidden 
           rounded-xl
           relative

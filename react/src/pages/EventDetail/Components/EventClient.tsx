@@ -114,17 +114,13 @@ const EventClient: React.FC<EventClientProps> = ({
     <Container>
       <div
         className="
+          mt-[-22pt]
           max-w-screen-lg 
           mx-auto
         "
       >
         <div className="flex flex-col gap-4">
-          <PhotoSection
-            title={event.title}
-            img={event.img}
-            eventId={event.eventId}
-            currentUser={currentUser}
-          />
+          <PhotoSection img={event.img} />
           <div
             className="
               grid 

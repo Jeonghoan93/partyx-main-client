@@ -1,6 +1,7 @@
 import { SafeUser } from "src/interfaces/user";
 
 import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import HeartButton from "src/components/HeartButton";
 
@@ -10,12 +11,14 @@ interface NavbarProps {
 }
 
 const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
+  const navigate = useNavigate();
+
   if (eventId) {
     return (
       <div className="fixed top-0 w-full bg-white z-10 shadow-sm">
         <div
           className="
-          py-4 
+          py-4
           border-b-[1px]
         "
         >
@@ -30,7 +33,7 @@ const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
             md:gap-0
           "
             >
-              <div className="cursor-pointer">
+              <div className="cursor-pointer" onClick={() => navigate(-1)}>
                 <BiChevronLeft size={30} />
               </div>
 
