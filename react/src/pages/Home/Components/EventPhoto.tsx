@@ -27,15 +27,11 @@ const EventPhoto: React.FC<PhotoSectionProps> = ({
     >
       <img src={img} style={{ width: "100%", height: "100%" }} alt="Image" />
       {!isEventDetailPage && (
-        <div
-          className="
-            absolute
-            top-3
-            right-3
-          "
-        >
-          <HeartButton eventId={eventId} currentUser={currentUser} />
-        </div>
+        <HeartButton
+          className="absolute top-2 right-2"
+          eventId={eventId}
+          currentUser={currentUser}
+        />
       )}
     </section>
   );

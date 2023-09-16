@@ -1,20 +1,31 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import HeartButton from "src/components/HeartButton";
 import { Event } from "src/interfaces/event";
+import { SafeUser } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";
+import { isMatchingPath } from "src/utils/isMatchingPath";
 
 type FestivalCardProps = {
   event: Event;
-  containerStyle: React.CSSProperties;
+  containerStyle?: React.CSSProperties;
+  currentUser?: SafeUser | null;
 };
 
 const FestivalCard: React.FC<FestivalCardProps> = ({
   event,
   containerStyle,
+  currentUser,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location.pathname;
+  const isEventDetailPage = isMatchingPath(
+    pathname,
+    `/events/${event.eventId}`
+  );
+
   return (
     <div
-      key={event.eventId}
       style={containerStyle}
       className={"cursor-pointer"}
       onClick={() => navigate(`/events/${event.eventId}`)}
@@ -54,6 +65,14 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
             {event.currency} {event.price}
           </span>
         </div>
+        {/* Heart Button */}
+        {!isEventDetailPage && (
+          <HeartButton
+            className={"absolute top-4 right-4"}
+            eventId={event.eventId}
+            currentUser={currentUser}
+          />
+        )}
       </div>
     </div>
   );

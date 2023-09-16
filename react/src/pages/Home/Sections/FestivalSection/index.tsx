@@ -2,7 +2,8 @@ import { events } from "src/services/api-examples/events";
 import FestivalSlider from "./Components/FestivalSlider";
 
 const FestivalSection = () => {
-  const festivals = events.slice(7, 13);
+  // change later to const festivals = getEventsByType({Festival})
+  const festivals = events.slice(7, 14);
   return (
     <section className="mt-4 p-1">
       <div className="mb-2">
@@ -11,6 +12,7 @@ const FestivalSection = () => {
           Wait for the best festivals in Europe
         </span>
       </div>
+
       <FestivalSlider festivals={festivals} />
     </section>
   );

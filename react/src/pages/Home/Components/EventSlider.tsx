@@ -36,10 +36,10 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
             transform: `translateX(-${(startIndex * 100) / events.length}%)`,
           }}
         >
-          {events.map((festival) => (
+          {events.map((event) => (
             <EventCard
-              {...festival}
-              key={festival.title}
+              {...event}
+              key={event.title}
               containerStyle={{
                 width: "100%",
               }}
@@ -69,10 +69,10 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
   if (windowWidth >= 475) {
     return (
       <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap">
-        {events.map((festival) => (
+        {events.map((event) => (
           <EventCard
-            {...festival}
-            key={festival.title}
+            {...event}
+            key={event.title}
             containerStyle={{
               display: "inline-block",
               maxWidth: "375px",
