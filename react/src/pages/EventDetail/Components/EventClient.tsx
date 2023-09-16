@@ -4,7 +4,6 @@ import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
-import EventHead from "src/components/events/EventHead";
 import useLoginModal from "src/hooks/useLoginModal";
 import { Event } from "src/interfaces/event";
 import { Reservation } from "src/interfaces/reservation";
@@ -12,7 +11,8 @@ import { SafeUser } from "src/interfaces/user";
 import { createReservation } from "src/services/reservation";
 import EventInfo from "./EventInfo";
 import EventReservation from "./EventReservation";
-import ReviewClient from "./ReviewClient";
+import PhotoSection from "./PhotoSection";
+import ReviewSection from "./ReviewSection";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -118,11 +118,10 @@ const EventClient: React.FC<EventClientProps> = ({
           mx-auto
         "
       >
-        <div className="flex flex-col gap-6">
-          <EventHead
+        <div className="flex flex-col gap-4">
+          <PhotoSection
             title={event.title}
             img={event.img}
-            address={event.address}
             eventId={event.eventId}
             currentUser={currentUser}
           />
@@ -132,10 +131,11 @@ const EventClient: React.FC<EventClientProps> = ({
               grid-cols-1 
               md:grid-cols-7 
               md:gap-10 
-              mt-6
+              p-1
             "
           >
             <EventInfo
+              title={event.title}
               hostName={event.hostName}
               hostProfilePhoto={event.hostProfilePhoto}
               desc={event.desc}
@@ -164,7 +164,7 @@ const EventClient: React.FC<EventClientProps> = ({
               />
             </div>
           </div>
-          <ReviewClient event={event} />
+          <ReviewSection event={event} />
         </div>
       </div>
     </Container>

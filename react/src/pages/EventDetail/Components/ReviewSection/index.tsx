@@ -1,16 +1,16 @@
 import { AiFillHeart } from "react-icons/ai";
 import { Event } from "src/interfaces/event";
-import Reviews from "./Reviews";
+import Reviews from "./Components/Reviews";
 
 interface EventClientProps {
   event: Event;
 }
 
-const ReviewClient: React.FC<EventClientProps> = ({ event }) => {
+const ReviewSection: React.FC<EventClientProps> = ({ event }) => {
   return (
-    <section className="mt-3">
-      <div className="mb-2 flex flex-col">
-        <span className="flex flex-row items-center text-[13pt] font-bold">
+    <section className="mt-3 p-1">
+      <div className="flex flex-col p-1">
+        <div className="flex flex-row items-center text-[13pt] font-bold">
           <span className="mr-1">
             {" "}
             <AiFillHeart size={16} />
@@ -18,7 +18,7 @@ const ReviewClient: React.FC<EventClientProps> = ({ event }) => {
           <span>
             {event.avgRating} · {event.reviewCounts} reviews
           </span>
-        </span>
+        </div>
         <span className="text-[11pt] text-gray-600 font-semibold">
           What people say about this event
         </span>
@@ -28,4 +28,4 @@ const ReviewClient: React.FC<EventClientProps> = ({ event }) => {
   );
 };
 
-export default ReviewClient;
+export default ReviewSection;
