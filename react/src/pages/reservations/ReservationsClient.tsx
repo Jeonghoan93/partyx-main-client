@@ -62,9 +62,9 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
             key={reservation.eventId}
             data={reservation.event}
             reservation={reservation}
-            eventId={reservation.eventId}
+            actionId={reservation.eventId.toString()}
             onAction={onCancel}
-            disabled={deletingId === reservation.eventId}
+            disabled={deletingId === reservation.eventId.toString()}
             actionLabel="Cancel guest reservation"
             currentUser={currentUser}
           />

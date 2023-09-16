@@ -1,19 +1,8 @@
-import { SafeUser } from "src/interfaces/user";
-
-import HeartButton from "src/components/HeartButton";
-
 interface PhotoSectionProps {
-  title: string;
   img: string;
-  eventId: number;
-  currentUser?: SafeUser | null;
 }
 
-const PhotoSection: React.FC<PhotoSectionProps> = ({
-  img,
-  eventId,
-  currentUser,
-}) => {
+const PhotoSection: React.FC<PhotoSectionProps> = ({ img }) => {
   return (
     <section
       className="
@@ -30,15 +19,6 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({
         className="object-cover w-full"
         alt="Image"
       />
-      <div
-        className="
-            absolute
-            top-5
-            right-5
-          "
-      >
-        <HeartButton eventId={eventId} currentUser={currentUser} />
-      </div>
     </section>
   );
 };

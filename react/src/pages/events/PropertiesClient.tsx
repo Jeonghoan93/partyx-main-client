@@ -57,9 +57,9 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
           <EventCard
             key={event.eventId}
             data={event}
-            actionId={event.eventId}
+            actionId={event.eventId.toString()}
             onAction={onDelete}
-            disabled={deletingId === event.eventId}
+            disabled={deletingId === event.eventId.toString()}
             actionLabel="Delete event"
             currentUser={currentUser}
           />

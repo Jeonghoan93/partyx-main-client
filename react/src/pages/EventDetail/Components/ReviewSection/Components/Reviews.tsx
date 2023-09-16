@@ -39,6 +39,7 @@ const Reviews: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
         >
           {reviews.map((review) => (
             <ReviewCard
+              key={review.reviewId}
               review={review}
               containerStyle={{
                 display: "inline-block",

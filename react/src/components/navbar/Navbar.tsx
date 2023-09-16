@@ -1,5 +1,7 @@
 import { SafeUser } from "src/interfaces/user";
 
+import { useLocation } from "react-router-dom";
+import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
 import Logo from "./Components/Logo";
@@ -12,6 +14,14 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
+
+  if (isEventDetailPage) {
+    return null;
+  }
+
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div

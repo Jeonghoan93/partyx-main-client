@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "src/utils/formatDate";
+import EventPhoto from "./EventPhoto";
 
 export type EventProps = {
   eventId?: number;
@@ -42,7 +43,7 @@ const EventCard: React.FC<EventProps> = ({
           height: "320px",
         }}
       >
-        <img src={img} alt={title} className="w-full h-40 object-cover" />
+        <EventPhoto img={img} eventId={Number(eventId)} />
         <div className="p-3">
           <h2 className="text-[12pt] font-bold my-1">{title}</h2>
           <p className="text-[10pt] text-gray-600">
