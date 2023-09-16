@@ -5,57 +5,66 @@ const Solution: React.FC = () => {
   return (
     <ClientOnly>
       <Container>
-        <div className="p-6 space-y-8">
-          <h1 className="text-3xl font-bold text-center">Why Choose PartyX?</h1>
-          <ul className="space-y-4">
-            <li className="flex items-center space-x-6">
+        <div className="p-4 items-center max-w-xl mx-auto space-y-10 bg-white">
+          <h1 className="text-3xl font-bold text-center text-gray-900">
+            Why Party with PartyX?
+          </h1>
+          <ul className="space-y-6">
+            <li className="flex items-center space-x-6 border rounded-lg shadow-md p-4">
               <img
                 src="https://via.placeholder.com/100"
-                alt="Empowerment Image"
-                className="w-24 h-24 rounded-full"
+                alt="Discovery Image"
+                className="w-16 h-16 rounded-full"
               />
-              <div>
-                <strong className="text-xl">Empowerment:</strong> Anyone can be
-                a host. From club owners to individuals, transform any space
-                into a party destination.
+              <div className="flex flex-col">
+                <strong className="text-[13pt] text-gray-500">
+                  Discover & Explore:
+                </strong>
+                Experience new vibes, music, and meet new friends.
               </div>
             </li>
-            <li className="flex items-center space-x-6">
+            <li className="flex items-center space-x-6 border rounded-lg shadow-md p-4">
               <img
                 src="https://via.placeholder.com/100"
-                alt="Earn Image"
-                className="w-24 h-24 rounded-full"
+                alt="Social Integration Image"
+                className="w-16 h-16 rounded-full"
               />
-              <div>
-                <strong className="text-xl">Earn:</strong> List your event and
-                monetize your space. Create memorable events and earn at the
-                same time.
+              <div className="flex flex-col">
+                <strong className="text-[13pt] text-gray-500">
+                  Stay Connected:
+                </strong>
+                See friends attending and share events across your social
+                platforms.
               </div>
             </li>
-            <li className="flex items-center space-x-6">
+            <li className="flex items-center space-x-6 border rounded-lg shadow-md p-4">
               <img
                 src="https://via.placeholder.com/100"
-                alt="Match Interests Image"
-                className="w-24 h-24 rounded-full"
+                alt="Exclusive Deals Image"
+                className="w-16 h-16 rounded-full"
               />
-              <div>
-                <strong className="text-xl">Match Interests:</strong> Connect
-                with like-minded people. Our platform matches attendees to
-                events they'll love.
+              <div className="flex flex-col">
+                <strong className="text-[13pt] text-gray-500">
+                  Exclusive Access:
+                </strong>
+                Get special deals, offers, and early bird tickets.
               </div>
             </li>
-            <li className="flex items-center space-x-6">
+            <li className="flex items-center space-x-6 border rounded-lg shadow-md p-4">
               <img
                 src="https://via.placeholder.com/100"
-                alt="Versatile Image"
-                className="w-24 h-24 rounded-full"
+                alt="Safety Image"
+                className="w-16 h-16 rounded-full"
               />
-              <div>
-                <strong className="text-xl">Versatile:</strong> Suitable for
-                grand festivals or intimate gatherings. Scale doesn't matter,
-                your passion does.
+              <div className="flex flex-col">
+                <strong className="text-[13pt] text-gray-500">
+                  Your Safety First:
+                </strong>
+                Enjoy events with peace of mind. We prioritize your safety and
+                privacy.
               </div>
             </li>
+            {/* Add more features reflecting the psychological factors if needed */}
           </ul>
         </div>
       </Container>
