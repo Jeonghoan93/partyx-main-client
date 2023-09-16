@@ -6,5 +6,5 @@ export interface Review {
     img: string;
     name: string;
   };
-  reviewDate?: Date;
+  reviewDate: Date;
 }

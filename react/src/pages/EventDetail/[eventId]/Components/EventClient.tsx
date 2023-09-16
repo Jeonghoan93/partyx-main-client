@@ -5,13 +5,14 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import EventHead from "src/components/events/EventHead";
-import EventReservation from "src/components/events/EventReservation";
 import useLoginModal from "src/hooks/useLoginModal";
 import { Event } from "src/interfaces/event";
 import { Reservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
 import { createReservation } from "src/services/reservation";
 import EventInfo from "./EventInfo";
+import EventReservation from "./EventReservation";
+import ReviewClient from "./ReviewClient";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -146,13 +147,13 @@ const EventClient: React.FC<EventClientProps> = ({
             />
             <div
               className="
-                order-first 
-                mb-10 
+                mt-4
                 md:order-last 
                 md:col-span-3
               "
             >
               <EventReservation
+                currency={event.currency}
                 price={event.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
@@ -163,6 +164,7 @@ const EventClient: React.FC<EventClientProps> = ({
               />
             </div>
           </div>
+          <ReviewClient event={event} />
         </div>
       </div>
     </Container>

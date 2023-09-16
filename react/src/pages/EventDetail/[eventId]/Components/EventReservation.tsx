@@ -1,12 +1,11 @@
-"use client";
-
 import { Range } from "react-date-range";
 
-import Button from "../Button";
-import Calendar from "../inputs/DateRangePicker";
+import Button from "src/components/Button";
+import Calendar from "src/components/inputs/DateRangePicker";
 
 interface EventReservationProps {
   price: number;
+  currency: string;
   dateRange: Range;
   totalPrice: number;
   onChangeDate: (value: Range) => void;
@@ -17,6 +16,7 @@ interface EventReservationProps {
 
 const EventReservation: React.FC<EventReservationProps> = ({
   price,
+  currency,
   dateRange,
   totalPrice,
   onChangeDate,
@@ -38,8 +38,8 @@ const EventReservation: React.FC<EventReservationProps> = ({
         className="
       flex flex-row items-center gap-1 p-4"
       >
-        <div className="text-2xl font-semibold">$ {price}</div>
-        <div className="font-light text-neutral-600">night</div>
+        <div className="text-1xl text-neutral-600">{currency}</div>
+        <div className="text-2xl font-semibold">{price}</div>
       </div>
       <hr />
       <Calendar
@@ -64,7 +64,9 @@ const EventReservation: React.FC<EventReservationProps> = ({
         "
       >
         <div>Total</div>
-        <div>$ {totalPrice}</div>
+        <div>
+          {currency} {totalPrice}
+        </div>
       </div>
     </div>
   );

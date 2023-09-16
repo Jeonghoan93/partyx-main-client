@@ -44,6 +44,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
             flex-row 
             items-center
             gap-2
+            
           "
         >
           <div>Hosted by {hostName}</div>
