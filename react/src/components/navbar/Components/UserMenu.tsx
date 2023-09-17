@@ -166,7 +166,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 >
                   <MenuItem
                     label="Company"
-                    onClick={() => navigate("/company")}
+                    onClick={() => navigate("/company?menu=About%20us")}
                   />
                 </div>
               </>

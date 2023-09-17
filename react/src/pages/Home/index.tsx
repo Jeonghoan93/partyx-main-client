@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <div className="mt-20">
+      <div className="mt-10">
         <ClientOnly>
           <FestivalSection />
           <FeaturedSection />

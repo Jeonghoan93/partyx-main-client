@@ -54,21 +54,26 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       onClick={handleClick}
       className={`
         flex 
-        flex-col 
+        flex-row
         items-center 
         justify-center 
         gap-2
-        p-3
-        border-b-2
+        px-2
+        py-1
+        mb-2
+        border-1
+        rounded-lg
         hover:text-neutral-900
         transition
         cursor-pointer
-        ${selected ? "border-b-neutral-800" : "border-transparent"}
+        ${selected ? "border-2 border-neutral-800" : "border-neutral-400"}
         ${selected ? "text-neutral-800" : "text-neutral-500"}
       `}
     >
-      <Icon size={21} />
-      <div className="font-semibold text-[9pt]">{label}</div>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Icon size={21} />
+        <div className="font-semibold text-[9pt]">{label}</div>
+      </div>
     </div>
   );
 };

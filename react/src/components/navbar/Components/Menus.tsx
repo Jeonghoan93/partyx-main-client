@@ -27,7 +27,7 @@ const Menus: React.FC<MenusProps> = ({ page, menus }) => {
         xl:px-16
         md:px-7
         sm:px-2
-        px-2
+        px-5
       "
     >
       <div

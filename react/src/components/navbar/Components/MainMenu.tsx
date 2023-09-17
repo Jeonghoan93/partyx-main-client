@@ -57,7 +57,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
         </div>
 
         <div
-          onClick={() => navigate("/company")}
+          onClick={() => navigate("/company?menu=About%20us")}
           className="
             hidden
             lg:block

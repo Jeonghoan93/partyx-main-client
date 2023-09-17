@@ -1,7 +1,17 @@
 import { Avatar } from "@mui/material";
 import { useEffect, useState } from "react";
 
-const TextContainer = () => {
+interface TextContainerProps {
+  title: string;
+  desc: string;
+  user: {
+    img: string;
+    name: string;
+    role: string;
+  };
+}
+
+const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
   const isClient = typeof window === "object";
   const initialWidth = isClient ? window.innerWidth : 1200;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
@@ -31,27 +41,24 @@ const TextContainer = () => {
             }}
           >
             <div>
-              <h2 className="text-[15pt] font-semibold">Festivals</h2>
+              <h2 className="text-[14pt] font-semibold">{title}</h2>
             </div>
 
             <div className="flex flex-row gap-2 items-center">
               <div className="cursor-pointer">
-                <Avatar
-                  src={
-                    "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
-                  }
-                />
+                <Avatar src={user.img} />
               </div>
               <div className="flex flex-col justify-between">
-                <h1 className="font-semibold font-mono text-[11pt]">Jimmy</h1>
-                <span className="text-gray-700 text-[9pt]">Founder</span>
+                <h1 className="font-semibold font-mono text-[11pt]">
+                  {user.name}
+                </h1>
+                <span className="text-gray-700 text-[9pt]">{user.role}</span>
               </div>
             </div>
           </div>
 
           <p className="text-[12pt] text-gray-800 font-medium font-serif">
-            Connect directly with eager attendees. Boost ticket sales, shine
-            brighter, and create unforgettable moments with PartyX.
+            {desc}
           </p>
 
           <div className="mt-5">

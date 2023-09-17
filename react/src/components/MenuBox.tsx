@@ -53,7 +53,8 @@ const MenuBox: React.FC<MenuBoxProps> = ({ label, selected, page }) => {
         items-center 
         justify-center 
         gap-2
-        p-3
+        pt-3
+        pb-2
         border-b-2
         hover:text-neutral-900
         transition

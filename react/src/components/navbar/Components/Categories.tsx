@@ -26,7 +26,7 @@ const Categories = () => {
           flex-row 
           items-center 
           justify-between
-          overflow-x-auto
+          overflow-y-auto
           gap-2
         "
       >
