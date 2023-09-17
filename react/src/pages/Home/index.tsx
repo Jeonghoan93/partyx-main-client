@@ -29,6 +29,7 @@ const Home: React.FC = () => {
       </ClientOnly>
     );
   }
+
   return (
     <Container>
       <div className="mt-20">

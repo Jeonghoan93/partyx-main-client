@@ -57,7 +57,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
         </div>
 
         <div
-          onClick={() => navigate("/solution")}
+          onClick={() => navigate("/company")}
           className="
             hidden
             lg:block
@@ -71,24 +71,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
             cursor-pointer
           "
         >
-          Why PartyX?
-        </div>
-        <div
-          onClick={() => navigate("/enterprise")}
-          className="
-            hidden
-            lg:block
-            text-sm 
-            font-semibold 
-            py-1 
-            px-2 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          Enterprise
+          Company
         </div>
       </div>
       {isOpen && (

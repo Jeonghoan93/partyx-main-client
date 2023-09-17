@@ -1,11 +1,11 @@
-import { SafeUser } from "src/interfaces/user";
-
 import { useLocation } from "react-router-dom";
+import { SafeUser } from "src/interfaces/user";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
 import Logo from "./Components/Logo";
 import MainMenu from "./Components/MainMenu";
+import Menus from "./Components/Menus";
 import Search from "./Components/Search";
 import UserMenu from "./Components/UserMenu";
 
@@ -53,6 +53,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
         </Container>
       </div>
       <Categories />
+      <Menus
+        page={"/company"}
+        menus={["About us", "Our offers", "Investor relations"]}
+      />
     </div>
   );
 };

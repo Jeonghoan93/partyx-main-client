@@ -34,7 +34,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
 
   if (windowWidth < 667) {
     return (
-      <div className="mt-4 relative overflow-hidden h-auto">
+      <div className="mt-4 mb-5 relative overflow-hidden h-auto">
         <div
           className="flex transition-transform duration-500"
           style={{

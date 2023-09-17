@@ -3,7 +3,7 @@ import { events } from "../../../services/api-examples/events";
 
 const FeaturedSection = () => {
   return (
-    <section className="mt-4 p-1">
+    <section className="mt-4">
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">Featured parties near you</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
