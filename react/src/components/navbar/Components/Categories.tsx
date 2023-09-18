@@ -10,7 +10,7 @@ const Categories = () => {
 
   const category = params?.get("category");
   const pathname = location.pathname;
-  const isEventsPage = pathname === "/events";
+  const isEventsPage = pathname.startsWith("/events");
   const isHomePage = pathname === "/";
 
   if (!isEventsPage && !isHomePage) {

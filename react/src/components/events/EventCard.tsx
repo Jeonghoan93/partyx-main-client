@@ -1,17 +1,16 @@
-import { format } from "date-fns";
 import { useCallback, useMemo } from "react";
 
-import useCountries from "src/hooks/useCountries";
-
+import { AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { SafeReservation } from "src/interfaces/reservation";
 import { SafeUser } from "src/interfaces/user";
+import { formatDate } from "src/utils/formatDate";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
 
 interface EventCardProps {
-  data: SafeEvent;
+  data: Event;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
@@ -30,9 +29,6 @@ const EventCard: React.FC<EventCardProps> = ({
   currentUser,
 }) => {
   const navigate = useNavigate();
-  const { getCountryByValue } = useCountries();
-
-  const location = getCountryByValue(data.address.country);
 
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -55,21 +51,10 @@ const EventCard: React.FC<EventCardProps> = ({
     return data.price;
   }, [reservation, data.price]);
 
-  const reservationDate = useMemo(() => {
-    if (!reservation) {
-      return null;
-    }
-
-    const start = new Date(reservation.startDate);
-    const end = new Date(reservation.endDate);
-
-    return `${format(start, "PP")} - ${format(end, "PP")}`;
-  }, [reservation]);
-
   return (
     <div
       onClick={() => navigate(`/events/${data.eventId}`)}
-      className="col-span-1 cursor-pointer group"
+      className="mb-2 col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full">
         <div
@@ -103,24 +88,40 @@ const EventCard: React.FC<EventCardProps> = ({
             <HeartButton eventId={data.eventId} currentUser={currentUser} />
           </div>
         </div>
-        <div className="font-semibold text-lg">
-          {location?.flag}, {location?.value}
+        <div className="px-2 flex flex-col gap-1">
+          <div className="flex flex-row justify-between items-center">
+            <div className="font-semibold text-[12pt]">
+              {data.title.length > 18
+                ? `${data.title.slice(0, 18)}...`
+                : data.title}
+            </div>
+            <div className="flex flex-row items-center gap-1">
+              <span>
+                <AiFillHeart size={16} />
+              </span>
+              <span className="font-normal text-[12pt]">{data.avgRating}</span>
+            </div>
+          </div>
+
+          <div className="font-normal text-[11pt]"> {data.address.city}</div>
+          <div className="font-normal text-[11pt] text-neutral-800">
+            {formatDate(data.startDate, true, data.endDate)}
+          </div>
+          <div className="flex flex-row items-center gap-1">
+            <div className="font-semibold">
+              {data.currency} {price}
+            </div>
+            {!reservation && <div className="font-light">{""}</div>}
+          </div>
+          {onAction && actionLabel && (
+            <Button
+              disabled={disabled}
+              small
+              label={actionLabel}
+              onClick={handleCancel}
+            />
+          )}
         </div>
-        <div className="font-light text-neutral-500">
-          {reservationDate || data.eventType}
-        </div>
-        <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">$ {price}</div>
-          {!reservation && <div className="font-light">night</div>}
-        </div>
-        {onAction && actionLabel && (
-          <Button
-            disabled={disabled}
-            small
-            label={actionLabel}
-            onClick={handleCancel}
-          />
-        )}
       </div>
     </div>
   );
