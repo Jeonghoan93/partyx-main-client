@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
+import FullPageModal from "src/components/FullPageModal";
 import Footer from "src/components/footer";
 import LoginModal from "src/components/modals/LoginModal";
 import RegisterModal from "src/components/modals/RegisterModal";
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <>
       <ClientOnly>
+        <FullPageModal />
         <ToasterProvider />
         <LoginModal />
         <RegisterModal />

@@ -14,12 +14,6 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/events/:eventId" element={<EventDetail />} />
           <Route path="/company" element={<EnterprisePage />} />
-
-          {/* Add your future routes here */}
-          {/* Example:
-          <Route path="/event" element={<EventPage />} />
-        
-          */}
         </Routes>
       </RootLayout>
     </Router>

@@ -1,6 +1,8 @@
 import { events } from "../../../services/api-examples/events";
 import EventSlider from "../Components/EventSlider";
 
+const newestEvents = events.slice(3, 7);
+
 const NewestSection = () => {
   return (
     <section className="mt-4">
@@ -10,7 +12,7 @@ const NewestSection = () => {
           Explore the newest parties in Sweden
         </span>
       </div>
-      <EventSlider events={events} />
+      <EventSlider events={newestEvents} />
     </section>
   );
 };

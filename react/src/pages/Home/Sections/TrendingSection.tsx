@@ -1,6 +1,8 @@
 import EventSlider from "src/pages/Home/Components/EventSlider";
 import { events } from "../../../services/api-examples/events";
 
+const trendingEvents = events.slice(2, 6);
+
 const TrendingSection = () => {
   return (
     <section className="mt-4">
@@ -10,7 +12,7 @@ const TrendingSection = () => {
           Don't miss the most popular parties in Sweden
         </span>
       </div>
-      <EventSlider events={events} />
+      <EventSlider events={trendingEvents} />
     </section>
   );
 };

@@ -40,19 +40,21 @@ const EventCard: React.FC<EventProps> = ({
       <div
         className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
-          height: "320px",
+          height: "300px",
         }}
       >
         <EventPhoto img={img} eventId={Number(eventId)} />
-        <div className="p-3">
-          <h2 className="text-[12pt] font-bold my-1">{title}</h2>
+        <div className="p-1">
+          <h2 className="text-[11pt] font-bold my-1">
+            {title.length > 25 ? title.substring(0, 25) + "..." : title}
+          </h2>
           <p className="text-[10pt] text-gray-600">
             {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
           </p>
-          <div className="flex text-[9pt] font-mono font-semibold items-center mt-2">
+          <div className="text-gray-700 flex text-[9pt] font-mono font-semibold items-center mt-2">
             {formatDate(startDate, true, endDate)}
           </div>
-          <p className="text-[12pt] mt-2 font-bold my-1">
+          <p className="text-[11pt] mt-2 font-bold my-1">
             {currency} {price}
           </p>
         </div>

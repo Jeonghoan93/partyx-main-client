@@ -286,7 +286,7 @@ export const events = [
   },
   {
     eventId: 7,
-    img: "https://via.placeholder.com/150?text=Party+7",
+    img: "https://cdn.pixabay.com/photo/2014/10/17/22/18/alcohol-492871_1280.jpg",
     avgRating: 4.2,
     reviewCounts: 22,
     address: {
