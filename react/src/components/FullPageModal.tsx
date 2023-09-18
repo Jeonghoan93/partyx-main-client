@@ -11,15 +11,15 @@ const FullPageModal: React.FC = () => {
     if (videoElement) {
       videoElement.currentTime = 0;
 
-      const stopAt7Seconds = () => {
-        if (videoElement.currentTime >= 7) {
+      const stopAt11Seconds = () => {
+        if (videoElement.currentTime >= 11) {
           videoElement.pause();
           hideModalSmoothly();
-          videoElement.removeEventListener("timeupdate", stopAt7Seconds);
+          videoElement.removeEventListener("timeupdate", stopAt11Seconds);
         }
       };
 
-      videoElement.addEventListener("timeupdate", stopAt7Seconds);
+      videoElement.addEventListener("timeupdate", stopAt11Seconds);
     }
   }, []);
 
