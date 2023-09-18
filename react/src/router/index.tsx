@@ -10,7 +10,7 @@ const AppRoutes = () => {
     <Router>
       <RootLayout>
         <Routes>
-          <Route path="/events" element={<EventList searchParams={{}} />} />
+          <Route path="/events" element={<EventList />} />
           <Route path="/" element={<Home />} />
           <Route path="/events/:eventId" element={<EventDetail />} />
           <Route path="/company" element={<EnterprisePage />} />

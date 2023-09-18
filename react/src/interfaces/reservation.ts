@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { Event, SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { SafeUser, User } from "src/interfaces/user";
 
 export interface Reservation {
@@ -22,7 +22,7 @@ export type SafeReservation = Omit<
   createdAt: string;
   startDate: string;
   endDate: string;
-  event: SafeEvent;
+  event: Event;
   user: SafeUser;
 };
 
