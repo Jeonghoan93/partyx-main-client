@@ -1,11 +1,11 @@
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import EventCard from "src/components/events/EventCard";
-import { SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { SafeUser } from "src/interfaces/user";
 
 interface FavoritesClientProps {
-  events: SafeEvent[];
+  events: Event[];
   currentUser?: SafeUser | null;
 }
 
@@ -29,7 +29,7 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
           gap-8
         "
       >
-        {events.map((event: SafeEvent) => (
+        {events.map((event: Event) => (
           <EventCard
             currentUser={currentUser}
             key={event.eventId}

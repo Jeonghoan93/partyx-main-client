@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import EventCard from "src/components/events/EventCard";
-import { SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { deleteEvent } from "src/services/event";
 
 interface EventsClientProps {
-  events: SafeEvent[];
+  events: Event[];
   currentUser?: SafeUser | null;
 }
 
@@ -53,7 +53,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
           gap-8
         "
       >
-        {events.map((event: SafeEvent) => (
+        {events.map((event: Event) => (
           <EventCard
             key={event.eventId}
             data={event}

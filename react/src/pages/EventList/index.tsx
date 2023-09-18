@@ -2,16 +2,16 @@ import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
 import EventCard from "src/components/events/EventCard";
-import { Event, SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 import { MockedUser } from "src/services/api-examples/user";
-import { IEventsParams } from "src/services/event/dto";
+// import { IEventsParams } from "src/services/event/dto";
 
-interface HomeProps {
-  searchParams: IEventsParams;
-}
+// interface HomeProps {
+//   searchParams: IEventsParams;
+// }
 
-function EventList({ searchParams }: HomeProps) {
+function EventList() {
   // const [events, setEvents] = useState([]);
   // const [currentUser, setCurrentUser] = useState(null);
 

@@ -3,7 +3,7 @@ import EmptyState from "src/components/EmptyState";
 import EventCard from "src/components/events/EventCard";
 
 import ClientOnly from "src/components/ClientOnly";
-import { SafeEvent } from "src/interfaces/event";
+import { Event } from "src/interfaces/event";
 import { getCurrentUser } from "src/services/auth";
 import { getEvents } from "src/services/event";
 import { IEventsParams } from "src/services/event/dto";
@@ -40,7 +40,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             gap-8
           "
         >
-          {events.map((event: SafeEvent) => (
+          {events.map((event: Event) => (
             <EventCard
               currentUser={currentUser}
               key={event.eventId}
