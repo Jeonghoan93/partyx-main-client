@@ -7,12 +7,12 @@ interface SectionProps {
 }
 
 const mockedText1 = {
-  title: "So, why PartyX?",
-  desc: "Well, It's about going to parties that matches your vibe, and the people that has similar interests as you. We believe that you can find your best friends in a party, and we want to make it easier for you to find them.",
+  title: "why PartyX?",
+  desc: "It's about going to parties that matches your vibe, and the people that has similar interests as you. We believe that you can find your best friends in a party, and we want to make it easier for you to find them.",
   user: {
     img: "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg",
     name: "Jimmy",
-    role: "Founder",
+    role: "Developer",
   },
 };
 
