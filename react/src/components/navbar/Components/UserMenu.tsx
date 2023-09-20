@@ -135,6 +135,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 />
                 <hr />
                 <MenuItem
+                  label="Account"
+                  onClick={() => navigate("/account")}
+                />
+                <MenuItem
                   label="My events"
                   onClick={() => navigate("/my-events")}
                 />
