@@ -9,6 +9,7 @@ import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
 import SearchModal from "src/components/modals/SearchModal";
 import Navbar from "src/components/navbar/Navbar";
+import { User } from "src/interfaces/user";
 import ToasterProvider from "src/providers/ToasterProvider";
 import { getCurrentUser } from "src/services/auth";
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
     async function fetchCurrentUser() {

@@ -2,12 +2,13 @@ import EmptyState from "src/components/EmptyState";
 
 import { useEffect, useState } from "react";
 import Container from "src/components/Container";
+import { User } from "src/interfaces/user";
 import { getCurrentUser } from "src/services/auth";
 import { getBookings } from "src/services/booking";
 import TicketsClient from "./Components/TicketsClient";
 
 const Tickets = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {

@@ -5,11 +5,12 @@ import { getFavoriteEvents } from "src/services/event";
 
 import { useEffect, useState } from "react";
 import Container from "src/components/Container";
+import { User } from "src/interfaces/user";
 import FavoritesClient from "./Components/FavoritesClient";
 
 const Favorites = () => {
   const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
     const fetchUserAndEvents = async () => {

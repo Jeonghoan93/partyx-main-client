@@ -8,13 +8,13 @@ import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
 import useOnClickOutside from "src/hooks/userOnClickOutside";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 import { logout } from "src/services/auth";
 import Avatar from "../../Avatar";
 import MenuItem from "./MenuItem";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {

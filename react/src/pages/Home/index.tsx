@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
+import { User } from "src/interfaces/user";
 import { getCurrentUser } from "src/services/auth";
 import CustomizedSection from "./Sections/CustomizedSection";
 import FeaturedSection from "./Sections/FeaturedSection";
@@ -9,7 +10,7 @@ import NewestSection from "./Sections/NewestSection";
 import TrendingSection from "./Sections/TrendingSection";
 
 const Home: React.FC = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
     async function fetchCurrentUser() {

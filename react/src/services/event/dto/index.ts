@@ -1,5 +1,3 @@
-import { SafeEvent } from "src/interfaces/event";
-
 export interface IEventsParams {
   userId?: string;
   minGuests?: number;
@@ -9,18 +7,6 @@ export interface IEventsParams {
   locationValue?: string;
   category?: string;
   featured?: boolean;
-}
-
-export interface IEventsReturn {
-  data: IEventsParams[];
-  total: number;
-  limit: number;
-}
-
-export interface SafeEventReturn {
-  data: SafeEvent[];
-  total: number;
-  limit: number;
 }
 
 export interface CreateEventDTO {

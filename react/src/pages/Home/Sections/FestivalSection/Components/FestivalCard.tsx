@@ -1,14 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import HeartButton from "src/components/HeartButton";
 import { Event } from "src/interfaces/event";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 
 type FestivalCardProps = {
   event: Event;
   containerStyle?: React.CSSProperties;
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 };
 
 const FestivalCard: React.FC<FestivalCardProps> = ({

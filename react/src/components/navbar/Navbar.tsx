@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
@@ -10,7 +10,7 @@ import Search from "./Components/Search";
 import UserMenu from "./Components/UserMenu";
 
 interface NavbarProps {
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {

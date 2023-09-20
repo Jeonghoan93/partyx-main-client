@@ -5,11 +5,12 @@ import { getEvents } from "src/services/event";
 
 import { useEffect, useState } from "react";
 import Container from "src/components/Container";
+import { User } from "src/interfaces/user";
 import MyEventsClient from "./Components/MyEventsClient";
 
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
     const fetchUserAndEvents = async () => {
@@ -17,7 +18,7 @@ const MyEvents = () => {
       setCurrentUser(currentUser);
 
       if (currentUser) {
-        const userEvents = await getEvents({ userId: currentUser.id });
+        const userEvents = await getEvents({ userId: currentUser.userId });
         setEvents(userEvents);
       }
     };

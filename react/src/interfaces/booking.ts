@@ -1,5 +1,5 @@
 import { Event } from "src/interfaces/event";
-import { SafeUser, User } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 export interface Booking {
   bookingId: number;
@@ -13,16 +13,3 @@ export interface Booking {
 
   event: Event;
 }
-
-export type SafeBooking = Omit<
-  Booking,
-  "createdAt" | "startDate" | "endDate" | "event" | "user"
-> & {
-  createdAt: string;
-  startDate: string;
-  endDate: string;
-  event: Event;
-  user: SafeUser;
-};
-
-export type NewBookingPayload = Omit<SafeBooking, "_id">;

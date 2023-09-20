@@ -9,7 +9,7 @@ export enum UserTypes {
 }
 
 export interface User {
-  _id: Types.ObjectId;
+  _id?: Types.ObjectId;
   userId: number;
 
   name: string;
@@ -46,16 +46,6 @@ export interface User {
   messages: Message[];
   pastEventsAttended?: Event[];
 }
-
-export type SafeUser = Omit<
-  User,
-  "createdAt" | "updatedAt" | "emailVerified" | "favoriteIds"
-> & {
-  createdAt?: string;
-  updatedAt?: string;
-  emailVerified?: string | null;
-  favoriteIds?: number[];
-};
 
 export interface Message {
   sender: User;

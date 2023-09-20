@@ -3,7 +3,7 @@ import { useState } from "react";
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { logout } from "src/services/auth";
 import MenuItem from "./MenuItem";
 
 interface MainMenuProps {
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {

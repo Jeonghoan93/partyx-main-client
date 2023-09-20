@@ -1,4 +1,4 @@
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import { useLocation } from "react-router-dom";
 import HeartButton from "src/components/HeartButton";
@@ -7,7 +7,7 @@ import { isMatchingPath } from "src/utils/isMatchingPath";
 interface PhotoSectionProps {
   img: string;
   eventId: number;
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const EventPhoto: React.FC<PhotoSectionProps> = ({

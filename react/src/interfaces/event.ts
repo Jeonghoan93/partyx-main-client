@@ -1,6 +1,5 @@
 import { Booking } from "./booking";
 import { Review } from "./review";
-import { SafeUser } from "./user";
 
 export interface Address {
   street: string;
@@ -51,8 +50,3 @@ export interface EventData {
   data: Event[];
   total: number;
 }
-
-export type SafeEvent = Omit<Event, "createdAt" | "user"> & {
-  createdAt: string;
-  user: SafeUser;
-};

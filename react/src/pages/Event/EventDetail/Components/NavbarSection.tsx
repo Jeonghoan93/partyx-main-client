@@ -1,4 +1,4 @@
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import HeartButton from "src/components/HeartButton";
 
 interface NavbarProps {
   eventId: number;
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
