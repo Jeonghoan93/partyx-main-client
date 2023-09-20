@@ -10,12 +10,12 @@ import Heading from "src/components/Heading";
 import EventCard from "src/components/events/EventCard";
 import { Booking } from "src/interfaces/booking";
 
-interface TicketsClientProps {
+interface MyTicketsClientProps {
   bookings: Booking[];
   currentUser?: User | null;
 }
 
-const TicketsClient: React.FC<TicketsClientProps> = ({
+const MyTicketsClient: React.FC<MyTicketsClientProps> = ({
   bookings,
   currentUser,
 }) => {
@@ -78,4 +78,4 @@ const TicketsClient: React.FC<TicketsClientProps> = ({
   );
 };
 
-export default TicketsClient;
+export default MyTicketsClient;

@@ -6,7 +6,7 @@ import EventList from "src/pages/EventList";
 import Home from "src/pages/Home";
 import MyEvents from "src/pages/MyEvents";
 import Favorites from "src/pages/MyFavorites";
-import Tickets from "src/pages/Tickets";
+import Tickets from "src/pages/MyTickets";
 
 const AppRoutes = () => {
   return (
