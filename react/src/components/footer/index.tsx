@@ -3,13 +3,11 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { FC } from "react";
-import { useLocation } from "react-router-dom";
 import FooterNavigation from "src/components/footer/footer-navigation";
+import { useIsCertainPage } from "src/hooks/useIsCertainPage";
 
 const Footer: FC = () => {
-  const location = useLocation();
-  const pathname = location.pathname;
-  const isHomePage = pathname === "/";
+  const isHomePage = useIsCertainPage("/");
 
   if (!isHomePage) {
     return null;

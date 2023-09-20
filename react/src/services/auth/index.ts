@@ -1,4 +1,5 @@
 import { FieldValues } from "react-hook-form";
+import { User } from "src/interfaces/user";
 import api from "src/services/api";
 
 export const registerUser = async (data: FieldValues) => {
@@ -23,14 +24,16 @@ export const registerUser = async (data: FieldValues) => {
   }
 };
 
-export const getCurrentUser = async () => {
+export const getCurrentUser = async (): Promise<User> => {
   try {
     const res = await api.get("/auth/current-user", {
       withCredentials: true,
     });
 
+    const currentUser = res.data.result.user;
+
     console.log("res data from current user: ", res.data);
-    return res.data;
+    return currentUser;
   } catch (err) {
     console.error("Error fetching user:", err);
     throw new Error("An error occurred while retrieving the user.");

@@ -2,41 +2,41 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import EventCard from "src/components/events/EventCard";
-import { SafeReservation } from "src/interfaces/reservation";
+import { Booking } from "src/interfaces/booking";
 
 interface TicketsClientProps {
-  reservations: SafeReservation[];
-  currentUser?: SafeUser | null;
+  bookings: Booking[];
+  currentUser?: User | null;
 }
 
 const TicketsClient: React.FC<TicketsClientProps> = ({
-  reservations,
+  bookings,
   currentUser,
 }) => {
   const navigate = useNavigate();
-  const [deletingId, setDeletingId] = useState("");
+  const [deletingId, setDeletingId] = useState(Number);
 
   const onCancel = useCallback(
-    (id: string) => {
+    (id: number) => {
       setDeletingId(id);
 
       axios
-        .delete(`/api/reservations/${id}`)
+        .delete(`/api/bookings/${id}`)
         .then(() => {
-          toast.success("Reservation cancelled");
+          toast.success("Booking cancelled");
           navigate("/");
         })
         .catch((error) => {
           toast.error(error?.response?.data?.error);
         })
         .finally(() => {
-          setDeletingId("");
+          setDeletingId(Number);
         });
     },
     [navigate]
@@ -61,15 +61,15 @@ const TicketsClient: React.FC<TicketsClientProps> = ({
           gap-8
         "
       >
-        {reservations.map((reservation: SafeReservation) => (
+        {bookings.map((booking: Booking) => (
           <EventCard
-            key={reservation._id.toString()}
-            data={reservation.event}
-            reservation={reservation}
-            actionId={reservation._id.toString()}
+            key={booking.bookingId}
+            data={booking.event}
+            booking={booking}
+            actionId={booking.bookingId}
             onAction={onCancel}
-            disabled={deletingId === reservation._id.toString()}
-            actionLabel="Cancel reservation"
+            disabled={deletingId === booking.bookingId}
+            actionLabel="Cancel booking"
             currentUser={currentUser}
           />
         ))}

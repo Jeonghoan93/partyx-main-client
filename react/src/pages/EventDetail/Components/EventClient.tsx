@@ -5,12 +5,12 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import useLoginModal from "src/hooks/useLoginModal";
+import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
-import { Reservation } from "src/interfaces/reservation";
-import { SafeUser } from "src/interfaces/user";
-import { createReservation } from "src/services/reservation";
+import { User } from "src/interfaces/user";
+import { createBooking } from "src/services/booking";
+import EventBooking from "./EventBooking";
 import EventInfo from "./EventInfo";
-import EventReservation from "./EventReservation";
 import PhotoSection from "./PhotoSection";
 import ReviewSection from "./ReviewSection";
 
@@ -21,14 +21,14 @@ const initialDateRange = {
 };
 
 interface EventClientProps {
-  reservations?: Reservation[];
+  bookings?: Booking[];
   event: Event;
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const EventClient: React.FC<EventClientProps> = ({
   event,
-  reservations = [],
+  bookings = [],
   currentUser,
 }) => {
   const loginModal = useLoginModal();
@@ -37,23 +37,23 @@ const EventClient: React.FC<EventClientProps> = ({
   const disabledDates = useMemo(() => {
     let dates: Date[] = [];
 
-    reservations.forEach((reservation: Reservation) => {
+    bookings.forEach((booking: Booking) => {
       const range = eachDayOfInterval({
-        start: new Date(reservation.startDate),
-        end: new Date(reservation.endDate),
+        start: new Date(booking.event.startDate),
+        end: new Date(booking.event.endDate),
       });
 
       dates = [...dates, ...range];
     });
 
     return dates;
-  }, [reservations]);
+  }, [bookings]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(event.price);
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
-  const onCreateReservation = useCallback(async () => {
+  const onCreateBooking = useCallback(async () => {
     if (!currentUser) {
       return loginModal.onOpen();
     }
@@ -67,15 +67,18 @@ const EventClient: React.FC<EventClientProps> = ({
     setIsLoading(true);
 
     try {
-      const res = await createReservation({
-        totalPrice,
-        startDate: dateRange.startDate?.toISOString(),
-        endDate: dateRange.endDate?.toISOString(),
-        eventId: event.eventId,
-        userId: currentUser.userId,
-        createdAt: new Date().toISOString(),
-        event: event,
-        user: currentUser,
+      const res = await createBooking({
+        totalAmount: totalPrice,
+        event: {
+          ...event,
+          startDate: dateRange.startDate,
+          endDate: dateRange.endDate,
+        },
+        bookBy: currentUser,
+        bookingDate: new Date(),
+        bookingId: 0,
+        numberOfTickets: 0,
+        currency: "",
       });
 
       if (res?.status === "success") {
@@ -148,13 +151,13 @@ const EventClient: React.FC<EventClientProps> = ({
                 md:col-span-3
               "
             >
-              <EventReservation
+              <EventBooking
                 currency={event.currency}
                 price={event.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}
-                onSubmit={onCreateReservation}
+                onSubmit={onCreateBooking}
                 disabled={isLoading}
                 disabledDates={disabledDates}
               />

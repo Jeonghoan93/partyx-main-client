@@ -1,12 +1,17 @@
+import { Booking } from "./booking";
 import { Review } from "./review";
 import { SafeUser } from "./user";
 
 export interface Address {
   street: string;
-  postalCode: string;
-  area: string;
   city: string;
+  state: string;
+  postalCode: string;
   country: string;
+}
+
+export interface Location {
+  latlng: [number, number];
 }
 
 export interface Event {
@@ -15,6 +20,8 @@ export interface Event {
   avgRating: number;
   reviewCounts: number;
   address: Address;
+  location?: Location;
+
   title: string;
   minGuests: number;
   maxGuests: number;
@@ -23,16 +30,21 @@ export interface Event {
   startDate: Date;
   endDate: Date;
   eventType: string;
-  reviews: Review[];
+
   currency: string;
   price: number;
-  hostName: string;
+
   hostProfilePhoto: string;
+  hostName: string;
+
   cancellationPolicy: string;
   eventRules: string[];
   safety: string[];
   createdAt: Date;
   updatedAt: Date;
+
+  reviews: Review[];
+  bookings?: Booking[];
 }
 
 export interface EventData {

@@ -2,7 +2,7 @@ import { Types } from "mongoose";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 
-export interface Reservation {
+export interface Booking {
   _id: Types.ObjectId;
   userId: Types.ObjectId;
   eventId: Types.ObjectId;

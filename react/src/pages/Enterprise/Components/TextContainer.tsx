@@ -1,5 +1,5 @@
 import { Avatar } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useWindowWidth } from "src/hooks/useWindowWidth";
 
 interface TextContainerProps {
   title: string;
@@ -12,20 +12,7 @@ interface TextContainerProps {
 }
 
 const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
-  const isClient = typeof window === "object";
-  const initialWidth = isClient ? window.innerWidth : 1200;
-  const [windowWidth, setWindowWidth] = useState(initialWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const windowWidth = useWindowWidth();
 
   const DynamicContainer: React.FC<{
     style?: React.CSSProperties;

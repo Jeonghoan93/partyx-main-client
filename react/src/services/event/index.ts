@@ -77,9 +77,7 @@ export const deleteFavoriteEvent = async (eventId: Types.ObjectId) => {
   }
 };
 
-export const deleteEvent = async (eventIdStr: string) => {
-  const eventId = new Types.ObjectId(eventIdStr);
-
+export const deleteEvent = async (eventId: number) => {
   try {
     const res = await api.delete(`/event/${eventId}`);
     return res.data;

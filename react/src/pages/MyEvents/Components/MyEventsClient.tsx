@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
@@ -10,17 +10,20 @@ import EventCard from "src/components/events/EventCard";
 import { Event } from "src/interfaces/event";
 import { deleteEvent } from "src/services/event";
 
-interface EventsClientProps {
+interface MyEventsClientProps {
   events: Event[];
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
-const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
+const MyEventsClient: React.FC<MyEventsClientProps> = ({
+  events,
+  currentUser,
+}) => {
   const navigate = useNavigate();
-  const [deletingId, setDeletingId] = useState("");
+  const [deletingId, setDeletingId] = useState(Number);
 
   const onDelete = useCallback(
-    (id: string) => {
+    (id: number) => {
       setDeletingId(id);
 
       try {
@@ -31,7 +34,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
       } catch (err) {
         toast.error("Unknown error");
       } finally {
-        setDeletingId("");
+        setDeletingId(Number);
       }
     },
     [navigate]
@@ -39,7 +42,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
 
   return (
     <Container>
-      <Heading title="Events" subtitle="List of your properties" />
+      <Heading title="Events" subtitle="List of your events" />
       <div
         className="
           mt-10
@@ -57,9 +60,9 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
           <EventCard
             key={event.eventId}
             data={event}
-            actionId={event.eventId.toString()}
+            actionId={event.eventId}
             onAction={onDelete}
-            disabled={deletingId === event.eventId.toString()}
+            disabled={deletingId === event.eventId}
             actionLabel="Delete event"
             currentUser={currentUser}
           />
@@ -69,4 +72,4 @@ const EventsClient: React.FC<EventsClientProps> = ({ events, currentUser }) => {
   );
 };
 
-export default EventsClient;
+export default MyEventsClient;

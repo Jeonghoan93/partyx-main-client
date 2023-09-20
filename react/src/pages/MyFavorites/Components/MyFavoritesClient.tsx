@@ -2,11 +2,11 @@ import Container from "src/components/Container";
 import Heading from "src/components/Heading";
 import EventCard from "src/components/events/EventCard";
 import { Event } from "src/interfaces/event";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 interface FavoritesClientProps {
   events: Event[];
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const FavoritesClient: React.FC<FavoritesClientProps> = ({

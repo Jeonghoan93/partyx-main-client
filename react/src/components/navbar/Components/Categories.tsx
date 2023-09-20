@@ -1,17 +1,19 @@
 import { useLocation } from "react-router-dom";
+import { useIsCertainPage } from "src/hooks/useIsCertainPage";
 import { categories } from "src/utils/constants";
 import CategoryBox from "../../CategoryBox";
 import Container from "../../Container";
 
 const Categories = () => {
   const location = useLocation();
-
   const params = new URLSearchParams(location.search);
-
   const category = params?.get("category");
-  const pathname = location.pathname;
-  const isEventsPage = pathname.startsWith("/events");
-  const isHomePage = pathname === "/";
+
+  const isEventsPage = useIsCertainPage("/events", {
+    startWith: true,
+  });
+
+  const isHomePage = useIsCertainPage("/");
 
   if (!isEventsPage && !isHomePage) {
     return null;

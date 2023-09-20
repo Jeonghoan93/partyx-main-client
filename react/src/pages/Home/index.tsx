@@ -1,9 +1,8 @@
-import EmptyState from "src/components/EmptyState";
-
 import { useEffect, useState } from "react";
 import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import { getCurrentUser } from "src/services/auth";
+import CustomizedSection from "./Sections/CustomizedSection";
 import FeaturedSection from "./Sections/FeaturedSection";
 import FestivalSection from "./Sections/FestivalSection";
 import NewestSection from "./Sections/NewestSection";
@@ -23,9 +22,17 @@ const Home: React.FC = () => {
 
   if (currentUser) {
     return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
+      <Container>
+        <div className="mt-10">
+          <ClientOnly>
+            <CustomizedSection currentUser={currentUser} />
+            <FestivalSection />
+            <FeaturedSection />
+            <TrendingSection />
+            <NewestSection />
+          </ClientOnly>
+        </div>
+      </Container>
     );
   }
 

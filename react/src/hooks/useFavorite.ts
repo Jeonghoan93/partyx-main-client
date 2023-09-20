@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
 import { addToFavorites, deleteFromFavorites } from "src/services/favorites";
@@ -9,7 +9,7 @@ import useLoginModal from "./useLoginModal";
 
 interface IUseFavorite {
   eventId: number;
-  currentUser?: SafeUser | null;
+  currentUser?: User | null;
 }
 
 const useFavorite = ({ eventId, currentUser }: IUseFavorite) => {

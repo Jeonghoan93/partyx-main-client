@@ -1,13 +1,27 @@
 import { Types } from "mongoose";
-import { SafeUser, UserTypes } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 
-export const MockedUser: SafeUser = {
+export const MockedUser: User = {
   _id: new Types.ObjectId(),
   userId: 1,
-  name: "John Doe",
-  email: "johndoe@example.com",
-  hashedPassword: "hashedPasswordHere",
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString(),
-  type: UserTypes.CUSTOMER,
+  name: "Sample User",
+  email: "sample@example.com",
+  hashedPassword: "hashedPasswordSample",
+  isEmailVerified: false,
+  phoneNumber: "123-456-7890",
+  isHost: false,
+  notifications: [
+    {
+      id: 1,
+      type: "message",
+      content: "Sample Notification",
+      date: new Date(),
+      read: false,
+    },
+  ],
+  messages: [],
+  userPreferences: {
+    receiveNotifications: true,
+    language: "English",
+  },
 };

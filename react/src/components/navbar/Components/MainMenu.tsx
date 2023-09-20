@@ -101,8 +101,8 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
                   onClick={() => navigate("/favorites")}
                 />
                 <MenuItem
-                  label="My reservations"
-                  onClick={() => navigate("/reservations")}
+                  label="My bookings"
+                  onClick={() => navigate("/bookings")}
                 />
                 <MenuItem
                   label="My events"

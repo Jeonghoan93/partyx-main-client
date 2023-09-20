@@ -2,30 +2,30 @@ import { useCallback, useMemo } from "react";
 
 import { AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
-import { SafeReservation } from "src/interfaces/reservation";
-import { SafeUser } from "src/interfaces/user";
+import { User } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
 
 interface EventCardProps {
   data: Event;
-  reservation?: SafeReservation;
-  onAction?: (id: string) => void;
+  booking?: Booking;
+  onAction?: (id: number) => void;
   disabled?: boolean;
   actionLabel?: string;
-  actionId?: string;
-  currentUser?: SafeUser | null;
+  actionId?: number;
+  currentUser?: User | null;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
   data,
-  reservation,
+  booking,
   onAction,
   disabled,
   actionLabel,
-  actionId = "",
+  actionId,
   currentUser,
 }) => {
   const navigate = useNavigate();
@@ -38,18 +38,22 @@ const EventCard: React.FC<EventCardProps> = ({
         return;
       }
 
+      if (actionId === undefined) {
+        return;
+      }
+
       onAction?.(actionId);
     },
     [disabled, onAction, actionId]
   );
 
   const price = useMemo(() => {
-    if (reservation) {
-      return reservation.totalPrice;
+    if (booking) {
+      return booking.totalAmount;
     }
 
     return data.price;
-  }, [reservation, data.price]);
+  }, [booking, data.price]);
 
   return (
     <div
@@ -111,7 +115,7 @@ const EventCard: React.FC<EventCardProps> = ({
             <div className="font-semibold">
               {data.currency} {price}
             </div>
-            {!reservation && <div className="font-light">{""}</div>}
+            {!booking && <div className="font-light">{""}</div>}
           </div>
           {onAction && actionLabel && (
             <Button

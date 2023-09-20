@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Event } from "src/interfaces/event";
 import EventCard from "src/pages/Home/Components/EventCard";
 import FestivalCard from "./FestivalCard";
@@ -8,21 +9,8 @@ type FestivalSliderProps = {
 };
 
 const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
-  const isClient = typeof window === "object";
-  const initialWidth = isClient ? window.innerWidth : 1200;
-  const [windowWidth, setWindowWidth] = useState(initialWidth);
+  const windowWidth = useWindowWidth();
   const [startIndex, setStartIndex] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleNext = () => {
     setStartIndex((prevIndex) => Math.min(prevIndex + 1, festivals.length - 1));
