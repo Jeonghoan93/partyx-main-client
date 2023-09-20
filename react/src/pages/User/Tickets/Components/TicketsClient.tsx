@@ -15,7 +15,7 @@ interface MyTicketsClientProps {
   currentUser?: User | null;
 }
 
-const MyTicketsClient: React.FC<MyTicketsClientProps> = ({
+const TicketsClient: React.FC<MyTicketsClientProps> = ({
   bookings,
   currentUser,
 }) => {
@@ -78,4 +78,4 @@ const MyTicketsClient: React.FC<MyTicketsClientProps> = ({
   );
 };
 
-export default MyTicketsClient;
+export default TicketsClient;

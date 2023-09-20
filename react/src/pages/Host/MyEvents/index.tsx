@@ -1,10 +1,10 @@
-import ClientOnly from "src/components/ClientOnly";
 import EmptyState from "src/components/EmptyState";
 
 import { getCurrentUser } from "src/services/auth";
 import { getEvents } from "src/services/event";
 
 import { useEffect, useState } from "react";
+import Container from "src/components/Container";
 import MyEventsClient from "./Components/MyEventsClient";
 
 const MyEvents = () => {
@@ -29,21 +29,25 @@ const MyEvents = () => {
     return <EmptyState title="Unauthorized" subtitle="Please login" />;
   }
 
-  if (events.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState
-          title="No events found"
-          subtitle="Looks like you have no events."
-        />
-      </ClientOnly>
-    );
-  }
-
   return (
-    <ClientOnly>
-      <MyEventsClient events={events} currentUser={currentUser} />
-    </ClientOnly>
+    <Container>
+      <div className="p-3">
+        <div className="mb-2">
+          <h2 className="text-[16pt] font-bold">My listings</h2>
+          <span className="text-[11pt] text-gray-600 font-semibold">
+            Click the listing to see more details!
+          </span>
+        </div>
+        {events.length === 0 ? (
+          <EmptyState
+            title="No events found"
+            subtitle="Looks like you have no events."
+          />
+        ) : (
+          <MyEventsClient events={events} currentUser={currentUser} />
+        )}
+      </div>
+    </Container>
   );
 };
 

@@ -10,7 +10,7 @@ interface ModalProps {
   title?: string;
   body?: React.ReactElement;
   footer?: React.ReactElement;
-  actionLabel: string;
+  actionLabel?: string;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
@@ -86,9 +86,9 @@ const Modal: React.FC<ModalProps> = ({
           className="
           relative 
           w-full
-          md:w-4/6
-          lg:w-3/6
-          xl:w-2/5
+          md:w-[375pt]
+          lg:w-[386pt]
+          xl:w-[400pt]
           my-6
           mx-auto 
           lg:h-auto
@@ -129,7 +129,7 @@ const Modal: React.FC<ModalProps> = ({
                 className="
                 flex 
                 items-center 
-                p-6
+                p-5
                 rounded-t
                 justify-center
                 relative
@@ -149,7 +149,7 @@ const Modal: React.FC<ModalProps> = ({
                 >
                   <IoMdClose size={18} />
                 </button>
-                <div className="text-lg font-semibold">{title}</div>
+                <div className="text-[12pt] font-bold">{title}</div>
               </div>
               {/*body*/}
               <div className="relative p-6 flex-auto">{body}</div>
@@ -172,11 +172,13 @@ const Modal: React.FC<ModalProps> = ({
                       outline
                     />
                   )}
-                  <Button
-                    disabled={disabled}
-                    label={actionLabel}
-                    onClick={handleSubmit}
-                  />
+                  {actionLabel && (
+                    <Button
+                      disabled={disabled}
+                      label={actionLabel}
+                      onClick={handleSubmit}
+                    />
+                  )}
                 </div>
                 {footer}
               </div>

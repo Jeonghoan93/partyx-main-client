@@ -1,13 +1,12 @@
-import ClientOnly from "src/components/ClientOnly";
 import EmptyState from "src/components/EmptyState";
 
 import { useEffect, useState } from "react";
 import Container from "src/components/Container";
 import { getCurrentUser } from "src/services/auth";
 import { getBookings } from "src/services/booking";
-import MyTicketsClient from "./Components/MyTicketsClient";
+import TicketsClient from "./Components/TicketsClient";
 
-const MyTickets = () => {
+const Tickets = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [bookings, setBookings] = useState([]);
 
@@ -25,30 +24,26 @@ const MyTickets = () => {
     fetchUserAndBookings();
   }, []);
 
-  if (bookings.length === 0) {
-    return (
-      <Container>
-        <div className="mt-10">
-          <ClientOnly>
-            <EmptyState
-              title="No ticket found"
-              subtitle="Looks like you haven't reserved any ticket."
-            />
-          </ClientOnly>
-        </div>
-      </Container>
-    );
-  }
-
   return (
     <Container>
-      <div className="mt-10">
-        <ClientOnly>
-          <MyTicketsClient bookings={bookings} currentUser={currentUser} />
-        </ClientOnly>
+      <div className="p-3">
+        <div className="mb-2">
+          <h2 className="text-[16pt] font-bold">Tickets</h2>
+          <span className="text-[11pt] text-gray-600 font-semibold">
+            Click the ticket to see more details!
+          </span>
+        </div>
+        {bookings.length === 0 ? (
+          <EmptyState
+            title="No ticket found"
+            subtitle="Looks like you haven't reserved any ticket."
+          />
+        ) : (
+          <TicketsClient bookings={bookings} currentUser={currentUser} />
+        )}
       </div>
     </Container>
   );
 };
 
-export default MyTickets;
+export default Tickets;

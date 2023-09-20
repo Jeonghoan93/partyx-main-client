@@ -72,7 +72,7 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to PartyX" subtitle="Create an account!" />
+      <Heading title="Welcome to PartyX" />
       <Input
         id="email"
         label="Email"
@@ -141,7 +141,7 @@ const RegisterModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Register"
+      title="Log in or sign up"
       actionLabel="Continue"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}

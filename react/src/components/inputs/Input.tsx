@@ -45,28 +45,28 @@ const Input: React.FC<InputProps> = ({
           peer
           w-full
           p-4
-          pt-6 
+          pt-5 
           font-light 
           bg-white 
-          border-2
+          border-[1pt]
           rounded-md
           outline-none
           transition
           disabled:opacity-70
           disabled:cursor-not-allowed
           ${formatPrice ? "pl-9" : "pl-4"}
-          ${errors[id] ? "border-gray-500" : "border-neutral-300"}
+          ${errors[id] ? "border-gray-600" : "border-neutral-400"}
           ${errors[id] ? "focus:border-gray-500" : "focus:border-black"}
         `}
       />
       <label
         className={`
           absolute 
-          text-md
+          text-[11pt]
           duration-150 
           transform 
-          -translate-y-3 
-          top-5 
+          -translate-y-1/2
+          top-3 
           z-10 
           origin-[0] 
           ${formatPrice ? "left-9" : "left-4"}

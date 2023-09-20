@@ -3,6 +3,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useCreateProfileModal from "src/hooks/useCreateProfile";
 import useLoginModal from "src/hooks/useLoginModal";
 import useRegisterModal from "src/hooks/useRegisterModal";
 import useRentModal from "src/hooks/useRentModal";
@@ -22,6 +23,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
+
+  const createProfileModal = useCreateProfileModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -102,7 +105,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             rounded-xl 
             shadow-lg
             w-[40vw]
-            lg:w-3/4 
+            md:w-[30vw]
+            lg:w-[20vw] 
             bg-white 
             overflow-hidden 
             right-0 
@@ -110,32 +114,33 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             text-sm
           "
         >
-          <div className="flex flex-col cursor-pointer">
+          <div className="flex flex-col p-1 cursor-pointer">
             {currentUser ? (
               <>
                 <MenuItem
-                  label="My tickets"
-                  onClick={() => navigate("/my-tickets")}
+                  label="Messages"
+                  onClick={() => navigate("/messages/:userId")}
                 />
                 <MenuItem
-                  label="My favorites"
-                  onClick={() => navigate("/my-favorites")}
+                  label="Notifications"
+                  onClick={() => navigate("/notifications")}
                 />
+                <MenuItem
+                  label="Tickets"
+                  onClick={() => navigate("/tickets")}
+                />
+                <MenuItem
+                  label="Favorites"
+                  onClick={() => navigate("/favorites")}
+                />
+                <hr />
                 <MenuItem
                   label="My events"
                   onClick={() => navigate("/my-events")}
                 />
                 <MenuItem label="List your party" onClick={rentModal.onOpen} />
+
                 <hr />
-                <MenuItem label="Logout" onClick={handleSignOut} />
-                <div
-                  className="
-                  block
-                  md:hidden
-                "
-                >
-                  <MenuItem label="Home" onClick={() => navigate("/")} />
-                </div>
                 <div
                   className="
                   block
@@ -146,7 +151,20 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     label="Company"
                     onClick={() => navigate("/company?menu=About%20us")}
                   />
+                  <MenuItem
+                    label="Profile"
+                    onClick={createProfileModal.onOpen}
+                  />
                 </div>
+                <div
+                  className="
+                  block
+                  md:hidden
+                "
+                >
+                  <MenuItem label="Home" onClick={() => navigate("/")} />
+                </div>
+                <MenuItem label="Logout" onClick={handleSignOut} />
               </>
             ) : (
               <>
