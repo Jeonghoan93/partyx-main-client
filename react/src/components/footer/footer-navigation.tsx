@@ -1,45 +1,17 @@
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import FooterSectionTitle from "src/components/footer/footer-section-title";
-import Link from "src/components/Link";
 
 export interface Navigation {
   label: string;
-  path: string;
+  path: () => void;
 }
-
-const contactMenu = [
-  {
-    label: "partyx@info.com",
-    path: "#", // '/',
-  },
-];
-
-const partnerMenu: Array<Navigation> = [
-  {
-    label: "Club owners",
-    path: "#",
-  },
-  {
-    label: "Festival organizations",
-    path: "#",
-  },
-  {
-    label: "Rave organizers",
-    path: "#",
-  },
-];
-
-const companyMenu: Array<Navigation> = [
-  { label: "Mission", path: "#" },
-  { label: "Careers", path: "#" },
-  { label: "Investors", path: "#" },
-];
 
 const NavigationItem: FC<Navigation> = ({ label, path }) => {
   return (
-    <Link href={path}>
+    <div className="cursor-pointer" onClick={path}>
       <MuiLink
         underline="hover"
         sx={{
@@ -50,33 +22,59 @@ const NavigationItem: FC<Navigation> = ({ label, path }) => {
       >
         {label}
       </MuiLink>
-    </Link>
+    </div>
   );
 };
 
 const FooterNavigation: FC = () => {
+  const navigate = useNavigate();
+
+  const companyMenu: Array<Navigation> = [
+    { label: "Mission", path: () => navigate("/company?menu=Mission") },
+    { label: "Careers", path: () => navigate("/company?menu=Careers") },
+    { label: "Investors", path: () => navigate("/company?menu=Investors") },
+  ];
+
+  const partnerMenu: Array<Navigation> = [
+    {
+      label: "Club owners",
+      path: () => navigate("/partner?menu=club"),
+    },
+    {
+      label: "Festival organizations",
+      path: () => navigate("/partner?menu=festival"),
+    },
+    {
+      label: "Rave organizers",
+      path: () => navigate("/partner?menu=rave"),
+    },
+  ];
+
+  const contactMenu = [
+    {
+      label: "partyx@info.com",
+      path: () => navigate("/contact"),
+    },
+  ];
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="Company" />
         {companyMenu.map(({ label, path }, index) => (
-          <NavigationItem
-            key={index + path}
-            label={label}
-            path={/* path */ "#"}
-          />
+          <NavigationItem key={index} label={label} path={path} />
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="Contact us" />
         {contactMenu.map(({ label, path }, index) => (
-          <NavigationItem key={index + path} label={label} path={path} />
+          <NavigationItem key={index} label={label} path={path} />
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
         <FooterSectionTitle title="Partnerships" />
         {partnerMenu.map(({ label, path }, index) => (
-          <NavigationItem key={index + path} label={label} path={path} />
+          <NavigationItem key={index} label={label} path={path} />
         ))}
       </Grid>
     </Grid>

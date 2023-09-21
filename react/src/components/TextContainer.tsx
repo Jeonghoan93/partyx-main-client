@@ -28,7 +28,9 @@ const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
             }}
           >
             <div>
-              <h2 className="text-[14pt] font-semibold">{title}</h2>
+              <h2 className="text-[13pt] font-semibold">
+                {title.length > 30 ? title.slice(0, 30) + "..." : title}
+              </h2>
             </div>
 
             <div className="flex flex-row gap-2 items-center">
@@ -45,7 +47,7 @@ const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
           </div>
 
           <p className="text-[12pt] text-gray-800 font-medium font-serif">
-            {desc}
+            {desc.length > 200 ? desc.slice(0, 200) + "..." : desc}
           </p>
 
           <div className="mt-5">

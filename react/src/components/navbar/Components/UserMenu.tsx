@@ -118,18 +118,22 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem
+                  semibold={true}
                   label="Messages"
                   onClick={() => navigate("/messages/:userId")}
                 />
                 <MenuItem
+                  semibold={true}
                   label="Notifications"
                   onClick={() => navigate("/notifications")}
                 />
                 <MenuItem
+                  semibold={true}
                   label="Tickets"
                   onClick={() => navigate("/tickets")}
                 />
                 <MenuItem
+                  semibold={true}
                   label="Favorites"
                   onClick={() => navigate("/favorites")}
                 />
@@ -153,7 +157,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 >
                   <MenuItem
                     label="Company"
-                    onClick={() => navigate("/company?menu=About%20us")}
+                    onClick={() => navigate("/company?menu=Mission")}
                   />
                   <MenuItem
                     label="Profile"
@@ -203,7 +207,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 >
                   <MenuItem
                     label="Company"
-                    onClick={() => navigate("/company?menu=About%20us")}
+                    onClick={() => navigate("/company?menu=Mission")}
                   />
                 </div>
               </>

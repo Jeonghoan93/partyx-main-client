@@ -1,15 +1,15 @@
 import Container from "src/components/Container";
-import AboutSection from "./Components/AboutSection";
-import InvestorSection from "./Components/InvestorSection";
-import OfferSection from "./Components/OfferSection";
+import Careers from "./Pages/Careers";
+import Investors from "./Pages/Investors";
+import Mission from "./Pages/Mission";
 
 const EnterprisePage: React.FC = () => {
   return (
     <Container>
       <div className="mt-10">
-        <AboutSection name={"About us"} />
-        <OfferSection name={"Our offers"} />
-        <InvestorSection name={"Investor relations"} />
+        <Mission name={"Mission"} />
+        <Careers name={"Careers"} />
+        <Investors name={"Investors"} />
       </div>
     </Container>
   );
