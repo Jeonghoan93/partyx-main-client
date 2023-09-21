@@ -36,7 +36,7 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
         </div>
         {startIndex > 0 && (
           <button
-            className="ml-2 absolute left-0 top-1/4 transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
+            className="ml-2 absolute left-0 top-[150px] transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
             onClick={handlePrev}
           >
             ←
@@ -44,7 +44,7 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
         )}
         {startIndex < events.length - 1 && (
           <button
-            className="mr-2 absolute right-0 top-1/4 transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
+            className="mr-2 absolute right-0 top-[150px] transform -translate-y-1/2 text-white font-bold px-3 py-2 rounded-full"
             onClick={handleNext}
           >
             →

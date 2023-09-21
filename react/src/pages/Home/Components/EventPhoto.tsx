@@ -22,7 +22,7 @@ const EventPhoto: React.FC<PhotoSectionProps> = ({
   return (
     <section
       className="
-         w-full h-40 object-cover
+         w-full h-[300px] object-cover
         "
     >
       <img src={img} style={{ width: "100%", height: "100%" }} alt="Image" />

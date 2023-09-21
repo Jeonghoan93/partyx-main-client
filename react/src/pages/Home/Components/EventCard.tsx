@@ -40,7 +40,7 @@ const EventCard: React.FC<EventProps> = ({
       <div
         className="relative rounded-lg overflow-hidden bg-transparent"
         style={{
-          height: "300px",
+          height: "430px",
         }}
       >
         <EventPhoto img={img} eventId={Number(eventId)} />
