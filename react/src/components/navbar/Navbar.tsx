@@ -54,6 +54,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
       </div>
       <Categories />
       <Menus page={"/company"} menus={["Mission", "Careers", "Investors"]} />
+      <Menus
+        page={"/partner"}
+        menus={["Club Owner", "Festival Organizer", "Rave Organizer"]}
+      />
     </div>
   );
 };

@@ -1,10 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import RootLayout from "src/layouts/RootLayout";
-import EnterprisePage from "src/pages/Enterprise";
+import EnterprisePage from "src/pages/Company";
 import EventDetail from "src/pages/Event/EventDetail";
 import EventList from "src/pages/Event/EventList";
 import Home from "src/pages/Home";
 import MyEvents from "src/pages/Host/MyEvents";
+import Partner from "src/pages/Partner";
 import Account from "src/pages/User/Account";
 import LoginSecurity from "src/pages/User/Account/Pages/LoginSecurity";
 import Payments from "src/pages/User/Account/Pages/Payments";
@@ -19,9 +20,13 @@ const AppRoutes = () => {
     <Router>
       <RootLayout>
         <Routes>
-          <Route path="/events" element={<EventList />} />
           <Route path="/" element={<Home />} />
+
+          {/* Events */}
+          <Route path="/events" element={<EventList />} />
           <Route path="/events/:eventId" element={<EventDetail />} />
+
+          {/* Company */}
           <Route path="/company" element={<EnterprisePage />} />
 
           {/* Account */}
@@ -31,9 +36,15 @@ const AppRoutes = () => {
           <Route path="/account/login-security" element={<LoginSecurity />} />
           <Route path="/account/taxes" element={<Taxes />} />
 
+          {/* Partner */}
+          <Route path="/partner" element={<Partner />} />
+
+          {/* User */}
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/favorites" element={<Favorites />} />
+
+          {/* Host */}
           <Route path="/my-events" element={<MyEvents />} />
         </Routes>
       </RootLayout>

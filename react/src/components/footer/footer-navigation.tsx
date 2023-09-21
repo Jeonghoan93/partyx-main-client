@@ -38,22 +38,26 @@ const FooterNavigation: FC = () => {
   const partnerMenu: Array<Navigation> = [
     {
       label: "Club owners",
-      path: () => navigate("/partner?menu=club"),
+      path: () => navigate("/partner?menu=Club%20Owner"),
     },
     {
       label: "Festival organizations",
-      path: () => navigate("/partner?menu=festival"),
+      path: () => navigate("/partner?menu=Festival%20Organizer"),
     },
     {
       label: "Rave organizers",
-      path: () => navigate("/partner?menu=rave"),
+      path: () => navigate("/partner?menu=Rave%20Organizer"),
     },
   ];
 
   const contactMenu = [
     {
-      label: "partyx@info.com",
-      path: () => navigate("/contact"),
+      label: "Jimmy",
+      path: () => navigate("/"),
+    },
+    {
+      label: "+46 72 446 29 42",
+      path: () => navigate("/"),
     },
   ];
 
@@ -66,7 +70,7 @@ const FooterNavigation: FC = () => {
         ))}
       </Grid>
       <Grid item xs={12} md={4}>
-        <FooterSectionTitle title="Contact us" />
+        <FooterSectionTitle title="Contact" />
         {contactMenu.map(({ label, path }, index) => (
           <NavigationItem key={index} label={label} path={path} />
         ))}
