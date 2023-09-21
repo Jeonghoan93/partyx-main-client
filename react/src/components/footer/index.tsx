@@ -7,9 +7,11 @@ import FooterNavigation from "src/components/footer/footer-navigation";
 import { useIsCertainPage } from "src/hooks/useIsCertainPage";
 
 const Footer: FC = () => {
-  const isHomePage = useIsCertainPage("/");
+  const isEventsPage = useIsCertainPage("/events", {
+    startsWith: true,
+  });
 
-  if (!isHomePage) {
+  if (isEventsPage) {
     return null;
   }
 

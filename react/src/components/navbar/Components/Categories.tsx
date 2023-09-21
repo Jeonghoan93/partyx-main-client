@@ -10,7 +10,7 @@ const Categories = () => {
   const category = params?.get("category");
 
   const isEventsPage = useIsCertainPage("/events", {
-    startWith: true,
+    startsWith: true,
   });
 
   const isHomePage = useIsCertainPage("/");

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 interface IsCertainPageOptions {
   exact?: boolean;
-  startWith?: boolean;
+  startsWith?: boolean;
   regex?: RegExp;
 }
 
@@ -10,11 +10,11 @@ export const useIsCertainPage = (
   pageName: string,
   options: IsCertainPageOptions = {}
 ) => {
-  const { exact = true, startWith = false, regex } = options;
+  const { exact = true, startsWith = false, regex } = options;
   const location = useLocation();
   const pathname = location.pathname;
 
-  if (startWith) {
+  if (startsWith) {
     return pathname.startsWith(pageName);
   }
 
