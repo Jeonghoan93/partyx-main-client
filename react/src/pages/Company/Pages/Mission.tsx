@@ -59,7 +59,7 @@ const Mission: React.FC<SectionProps> = ({ name }) => {
       <div className="mb-4">
         <h2 className="text-[13pt] font-bold">Get together</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          Explore parties and make new friends
+          Explore parties and make new friends.
         </span>
       </div>
       {mockedData.map((text, index) => (

@@ -59,7 +59,7 @@ const ClubOwner: React.FC<SectionProps> = ({ name }) => {
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">Elevate Your Nights</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          Maximized Profits. Effortless Management.
+          Maximized Profits, Effortless Management.
         </span>
       </div>
       {mockedData.map((text, index) => (

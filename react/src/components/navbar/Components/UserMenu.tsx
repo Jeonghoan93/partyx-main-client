@@ -190,7 +190,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     onClick={currentUser ? rentModal.onOpen : loginModal.onOpen}
                   />
                 </div>
-                <hr />
+                <hr className="block lg:hidden" />
                 <div
                   className="
                   block

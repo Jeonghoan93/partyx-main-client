@@ -59,7 +59,7 @@ const FestivalOrganizer: React.FC<SectionProps> = ({ name }) => {
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">The Euro Beat</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          Where Every Festival Resounds Across Borders
+          Where Every Festival, Resounds Across Borders.
         </span>
       </div>
       {mockedData.map((data, index) => (

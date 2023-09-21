@@ -1,4 +1,5 @@
 import { Avatar } from "@mui/material";
+import { useState } from "react";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 
 interface TextContainerProps {
@@ -13,6 +14,15 @@ interface TextContainerProps {
 
 const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
   const windowWidth = useWindowWidth();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const DynamicContainer: React.FC<{
     style?: React.CSSProperties;
@@ -51,7 +61,10 @@ const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
           </p>
 
           <div className="mt-5">
-            <span className="cursor-pointer font-semibold underline">
+            <span
+              onClick={handleOpen}
+              className="cursor-pointer font-semibold underline"
+            >
               Read full
             </span>
           </div>
@@ -60,11 +73,30 @@ const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
     );
   };
 
-  if (windowWidth < 700) {
-    return <DynamicContainer />;
-  }
+  return (
+    <>
+      <DynamicContainer
+        style={windowWidth < 700 ? {} : { maxWidth: "500px" }}
+      />
 
-  return <DynamicContainer style={{ maxWidth: "500px" }} />;
+      {/* Custom Modal */}
+      {open && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+          <div className="bg-black opacity-60 absolute top-0 left-0 w-full h-full"></div>
+          <div className="bg-gray-50 p-6 rounded-lg m-5 relative z-60 max-w-[500px]">
+            <h2 className="text-[14pt] mb-4 font-semibold">{title}</h2>
+            <p className="text-[12pt] text-gray-800">{desc}</p>
+            <button
+              onClick={handleClose}
+              className="underline font-semibold mt-4 cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default TextContainer;

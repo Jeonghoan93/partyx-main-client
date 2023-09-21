@@ -59,7 +59,7 @@ const Careers: React.FC<SectionProps> = ({ name }) => {
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">Arts</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          We bring value into the hands of artists
+          We bring value into the hands of artists.
         </span>
       </div>
       {mockedData.map((text, index) => (

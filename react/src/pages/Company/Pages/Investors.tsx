@@ -59,7 +59,7 @@ const Investors: React.FC<SectionProps> = ({ name }) => {
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">Next unicorn</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          How we're going to make it
+          How we're going to make it.
         </span>
       </div>
       {mockedData.map((data, index) => (
