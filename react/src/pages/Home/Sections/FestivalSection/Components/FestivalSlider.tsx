@@ -62,7 +62,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
   }
   if (windowWidth >= 667) {
     return (
-      <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap">
+      <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
         {festivals.map((event) => (
           <EventCard
             {...event}

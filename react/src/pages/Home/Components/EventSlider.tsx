@@ -56,7 +56,7 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
 
   if (windowWidth >= 475) {
     return (
-      <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap">
+      <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
         {events.map((event) => (
           <EventCard
             {...event}

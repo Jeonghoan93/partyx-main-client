@@ -30,6 +30,7 @@ const Categories = () => {
           justify-between
           overflow-y-auto
           gap-2
+          no-scrollbar
         "
       >
         {categories.map((item) => (
