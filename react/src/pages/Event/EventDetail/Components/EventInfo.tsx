@@ -68,7 +68,10 @@ const EventInfo: React.FC<EventInfoProps> = ({
             </span>
 
             <span className="text-[10pt]">
-              {formatDate(startDate, true, endDate)}
+              {formatDate(startDate, {
+                timeIncluded: true,
+                endDate: endDate,
+              })}
             </span>
           </div>
         </div>

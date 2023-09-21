@@ -109,7 +109,10 @@ const EventCard: React.FC<EventCardProps> = ({
 
           <div className="font-normal text-[11pt]"> {data.address.city}</div>
           <div className="font-normal text-[11pt] text-neutral-800">
-            {formatDate(data.startDate, true, data.endDate)}
+            {formatDate(data.startDate, {
+              timeIncluded: true,
+              endDate: data.endDate,
+            })}
           </div>
           <div className="flex flex-row items-center gap-1">
             <div className="font-semibold">

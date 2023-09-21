@@ -36,9 +36,9 @@ const Search = () => {
         diff = 1;
       }
 
-      const startLabel = formatDate(start);
+      const startLabel = formatDate(start, {});
 
-      const endLabel = formatDate(end);
+      const endLabel = formatDate(end, {});
 
       return `${startLabel} - ${endLabel}`;
     }

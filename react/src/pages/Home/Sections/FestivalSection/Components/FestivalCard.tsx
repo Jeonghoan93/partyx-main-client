@@ -59,7 +59,10 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
               : event.desc}
           </p>
           <div className="flex text-red-50 font-serif text-[10pt] items-center mt-2">
-            {formatDate(event.startDate, true, event.endDate)}
+            {formatDate(event.startDate, {
+              timeIncluded: true,
+              endDate: event.endDate,
+            })}
           </div>
           <span className="text-white font-bold mt-2 block">
             {event.currency} {event.price}

@@ -52,7 +52,10 @@ const EventCard: React.FC<EventProps> = ({
             {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
           </p>
           <div className="text-gray-700 flex text-[9pt] font-mono font-semibold items-center mt-2">
-            {formatDate(startDate, true, endDate)}
+            {formatDate(startDate, {
+              timeIncluded: true,
+              endDate: endDate,
+            })}
           </div>
           <p className="text-[11pt] mt-2 font-bold my-1">
             {currency} {price}

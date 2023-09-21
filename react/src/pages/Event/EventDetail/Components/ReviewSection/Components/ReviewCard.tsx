@@ -46,7 +46,7 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, containerStyle }) => {
           />
           <div className="ml-2">
             <p className="font-bold">{review.user.name}</p>
-            <p className="text-xs">{formatDate(review.reviewDate)}</p>
+            <p className="text-xs">{formatDate(review.reviewDate, {})}</p>
           </div>
         </div>
       </div>

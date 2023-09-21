@@ -1,10 +1,39 @@
+type FormatDateOptions = {
+  timeIncluded?: boolean;
+  endDate?: Date;
+  full?: boolean;
+};
+
 export function formatDate(
   startDate: Date,
-  timeIncluded?: boolean,
-  endDate?: Date
+  options: FormatDateOptions
 ): string {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const shortDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const shortMonths = [
     "Jan",
     "Feb",
     "Mar",
@@ -24,24 +53,28 @@ export function formatDate(
     startDate.getMinutes()
   )}`;
 
-  const dayName = days[startDate.getDay()];
+  const dayName = options.full
+    ? days[startDate.getDay()]
+    : shortDays[startDate.getDay()];
   const dayOfMonth = startDate.getDate();
-  const monthName = months[startDate.getMonth()];
+  const monthName = options.full
+    ? months[startDate.getMonth()]
+    : shortMonths[startDate.getMonth()];
 
-  if (endDate) {
+  if (options.endDate) {
     const durationInHours =
-      (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60);
+      (options.endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60);
     if (durationInHours < 24 && durationInHours > 0) {
-      const endTime = `${zeroPad(endDate.getHours())}:${zeroPad(
-        endDate.getMinutes()
+      const endTime = `${zeroPad(options.endDate.getHours())}:${zeroPad(
+        options.endDate.getMinutes()
       )}`;
       return `${
-        timeIncluded ? `${startTime} - ${endTime},` : ""
+        options.timeIncluded ? `${startTime} - ${endTime},` : ""
       } ${dayName} ${dayOfMonth} ${monthName}`;
     }
   }
 
   return `${
-    timeIncluded ? startTime : ""
+    options.timeIncluded ? startTime : ""
   } ${dayName} ${dayOfMonth} ${monthName}`;
 }

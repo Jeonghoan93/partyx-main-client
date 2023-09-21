@@ -7,6 +7,7 @@ import CustomizedSection from "./Sections/CustomizedSection";
 import FeaturedSection from "./Sections/FeaturedSection";
 import FestivalSection from "./Sections/FestivalSection";
 import NewestSection from "./Sections/NewestSection";
+import TodaySection from "./Sections/TodaySection";
 import TrendingSection from "./Sections/TrendingSection";
 
 const Home: React.FC = () => {
@@ -27,6 +28,7 @@ const Home: React.FC = () => {
         <div className="mt-10">
           <ClientOnly>
             <CustomizedSection currentUser={currentUser} />
+            <TodaySection />
             <FestivalSection />
             <FeaturedSection />
             <TrendingSection />
@@ -41,6 +43,7 @@ const Home: React.FC = () => {
     <Container>
       <div className="mt-10">
         <ClientOnly>
+          <TodaySection />
           <FestivalSection />
           <FeaturedSection />
           <TrendingSection />
