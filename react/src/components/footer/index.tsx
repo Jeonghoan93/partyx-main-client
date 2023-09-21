@@ -3,10 +3,12 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import FooterNavigation from "src/components/footer/footer-navigation";
 import { useIsCertainPage } from "src/hooks/useIsCertainPage";
 
 const Footer: FC = () => {
+  const navigate = useNavigate();
   const isEventsPage = useIsCertainPage("/events", {
     startsWith: true,
   });
@@ -28,7 +30,13 @@ const Footer: FC = () => {
         <Grid container spacing={1}>
           <Grid item xs={12} md={5}>
             <Box sx={{ width: { xs: "100%", md: 360 }, mb: { xs: 3, md: 0 } }}>
-              <Typography component="h2" variant="h2" sx={{ mb: 2 }}>
+              <Typography
+                className="cursor-pointer"
+                onClick={() => navigate("/")}
+                component="h2"
+                variant="h2"
+                sx={{ mb: 2 }}
+              >
                 partyx
               </Typography>
               <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 2 }}>
