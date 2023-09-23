@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { useModalContext } from "src/contexts/videoModalContext";
 
 const FullPageModal: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(true);
+
+  const { isVisible, closeModal } = useModalContext();
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -28,7 +30,7 @@ const FullPageModal: React.FC = () => {
     if (modalElement) {
       modalElement.style.opacity = "0";
       setTimeout(() => {
-        setIsVisible(false);
+        closeModal(); // This uses the closeModal from the context
       }, 1000); // 1s transition
     }
   };

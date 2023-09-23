@@ -1,30 +1,13 @@
 import EmptyState from "src/components/EmptyState";
 
-import { getCurrentUser } from "src/services/auth";
-import { getEvents } from "src/services/event";
-
-import { useEffect, useState } from "react";
 import Container from "src/components/Container";
-import { User } from "src/interfaces/user";
+import { useCurrentUser } from "src/hooks/useCurrentUser";
+import { useEvents } from "src/hooks/useEvents";
 import MyEventsClient from "./Components/MyEventsClient";
 
 const MyEvents = () => {
-  const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUserAndEvents = async () => {
-      const currentUser = await getCurrentUser();
-      setCurrentUser(currentUser);
-
-      if (currentUser) {
-        const userEvents = await getEvents({ userId: currentUser.userId });
-        setEvents(userEvents);
-      }
-    };
-
-    fetchUserAndEvents();
-  }, []);
+  const currentUser = useCurrentUser();
+  const events = useEvents(currentUser?.userId ?? null);
 
   if (!currentUser) {
     return <EmptyState title="Unauthorized" subtitle="Please login" />;

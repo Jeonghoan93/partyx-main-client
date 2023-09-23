@@ -1,29 +1,13 @@
 import EmptyState from "src/components/EmptyState";
 
-import { useEffect, useState } from "react";
 import Container from "src/components/Container";
-import { User } from "src/interfaces/user";
-import { getCurrentUser } from "src/services/auth";
-import { getBookings } from "src/services/booking";
+import { useBookings } from "src/hooks/useBookings";
+import { useCurrentUser } from "src/hooks/useCurrentUser";
 import TicketsClient from "./Components/TicketsClient";
 
 const Tickets = () => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [bookings, setBookings] = useState([]);
-
-  useEffect(() => {
-    const fetchUserAndBookings = async () => {
-      const user = await getCurrentUser();
-      setCurrentUser(user);
-
-      if (user) {
-        const bookings = await getBookings({ userId: user.userId });
-        setBookings(bookings);
-      }
-    };
-
-    fetchUserAndBookings();
-  }, []);
+  const currentUser = useCurrentUser();
+  const bookings = useBookings(currentUser?.userId ?? null);
 
   return (
     <Container>

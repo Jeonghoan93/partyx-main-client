@@ -1,5 +1,5 @@
-import { differenceInDays, eachDayOfInterval } from "date-fns";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { differenceInDays } from "date-fns";
+import { useCallback, useEffect, useState } from "react";
 import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -26,28 +26,9 @@ interface EventClientProps {
   currentUser?: User | null;
 }
 
-const EventClient: React.FC<EventClientProps> = ({
-  event,
-  bookings = [],
-  currentUser,
-}) => {
+const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
   const loginModal = useLoginModal();
   const navigate = useNavigate();
-
-  const disabledDates = useMemo(() => {
-    let dates: Date[] = [];
-
-    bookings.forEach((booking: Booking) => {
-      const range = eachDayOfInterval({
-        start: new Date(booking.event.startDate),
-        end: new Date(booking.event.endDate),
-      });
-
-      dates = [...dates, ...range];
-    });
-
-    return dates;
-  }, [bookings]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(event.price);
@@ -129,8 +110,7 @@ const EventClient: React.FC<EventClientProps> = ({
               grid 
               grid-cols-1 
               md:grid-cols-7 
-              md:gap-10 
-              p-1
+              md:gap-3 
             "
           >
             <EventInfo
@@ -138,15 +118,10 @@ const EventClient: React.FC<EventClientProps> = ({
               hostName={event.hostName}
               hostProfilePhoto={event.hostProfilePhoto}
               desc={event.desc}
-              minGuests={event.minGuests}
-              maxGuests={event.maxGuests}
-              startDate={event.startDate}
-              endDate={event.endDate}
               address={event.address}
             />
             <div
               className="
-                mt-4
                 md:order-last 
                 md:col-span-3
               "
@@ -155,11 +130,12 @@ const EventClient: React.FC<EventClientProps> = ({
                 currency={event.currency}
                 price={event.price}
                 totalPrice={totalPrice}
-                onChangeDate={(value) => setDateRange(value)}
-                dateRange={dateRange}
                 onSubmit={onCreateBooking}
                 disabled={isLoading}
-                disabledDates={disabledDates}
+                startDate={event.startDate}
+                endDate={event.endDate}
+                minGuests={event.minGuests}
+                maxGuests={event.maxGuests}
               />
             </div>
           </div>

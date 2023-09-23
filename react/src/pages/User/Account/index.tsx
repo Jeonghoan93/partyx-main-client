@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
-import { User } from "src/interfaces/user";
-import { getCurrentUser } from "src/services/auth";
+import { useCurrentUser } from "src/hooks/useCurrentUser";
 import getAccountItems from "./Components/AccountItems";
 import { LinkBox } from "./Components/LinkBox";
 
 const Account: React.FC = () => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const currentUser = useCurrentUser();
   const navigate = useNavigate();
-
   const accountItems = getAccountItems(navigate);
-
-  useEffect(() => {
-    async function fetchCurrentUser() {
-      const user = await getCurrentUser();
-      setCurrentUser(user);
-    }
-
-    fetchCurrentUser();
-  }, []);
 
   return (
     <Container>
