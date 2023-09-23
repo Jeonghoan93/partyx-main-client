@@ -104,29 +104,26 @@ const EventBooking: React.FC<EventBookingProps> = ({
 
       <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
         <section className="flex flex-col gap-3">
-          <div className="mb-2">
-            <h2 className="text-[13pt] font-bold">Date</h2>
+          <div className="my-2">
+            <h2 className="text-[13pt] font-bold mb-2">Date</h2>
             <span className="text-[11pt] text-gray-600 font-semibold">
-              {minGuests} - {maxGuests} guests
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <span>
               {formatDate(startDate, {
                 timeIncluded: true,
                 endDate: endDate,
               })}
             </span>
-            <span className="text-[12pt] underline cursor-pointer">
-              See more detail
-            </span>
+
+            <div className="flex flex-col mt-3">
+              <span className="text-[12pt] underline cursor-pointer">
+                See more detail
+              </span>
+            </div>
           </div>
 
           <hr />
 
-          <div className="mb-2">
-            <h2 className="text-[13pt] font-bold">Who's coming?</h2>
+          <div className="my-2">
+            <h2 className="text-[13pt] font-bold mb-2">Who's coming?</h2>
             <span className="text-[11pt] text-gray-600 font-semibold">
               {minGuests} - {maxGuests} guests
             </span>
