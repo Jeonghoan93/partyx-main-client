@@ -43,7 +43,6 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, infoTexts: InfoTexts }) => {
                 key={info.title}
                 title={info.title}
                 desc={info.desc}
-                desc2={info.desc2}
               />
             ))}
           </section>

@@ -17,7 +17,7 @@ const RightSide: React.FC = () => {
             <Button
               disabled={false}
               label="Send email to Jimmy"
-              onClick={() => alert("Please contact thru Linkedin")}
+              onClick={() => alert("zldwkd93.business@gmail.com")}
             />
           </div>
 

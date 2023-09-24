@@ -1,5 +1,6 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
 import InfoCard from "src/components/TextBox/InfoCard";
+import InfoTextBox from "src/components/TextBox/InfoTextBox";
 import useCountries from "src/hooks/useCountries";
 import FundingPlan from "../Components/FundingPlan";
 import {
@@ -8,7 +9,9 @@ import {
   InfoTexts,
   InfoTexts2,
   MonetizationStrategies,
+  SafetyTrust,
 } from "../Constants";
+import { WhySweden } from "../Constants/index";
 
 const Map = lazy(() => import("src/components/Map"));
 
@@ -16,6 +19,8 @@ const LeftSide: React.FC = () => {
   const { getCountryByValue } = useCountries();
 
   const location = getCountryByValue("Sweden");
+
+  const [showDetail, setShowDetail] = useState(false);
 
   return (
     <div className="flex flex-col gap-3 col-span-4 mb-3">
@@ -36,10 +41,24 @@ const LeftSide: React.FC = () => {
           </Suspense>
 
           <div className="flex flex-col gap-3">
-            <span className="text-[12pt] underline cursor-pointer">
-              See more detail
+            <span
+              onClick={() => setShowDetail(!showDetail)}
+              className="text-[12pt] underline cursor-pointer"
+            >
+              Why Sweden?
             </span>
           </div>
+
+          {showDetail && (
+            <section className="mt-4">
+              <hr className="mb-4" />
+              {WhySweden.map((info) => (
+                <div className="mb-6">
+                  <InfoTextBox title={info.title} desc={info.desc} />
+                </div>
+              ))}
+            </section>
+          )}
         </section>
       </div>
 
@@ -73,10 +92,11 @@ const LeftSide: React.FC = () => {
                 </div>
               </div>
 
-              <div className="py-1 px-2 border-[1px] rounded-md border-neutral-400">
-                <span className="text-[10pt] font-semibold">
-                  zldwkd93.business@gmail.com
-                </span>
+              <div
+                onClick={() => alert("Please contact thru Linkedin")}
+                className="cursor-pointer py-1 px-2 border-[1px] rounded-md border-neutral-400"
+              >
+                <span className="text-[10pt] font-semibold">Contact</span>
               </div>
             </div>
           </div>
@@ -88,6 +108,7 @@ const LeftSide: React.FC = () => {
         title={"Core Features & Functionality"}
         infoTexts={InfoTexts2}
       />
+      <InfoCard title={"Safety & Trust"} infoTexts={SafetyTrust} />
       <InfoCard title={"Earning Mechanisms"} infoTexts={EarningMechanism} />
       <InfoCard
         title={"Monetization Strategies"}

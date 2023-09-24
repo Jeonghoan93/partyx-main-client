@@ -5,7 +5,7 @@ import TextModal from "./TextModal";
 
 interface TextContainerProps {
   title: string;
-  desc: string;
+  desc: string[];
   user: {
     img: string;
     name: string;
