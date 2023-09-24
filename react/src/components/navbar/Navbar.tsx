@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { User } from "src/interfaces/user";
+import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
@@ -9,14 +9,12 @@ import Menus from "./Components/Menus";
 import Search from "./Components/Search";
 import UserMenu from "./Components/UserMenu";
 
-interface NavbarProps {
-  currentUser?: User | null;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+const Navbar: React.FC = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
+
+  const currentUser = useCurrentUser();
 
   if (isEventDetailPage) {
     return null;

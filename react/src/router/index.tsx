@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HostLayout from "src/layouts/HostLayout";
+import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
 import EnterprisePage from "src/pages/Company";
 import EventDetail from "src/pages/Event/EventDetail";
@@ -41,6 +42,12 @@ const AppRoutes = () => {
 
         {/* For HostLayout routes */}
         <Route path="host" element={<HostLayout />}>
+          <Route index element={<Host />} />
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For PaymentLayout routes */}
+        <Route path="booking-form" element={<PaymentLayout />}>
           <Route index element={<Host />} />
           {/* Add other host specific routes here if any */}
         </Route>
