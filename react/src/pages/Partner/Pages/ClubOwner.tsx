@@ -1,6 +1,6 @@
 import queryString from "query-string";
 import { useLocation } from "react-router-dom";
-import TextContainer from "src/components/TextContainer";
+import TextContainer from "src/components/TextBox/TextContainer";
 
 interface SectionProps {
   name: string;

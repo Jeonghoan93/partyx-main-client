@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
+import BusinessPlan from "src/pages/BusinessPlan";
 import EnterprisePage from "src/pages/Company";
 import EventDetail from "src/pages/Event/EventDetail";
 import EventList from "src/pages/Event/EventList";
@@ -25,15 +26,23 @@ const AppRoutes = () => {
         {/* For RootLayout routes */}
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
+          {/* Events */}
           <Route path="events" element={<EventList />} />
           <Route path="events/:eventId" element={<EventDetail />} />
+
+          {/* Company */}
           <Route path="company" element={<EnterprisePage />} />
+          <Route path="partner" element={<Partner />} />
+          <Route path="business-plan" element={<BusinessPlan />} />
+
+          {/* User */}
           <Route path="account" element={<Account />} />
           <Route path="account/personal-info" element={<PersonalInfo />} />
           <Route path="account/payments" element={<Payments />} />
           <Route path="account/login-security" element={<LoginSecurity />} />
           <Route path="account/taxes" element={<Taxes />} />
-          <Route path="partner" element={<Partner />} />
+
+          {/* Host */}
           <Route path="notifications" element={<Notifications />} />
           <Route path="tickets" element={<Tickets />} />
           <Route path="favorites" element={<Favorites />} />

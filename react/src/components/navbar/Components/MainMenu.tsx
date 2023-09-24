@@ -11,6 +11,8 @@ import useSearchModal from "src/hooks/useSearchModal";
 import { logout } from "src/services/auth";
 import MenuItem from "./MenuItem";
 
+import { BiSearch } from "react-icons/bi";
+
 interface MainMenuProps {
   currentUser?: User | null;
 }
@@ -53,11 +55,16 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
             cursor-pointer
           "
         >
-          Find a party
+          <div className="flex flex-row items-center gap-2">
+            <span>
+              <BiSearch size={16} />
+            </span>
+            <span>Search</span>
+          </div>
         </div>
 
         <div
-          onClick={() => navigate("/company?menu=Mission")}
+          onClick={() => navigate("/business-plan")}
           className="
             hidden
             lg:block
@@ -71,7 +78,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
             cursor-pointer
           "
         >
-          Company
+          Business Plan
         </div>
       </div>
       {isOpen && (

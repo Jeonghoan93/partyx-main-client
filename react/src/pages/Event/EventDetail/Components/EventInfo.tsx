@@ -1,9 +1,8 @@
 import useCountries from "src/hooks/useCountries";
 
 import { Suspense, lazy } from "react";
-import { BiMinus, BiPlus } from "react-icons/bi";
+import InfoCard from "src/components/TextBox/InfoCard";
 import { Address } from "src/interfaces/event";
-import InfoTextBox from "./InfoTextBox";
 
 const InfoTexts = [
   {
@@ -133,36 +132,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
         </section>
       </div>
 
-      <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
-        <section className="flex flex-col gap-3">
-          <div className="mb-2">
-            <div className="flex flex-row items-center justify-between">
-              <span>
-                <h2 className="text-[13pt] font-bold mb-2">FAQ</h2>
-              </span>
-
-              <span className="hidden cursor-pointer">
-                <BiPlus size={20} />
-              </span>
-
-              <span className="cursor-pointer">
-                <BiMinus size={20} />
-              </span>
-            </div>
-          </div>
-
-          <section className="flex flex-col gap-6">
-            {InfoTexts.map((info) => (
-              <InfoTextBox
-                key={info.title}
-                title={info.title}
-                desc={info.desc}
-                path={info.path}
-              />
-            ))}
-          </section>
-        </section>
-      </div>
+      <InfoCard title={"FAQ"} infoTexts={InfoTexts} />
     </div>
   );
 };

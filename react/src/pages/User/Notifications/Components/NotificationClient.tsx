@@ -1,4 +1,4 @@
-import TextContainer from "src/components/TextContainer";
+import TextContainer from "src/components/TextBox/TextContainer";
 
 const mockedText1 = {
   title: "Welcome to PartyPlanner!",

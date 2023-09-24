@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import { AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import TextContainer from "src/components/TextContainer";
+import TextContainer from "src/components/TextBox/TextContainer";
 
 const mockedText1 = {
   title: "why PartyX?",
