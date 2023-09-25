@@ -1,4 +1,5 @@
 import { Suspense, lazy, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import InfoCard from "src/components/TextBox/InfoCard";
 import InfoTextBox from "src/components/TextBox/InfoTextBox";
 import useCountries from "src/hooks/useCountries";
@@ -16,6 +17,7 @@ import { WhySweden } from "../Constants/index";
 const Map = lazy(() => import("src/components/Map"));
 
 const LeftSide: React.FC = () => {
+  const navigate = useNavigate();
   const { getCountryByValue } = useCountries();
 
   const location = getCountryByValue("Sweden");
@@ -67,7 +69,10 @@ const LeftSide: React.FC = () => {
           <div className="mb-2">
             <h2 className="text-[13pt] font-bold mb-2">Founder</h2>
             <div className="flex flex-row justify-between items-center">
-              <div className="flex flex-row items-center gap-2">
+              <div
+                onClick={() => navigate("/profile/jimmy")}
+                className="cursor-pointer flex flex-row items-center gap-2"
+              >
                 {/* host photo */}
                 <div className="p-1">
                   <img

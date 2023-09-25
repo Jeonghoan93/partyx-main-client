@@ -17,6 +17,7 @@ import PersonalInfo from "src/pages/User/Account/Pages/PersonalInfo";
 import Taxes from "src/pages/User/Account/Pages/Taxes";
 import Favorites from "src/pages/User/Favorites";
 import Notifications from "src/pages/User/Notifications";
+import Profile from "src/pages/User/Profile";
 import Tickets from "src/pages/User/Tickets";
 
 const AppRoutes = () => {
@@ -36,6 +37,7 @@ const AppRoutes = () => {
           <Route path="business-plan" element={<BusinessPlan />} />
 
           {/* User */}
+          <Route path="profile/:email" element={<Profile />} />
           <Route path="account" element={<Account />} />
           <Route path="account/personal-info" element={<PersonalInfo />} />
           <Route path="account/payments" element={<Payments />} />

@@ -1,6 +1,7 @@
 import useCountries from "src/hooks/useCountries";
 
 import { Suspense, lazy } from "react";
+import { useNavigate } from "react-router-dom";
 import InfoCard from "src/components/TextBox/InfoCard";
 import { Address } from "src/interfaces/event";
 
@@ -46,6 +47,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
   address,
 }) => {
   const { getCountryByValue } = useCountries();
+  const navigate = useNavigate();
 
   const location = address ? getCountryByValue(address.country) : undefined;
 
@@ -101,7 +103,10 @@ const EventInfo: React.FC<EventInfoProps> = ({
           <div className="mb-2">
             <h2 className="text-[13pt] font-bold mb-2">Organizer</h2>
             <div className="flex flex-row justify-between items-center">
-              <div className="flex flex-row items-center gap-2">
+              <div
+                onClick={() => navigate(`/profile/${hostName}}`)}
+                className="cursor-pointer flex flex-row items-center gap-2"
+              >
                 {/* host photo */}
                 <div className="p-1">
                   <img

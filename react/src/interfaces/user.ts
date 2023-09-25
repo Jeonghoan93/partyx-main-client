@@ -3,14 +3,10 @@ import { Booking } from "src/interfaces/booking";
 import { Address, Event } from "src/interfaces/event";
 import { Review } from "./review";
 
-export enum UserTypes {
-  ADMIN = "ADMIN",
-  CUSTOMER = "CUSTOMER",
-}
-
 export interface User {
   _id?: Types.ObjectId;
   userId: number;
+  bio?: string;
 
   name: string;
   img?: string;
@@ -27,23 +23,20 @@ export interface User {
 
   events?: Event[];
 
-  type?: UserTypes;
-
   reviews?: Review[];
 
-  phoneNumber: string;
+  phoneNumber?: string;
   address?: Address;
   bankDetails?: BankDetails;
-  isHost: boolean;
+  isHost?: boolean;
   listings?: Event[];
   bookings?: Booking[];
-  notifications: Notification[];
+  notifications?: Notification[];
 
-  userProfile?: UserProfile;
   userPreferences?: UserPreferences;
 
   savedEvents?: Event[];
-  messages: Message[];
+  messages?: Message[];
   pastEventsAttended?: Event[];
 }
 
@@ -69,14 +62,6 @@ export interface Notification {
   content: string;
   date: Date;
   read: boolean;
-}
-
-export interface UserProfile {
-  bio: string;
-  profilePicture: string;
-  verified: boolean;
-  joinDate: Date;
-  ratingsReceived: Review[];
 }
 
 export interface UserPreferences {
