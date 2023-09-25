@@ -5,7 +5,7 @@ import TextModal from "./TextModal";
 
 interface TextContainerProps {
   title: string;
-  desc: string[];
+  desc: string[] | string;
   user: {
     img: string;
     name: string;
@@ -57,9 +57,20 @@ const TextContainer: React.FC<TextContainerProps> = ({ title, desc, user }) => {
             </div>
           </div>
 
-          <p className="text-[12pt] text-gray-800 font-medium font-serif">
-            {desc.length > 200 ? desc.slice(0, 200) + "..." : desc}
-          </p>
+          {Array.isArray(desc) ? (
+            desc.map((description, index) => (
+              <p
+                key={index}
+                className="text-[12pt] text-gray-800 font-medium font-serif mb-2"
+              >
+                {description}
+              </p>
+            ))
+          ) : (
+            <p className="text-[12pt] text-gray-800 font-medium font-serif">
+              {desc.length > 200 ? desc.slice(0, 200) + "..." : desc}
+            </p>
+          )}
 
           <div className="mt-5">
             <span
