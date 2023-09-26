@@ -1,12 +1,11 @@
 import qs from "query-string";
-import { Suspense, lazy, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearchModal from "src/hooks/useSearchModal";
 
 import Heading from "../Heading";
-import CitySelect, { CitySelectValue } from "../inputs/CitySelect";
 import Counter from "../inputs/Counter";
-import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
+
 import Modal from "./Modal";
 
 enum STEPS {
@@ -23,8 +22,8 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  const [country, setCountry] = useState<CountrySelectValue>();
-  const [city, setCity] = useState<CitySelectValue>();
+  // const [country, setCountry] = useState<CountrySelectValue>();
+  // const [city, setCity] = useState<CitySelectValue>();
 
   const [guestCount, setGuestCount] = useState(1);
 
@@ -34,7 +33,7 @@ const SearchModal = () => {
   //   key: "selection",
   // });
 
-  const Map = lazy(() => import("../Map"));
+  // const Map = lazy(() => import("../Map"));
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1);
@@ -59,8 +58,8 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      countryValue: country?.value,
-      cityValue: city?.value,
+      // countryValue: country?.value,
+      // cityValue: city?.value,
       guestCount,
     };
 
@@ -83,16 +82,7 @@ const SearchModal = () => {
     setStep(STEPS.LOCATION);
     searchModal.onClose();
     navigate(url);
-  }, [
-    step,
-    searchModal,
-    country,
-    city,
-    navigate,
-    guestCount,
-    onNext,
-    locationUse.search,
-  ]);
+  }, [step, searchModal, navigate, guestCount, onNext, locationUse.search]);
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.INFO) {
@@ -116,24 +106,7 @@ const SearchModal = () => {
         title="Where do you wanna go?"
         subtitle="Find the perfect place!"
       />
-      <CountrySelect
-        value={country}
-        onChange={(value) => setCountry(value as CountrySelectValue)}
-      />
-      {country?.isoCode && (
-        <CitySelect
-          countryCode={country?.isoCode}
-          value={city}
-          onChange={(value) => setCity(value as CitySelectValue)}
-        />
-      )}
-
-      <hr />
-      {city && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <Map center={city?.coordinates} key={country?.isoCode} />
-        </Suspense>
-      )}
+      Deleted Countrt select
     </div>
   );
 
