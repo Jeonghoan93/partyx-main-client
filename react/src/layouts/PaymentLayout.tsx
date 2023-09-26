@@ -5,6 +5,7 @@ import FinishRegister from "src/components/modals/FinishRegisterModal";
 import LoginModal from "src/components/modals/LoginModal";
 import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
+import SearchModal from "src/components/modals/SearchModal";
 import Navbar from "src/components/navbar/Navbar";
 import ToasterProvider from "src/providers/ToasterProvider";
 
@@ -17,7 +18,7 @@ export default function PaymentLayout() {
       <FinishRegister />
       <CreateProfileModal />
       <RegisterModal />
-
+      <SearchModal />
       <RentModal />
       <Navbar />
 
