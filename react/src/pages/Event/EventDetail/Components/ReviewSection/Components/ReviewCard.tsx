@@ -16,7 +16,7 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, containerStyle }) => {
       className={
         " border border-gray-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
       }
-      onClick={() => navigate(`/reviews/${review.reviewId}`)}
+      onClick={() => navigate(`/profile/${review.user.name}`)}
       key={review.reviewId}
       style={containerStyle}
     >
