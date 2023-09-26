@@ -34,7 +34,7 @@ export const registerUser = async (data: FieldValues) => {
   }
 };
 
-export const getCurrentUser = async (): Promise<User> => {
+export const getCurrentUser = async (): Promise<User | undefined> => {
   try {
     const res = await api.get("/auth/current-user", {
       withCredentials: true,
