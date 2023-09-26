@@ -1,5 +1,5 @@
 import EventSlider from "src/pages/Home/Components/EventSlider";
-import { events } from "src/services/api-examples/events";
+import { events } from "../../../services/api-examples/events";
 
 const NearSection = () => {
   return (

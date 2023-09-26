@@ -1,4 +1,4 @@
-import { events } from "src/services/api-examples/events";
+import { events } from "../../../services/api-examples/events";
 import EventSlider from "../Components/EventSlider";
 
 const newestEvents = events.slice(3, 7);
