@@ -1,6 +1,6 @@
 import { formatISO } from "date-fns";
 import qs from "query-string";
-import { Suspense, lazy, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearchModal from "src/hooks/useSearchModal";
@@ -11,6 +11,8 @@ import Counter from "../inputs/Counter";
 import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
 import DateRangePicker from "../inputs/DateRangePicker";
 import Modal from "./Modal";
+// Direct import for debugging purposes
+import Map from "../Map";
 
 enum STEPS {
   LOCATION = 0,
@@ -30,59 +32,41 @@ interface QueryParams {
 const SearchModal = () => {
   const navigate = useNavigate();
   const searchModal = useSearchModal();
-
   const locationUse = useLocation();
 
   const [step, setStep] = useState(STEPS.LOCATION);
-
-  const [country, setCountry] = useState<CountrySelectValue>();
-  const [city, setCity] = useState<CitySelectValue>();
-
+  const [country, setCountry] = useState<CountrySelectValue | undefined>();
+  const [city, setCity] = useState<CitySelectValue | undefined>();
   const [guestCount, setGuestCount] = useState(1);
-
   const [dateRange, setDateRange] = useState<Range>({
     startDate: new Date(),
     endDate: new Date(),
     key: "selection",
   });
 
-  const Map = lazy(() => import("../Map"));
-
   const onBack = useCallback(() => {
-    setStep((value) => value - 1);
+    setStep((prev) => prev - 1);
   }, []);
 
   const onNext = useCallback(() => {
-    setStep((value) => value + 1);
+    setStep((prev) => prev + 1);
   }, []);
 
-  const onSubmit = useCallback(async () => {
-    const params = new URLSearchParams(locationUse.search);
-
+  const onSubmit = useCallback(() => {
     if (step !== STEPS.INFO) {
       return onNext();
     }
 
-    let currentQuery = {};
-
-    if (params) {
-      currentQuery = qs.parse(params.toString());
-    }
+    const currentQuery = qs.parse(locationUse.search);
 
     const updatedQuery: QueryParams = {
       ...currentQuery,
       countryValue: country?.value,
       cityValue: city?.value,
       guestCount,
+      startDate: dateRange.startDate && formatISO(dateRange.startDate),
+      endDate: dateRange.endDate && formatISO(dateRange.endDate),
     };
-
-    if (dateRange.startDate) {
-      updatedQuery.startDate = formatISO(dateRange.startDate);
-    }
-
-    if (dateRange.endDate) {
-      updatedQuery.endDate = formatISO(dateRange.endDate);
-    }
 
     const url = qs.stringifyUrl(
       {
@@ -95,89 +79,71 @@ const SearchModal = () => {
     setStep(STEPS.LOCATION);
     searchModal.onClose();
     navigate(url);
-  }, [
-    step,
-    searchModal,
-    country,
-    city,
-    navigate,
-    guestCount,
-    dateRange,
-    onNext,
-    locationUse.search,
-  ]);
+  }, [step, country, city, guestCount, dateRange, locationUse.search]);
 
-  const actionLabel = useMemo(() => {
-    if (step === STEPS.INFO) {
-      return "Search";
-    }
-
-    return "Next";
-  }, [step]);
-
-  const secondaryActionLabel = useMemo(() => {
-    if (step === STEPS.LOCATION) {
-      return undefined;
-    }
-
-    return "Back";
-  }, [step]);
-
-  let bodyContent = (
-    <div className="flex flex-col gap-8">
-      <Heading
-        title="Where do you wanna go?"
-        subtitle="Find the perfect place!"
-      />
-      <CountrySelect
-        value={country}
-        onChange={(value) => setCountry(value as CountrySelectValue)}
-      />
-      {country?.isoCode && (
-        <CitySelect
-          countryCode={country?.isoCode}
-          value={city}
-          onChange={(value) => setCity(value as CitySelectValue)}
-        />
-      )}
-
-      <hr />
-      {city && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <Map center={city?.coordinates} key={country?.isoCode} />
-        </Suspense>
-      )}
-    </div>
+  const actionLabel = useMemo(
+    () => (step === STEPS.INFO ? "Search" : "Next"),
+    [step]
   );
 
-  if (step === STEPS.DATE) {
-    bodyContent = (
-      <div className="flex flex-col gap-8">
-        <Heading
-          title="When do you plan to go?"
-          subtitle="Make sure everyone is free!"
-        />
-        <DateRangePicker
-          onChange={(value) => setDateRange(value.selection)}
-          value={dateRange}
-        />
-      </div>
-    );
-  }
+  const secondaryActionLabel = useMemo(
+    () => (step !== STEPS.LOCATION ? "Back" : undefined),
+    [step]
+  );
 
-  if (step === STEPS.INFO) {
-    bodyContent = (
-      <div className="flex flex-col gap-8">
-        <Heading title="More information" subtitle="more types..!" />
-        <Counter
-          onChange={(value) => setGuestCount(value)}
-          value={guestCount}
-          title="Guests"
-          subtitle="How many guests are coming?"
-        />
-        <hr />
-      </div>
-    );
+  let bodyContent;
+
+  switch (step) {
+    case STEPS.DATE:
+      bodyContent = (
+        <div className="flex flex-col gap-8">
+          <Heading
+            title="When do you plan to go?"
+            subtitle="Make sure everyone is free!"
+          />
+          <DateRangePicker
+            onChange={(value) => setDateRange(value.selection)}
+            value={dateRange}
+          />
+        </div>
+      );
+      break;
+    case STEPS.INFO:
+      bodyContent = (
+        <div className="flex flex-col gap-8">
+          <Heading title="More information" subtitle="more types..!" />
+          <Counter
+            onChange={setGuestCount}
+            value={guestCount}
+            title="Guests"
+            subtitle="How many guests are coming?"
+          />
+        </div>
+      );
+      break;
+    case STEPS.LOCATION:
+    default:
+      bodyContent = (
+        <div className="flex flex-col gap-8">
+          <Heading
+            title="Where do you wanna go?"
+            subtitle="Find the perfect place!"
+          />
+          <CountrySelect
+            value={country}
+            onChange={(value) => setCountry(value as CountrySelectValue)}
+          />
+          {country?.isoCode && (
+            <CitySelect
+              countryCode={country?.isoCode}
+              value={city}
+              onChange={(value) => setCity(value as CitySelectValue)}
+            />
+          )}
+          {city && <Map center={city?.coordinates} key={country?.isoCode} />}
+        </div>
+      );
+      break;
   }
 
   return (
@@ -187,7 +153,7 @@ const SearchModal = () => {
       actionLabel={actionLabel}
       onSubmit={onSubmit}
       secondaryActionLabel={secondaryActionLabel}
-      secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+      secondaryAction={step !== STEPS.LOCATION ? onBack : undefined}
       onClose={searchModal.onClose}
       body={bodyContent}
     />
