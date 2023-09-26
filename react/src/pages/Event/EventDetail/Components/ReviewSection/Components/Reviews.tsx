@@ -62,6 +62,7 @@ const Reviews: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
       <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap">
         {reviews.map((review) => (
           <ReviewCard
+            key={review.reviewId}
             review={review}
             containerStyle={{
               display: "inline-block",
