@@ -11,18 +11,19 @@ export function useCurrentUser() {
       .some((item) => item.trim().startsWith(name + "="));
   }
 
-  useEffect(() => {
-    async function fetchCurrentUser() {
-      if (hasCookie("Authentication")) {
-        try {
-          const user = await getCurrentUser();
-          setCurrentUser(user ?? null);
-        } catch (err) {
-          console.error("Error fetching user:", err);
-        }
-      }
+  async function fetchAndSetCurrentUser() {
+    if (!hasCookie("Authentication")) return;
+
+    try {
+      const user = await getCurrentUser();
+      setCurrentUser(user ?? null);
+    } catch (err) {
+      console.error("Error fetching user:", err);
     }
-    fetchCurrentUser();
+  }
+
+  useEffect(() => {
+    fetchAndSetCurrentUser();
   }, []);
 
   return currentUser;
