@@ -1,10 +1,14 @@
 import React from "react";
+import { ModalProvider } from "./contexts/videoModalContext";
 import "./index.css";
+import AppRoutes from "./router";
 
 function App() {
   return (
     <React.StrictMode>
-      <div className="text-red-500">Hi</div>
+      <ModalProvider>
+        <AppRoutes />
+      </ModalProvider>
     </React.StrictMode>
   );
 }
