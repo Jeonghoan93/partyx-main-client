@@ -53,7 +53,7 @@ const Careers: React.FC = () => {
 
         <section className="lg:grid lg:grid-cols-3 lg:gap-3">
           {mockedData.map((text, index) => (
-            <TextContainer style={{ width: "300px" }} key={index} {...text} />
+            <TextContainer key={index} {...text} />
           ))}
         </section>
       </section>
