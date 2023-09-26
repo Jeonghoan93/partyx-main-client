@@ -32,29 +32,25 @@ export const ExpansionIdeas = [
 
 export const InfoTexts = [
   {
-    title:
-      "What is the problem you're solving, and how big is the market opportunity?",
-    desc: "PartyX is addressing the gap in the event industry where individuals, particularly young adults and working professionals, find it challenging to discover, attend, or even host unique party events in their locale. The current solutions are scattered across social media, websites, or word-of-mouth, which lack centralization, credibility, and monetary incentives for attendees. With the global events industry valued at over $1,100 billion, even capturing a small fraction focused on localized party events represents a significant market opportunity.",
+    title: "Problem & Market Opportunity",
+    desc: "The problem PartyX is addressing is genuine, especially in an era dominated by digital interactions. The scattered nature of event information makes it challenging for users to find events they're interested in. As We are targeting young adults and professionals, it's a sizeable market opportunity, especially if we can create a seamless, user-friendly platform.",
     path: "/",
   },
   {
-    title:
-      "What is your unique value proposition, and how do you differentiate from competitors?",
-    desc: "PartyX is not just another event discovery platform; we intertwine party discovery with a monetary incentive model, allowing users to earn while they party. Our platform encourages active participation, rewards referrals, and offers affiliate collaborations with party-related vendors. Unlike competitors, our dual-sided marketplace supports both party-goers and hosts, emphasizing trust, safety, and a community-driven review system. Furthermore, we are dedicated to offering a curated, high-quality party experience, focusing on unique themes and authentic engagements.",
+    title: "Unique Value Proposition",
+    desc: "Our monetary incentive model is an intriguing differentiator. By gamifying the party discovery process, We are creating a deeper engagement level for users. The ability to earn while attending or promoting events can prove to be a strong incentive, especially for the target demographic. If executed well, this can set PartyX distinctly apart from competitors.",
     path: "/",
   },
   {
-    title: "How do you plan to acquire customers?",
+    title: "Customer Acquisition",
     desc: [
-      "First targets will be club owners and festival organizers before considering raves or individuals. This approach makes strategic sense for several reasons: Club owners and festival organizers have a large, dedicated audience. By collaborating with them, PartyX instantly taps into an existing community of party-goers. It's akin to casting a wide net to ensure maximum initial visibility. Collaborating with established entities like clubs and festivals imparts instant credibility to PartyX. Clubs and festivals often seek ways to better monetize their events and improve attendance. PartyX, with its unique value proposition of allowing attendees to earn, offers an attractive proposition for these organizers, making them more inclined to come on board. Established entities like clubs and festival organizers can provide invaluable feedback during the initial phase, helping PartyX refine its offerings and ensure a product-market fit. ",
-      "Following this, our next phase will involve tapping into the rave community and individual event organizers. The rave scene is diverse, energetic, and has a strong community vibe. This audience can offer unique events, and their word-of-mouth capability is significant, especially among the younger demographic. Ultimately, our broader vision is to democratize the party scene. This means giving every individual the tools and platform to not just attend, but even host their events. As we continue to build our user base and establish trust, we envision a vibrant community where anyone, from a college student to a working professional, can curate, host, or attend a party, all while benefiting from the unique incentives PartyX offers. This gradual yet inclusive approach ensures a holistic growth trajectory for PartyX in the party and event industry.",
+      "Starting with club owners and festival organizers is a smart move. They have a captive audience, and collaborating with them can provide a quicker market penetration. Following up with the rave community and individual organizers is also strategic, as it broadens the platform's offering and appeal.",
     ],
     path: "/",
   },
   {
-    title:
-      "Who is on your team, and why are you the right people to execute on this vision?",
-    desc: "In terms of team, currently, I am the sole driving force behind PartyX. While I understand the usual inclination towards teams, here's why I believe I'm uniquely positioned to execute on this vision: Technical Expertise: As a software engineer with full-stack and DevOps capabilities, I possess the technical acumen to not only conceptualize but bring the product to life. The MVP that I've developed stands as a testament to this ability. Passion & Vision: PartyX isn't just a business idea; it's a passion project. I've noticed gaps in the party and events industry and genuinely believe in the solution I'm offering. This personal connection ensures that I remain dedicated and committed to the project's success. Proof of Concept: To underscore my capability, I've already developed an excellent MVP. This isn't just a pitch; it's a tangible product that showcases what I can do and the direction in which I want to take PartyX. Future Team Expansion: While I've kickstarted PartyX solo, I am acutely aware of the power of collaboration. As we progress and acquire funding, I have plans to strategically expand the team, bringing in experts in areas like marketing, user experience, and community management. In essence, while PartyX starts with me, it certainly won't end that way. I've laid a robust foundation, and with the right resources, I'm confident in scaling and realizing the full vision of PartyX.",
+    title: "Team",
+    desc: "While having a team often provides a balanced skill set and varied perspectives, solo founders can also be very successful if they have a clear vision and the requisite skills. As a software engineer with full-stack and DevOps capabilities, Jimmy has the technical foundation to develop the platform. However, We might want to consider teaming up with experts in marketing, sales, and possibly the event industry to provide a well-rounded approach.",
     path: "/",
   },
 ];
@@ -170,30 +166,53 @@ export const EarningMechanism = [
 
 export const MonetizationStrategies = [
   {
-    title: "Niche Specialization & Community Building",
+    title: "Tiered Commission System",
     desc: [
-      "While there are general event platforms, PartyX's focus on parties, particularly targeting young adults and working professionals, can be its unique selling point.",
-      "By understanding its niche audience's needs, PartyX can offer features that other generic platforms don't cater to. This could include themed party recommendations, last-minute party spots, or even DIY party planning tips.",
-      "Hosting online and offline community events like 'PartyX meet-ups' can foster a sense of belonging. When users feel they're part of a community, they're more likely to be loyal and refer others.",
+      "Basic Tier:",
+      "Charge a minimal commission for basic ticket listings with limited features.",
+      "Premium Tier:",
+      "Higher commission for enhanced visibility, special promotions, and additional features, such as analytics on attendee demographics or direct communication channels with attendees.",
     ],
     path: "/",
   },
   {
-    title: "Dynamic Monetization Models",
+    title: "Membership/Subscription for Organizers",
     desc: [
-      "In contrast to traditional event platforms that might rely on ticket sales commissions or advertisements, PartyX can explore multiple avenues to monetize:",
-      "As mentioned in the FAQ, collaborating with party-related vendors can not only provide users with discounts but also generate affiliate revenue for PartyX.",
-      "Premium Features: Introduce a subscription model where users can access premium features like early bird party passes, exclusive events, or personalized party recommendations.",
-      "User Incentives: Reward users for referrals, reviews, and other engagements, which can be redeemed in various forms like discounts, merchandise, or even cashback. This encourages more active participation and can offset some user acquisition costs.",
+      "Monthly Subscription:",
+      "Organizers can subscribe to different tiers, allowing them to list multiple events, access insights, and utilize marketing tools.",
+      "Premium Listings:",
+      "Organizers can pay an additional fee for their event to be featured at the top of searches or on the platform's homepage, ensuring higher visibility.",
+      "Affiliate Partnerships:",
+      "Partner with party-related vendors (e.g., decoration, catering, DJs, etc.) and earn a commission for every booking made through your platform.",
+      "In-App Advertisements:",
+      "Allow other businesses to advertise within the platform. This can be local businesses that might be of interest to party-goers, such as nearby restaurants, taxi services, or clothing stores.",
+      "Sponsorships:",
+      "For bigger events or festivals, create opportunities for brands to sponsor events in exchange for premium visibility on your platform.",
     ],
     path: "/",
   },
   {
-    title: "Agile Adaptability & User-Centric Approach",
+    title: "Value-Added Services",
     desc: [
-      "In a rapidly changing market, agility is key. PartyX needs to be flexible in its offerings and prioritize user feedback to stay ahead of the competition.",
-      "Regular Feedback Loops: Actively solicit feedback from users and rapidly iterate on it. If a certain feature isn't resonating with the users, pivot quickly.",
-      "Stay Updated with Trends: The party scene is dynamic. By keeping a pulse on the latest trends, be it music genres, party themes, or emerging hotspots, PartyX can always stay relevant to its user base.",
+      "Offer ticketing solutions like QR code generation, check-in apps for organizers, or analytics to understand attendee behavior.",
+      "Create a marketplace for event organizers to purchase/rent equipment, hire talent, or access event insurance.",
+    ],
+    path: "/",
+  },
+  {
+    title: "Referral Program",
+    desc: [
+      "For every new organizer that a current organizer or user brings to the platform, offer them a discount on their next commission or a cashback incentive.",
+    ],
+    path: "/",
+  },
+  {
+    title: "Pricing",
+    desc: [
+      "Dynamic Pricing:",
+      "Implement dynamic commission rates based on event size, ticket price, or demand. For example, charge a lower commission for high ticket priced events or events with large volumes.",
+      "Bundled Offerings:",
+      "Combine several events together as a package (e.g., a weekend party pass) and charge a slightly higher commission on such bundled sales.",
     ],
     path: "/",
   },

@@ -1,4 +1,5 @@
 import { BsDoorOpen } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import { Event } from "src/interfaces/event";
 
 interface MiniProfileProps {
@@ -14,6 +15,8 @@ const MiniProfile: React.FC<MiniProfileProps> = ({
   desc,
   hostedEvents,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-row justify-between items-center py-2">
       <div className="flex flex-row gap-3 items-center">
@@ -38,7 +41,10 @@ const MiniProfile: React.FC<MiniProfileProps> = ({
         </div>
       </div>
 
-      <div className="cursor-pointer flex flex-row gap-1 items-center text-[11pt]">
+      <div
+        onClick={() => navigate("/profile/" + name)}
+        className="cursor-pointer flex flex-row gap-1 items-center text-[11pt]"
+      >
         <span className="underline">Visit</span>
         <span>
           <BsDoorOpen />

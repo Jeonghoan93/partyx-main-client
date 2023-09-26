@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
           </Container>
         </div>
         <Categories />
-        <Menus page={"/company"} menus={["Mission", "Careers", "Investors"]} />
+        <Menus page={"/company"} menus={["Mission", "Arts", "Next Unicorn"]} />
         <Menus
           page={"/partner"}
           menus={["Club Owner", "Festival Organizer", "Rave Organizer"]}
@@ -147,7 +147,7 @@ const Navbar: React.FC = () => {
         </Container>
       </div>
       <Categories />
-      <Menus page={"/company"} menus={["Mission", "Careers", "Investors"]} />
+      <Menus page={"/company"} menus={["Mission", "Arts", "Next Unicorn"]} />
       <Menus
         page={"/partner"}
         menus={["Club Owner", "Festival Organizer", "Rave Organizer"]}

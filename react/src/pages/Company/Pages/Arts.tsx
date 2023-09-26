@@ -1,5 +1,10 @@
-import Container from "src/components/Container";
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
 import TextContainer from "src/components/TextBox/TextContainer";
+
+interface SectionProps {
+  name: string;
+}
 
 const mockedData = [
   {
@@ -40,25 +45,28 @@ const mockedData = [
   },
 ];
 
-const Careers: React.FC = () => {
-  return (
-    <Container>
-      <section className="flex flex-col gap-2">
-        <div className="mb-2">
-          <h2 className="text-[13pt] font-bold">Careers</h2>
-          <span className="text-[11pt] text-gray-600 font-semibold">
-            We bring value into the hands of artists.
-          </span>
-        </div>
+const Arts: React.FC<SectionProps> = ({ name }) => {
+  const location = useLocation();
+  const params = queryString.parse(location.search);
+  const menu = params.menu as string;
 
-        <section className="lg:grid lg:grid-cols-3 lg:gap-3">
-          {mockedData.map((text, index) => (
-            <TextContainer style={{ width: "300px" }} key={index} {...text} />
-          ))}
-        </section>
-      </section>
-    </Container>
+  if (menu !== name) {
+    return null;
+  }
+
+  return (
+    <section className="mt-4">
+      <div className="mb-2">
+        <h2 className="text-[13pt] font-bold">Arts</h2>
+        <span className="text-[11pt] text-gray-600 font-semibold">
+          We bring value into the hands of artists.
+        </span>
+      </div>
+      {mockedData.map((text, index) => (
+        <TextContainer key={index} {...text} />
+      ))}
+    </section>
   );
 };
 
-export default Careers;
+export default Arts;

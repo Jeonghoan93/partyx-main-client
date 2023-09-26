@@ -64,7 +64,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
         </div>
 
         <div
-          onClick={() => navigate("/business-plan")}
+          onClick={() => navigate("/enterprise")}
           className="
             hidden
             lg:block
@@ -78,7 +78,7 @@ const MainMenu: React.FC<MainMenuProps> = ({ currentUser }) => {
             cursor-pointer
           "
         >
-          Business Plan
+          Enterprise
         </div>
       </div>
       {isOpen && (

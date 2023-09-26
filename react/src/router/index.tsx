@@ -4,6 +4,8 @@ import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
 import BusinessPlan from "src/pages/BusinessPlan";
 import EnterprisePage from "src/pages/Company";
+import Careers from "src/pages/Company/Pages/Careers";
+import Enterprise from "src/pages/Enterprise";
 import EventDetail from "src/pages/Event/EventDetail";
 import EventList from "src/pages/Event/EventList";
 import Home from "src/pages/Home";
@@ -27,11 +29,15 @@ const AppRoutes = () => {
         {/* For RootLayout routes */}
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
+          {/* Enterprise */}
+          <Route path="enterprise" element={<Enterprise />} />
+
           {/* Events */}
           <Route path="events" element={<EventList />} />
           <Route path="events/:eventId" element={<EventDetail />} />
 
           {/* Company */}
+          <Route path="careers" element={<Careers />} />
           <Route path="company" element={<EnterprisePage />} />
           <Route path="partner" element={<Partner />} />
           <Route path="business-plan" element={<BusinessPlan />} />

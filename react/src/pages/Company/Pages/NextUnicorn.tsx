@@ -45,7 +45,7 @@ const mockedData = [
   },
 ];
 
-const Investors: React.FC<SectionProps> = ({ name }) => {
+const NextUnicorn: React.FC<SectionProps> = ({ name }) => {
   const location = useLocation();
   const params = queryString.parse(location.search);
   const menu = params.menu as string;
@@ -69,4 +69,4 @@ const Investors: React.FC<SectionProps> = ({ name }) => {
   );
 };
 
-export default Investors;
+export default NextUnicorn;
