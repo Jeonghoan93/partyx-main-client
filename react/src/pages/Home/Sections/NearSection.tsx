@@ -1,13 +1,13 @@
 import EventSlider from "src/pages/Home/Components/EventSlider";
 import { events } from "../../../services/api-examples/events";
 
-const FeaturedSection = () => {
+const NearSection = () => {
   return (
     <section className="mt-4">
       <div className="mb-2">
-        <h2 className="text-[13pt] font-bold">Featured</h2>
+        <h2 className="text-[13pt] font-bold">Near you</h2>
         <span className="text-[11pt] text-gray-600 font-semibold">
-          Everyone's looking into it
+          Just around the corner from you
         </span>
       </div>
       <EventSlider events={events} />
@@ -15,4 +15,4 @@ const FeaturedSection = () => {
   );
 };
 
-export default FeaturedSection;
+export default NearSection;
