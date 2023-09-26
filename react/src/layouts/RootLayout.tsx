@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import ClientOnly from "src/components/ClientOnly";
 import FullPageModal from "src/components/FullPageModal";
 import Footer from "src/components/footer";
 import CreateProfileModal from "src/components/modals/CreateProfileModal";
@@ -14,17 +13,16 @@ import ToasterProvider from "src/providers/ToasterProvider";
 export default function RootLayout() {
   return (
     <>
-      <ClientOnly>
-        <FullPageModal />
-        <ToasterProvider />
-        <LoginModal />
-        <FinishRegister />
-        <CreateProfileModal />
-        <RegisterModal />
-        <SearchModal />
-        <RentModal />
-        <Navbar />
-      </ClientOnly>
+      <FullPageModal />
+      <ToasterProvider />
+      <LoginModal />
+      <FinishRegister />
+      <CreateProfileModal />
+      <RegisterModal />
+      <SearchModal />
+      <RentModal />
+      <Navbar />
+
       <div className="pb-20 pt-28">
         <Outlet />
       </div>

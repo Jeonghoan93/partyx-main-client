@@ -1,28 +1,13 @@
 import EmptyState from "src/components/EmptyState";
 
-import { getCurrentUser } from "src/services/auth";
-import { getFavoriteEvents } from "src/services/event";
-
-import { useEffect, useState } from "react";
 import Container from "src/components/Container";
-import { User } from "src/interfaces/user";
+import { useCurrentUser } from "src/hooks/useCurrentUser";
+import { useEvents } from "src/hooks/useEvents";
 import FavoritesClient from "./Components/FavoritesClient";
 
 const Favorites = () => {
-  const [events, setEvents] = useState([]);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUserAndEvents = async () => {
-      const favoriteEvents = await getFavoriteEvents();
-      setEvents(favoriteEvents);
-
-      const user = await getCurrentUser();
-      setCurrentUser(user);
-    };
-
-    fetchUserAndEvents();
-  }, []);
+  const currentUser = useCurrentUser();
+  const events = useEvents(currentUser?.userId ?? null);
 
   return (
     <Container>

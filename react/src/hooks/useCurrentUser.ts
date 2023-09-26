@@ -7,8 +7,12 @@ export function useCurrentUser() {
 
   useEffect(() => {
     async function fetchCurrentUser() {
-      const user = await getCurrentUser();
-      setCurrentUser(user);
+      try {
+        const user = await getCurrentUser();
+        setCurrentUser(user);
+      } catch (err) {
+        console.error("Error fetching user:", err);
+      }
     }
     fetchCurrentUser();
   }, []);

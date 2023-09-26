@@ -1,4 +1,3 @@
-import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
 import EventCard from "src/components/events/EventCard";
@@ -28,27 +27,21 @@ function EventList() {
   const currentUser = MockedUser;
 
   if (events.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
+    return <EmptyState showReset />;
   }
 
   return (
-    <ClientOnly>
-      <Container>
-        <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3">
-          {events.map((event: Event) => (
-            <EventCard
-              currentUser={currentUser}
-              key={event.eventId}
-              data={event}
-            />
-          ))}
-        </div>
-      </Container>
-    </ClientOnly>
+    <Container>
+      <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3">
+        {events.map((event: Event) => (
+          <EventCard
+            currentUser={currentUser}
+            key={event.eventId}
+            data={event}
+          />
+        ))}
+      </div>
+    </Container>
   );
 }
 

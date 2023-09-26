@@ -1,4 +1,3 @@
-import ClientOnly from "src/components/ClientOnly";
 import { MockedUser } from "src/services/api-examples/user";
 import AccountSection from "./Sections/AccountSection";
 import HostMenu from "./Sections/HostMenu";
@@ -10,11 +9,9 @@ const Host: React.FC = () => {
 
   return (
     <div className="p-10" style={{ marginLeft: "170px" }}>
-      <ClientOnly>
-        <HostMenu currentUser={currentUser} />
-        <AccountSection />
-        <TransactionSection />
-      </ClientOnly>
+      <HostMenu currentUser={currentUser} />
+      <AccountSection />
+      <TransactionSection />
     </div>
   );
 };

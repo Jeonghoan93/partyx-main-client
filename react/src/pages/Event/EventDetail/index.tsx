@@ -1,7 +1,6 @@
 import EmptyState from "src/components/EmptyState";
 
 import { useParams } from "react-router-dom";
-import ClientOnly from "src/components/ClientOnly";
 import { Event } from "src/interfaces/event";
 import { getMockedBookings } from "src/services/api-examples/booking";
 import { events } from "src/services/api-examples/events";
@@ -28,22 +27,22 @@ const EventDetail: React.FC = () => {
 
   if (!eventData) {
     return (
-      <ClientOnly>
+      <>
         <NavbarSection eventId={Number(eventId)} currentUser={currentUser} />
         <EmptyState />
-      </ClientOnly>
+      </>
     );
   }
 
   return (
-    <ClientOnly>
+    <>
       <NavbarSection eventId={Number(eventId)} currentUser={currentUser} />
       <EventClient
         event={eventData}
         bookings={bookings}
         currentUser={currentUser}
       />
-    </ClientOnly>
+    </>
   );
 };
 

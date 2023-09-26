@@ -1,4 +1,3 @@
-import ClientOnly from "src/components/ClientOnly";
 import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import CustomizedSection from "./Sections/CustomizedSection";
@@ -15,15 +14,13 @@ const Home: React.FC = () => {
   return (
     <Container>
       <div className="mt-10">
-        <ClientOnly>
-          {currentUser ? <CustomizedSection currentUser={currentUser} /> : null}
-          <TodaySection />
-          <NearSection />
-          <FestivalSection />
-          <FeaturedSection />
-          <TrendingSection />
-          <NewestSection />
-        </ClientOnly>
+        {currentUser ? <CustomizedSection currentUser={currentUser} /> : null}
+        <TodaySection />
+        <NearSection />
+        <FestivalSection />
+        <FeaturedSection />
+        <TrendingSection />
+        <NewestSection />
       </div>
     </Container>
   );

@@ -2,6 +2,16 @@ import { FieldValues } from "react-hook-form";
 import { User } from "src/interfaces/user";
 import api from "src/services/api";
 
+const handleAxiosError = (err: any) => {
+  if (!err.response) {
+    throw new Error("Network error. Please check your connection.");
+  } else {
+    throw new Error(
+      err.response?.data?.message || "An unexpected error occurred."
+    );
+  }
+};
+
 export const registerUser = async (data: FieldValues) => {
   const email = data.email as string;
   const password = data.password as string;
@@ -20,7 +30,7 @@ export const registerUser = async (data: FieldValues) => {
     });
     return res.data;
   } catch (err) {
-    throw new Error("An error occurred during registration.");
+    handleAxiosError(err);
   }
 };
 
@@ -32,11 +42,10 @@ export const getCurrentUser = async (): Promise<User> => {
 
     const currentUser = res.data.result.user;
 
-    console.log("res data from current user: ", res.data);
     return currentUser;
   } catch (err) {
     console.error("Error fetching user:", err);
-    throw new Error("An error occurred while retrieving the user.");
+    handleAxiosError(err);
   }
 };
 
@@ -45,7 +54,7 @@ export const loginWithGoogle = async (googleToken: string) => {
     const res = await api.post("/auth/login-google", { googleToken });
     return res.data;
   } catch (err) {
-    throw new Error("An error occurred during Google login.");
+    handleAxiosError(err);
   }
 };
 
@@ -66,7 +75,7 @@ export const login = async (credentials: FieldValues) => {
 
     return res.data;
   } catch (err) {
-    throw new Error("An error occurred during login.");
+    handleAxiosError(err);
   }
 };
 
@@ -74,6 +83,6 @@ export const logout = async () => {
   try {
     await api.post("/auth/logout");
   } catch (err) {
-    throw new Error("An error occurred during logout.");
+    handleAxiosError(err);
   }
 };

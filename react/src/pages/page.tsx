@@ -2,7 +2,6 @@ import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
 import EventCard from "src/components/events/EventCard";
 
-import ClientOnly from "src/components/ClientOnly";
 import { Event } from "src/interfaces/event";
 import { getCurrentUser } from "src/services/auth";
 import { getEvents } from "src/services/event";
@@ -17,18 +16,13 @@ const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
 
   if (events.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
+    return <EmptyState showReset />;
   }
 
   return (
-    <ClientOnly>
-      <Container>
-        <div
-          className="
+    <Container>
+      <div
+        className="
             pt-24
             grid 
             grid-cols-1 
@@ -39,17 +33,16 @@ const Home = async ({ searchParams }: HomeProps) => {
             2xl:grid-cols-6
             gap-8
           "
-        >
-          {events.map((event: Event) => (
-            <EventCard
-              currentUser={currentUser}
-              key={event.eventId}
-              data={event}
-            />
-          ))}
-        </div>
-      </Container>
-    </ClientOnly>
+      >
+        {events.map((event: Event) => (
+          <EventCard
+            currentUser={currentUser}
+            key={event.eventId}
+            data={event}
+          />
+        ))}
+      </div>
+    </Container>
   );
 };
 
