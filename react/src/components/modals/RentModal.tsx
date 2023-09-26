@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Heading from "src/components/Heading";
 import CategoryInput from "src/components/inputs/CategoryInput";
 import Counter from "src/components/inputs/Counter";
-import CountrySelect, {
-  CountrySelectValue,
-} from "src/components/inputs/CountrySelect";
 import DateTimePicker from "src/components/inputs/DateTimePicker";
 import ImageUpload from "src/components/inputs/ImageUpload";
 import Input from "src/components/inputs/Input";
@@ -28,11 +25,7 @@ enum STEPS {
   PRICE = 6,
 }
 
-type CustomValue =
-  | string
-  | { lat: number; lng: number }
-  | number
-  | CountrySelectValue;
+type CustomValue = string | { lat: number; lng: number } | number;
 
 const RentModal = () => {
   const navigate = useNavigate();
@@ -167,10 +160,7 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect
-          value={location}
-          onChange={(value) => setCustomValue("location", value)}
-        />
+        City or Country Select should be implemented here
         <Suspense fallback={<div>Loading...</div>}>
           <Map center={location?.coordinates} />
         </Suspense>
