@@ -7,12 +7,10 @@ import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
 import SearchModal from "src/components/modals/SearchModal";
 import Navbar from "src/components/navbar/Navbar";
-import ToasterProvider from "src/providers/ToasterProvider";
 
 export default function RootLayout() {
   return (
     <>
-      <ToasterProvider />
       <LoginModal />
       <FinishRegister />
       <CreateProfileModal />
