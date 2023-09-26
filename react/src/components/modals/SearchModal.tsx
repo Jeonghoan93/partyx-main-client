@@ -1,11 +1,15 @@
+import { formatISO } from "date-fns";
 import qs from "query-string";
 import { useCallback, useMemo, useState } from "react";
+import { Range } from "react-date-range";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearchModal from "src/hooks/useSearchModal";
 
 import Heading from "../Heading";
+
 import Counter from "../inputs/Counter";
 
+import DateRangePicker from "../inputs/DateRangePicker";
 import Modal from "./Modal";
 
 enum STEPS {
@@ -27,11 +31,11 @@ const SearchModal = () => {
 
   const [guestCount, setGuestCount] = useState(1);
 
-  // const [dateRange, setDateRange] = useState<Range>({
-  //   startDate: new Date(),
-  //   endDate: new Date(),
-  //   key: "selection",
-  // });
+  const [dateRange, setDateRange] = useState<Range>({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: "selection",
+  });
 
   // const Map = lazy(() => import("../Map"));
 
@@ -63,13 +67,13 @@ const SearchModal = () => {
       guestCount,
     };
 
-    // if (dateRange.startDate) {
-    //   updatedQuery.startDate = formatISO(dateRange.startDate);
-    // }
+    if (dateRange.startDate) {
+      updatedQuery.startDate = formatISO(dateRange.startDate);
+    }
 
-    // if (dateRange.endDate) {
-    //   updatedQuery.endDate = formatISO(dateRange.endDate);
-    // }
+    if (dateRange.endDate) {
+      updatedQuery.endDate = formatISO(dateRange.endDate);
+    }
 
     const url = qs.stringifyUrl(
       {
@@ -82,7 +86,15 @@ const SearchModal = () => {
     setStep(STEPS.LOCATION);
     searchModal.onClose();
     navigate(url);
-  }, [step, searchModal, navigate, guestCount, onNext, locationUse.search]);
+  }, [
+    step,
+    searchModal,
+    navigate,
+    guestCount,
+    dateRange,
+    onNext,
+    locationUse.search,
+  ]);
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.INFO) {
@@ -106,7 +118,7 @@ const SearchModal = () => {
         title="Where do you wanna go?"
         subtitle="Find the perfect place!"
       />
-      Deleted Countrt select
+      deleted country and city select
     </div>
   );
 
@@ -117,7 +129,10 @@ const SearchModal = () => {
           title="When do you plan to go?"
           subtitle="Make sure everyone is free!"
         />
-        Date Picker deleted
+        <DateRangePicker
+          onChange={(value) => setDateRange(value.selection)}
+          value={dateRange}
+        />
       </div>
     );
   }
