@@ -2,32 +2,29 @@ import React, { useEffect, useRef } from "react";
 import { useModalContext } from "src/hooks/useModalContext";
 import "./AnimationPage.css";
 
-const FullPageModal: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
+import image1 from "/images/landing/bg1.jpg";
+import image2 from "/images/landing/bg2.jpeg";
+import image3 from "/images/landing/bg3.jpeg";
 
+const images = [image1, image2, image3];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+
+const FullPageModal: React.FC = () => {
+  const modalRef = useRef<HTMLDivElement>(null);
   const { isVisible, closeModal } = useModalContext();
 
   useEffect(() => {
-    const videoElement = videoRef.current;
+    const timer = setTimeout(() => {
+      hideModalSmoothly();
+    }, 6000);
 
-    if (videoElement) {
-      videoElement.currentTime = 0;
-
-      const stopAt11Seconds = () => {
-        if (videoElement.currentTime >= 11) {
-          videoElement.pause();
-          hideModalSmoothly();
-          videoElement.removeEventListener("timeupdate", stopAt11Seconds);
-        }
-      };
-
-      videoElement.addEventListener("timeupdate", stopAt11Seconds);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   const hideModalSmoothly = () => {
     const modalElement = modalRef.current;
+
     if (modalElement) {
       modalElement.style.opacity = "0";
       setTimeout(() => {
@@ -36,15 +33,7 @@ const FullPageModal: React.FC = () => {
     }
   };
 
-  const handleCloseModal = () => {
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      videoElement.pause();
-    }
-
-    hideModalSmoothly();
-  };
+  hideModalSmoothly();
 
   if (!isVisible) return null;
 
@@ -54,15 +43,17 @@ const FullPageModal: React.FC = () => {
       className="fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000"
       style={{ opacity: 1 }}
     >
-      <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src="https://s3.eu-north-1.amazonaws.com/partyx.se/video2.mp4"
-        autoPlay
-        muted
-      ></video>
-      {/* Darkening overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div
+        style={{
+          backgroundImage: `url(${randomImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          backgroundBlendMode: "multiply",
+        }}
+        className="absolute top-0 left-0 w-full h-full z-10"
+      ></div>
+
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
         <div className="text-gray-100 mb-6 flex flex-col items-center gap-3">
           <div className="logo text-[10pt]">
@@ -83,7 +74,7 @@ const FullPageModal: React.FC = () => {
           </div>
         </div>
         <button
-          onClick={handleCloseModal}
+          onClick={() => hideModalSmoothly()}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-lg hover:shadow-xl"
         >
           Go to Website
