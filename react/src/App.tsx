@@ -1,5 +1,5 @@
 import React from "react";
-import { ModalProvider } from "./contexts/videoModalContext";
+import { ModalProvider } from "./contexts/modalContext";
 import "./index.css";
 import AppRoutes from "./router";
 

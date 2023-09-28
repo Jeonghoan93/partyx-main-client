@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { useModalContext } from "src/contexts/videoModalContext";
+import { useModalContext } from "src/hooks/useModalContext";
+import "./AnimationPage.css";
 
 const FullPageModal: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -63,12 +64,24 @@ const FullPageModal: React.FC = () => {
       {/* Darkening overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
-        <h2 className="text-white font-bold text-2xl mb-2 font-mono">
-          GET INVITED
-        </h2>
-        <p className="text-gray-100 mb-6">
-          PartyX hosts any type of Party Events Nearby.
-        </p>
+        <div className="text-gray-100 mb-6 flex flex-col gap-3">
+          <div className="logo text-[10pt]">
+            <span className="party">P</span>
+            <span className="party">A</span>
+            <span className="party">R</span>
+            <span className="party">T</span>
+            <span className="party">Y</span>
+            <span className="x">X</span>
+          </div>
+
+          <h2 className="text-white font-bold text-2xl mb-2 font-mono">
+            GET INVITED
+          </h2>
+
+          <div>
+            <span>hosts any type of Party Events Nearby.</span>
+          </div>
+        </div>
         <button
           onClick={handleCloseModal}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-lg hover:shadow-xl"

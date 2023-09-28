@@ -1,0 +1,71 @@
+.logo {
+  display: flex;
+  animation: shake 1s 9s both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.party,
+.x {
+  font-size: 5rem;
+  animation: arrive 2s forwards;
+}
+
+.party {
+  color: white;
+}
+
+.x {
+  color: red;
+}
+
+@keyframes arrive {
+  from {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+span:nth-child(1) {
+  animation-delay: 0s;
+}
+span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+span:nth-child(3) {
+  animation-delay: 1s;
+}
+span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+span:nth-child(5) {
+  animation-delay: 2s;
+}
+span:nth-child(6) {
+  animation-delay: 2.5s;
+}
