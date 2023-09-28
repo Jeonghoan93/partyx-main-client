@@ -10,14 +10,13 @@ const FundingPlan = () => {
         <div className="mb-2">
           <h2 className="text-[13pt] font-bold">Funding plan</h2>
           <span className="text-[11pt] text-gray-600 font-semibold">
-            Best deal for both of us.
+            or a note
           </span>
         </div>
 
         <div className="flex flex-col gap-3">
           <span className="text-[11pt]">
-            We are looking for partners who can help us and work with us during
-            the part of, or entire journey.{" "}
+            This note is just to plan out the steps while making the product.
           </span>
 
           <span

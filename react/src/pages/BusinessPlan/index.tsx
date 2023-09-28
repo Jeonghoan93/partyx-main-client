@@ -21,20 +21,7 @@ const BusinessPlan: React.FC = () => {
                 <BsRocketTakeoff />
               </span>
 
-              <span>1,000,000,000$</span>
-            </div>
-
-            <div>
-              <span className="font-normal text-gray-50 text-[12pt]">
-                in 3 years from a raise
-              </span>
-            </div>
-
-            <div>
-              <span className="font-normal text-gray-100 text-[12pt]">
-                and here is how we will do it,{" "}
-                <span className="font-semibold underline">together.</span>
-              </span>
+              <span>Be one of the first</span>
             </div>
           </LargeImgCard>
 
