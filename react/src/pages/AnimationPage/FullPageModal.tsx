@@ -64,7 +64,7 @@ const FullPageModal: React.FC = () => {
       {/* Darkening overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
-        <div className="text-gray-100 mb-6 flex flex-col gap-3">
+        <div className="text-gray-100 mb-6 flex flex-col items-center gap-3">
           <div className="logo text-[10pt]">
             <span className="party">P</span>
             <span className="party">A</span>

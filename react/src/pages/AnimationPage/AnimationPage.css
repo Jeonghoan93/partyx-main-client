@@ -1,6 +1,6 @@
 .logo {
   display: flex;
-  animation: shake 1s 9s both;
+  animation: shake 4s 6s both;
 }
 
 @keyframes shake {
@@ -28,7 +28,7 @@
 
 .party,
 .x {
-  font-size: 5rem;
+  font-size: 3rem;
   animation: arrive 2s forwards;
 }
 
