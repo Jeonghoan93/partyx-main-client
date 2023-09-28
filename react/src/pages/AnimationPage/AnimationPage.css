@@ -29,15 +29,17 @@
 .party,
 .x {
   font-size: 3rem;
-  animation: arrive 2s forwards;
+  animation: arrive 2s forwards, pulse 1s 3.5s infinite;
 }
 
 .party {
   color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Glow effect */
 }
 
 .x {
   color: red;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); /* Glow effect */
 }
 
 @keyframes arrive {
@@ -48,6 +50,16 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* subtle scale */
   }
 }
 
