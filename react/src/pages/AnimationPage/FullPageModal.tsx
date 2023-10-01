@@ -2,14 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useModalContext } from "src/hooks/useModalContext";
 import "./AnimationPage.css";
 
-import image1 from "/images/landing/bg1.jpg";
-import image2 from "/images/landing/bg2.jpeg";
-import image3 from "/images/landing/bg3.jpeg";
-
-const images = [image1, image2, image3];
-
-const randomImage = images[Math.floor(Math.random() * images.length)];
-
 const FullPageModal: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const { isVisible, closeModal } = useModalContext();
@@ -17,7 +9,7 @@ const FullPageModal: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       hideModalSmoothly();
-    }, 6000);
+    }, 136000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -45,10 +37,9 @@ const FullPageModal: React.FC = () => {
     >
       <div
         style={{
-          backgroundImage: `url(${randomImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          backgroundColor: "rgba(0.1, 0, 0.2, 0.92)",
           backgroundBlendMode: "multiply",
         }}
         className="absolute top-0 left-0 w-full h-full z-10"
@@ -75,7 +66,7 @@ const FullPageModal: React.FC = () => {
         </div>
         <button
           onClick={() => hideModalSmoothly()}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 shadow-lg hover:shadow-xl"
+          className="bg-black border-white border-2 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-xl transition duration-300 shadow-lg hover:shadow-xl"
         >
           Go to Website
         </button>
