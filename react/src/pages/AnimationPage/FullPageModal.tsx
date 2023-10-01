@@ -56,14 +56,11 @@ const FullPageModal: React.FC = () => {
             <span className="x">X</span>
           </div>
 
-          <h2 className="text-white font-bold text-2xl mb-2 font-mono">
-            GET INVITED
-          </h2>
-
-          <div>
+          <div className="flex flex-col gap-3">
             <span>hosts any type of Party Events Nearby.</span>
           </div>
         </div>
+
         <button
           onClick={() => hideModalSmoothly()}
           className="bg-black border-white border-2 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-xl transition duration-300 shadow-lg hover:shadow-xl"
