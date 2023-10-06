@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   AiOutlineCalendar,
   AiOutlineHeart,
@@ -7,8 +8,17 @@ import { BiMessage } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import useHandleScroll from "src/hooks/useHandleScroll";
 
+type ActiveButton =
+  | "search"
+  | "favorites"
+  | "booking"
+  | "inbox"
+  | "menu"
+  | null;
+
 function FooterMobile() {
   const hideNav = useHandleScroll();
+  const [activeButton, setActiveButton] = useState<ActiveButton>(null);
 
   return (
     <div
@@ -20,49 +30,112 @@ function FooterMobile() {
       <div className="flex justify-around items-center h-full px-4">
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => alert("not yet!")}
+          onClick={() => {
+            setActiveButton("search");
+            alert("not yet!");
+          }}
         >
           <span>
-            <BsSearch size={18} />
+            <BsSearch
+              size={18}
+              color={activeButton === "search" ? "red" : "gray"}
+            />
           </span>
-          <span className="text-[10pt] font-semibold">Search</span>
+          <span
+            className={`text-[10pt] font-semibold ${
+              activeButton === "search" ? "text-black" : "text-gray-600"
+            }`}
+          >
+            Search
+          </span>
         </div>
 
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => alert("not yet!")}
+          onClick={() => {
+            setActiveButton("favorites");
+            alert("not yet!");
+          }}
         >
           <span>
-            <AiOutlineHeart size={18} />
+            <AiOutlineHeart
+              size={18}
+              color={activeButton === "favorites" ? "red" : "gray"}
+            />
           </span>
-          <span className="text-[10pt] font-semibold">Favorites</span>
+          <span
+            className={`text-[10pt] font-semibold ${
+              activeButton === "favorites" ? "text-black" : "text-gray-600"
+            }`}
+          >
+            Favorites
+          </span>
         </div>
+
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => alert("not yet!")}
+          onClick={() => {
+            setActiveButton("booking");
+            alert("not yet!");
+          }}
         >
           <span>
-            <AiOutlineCalendar size={18} />
+            <AiOutlineCalendar
+              size={18}
+              color={activeButton === "booking" ? "red" : "gray"}
+            />
           </span>
-          <span className="text-[10pt] font-semibold">Booking</span>
+          <span
+            className={`text-[10pt] font-semibold ${
+              activeButton === "booking" ? "text-black" : "text-gray-600"
+            }`}
+          >
+            Booking
+          </span>
         </div>
+
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => alert("not yet!")}
+          onClick={() => {
+            setActiveButton("inbox");
+            alert("not yet!");
+          }}
         >
           <span>
-            <BiMessage size={18} />
+            <BiMessage
+              size={18}
+              color={activeButton === "inbox" ? "red" : "gray"}
+            />
           </span>
-          <span className="text-[10pt] font-semibold">Inbox</span>
+          <span
+            className={`text-[10pt] font-semibold ${
+              activeButton === "inbox" ? "text-black" : "text-gray-600"
+            }`}
+          >
+            Inbox
+          </span>
         </div>
+
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => alert("not yet!")}
+          onClick={() => {
+            setActiveButton("menu");
+            alert("not yet!");
+          }}
         >
           <span>
-            <AiOutlineMenu size={18} />
+            <AiOutlineMenu
+              size={18}
+              color={activeButton === "menu" ? "red" : "gray"}
+            />
           </span>
-          <span className="text-[10pt] font-semibold">Menu</span>
+          <span
+            className={`text-[10pt] font-semibold ${
+              activeButton === "menu" ? "text-black" : "text-gray-600"
+            }`}
+          >
+            Menu
+          </span>
         </div>
       </div>
     </div>
