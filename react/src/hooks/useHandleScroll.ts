@@ -7,7 +7,7 @@ const useHandleScroll = (threshold = 160, delta = 50) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
 
       // Check if the user has scrolled beyond the delta in either direction
       if (Math.abs(lastScrollPos - currentScrollPos) <= delta) {
