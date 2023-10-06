@@ -1,6 +1,7 @@
-import { BiUserCircle } from "react-icons/bi";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
+import useHandleScroll from "src/hooks/useHandleScroll";
 import useLoginModal from "src/hooks/useLoginModal";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
@@ -14,6 +15,7 @@ const NavbarMobile: React.FC = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const loginModal = useLoginModal();
+  const hideNav = useHandleScroll();
 
   const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
 
@@ -24,7 +26,11 @@ const NavbarMobile: React.FC = () => {
   }
 
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div
+      className={`fixed w-full bg-white z-10 shadow-sm transition-transform duration-500 ${
+        hideNav ? "-translate-y-full" : ""
+      }`}
+    >
       <div
         className="
           px-2
@@ -45,9 +51,14 @@ const NavbarMobile: React.FC = () => {
             <Logo />
             <div className="cursor-pointer flex flex-row gap-1 items-center">
               <span>
-                <BiUserCircle />
+                <HiOutlineUserCircle size={20} />
               </span>
-              <span onClick={loginModal.onOpen}>Sign in</span>
+              <span
+                className="text-[10pt] font-semibold"
+                onClick={loginModal.onOpen}
+              >
+                Sign in
+              </span>
             </div>
           </div>
         </Container>
