@@ -8,7 +8,10 @@ const useHandleScroll = () => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
 
-      if (currentScrollPos > lastScrollPos) {
+      if (currentScrollPos === 0) {
+        // If user is at the very top, always show the navbar and footer
+        setHideNav(false);
+      } else if (currentScrollPos > lastScrollPos) {
         // User is scrolling down
         setHideNav(true);
       } else {
