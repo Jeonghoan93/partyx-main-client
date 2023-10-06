@@ -3,6 +3,7 @@ import {
   AiOutlineHeart,
   AiOutlineMenu,
 } from "react-icons/ai";
+import { BiMessage } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
 import useHandleScroll from "src/hooks/useHandleScroll";
 
@@ -26,6 +27,16 @@ function FooterMobile() {
           </span>
           <span className="text-[10pt] font-semibold">Search</span>
         </div>
+
+        <div
+          className="flex flex-col items-center gap-1 cursor-pointer"
+          onClick={() => alert("not yet!")}
+        >
+          <span>
+            <AiOutlineHeart size={18} />
+          </span>
+          <span className="text-[10pt] font-semibold">Favorites</span>
+        </div>
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => alert("not yet!")}
@@ -40,9 +51,9 @@ function FooterMobile() {
           onClick={() => alert("not yet!")}
         >
           <span>
-            <AiOutlineHeart size={18} />
+            <BiMessage size={18} />
           </span>
-          <span className="text-[10pt] font-semibold">Favorites</span>
+          <span className="text-[10pt] font-semibold">Inbox</span>
         </div>
         <div
           className="flex flex-col items-center gap-1 cursor-pointer"
