@@ -6,7 +6,6 @@ import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
 import Logo from "./Components/Logo";
-import MainMenu from "./Components/MainMenu";
 import Menus from "./Components/Menus";
 import Search from "./Components/Search";
 import UserMenu from "./Components/UserMenu";
@@ -138,7 +137,6 @@ const Navbar: React.FC = () => {
             <div className="relative hidden md:block">
               <div className="flex flex-row">
                 <Logo />
-                <MainMenu currentUser={currentUser} />
               </div>
             </div>
             <Search />

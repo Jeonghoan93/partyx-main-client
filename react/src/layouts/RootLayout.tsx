@@ -1,30 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Footer from "src/components/footer";
-import CreateProfileModal from "src/components/modals/CreateProfileModal";
-import FinishRegister from "src/components/modals/FinishRegisterModal";
-import LoginModal from "src/components/modals/LoginModal";
-import RegisterModal from "src/components/modals/RegisterModal";
-import RentModal from "src/components/modals/RentModal";
-import SearchModal from "src/components/modals/SearchModal";
 import Navbar from "src/components/navbar/Navbar";
-import FullPageModal from "src/pages/AnimationPage/FullPageModal";
-import ToasterProvider from "src/providers/ToasterProvider";
+import NavbarMobile from "src/components/navbar/NavbarMobile";
+import { useWindowWidth } from "src/hooks/useWindowWidth";
+import ModalsProvider from "src/providers/ModalsProvider";
 
 export default function RootLayout() {
+  const windowWidth = useWindowWidth();
+
+  const isMobile = windowWidth < 768;
+
   return (
     <>
-      <FullPageModal />
-      <ToasterProvider />
-      <LoginModal />
-      <FinishRegister />
-      <CreateProfileModal />
-      <RegisterModal />
+      <ModalsProvider />
 
-      <SearchModal />
-
-      <RentModal />
-
-      <Navbar />
+      {!isMobile && <Navbar />}
+      {isMobile && <NavbarMobile />}
 
       <div className="pb-20 pt-28">
         <Outlet />

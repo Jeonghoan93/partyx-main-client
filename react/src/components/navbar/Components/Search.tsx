@@ -59,6 +59,7 @@ const Search = () => {
       onClick={searchModal.onOpen}
       className="
         border-[1px] 
+        border-gray-400
         w-full 
         md:w-auto 
         py-2
@@ -67,7 +68,6 @@ const Search = () => {
         hover:shadow-md 
         transition 
         cursor-pointer
-        lg:hidden
       "
     >
       <div

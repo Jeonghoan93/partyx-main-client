@@ -39,7 +39,7 @@ const FullPageModal: React.FC = () => {
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundColor: "rgba(0.1, 0, 0.2, 0.92)",
+          backgroundColor: "rgba(0.1, 0.15, 0.2, 0.97)",
           backgroundBlendMode: "multiply",
         }}
         className="absolute top-0 left-0 w-full h-full z-10"

@@ -1,30 +1,16 @@
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
 import EventCard from "src/components/events/EventCard";
+import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 import { MockedUser } from "src/services/api-examples/user";
-// import { IEventsParams } from "src/services/event/dto";
 
-// interface HomeProps {
-//   searchParams: IEventsParams;
-// }
-
-function EventList() {
-  // const [events, setEvents] = useState([]);
-  // const [currentUser, setCurrentUser] = useState(null);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const data = await getEvents(searchParams);
-  //     const user = await getCurrentUser();
-  //     setEvents(data);
-  //     setCurrentUser(user);
-  //   }
-  //   fetchData();
-  // }, [searchParams]);
-
+const EventList: React.FC = () => {
   const currentUser = MockedUser;
+  const windowWidth = useWindowWidth();
+
+  const isMobile = windowWidth < 768;
 
   if (events.length === 0) {
     return <EmptyState showReset />;
@@ -32,7 +18,13 @@ function EventList() {
 
   return (
     <Container>
-      <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3">
+      <div
+        className={
+          isMobile
+            ? `pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3`
+            : `pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3`
+        }
+      >
         {events.map((event: Event) => (
           <EventCard
             currentUser={currentUser}
@@ -43,6 +35,6 @@ function EventList() {
       </div>
     </Container>
   );
-}
+};
 
 export default EventList;
