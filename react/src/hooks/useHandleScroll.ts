@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const useHandleScroll = (threshold = 160) => {
-  // 60px assumed as navbar height
+const useHandleScroll = (threshold = 160, delta = 50) => {
+  // delta added for buffer
   const [lastScrollPos, setLastScrollPos] = useState(0);
   const [hideNav, setHideNav] = useState(false);
 
@@ -9,14 +9,16 @@ const useHandleScroll = (threshold = 160) => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
 
+      // Check if the user has scrolled beyond the delta in either direction
+      if (Math.abs(lastScrollPos - currentScrollPos) <= delta) {
+        return; // If not, exit early without doing anything
+      }
+
       if (currentScrollPos <= threshold) {
-        // If user has not scrolled past the mobile navbar height, always show the navbar and footer
         setHideNav(false);
       } else if (currentScrollPos > lastScrollPos) {
-        // User is scrolling down
         setHideNav(true);
       } else {
-        // User is scrolling up
         setHideNav(false);
       }
 
@@ -27,7 +29,7 @@ const useHandleScroll = (threshold = 160) => {
 
     // Cleanup
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollPos, threshold]);
+  }, [lastScrollPos, threshold, delta]); // Added delta to the dependency array
 
   return hideNav;
 };
