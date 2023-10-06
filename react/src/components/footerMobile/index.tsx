@@ -11,8 +11,8 @@ function FooterMobile() {
 
   return (
     <div
-      style={{ height: "70px" }}
-      className={`border-t-[1px] fixed bottom-0 w-full bg-white shadow-md transition-transform duration-500 ${
+      style={{ height: "65px" }}
+      className={`border-t-[1px] fixed bottom-0 w-full bg-gray-50 shadow-md transition-transform duration-500 ${
         hideNav ? "translate-y-full" : ""
       }`}
     >
@@ -22,7 +22,7 @@ function FooterMobile() {
           onClick={() => alert("not yet!")}
         >
           <span>
-            <BsSearch size={16} />
+            <BsSearch size={18} />
           </span>
           <span className="text-[10pt] font-semibold">Search</span>
         </div>
@@ -31,7 +31,7 @@ function FooterMobile() {
           onClick={() => alert("not yet!")}
         >
           <span>
-            <AiOutlineCalendar size={16} />
+            <AiOutlineCalendar size={18} />
           </span>
           <span className="text-[10pt] font-semibold">Booking</span>
         </div>
@@ -40,7 +40,7 @@ function FooterMobile() {
           onClick={() => alert("not yet!")}
         >
           <span>
-            <AiOutlineHeart size={16} />
+            <AiOutlineHeart size={18} />
           </span>
           <span className="text-[10pt] font-semibold">Favorites</span>
         </div>
@@ -49,7 +49,7 @@ function FooterMobile() {
           onClick={() => alert("not yet!")}
         >
           <span>
-            <AiOutlineMenu size={16} />
+            <AiOutlineMenu size={18} />
           </span>
           <span className="text-[10pt] font-semibold">Menu</span>
         </div>
