@@ -23,9 +23,12 @@ import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
 import Tickets from "src/pages/User/Tickets";
 
+import ScrollToTop from "src/utils/ScrollToTop";
+
 const AppRoutes = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* For RootLayout routes */}
         <Route path="/" element={<RootLayout />}>
