@@ -18,6 +18,7 @@ import Payments from "src/pages/User/Account/Pages/Payments";
 import PersonalInfo from "src/pages/User/Account/Pages/PersonalInfo";
 import Taxes from "src/pages/User/Account/Pages/Taxes";
 import Favorites from "src/pages/User/Favorites";
+import Messages from "src/pages/User/Messages";
 import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
 import Tickets from "src/pages/User/Tickets";
@@ -49,17 +50,16 @@ const AppRoutes = () => {
           <Route path="account/payments" element={<Payments />} />
           <Route path="account/login-security" element={<LoginSecurity />} />
           <Route path="account/taxes" element={<Taxes />} />
-
-          {/* Host */}
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="tickets" element={<Tickets />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="my-events" element={<MyEvents />} />
+          <Route path="tickets" element={<Tickets />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="notifications" element={<Notifications />} />
         </Route>
 
         {/* For HostLayout routes */}
         <Route path="host" element={<HostLayout />}>
           <Route index element={<Host />} />
+          <Route path="my-events" element={<MyEvents />} />
           {/* Add other host specific routes here if any */}
         </Route>
 

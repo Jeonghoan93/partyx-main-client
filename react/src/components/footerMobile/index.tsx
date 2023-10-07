@@ -6,6 +6,7 @@ import {
 } from "react-icons/ai";
 import { BiMessage } from "react-icons/bi";
 import { BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import useHandleScroll from "src/hooks/useHandleScroll";
 
 type ActiveButton =
@@ -16,7 +17,9 @@ type ActiveButton =
   | "menu"
   | null;
 
-function FooterMobile() {
+const FooterMobile: React.FC = () => {
+  const navigate = useNavigate();
+
   const hideNav = useHandleScroll();
   const [activeButton, setActiveButton] = useState<ActiveButton>(null);
 
@@ -32,7 +35,7 @@ function FooterMobile() {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("search");
-            alert("not yet!");
+            navigate("/");
           }}
         >
           <span>
@@ -54,7 +57,7 @@ function FooterMobile() {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("favorites");
-            alert("not yet!");
+            navigate("/favorites");
           }}
         >
           <span>
@@ -76,7 +79,7 @@ function FooterMobile() {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("booking");
-            alert("not yet!");
+            navigate("/tickets");
           }}
         >
           <span>
@@ -90,7 +93,7 @@ function FooterMobile() {
               activeButton === "booking" ? "text-black" : "text-gray-600"
             }`}
           >
-            Booking
+            Bookings
           </span>
         </div>
 
@@ -98,7 +101,7 @@ function FooterMobile() {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("inbox");
-            alert("not yet!");
+            navigate("/messages");
           }}
         >
           <span>
@@ -140,6 +143,6 @@ function FooterMobile() {
       </div>
     </div>
   );
-}
+};
 
 export default FooterMobile;

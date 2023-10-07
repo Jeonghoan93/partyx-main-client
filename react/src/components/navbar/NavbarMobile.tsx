@@ -18,10 +18,13 @@ const NavbarMobile: React.FC = () => {
   const hideNav = useHandleScroll();
 
   const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
+  const isFavoritesPage = isMatchingPath(pathname, "/favorites");
+  const isTicketsPage = isMatchingPath(pathname, "/tickets");
+  const isMessagesPage = isMatchingPath(pathname, "/messages");
 
   const currentUser = useCurrentUser();
 
-  if (isEventDetailPage) {
+  if (isEventDetailPage || isFavoritesPage || isTicketsPage || isMessagesPage) {
     return null;
   }
 
