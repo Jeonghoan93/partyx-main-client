@@ -45,7 +45,7 @@ const FooterMobile: React.FC = () => {
             />
           </span>
           <span
-            className={`text-[10pt] font-semibold ${
+            className={`text-[9pt] font-semibold ${
               activeButton === "search" ? "text-black" : "text-gray-600"
             }`}
           >
@@ -67,7 +67,7 @@ const FooterMobile: React.FC = () => {
             />
           </span>
           <span
-            className={`text-[10pt] font-semibold ${
+            className={`text-[9pt] font-semibold ${
               activeButton === "favorites" ? "text-black" : "text-gray-600"
             }`}
           >
@@ -89,7 +89,7 @@ const FooterMobile: React.FC = () => {
             />
           </span>
           <span
-            className={`text-[10pt] font-semibold ${
+            className={`text-[9pt] font-semibold ${
               activeButton === "booking" ? "text-black" : "text-gray-600"
             }`}
           >
@@ -111,7 +111,7 @@ const FooterMobile: React.FC = () => {
             />
           </span>
           <span
-            className={`text-[10pt] font-semibold ${
+            className={`text-[9pt] font-semibold ${
               activeButton === "inbox" ? "text-black" : "text-gray-600"
             }`}
           >
@@ -133,7 +133,7 @@ const FooterMobile: React.FC = () => {
             />
           </span>
           <span
-            className={`text-[10pt] font-semibold ${
+            className={`text-[9pt] font-semibold ${
               activeButton === "menu" ? "text-black" : "text-gray-600"
             }`}
           >
