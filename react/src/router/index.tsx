@@ -1,10 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import CareerLayout from "src/layouts/CareerLayout";
 import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
 import BusinessPlan from "src/pages/BusinessPlan";
+import Career from "src/pages/Career";
 import EnterprisePage from "src/pages/Company";
-import Careers from "src/pages/Company/Pages/Careers";
 import Enterprise from "src/pages/Enterprise";
 import EventDetail from "src/pages/Event/EventDetail";
 import EventList from "src/pages/Event/EventList";
@@ -41,7 +42,6 @@ const AppRoutes = () => {
           <Route path="events/:eventId" element={<EventDetail />} />
 
           {/* Company */}
-          <Route path="careers" element={<Careers />} />
           <Route path="company" element={<EnterprisePage />} />
           <Route path="partner" element={<Partner />} />
           <Route path="business-plan" element={<BusinessPlan />} />
@@ -69,6 +69,12 @@ const AppRoutes = () => {
         {/* For PaymentLayout routes */}
         <Route path="booking-form" element={<PaymentLayout />}>
           <Route index element={<Host />} />
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For Career routes */}
+        <Route path="careers" element={<CareerLayout />}>
+          <Route index element={<Career />} />
           {/* Add other host specific routes here if any */}
         </Route>
       </Routes>
