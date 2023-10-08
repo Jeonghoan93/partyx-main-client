@@ -6,7 +6,7 @@ const NavbarCareer = () => {
   return (
     <div>
       {/* Navbar */}
-      <div className="fixed w-full bg-black text-gray-50 shadow-sm">
+      <div className="fixed z-10 w-full bg-black text-gray-50 shadow-sm">
         <div
           className="
           py-4 

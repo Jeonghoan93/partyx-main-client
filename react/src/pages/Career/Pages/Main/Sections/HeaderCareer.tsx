@@ -16,10 +16,14 @@ const HeaderCareer = () => {
           </span>
 
           <div className="flex flex-col">
-            <span className="text-[20pt]">TEAM</span>
             <div className="flex flex-row gap-2 items-center">
               <span className="text-[20pt]">LOCATION</span>
-              <span className="cursor-pointer">SEARCH</span>
+              <span
+                onClick={() => alert("Not yet!")}
+                className="cursor-pointer"
+              >
+                Search
+              </span>
             </div>
           </div>
 
