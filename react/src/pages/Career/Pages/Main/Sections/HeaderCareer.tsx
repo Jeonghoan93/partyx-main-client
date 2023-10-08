@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 
 const HeaderCareer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-black text-gray-50">
       <Container>
@@ -20,7 +23,12 @@ const HeaderCareer = () => {
             </div>
           </div>
 
-          <span className="cursor-pointer">Browse all open positions</span>
+          <span
+            onClick={() => navigate("/careers/positions")}
+            className="cursor-pointer"
+          >
+            Discover all opportunities
+          </span>
         </div>
       </Container>
     </div>

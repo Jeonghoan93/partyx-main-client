@@ -1,5 +1,5 @@
-import BodyCareer from "./Sections/BodyCareer";
-import HeaderCareer from "./Sections/HeaderCareer";
+import BodyCareer from "./Pages/Main/Sections/BodyCareer";
+import HeaderCareer from "./Pages/Main/Sections/HeaderCareer";
 
 const Career = () => {
   return (

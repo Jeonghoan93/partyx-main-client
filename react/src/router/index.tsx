@@ -5,6 +5,7 @@ import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
 import BusinessPlan from "src/pages/BusinessPlan";
 import Career from "src/pages/Career";
+import Positions from "src/pages/Career/Pages/Positions";
 import EnterprisePage from "src/pages/Company";
 import Enterprise from "src/pages/Enterprise";
 import EventDetail from "src/pages/Event/EventDetail";
@@ -75,6 +76,7 @@ const AppRoutes = () => {
         {/* For Career routes */}
         <Route path="careers" element={<CareerLayout />}>
           <Route index element={<Career />} />
+          <Route path="positions" element={<Positions />} />
           {/* Add other host specific routes here if any */}
         </Route>
       </Routes>
