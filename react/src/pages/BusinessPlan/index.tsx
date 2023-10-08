@@ -9,7 +9,7 @@ const BusinessPlan: React.FC = () => {
     <Container>
       <div
         className="
-          mt-[-22pt]
+          pt-10
           max-w-screen-xl 
           mx-auto
         "

@@ -7,7 +7,7 @@ import NextUnicorn from "./Pages/NextUnicorn";
 const EnterprisePage: React.FC = () => {
   return (
     <Container>
-      <div className="mt-10">
+      <div className="mt-20">
         <Mission name={"Mission"} />
         <Arts name={"Arts"} />
         <NextUnicorn name={"Next Unicorn"} />
