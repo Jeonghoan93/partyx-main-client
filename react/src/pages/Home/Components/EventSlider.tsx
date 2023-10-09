@@ -16,7 +16,7 @@ const EventSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
 
   if (windowWidth < 475) {
     return (
-      <div className="mt-4 relative overflow-hidden h-auto">
+      <div className="mt-3 relative overflow-hidden h-auto">
         <div
           className="flex transition-transform duration-500"
           style={{

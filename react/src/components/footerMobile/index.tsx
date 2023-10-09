@@ -1,11 +1,8 @@
 import { useState } from "react";
-import {
-  AiOutlineCalendar,
-  AiOutlineHeart,
-  AiOutlineMenu,
-} from "react-icons/ai";
-import { BiMessage } from "react-icons/bi";
-import { BsSearch } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BiMessage, BiSolidHome } from "react-icons/bi";
+import { BsPersonFill } from "react-icons/bs";
+import { PiNewspaperClippingBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import useHandleScroll from "src/hooks/useHandleScroll";
 
@@ -39,7 +36,7 @@ const FooterMobile: React.FC = () => {
           }}
         >
           <span>
-            <BsSearch
+            <BiSolidHome
               size={18}
               color={activeButton === "search" ? "red" : "gray"}
             />
@@ -49,7 +46,7 @@ const FooterMobile: React.FC = () => {
               activeButton === "search" ? "text-black" : "text-gray-600"
             }`}
           >
-            Search
+            Home
           </span>
         </div>
 
@@ -83,7 +80,7 @@ const FooterMobile: React.FC = () => {
           }}
         >
           <span>
-            <AiOutlineCalendar
+            <PiNewspaperClippingBold
               size={18}
               color={activeButton === "booking" ? "red" : "gray"}
             />
@@ -93,7 +90,7 @@ const FooterMobile: React.FC = () => {
               activeButton === "booking" ? "text-black" : "text-gray-600"
             }`}
           >
-            Bookings
+            Activity
           </span>
         </div>
 
@@ -127,7 +124,7 @@ const FooterMobile: React.FC = () => {
           }}
         >
           <span>
-            <AiOutlineMenu
+            <BsPersonFill
               size={18}
               color={activeButton === "menu" ? "red" : "gray"}
             />
@@ -137,7 +134,7 @@ const FooterMobile: React.FC = () => {
               activeButton === "menu" ? "text-black" : "text-gray-600"
             }`}
           >
-            Menu
+            Account
           </span>
         </div>
       </div>

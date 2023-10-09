@@ -1,8 +1,7 @@
-import useCountries from "src/hooks/useCountries";
-
 import { Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import InfoCard from "src/components/TextBox/InfoCard";
+import useCurrentLocation from "src/hooks/useCurrentLocation";
 import { Address } from "src/interfaces/event";
 
 const InfoTexts = [
@@ -43,16 +42,16 @@ const EventInfo: React.FC<EventInfoProps> = ({
   hostName,
   hostProfilePhoto,
   desc,
-
   address,
 }) => {
-  const { getCountryByValue } = useCountries();
   const navigate = useNavigate();
 
-  const location = address ? getCountryByValue(address.country) : undefined;
+  const currentLocation = useCurrentLocation();
 
-  const coordinates =
-    address && getCountryByValue(address.country)?.coordinates;
+  const coordinates = [
+    currentLocation?.latitude || 0,
+    currentLocation?.longitude || 0,
+  ];
 
   return (
     <div className="flex flex-col gap-3 col-span-4 mb-3">
@@ -60,10 +59,6 @@ const EventInfo: React.FC<EventInfoProps> = ({
         <section className="">
           <div className="mb-2">
             <h2 className="text-[13pt] font-bold">{title}</h2>
-            <span className="text-[11pt] text-gray-600 font-semibold">
-              This party is in {address.city}, {address?.country}{" "}
-              {location?.flag}
-            </span>
           </div>
 
           <div className="flex flex-col gap-3">
@@ -82,7 +77,8 @@ const EventInfo: React.FC<EventInfoProps> = ({
             <h2 className="text-[13pt] font-bold">Location</h2>
 
             <span className="text-[11pt] text-gray-600 font-semibold">
-              {address.street}, {address.city}, {address.country}
+              {currentLocation.street || "Upplandsgatan 2"},{" "}
+              {currentLocation.city}, {currentLocation.country}
             </span>
           </div>
 

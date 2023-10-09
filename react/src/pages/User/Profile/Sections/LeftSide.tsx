@@ -2,14 +2,16 @@ import { Suspense, lazy } from "react";
 import { BiDotsHorizontal } from "react-icons/bi";
 import { HiBadgeCheck } from "react-icons/hi";
 import useCountries from "src/hooks/useCountries";
+import useCurrentLocation from "src/hooks/useCurrentLocation";
 import About from "../Components/About";
 
 const Map = lazy(() => import("src/components/Map"));
 
 const LeftSide: React.FC = () => {
   const { getCountryByValue } = useCountries();
+  const currentLocation = useCurrentLocation();
 
-  const location = getCountryByValue("Sweden");
+  const location = getCountryByValue(currentLocation?.country || "Sweden");
 
   return (
     <div className="flex flex-col gap-3 col-span-4 mb-3">
@@ -93,7 +95,7 @@ const LeftSide: React.FC = () => {
             <h2 className="text-[13pt] font-bold">Location</h2>
 
             <span className="text-[11pt] text-gray-600 font-semibold">
-              Jimmy is currently in {location?.flag}.
+              Jimmy is currently in {currentLocation?.city} {location?.flag}
             </span>
           </div>
 

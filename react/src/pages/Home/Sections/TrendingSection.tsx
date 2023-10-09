@@ -8,9 +8,6 @@ const TrendingSection = () => {
     <section className="mt-4">
       <div className="mb-2">
         <h2 className="text-[13pt] font-bold">Trending in Sweden</h2>
-        <span className="text-[11pt] text-gray-600 font-semibold">
-          Don't miss the most popular parties in Sweden
-        </span>
       </div>
       <EventSlider events={trendingEvents} />
     </section>

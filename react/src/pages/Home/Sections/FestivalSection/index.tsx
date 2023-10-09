@@ -8,9 +8,6 @@ const FestivalSection = () => {
     <section className="mt-4">
       <div className="mb-4">
         <h2 className="text-[13pt] font-bold">Hottest Festivals</h2>
-        <span className="text-[11pt] text-gray-600 font-semibold">
-          Wait for the best festivals in Europe
-        </span>
       </div>
 
       <FestivalSlider festivals={festivals} />
