@@ -16,7 +16,7 @@ export default function CareerLayout() {
 
       <NavbarCareer />
 
-      <div style={{ paddingTop: "60px" }} className="bg-black">
+      <div style={{ paddingTop: "50px" }}>
         <Outlet />
       </div>
 

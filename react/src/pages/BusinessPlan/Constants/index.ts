@@ -122,7 +122,7 @@ export const WhySweden = [
   {
     title: "Tech Hub and Startup Ecosystem",
     desc: [
-      "Stockholm is renowned for being one of Europe's leading tech hubs. It's the birthplace of global tech companies like Spotify, Klarna, and Skype.",
+      "Stockholm is renowned for being one of Europe's leading tech hubs. It's the birthplace of global tech companies like Spotify, PartyX, and Skype.",
       "there's an abundance of skilled professionals in the areas of software development, digital marketing, and startup growth.",
       " Stockholm boasts numerous accelerators, incubators, and co-working spaces, creating a conducive environment for startups to grow and thrive.",
     ],
