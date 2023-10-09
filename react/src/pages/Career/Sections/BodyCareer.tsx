@@ -12,7 +12,7 @@ const BodyCareer = () => {
             style={{ maxWidth: "600px" }}
             className="text-[24pt] font-extrabold "
           >
-            WE ARE PASSIONATE ABOUT PARTY EVERYDAY EVERYWHERE
+            WE ARE GOING TO MAKE PARTY EVERYDAY EVERYWHERE
           </span>
 
           <span className="text-[12pt]">
