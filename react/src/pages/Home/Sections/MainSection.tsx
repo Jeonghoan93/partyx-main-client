@@ -6,7 +6,7 @@ const MainSection = () => {
 
   return (
     <div className="flex flex-col gap-4 pb-10">
-      <span className="text-[27pt] font-bold">
+      <span className="text-[27pt] font-extrabold">
         List your party and get paid
       </span>
       <span className="text-[13pt] font-normal">
