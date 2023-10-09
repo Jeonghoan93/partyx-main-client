@@ -118,7 +118,6 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
               hostName={event.hostName}
               hostProfilePhoto={event.hostProfilePhoto}
               desc={event.desc}
-              address={event.address}
             />
             <div
               className="

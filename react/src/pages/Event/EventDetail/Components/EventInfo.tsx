@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import InfoCard from "src/components/TextBox/InfoCard";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
-import { Address } from "src/interfaces/event";
 
 const InfoTexts = [
   {
@@ -34,7 +33,6 @@ interface EventInfoProps {
   hostName: string;
   hostProfilePhoto: string;
   desc: string;
-  address: Address;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({
@@ -42,7 +40,6 @@ const EventInfo: React.FC<EventInfoProps> = ({
   hostName,
   hostProfilePhoto,
   desc,
-  address,
 }) => {
   const navigate = useNavigate();
 
