@@ -105,28 +105,80 @@ const EventBooking: React.FC<EventBookingProps> = ({
       <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
         <section className="flex flex-col gap-3">
           <div className="my-2">
-            <h2 className="text-[13pt] font-bold mb-2">Date</h2>
-            <span className="text-[11pt] text-gray-600 font-semibold">
+            <h2 className="text-[13pt] font-bold mb-2">
+              {" "}
               {formatDate(startDate, {
                 timeIncluded: true,
                 endDate: endDate,
               })}
-            </span>
-
-            <div className="flex flex-col mt-3">
-              <span className="text-[12pt] underline cursor-pointer">
-                See more detail
-              </span>
-            </div>
+            </h2>
           </div>
 
           <hr />
 
           <div className="my-2">
-            <h2 className="text-[13pt] font-bold mb-2">Who's coming?</h2>
-            <span className="text-[11pt] text-gray-600 font-semibold">
+            <h2 className="text-[13pt] font-bold mb-2">
+              {" "}
               {minGuests} - {maxGuests} guests
-            </span>
+            </h2>
+          </div>
+
+          <hr />
+
+          <div className="my-2">
+            <h2 className="text-[13pt] font-bold mb-2">Who are coming?</h2>
+
+            <div className="flex flex-row items-center mt-3">
+              <span>
+                <img
+                  className="rounded-full"
+                  height="40"
+                  width="40"
+                  alt="Avatar"
+                  src={"https://i.pravatar.cc/155"}
+                />
+              </span>
+
+              <span>
+                <img
+                  className="rounded-full"
+                  height="40"
+                  width="40"
+                  alt="Avatar"
+                  src={"https://i.pravatar.cc/150"}
+                />
+              </span>
+
+              <span>
+                <img
+                  className="rounded-full"
+                  height="40"
+                  width="40"
+                  alt="Avatar"
+                  src={"https://i.pravatar.cc/151"}
+                />
+              </span>
+
+              <span>
+                <img
+                  className="rounded-full"
+                  height="40"
+                  width="40"
+                  alt="Avatar"
+                  src={"https://i.pravatar.cc/152"}
+                />
+              </span>
+
+              <span>
+                <img
+                  className="rounded-full"
+                  height="40"
+                  width="40"
+                  alt="Avatar"
+                  src={"https://i.pravatar.cc/153"}
+                />
+              </span>
+            </div>
           </div>
         </section>
       </div>
