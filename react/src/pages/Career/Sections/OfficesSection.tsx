@@ -1,80 +1,52 @@
 const OfficesSection = () => {
   return (
-    <div className="bg-gray-50">
-      <section
-        className="w-full h-[40vh] overflow-hidden relative mb-3"
-        style={{ maxWidth: "600px" }}
-      >
-        <section className="w-full h-[50vh] overflow-hidden relative">
+    <div className="mx-auto py-5">
+      <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {/* First Office Image */}
+        <div className="relative h-[40vh] overflow-hidden mb-3 md:mb-0">
           <img
             src={"/images/office1.jpg"}
-            style={{ width: "100%", height: "100%" }}
-            className="object-cover w-full"
-            alt="Image"
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Stockholm Office"
           />
-          <div className={"absolute inset-0 bg-black opacity-30"}></div>{" "}
-          {/* This div acts as the overlay */}
-        </section>
-
-        <section
-          style={{ width: "100%", height: "100%", top: 0, left: 0 }}
-          className="absolute object-cover w-full items-center justify-center flex flex-col gap-4 z-1"
-        >
-          <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
-            <span>Stockholm Office</span>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+          <div className="absolute inset-0 flex items-center justify-center z-0">
+            <div className="text-white font-bold text-[14pt]">
+              <span>Stockholm Office</span>
+            </div>
           </div>
-        </section>
-      </section>
+        </div>
 
-      <section
-        className="w-full h-[40vh] overflow-hidden relative my-3"
-        style={{ maxWidth: "600px" }}
-      >
-        <section className="w-full h-[50vh] overflow-hidden relative">
+        {/* Second Office Image */}
+        <div className="relative h-[40vh] overflow-hidden mb-3 md:mb-0">
           <img
             src={"/images/office2.jpg"}
-            style={{ width: "100%", height: "100%" }}
-            className="object-cover w-full"
-            alt="Image"
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Berlin Office"
           />
-          <div className={"absolute inset-0 bg-black opacity-30"}></div>{" "}
-          {/* This div acts as the overlay */}
-        </section>
-
-        <section
-          style={{ width: "100%", height: "100%", top: 0, left: 0 }}
-          className="absolute object-cover w-full items-center justify-center flex flex-col gap-4 z-1"
-        >
-          <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
-            <span>Berlin Office</span>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+          <div className="absolute inset-0 flex items-center justify-center z-0">
+            <div className="text-white font-bold text-[14pt]">
+              <span>Berlin Office</span>
+            </div>
           </div>
-        </section>
-      </section>
+        </div>
 
-      <section
-        className="w-full h-[40vh] overflow-hidden relative my-3"
-        style={{ maxWidth: "600px" }}
-      >
-        <section className="w-full h-[50vh] overflow-hidden relative">
+        {/* Third Office Image */}
+        <div className="relative h-[40vh] overflow-hidden">
           <img
             src={"/images/office3.jpg"}
-            style={{ width: "100%", height: "100%" }}
-            className="object-cover w-full"
-            alt="Image"
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Amsterdam Office"
           />
-          <div className={"absolute inset-0 bg-black opacity-30"}></div>{" "}
-          {/* This div acts as the overlay */}
-        </section>
-
-        <section
-          style={{ width: "100%", height: "100%", top: 0, left: 0 }}
-          className="absolute object-cover w-full items-center justify-center flex flex-col gap-4 z-1"
-        >
-          <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
-            <span>Amsterdam Office</span>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+          <div className="absolute inset-0 flex items-center justify-center z-0">
+            <div className="text-white font-bold text-[14pt]">
+              <span>Amsterdam Office</span>
+            </div>
           </div>
-        </section>
-      </section>
+        </div>
+      </div>
     </div>
   );
 };
