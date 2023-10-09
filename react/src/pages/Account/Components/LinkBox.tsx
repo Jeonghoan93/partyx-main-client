@@ -1,7 +1,7 @@
 interface LinkBoxProps {
   icon: React.ReactNode;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   onClick: () => void;
 }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-import { BiMessage, BiSolidHome } from "react-icons/bi";
+import { BiSolidHome } from "react-icons/bi";
 import { BsPersonFill } from "react-icons/bs";
 import { PiNewspaperClippingBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
@@ -91,28 +91,6 @@ const FooterMobile: React.FC = () => {
             }`}
           >
             Activity
-          </span>
-        </div>
-
-        <div
-          className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => {
-            setActiveButton("inbox");
-            navigate("/messages");
-          }}
-        >
-          <span>
-            <BiMessage
-              size={18}
-              color={activeButton === "inbox" ? "red" : "gray"}
-            />
-          </span>
-          <span
-            className={`text-[9pt] font-semibold ${
-              activeButton === "inbox" ? "text-black" : "text-gray-600"
-            }`}
-          >
-            Inbox
           </span>
         </div>
 

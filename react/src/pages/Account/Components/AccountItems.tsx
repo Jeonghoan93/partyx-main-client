@@ -1,6 +1,15 @@
+import { BiBookContent } from "react-icons/bi";
 import { FaBook, FaCreditCard, FaLock, FaUser } from "react-icons/fa";
+import { GrMail } from "react-icons/gr";
 
 const getAccountItems = (navigate: (path: string) => void) => [
+  {
+    icon: <GrMail />,
+    title: "Messages",
+    onClick: () => {
+      navigate("/messages");
+    },
+  },
   {
     icon: <FaUser />,
     title: "Personal Info",
@@ -31,6 +40,14 @@ const getAccountItems = (navigate: (path: string) => void) => [
     subtitle: "Tax details and settings.",
     onClick: () => {
       navigate("/account/taxes");
+    },
+  },
+  {
+    icon: <BiBookContent />,
+    title: "About PartyX app",
+
+    onClick: () => {
+      alert("Not yet!");
     },
   },
 ];
