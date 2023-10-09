@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import useLoginModal from "src/hooks/useLoginModal";
 
 const NavbarProfile: React.FC = () => {
   const currentUser = useCurrentUser();
   const LoginModal = useLoginModal();
+  const navigate = useNavigate();
 
   return (
     <div className="fixed z-10 w-full bg-white">
@@ -14,7 +16,10 @@ const NavbarProfile: React.FC = () => {
       >
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-[18pt] font-bold mb-1">
+            <span
+              onClick={() => navigate("/account")}
+              className="cursor-pointer text-[18pt] font-bold mb-1"
+            >
               {currentUser ? currentUser.name : "Account"}
             </span>
 
@@ -36,7 +41,10 @@ const NavbarProfile: React.FC = () => {
             )}
           </div>
 
-          <span className="shadow-sm rounded-full border-[1px] border-neutral-100 ">
+          <span
+            onClick={currentUser ? () => alert("Not yet!") : LoginModal.onOpen}
+            className="cursor-pointer shadow-sm rounded-full border-[1px] border-neutral-100 "
+          >
             {" "}
             <img
               className="rounded-full"
