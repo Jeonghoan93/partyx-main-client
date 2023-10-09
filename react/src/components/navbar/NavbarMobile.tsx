@@ -76,8 +76,7 @@ const NavbarMobile: React.FC = () => {
 
       <div
         className="
-          py-4 
-          border-b-[1px]
+          pt-3
         "
       >
         <Container>

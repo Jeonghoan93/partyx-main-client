@@ -6,12 +6,10 @@ const NavbarProfile: React.FC = () => {
   const LoginModal = useLoginModal();
 
   return (
-    <div className="fixed z-10 w-full bg-white shadow-sm">
+    <div className="fixed z-10 w-full bg-white">
       <div
         className="
           p-4 
-          border-b-[1px]
-          border-b-neutral-100
         "
       >
         <div className="flex flex-row items-center justify-between">

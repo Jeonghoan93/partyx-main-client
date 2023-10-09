@@ -57,16 +57,12 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         flex-row
         items-center 
         justify-center 
-        gap-2
-        px-2
-        py-1
-        mb-2
-        border-1
-        rounded-lg
+        px-3
+        py-2
         hover:text-neutral-900
         transition
         cursor-pointer
-        ${selected ? "border-2 border-neutral-800" : "border-neutral-400"}
+        ${selected ? "border-b-[2px] border-neutral-700" : "border-neutral-400"}
         ${selected ? "text-neutral-800" : "text-neutral-500"}
       `}
     >
