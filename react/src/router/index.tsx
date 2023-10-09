@@ -4,6 +4,11 @@ import CareerLayout from "src/layouts/CareerLayout";
 import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
+import Account from "src/pages/Account";
+import LoginSecurity from "src/pages/Account/Pages/LoginSecurity";
+import Payments from "src/pages/Account/Pages/Payments";
+import PersonalInfo from "src/pages/Account/Pages/PersonalInfo";
+import Taxes from "src/pages/Account/Pages/Taxes";
 import BusinessPlan from "src/pages/BusinessPlan";
 import Career from "src/pages/Career";
 import Positions from "src/pages/Career/Pages/Positions";
@@ -15,17 +20,13 @@ import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/MyEvents";
 import Partner from "src/pages/Partner";
-import Account from "src/pages/Account";
-import LoginSecurity from "src/pages/Account/Pages/LoginSecurity";
-import Payments from "src/pages/Account/Pages/Payments";
-import PersonalInfo from "src/pages/Account/Pages/PersonalInfo";
-import Taxes from "src/pages/Account/Pages/Taxes";
 import Favorites from "src/pages/User/Favorites";
 import Messages from "src/pages/User/Messages";
 import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
 import Tickets from "src/pages/User/Tickets";
 
+import EventDetailLayout from "src/layouts/EventDetailLayout";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -41,7 +42,6 @@ const AppRoutes = () => {
 
           {/* Events */}
           <Route path="events" element={<EventList />} />
-          <Route path="events/:eventId" element={<EventDetail />} />
 
           {/* Company */}
           <Route path="company" element={<EnterprisePage />} />
@@ -73,6 +73,13 @@ const AppRoutes = () => {
         <Route path="careers" element={<CareerLayout />}>
           <Route index element={<Career />} />
           <Route path="positions" element={<Positions />} />
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For EventDetail routes */}
+        <Route path="events/:eventId" element={<EventDetailLayout />}>
+          <Route index element={<EventDetail />} />
+
           {/* Add other host specific routes here if any */}
         </Route>
 

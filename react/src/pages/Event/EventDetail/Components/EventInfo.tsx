@@ -1,4 +1,6 @@
 import { Suspense, lazy } from "react";
+import { FcOvertime } from "react-icons/fc";
+import { FiExternalLink } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import InfoCard from "src/components/TextBox/InfoCard";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
@@ -33,6 +35,8 @@ interface EventInfoProps {
   hostName: string;
   hostProfilePhoto: string;
   desc: string;
+  minGuests?: number;
+  maxGuests?: number;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({
@@ -40,6 +44,8 @@ const EventInfo: React.FC<EventInfoProps> = ({
   hostName,
   hostProfilePhoto,
   desc,
+  minGuests,
+  maxGuests,
 }) => {
   const navigate = useNavigate();
 
@@ -55,14 +61,23 @@ const EventInfo: React.FC<EventInfoProps> = ({
       <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
         <section className="">
           <div className="mb-2">
-            <h2 className="text-[13pt] font-bold">{title}</h2>
+            <span className="text-[17pt] font-extrabold">{title}</span>
           </div>
 
           <div className="flex flex-col gap-3">
             <span className="text-[11pt]">{desc}</span>
+          </div>
 
-            <span className="text-[12pt] underline cursor-pointer">
-              Read more
+          <hr className="my-2" />
+
+          <div className="flex flex-row justify-between items-center">
+            <span className="text-[11pt]" style={{ maxWidth: "330px" }}>
+              <span className="font-semibold">Only 22 hours left to book.</span>{" "}
+              The host will stop accepting bookings for your dates soon.
+            </span>
+
+            <span>
+              <FcOvertime size={25} />
             </span>
           </div>
         </section>
@@ -95,14 +110,22 @@ const EventInfo: React.FC<EventInfoProps> = ({
       <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
         <section className="flex flex-col gap-3">
           <div className="mb-2">
-            <h2 className="text-[13pt] font-bold mb-2">Organizer</h2>
             <div className="flex flex-row justify-between items-center">
+              <div className="flex flex-col">
+                <span className="text-[13pt] font-bold">
+                  hosted by {hostName}
+                </span>
+
+                <span>
+                  From {minGuests} to {maxGuests} people joining
+                </span>
+              </div>
+
               <div
                 onClick={() => navigate(`/profile/${hostName}}`)}
-                className="cursor-pointer flex flex-row items-center gap-2"
+                className="cursor-pointer flex flex-col items-center gap-1"
               >
-                {/* host photo */}
-                <div className="p-1">
+                <span>
                   <img
                     className="rounded-full"
                     height="40"
@@ -110,21 +133,13 @@ const EventInfo: React.FC<EventInfoProps> = ({
                     alt="Avatar"
                     src={hostProfilePhoto}
                   />
-                </div>
-
-                {/* host name and role */}
-                <div className="flex flex-col">
-                  <span className="text-[11pt] text-gray-900 font-semibold">
-                    {hostName}
-                  </span>
-                  <span className="text-[10pt] text-gray-500">
-                    event organizer
+                </span>
+                <div className="flex flex-row items-center gap-1">
+                  <span className="text-[10pt] font-bold">See Profile</span>
+                  <span>
+                    <FiExternalLink />
                   </span>
                 </div>
-              </div>
-
-              <div className="cursor-pointer py-1 px-2 border-[1px] rounded-md border-neutral-400">
-                Contact
               </div>
             </div>
           </div>

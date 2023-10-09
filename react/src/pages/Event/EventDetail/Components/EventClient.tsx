@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import useLoginModal from "src/hooks/useLoginModal";
+import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
@@ -29,6 +30,9 @@ interface EventClientProps {
 const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
   const loginModal = useLoginModal();
   const navigate = useNavigate();
+
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth < 768;
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(event.price);
@@ -95,53 +99,67 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
   }, [dateRange, event.price]);
 
   return (
-    <Container>
-      <div
-        className="
-          mt-[-22pt]
+    <>
+      {isMobile ? (
+        <section
+          className="
+          w-full mt-[-37pt] shadow-md mb-[-10pt]
+        "
+        >
+          <img src={event.img} className="w-full h-[370px]" alt="Image" />
+        </section>
+      ) : null}
+
+      <Container>
+        <div
+          className="
           max-w-screen-lg 
           mx-auto
         "
-      >
-        <div className="flex flex-col gap-4">
-          <PhotoSection img={event.img} />
-          <div
-            className="
+        >
+          <div className="flex flex-col gap-4">
+            {!isMobile ? <PhotoSection img={event.img} /> : null}
+
+            <div
+              className="
               grid 
               grid-cols-1 
               md:grid-cols-7 
               md:gap-3 
             "
-          >
-            <EventInfo
-              title={event.title}
-              hostName={event.hostName}
-              hostProfilePhoto={event.hostProfilePhoto}
-              desc={event.desc}
-            />
-            <div
-              className="
-                md:order-last 
-                md:col-span-3
-              "
             >
-              <EventBooking
-                currency={event.currency}
-                price={event.price}
-                totalPrice={totalPrice}
-                onSubmit={onCreateBooking}
-                disabled={isLoading}
-                startDate={event.startDate}
-                endDate={event.endDate}
+              <EventInfo
+                title={event.title}
+                hostName={event.hostName}
+                hostProfilePhoto={event.hostProfilePhoto}
+                desc={event.desc}
                 minGuests={event.minGuests}
                 maxGuests={event.maxGuests}
               />
+              <div
+                className="
+                md:order-last 
+                md:col-span-3
+              "
+              >
+                <EventBooking
+                  currency={event.currency}
+                  price={event.price}
+                  totalPrice={totalPrice}
+                  onSubmit={onCreateBooking}
+                  disabled={isLoading}
+                  startDate={event.startDate}
+                  endDate={event.endDate}
+                  minGuests={event.minGuests}
+                  maxGuests={event.maxGuests}
+                />
+              </div>
             </div>
+            <ReviewSection event={event} />
           </div>
-          <ReviewSection event={event} />
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 

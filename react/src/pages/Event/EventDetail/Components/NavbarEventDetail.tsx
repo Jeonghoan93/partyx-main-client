@@ -10,7 +10,7 @@ interface NavbarProps {
   currentUser?: User | null;
 }
 
-const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
+const NavbarEventDetail: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
   const navigate = useNavigate();
 
   if (eventId) {
@@ -33,10 +33,17 @@ const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
             md:gap-0
           "
             >
-              <div className="cursor-pointer" onClick={() => navigate(-1)}>
-                <BiChevronLeft size={30} />
+              <div
+                onClick={() => navigate(-1)}
+                className="cursor-pointer flex flex-row items-center gap-1"
+              >
+                <span className="">
+                  <BiChevronLeft size={30} />
+                </span>
+                <span className="text-[11pt] font-bold text-gray-800">
+                  Back
+                </span>
               </div>
-
               <div className="flex flex-row items-center gap-4">
                 <span className="cursor-pointer">
                   <BiLinkExternal />
@@ -53,4 +60,4 @@ const NavbarSection: React.FC<NavbarProps> = ({ currentUser, eventId }) => {
   }
 };
 
-export default NavbarSection;
+export default NavbarEventDetail;

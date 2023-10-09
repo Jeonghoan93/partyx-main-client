@@ -6,7 +6,6 @@ import { getMockedBookings } from "src/services/api-examples/booking";
 import { events } from "src/services/api-examples/events";
 import { MockedUser } from "src/services/api-examples/user";
 import EventClient from "./Components/EventClient";
-import NavbarSection from "./Components/NavbarSection";
 
 const EventDetail: React.FC = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -28,7 +27,6 @@ const EventDetail: React.FC = () => {
   if (!eventData) {
     return (
       <>
-        <NavbarSection eventId={Number(eventId)} currentUser={currentUser} />
         <EmptyState />
       </>
     );
@@ -36,7 +34,6 @@ const EventDetail: React.FC = () => {
 
   return (
     <>
-      <NavbarSection eventId={Number(eventId)} currentUser={currentUser} />
       <EventClient
         event={eventData}
         bookings={bookings}
