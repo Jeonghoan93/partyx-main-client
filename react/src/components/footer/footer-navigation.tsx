@@ -55,12 +55,9 @@ const FooterNavigation: FC = () => {
 
   const contactMenu = [
     {
-      label: "Jimmy",
-      path: () => navigate("/"),
-    },
-    {
-      label: "+46 72 446 29 42",
-      path: () => navigate("/"),
+      label: "LinkedIn",
+      path: () =>
+        window.open("https://www.linkedin.com/in/jimmy-h-199814242/", "_blank"),
     },
   ];
 
