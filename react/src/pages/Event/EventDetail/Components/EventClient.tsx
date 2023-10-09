@@ -136,26 +136,36 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
                 minGuests={event.minGuests}
                 maxGuests={event.maxGuests}
               />
-              <div
-                className="
+              {!isMobile ? (
+                <div
+                  className="
                 md:order-last 
                 md:col-span-3
               "
-              >
-                <EventBooking
-                  currency={event.currency}
-                  price={event.price}
-                  totalPrice={totalPrice}
-                  onSubmit={onCreateBooking}
-                  disabled={isLoading}
-                  startDate={event.startDate}
-                  endDate={event.endDate}
-                  minGuests={event.minGuests}
-                  maxGuests={event.maxGuests}
-                />
-              </div>
+                >
+                  <EventBooking
+                    currency={event.currency}
+                    price={event.price}
+                    totalPrice={totalPrice}
+                    onSubmit={onCreateBooking}
+                    disabled={isLoading}
+                    startDate={event.startDate}
+                    endDate={event.endDate}
+                    minGuests={event.minGuests}
+                    maxGuests={event.maxGuests}
+                  />
+                </div>
+              ) : (
+                <div className="pb-[90px]">
+                  <ReviewSection event={event} />
+                </div>
+              )}
             </div>
-            <ReviewSection event={event} />
+            {!isMobile ? (
+              <div className="pb-[30px]">
+                <ReviewSection event={event} />
+              </div>
+            ) : null}
           </div>
         </div>
       </Container>

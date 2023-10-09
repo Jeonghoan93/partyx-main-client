@@ -9,7 +9,6 @@ import { MockedUser } from "src/services/api-examples/user";
 
 export default function EventDetailLayout() {
   const windowWidth = useWindowWidth();
-
   const isMobile = windowWidth < 768;
 
   const { eventId } = useParams<{ eventId: string }>();
