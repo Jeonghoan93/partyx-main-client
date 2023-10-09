@@ -22,10 +22,14 @@ const EventPhoto: React.FC<PhotoSectionProps> = ({
   return (
     <section
       className="
-         w-full h-[300px] object-cover
+          w-full h-[305px] object-cover relative
         "
     >
-      <img src={img} style={{ width: "100%", height: "100%" }} alt="Image" />
+      <img
+        src={img}
+        className="w-full h-full object-cover shadow-md rounded-lg"
+        alt="Image"
+      />
       {!isEventDetailPage && (
         <HeartButton
           className="absolute top-2 right-2"

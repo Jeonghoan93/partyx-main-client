@@ -12,6 +12,13 @@ export type EventProps = {
   currency: string;
   HostName?: string;
   hostPhoto?: string;
+  address?: {
+    country: string;
+    street: string;
+    postalCode: string;
+    state: string;
+    city: string;
+  };
   startDate: Date;
   endDate: Date;
   containerStyle?: React.CSSProperties;
@@ -23,43 +30,41 @@ const EventCard: React.FC<EventProps> = ({
   img,
   price,
   currency,
-  desc,
   startDate,
   endDate,
   containerStyle,
+  address,
 }) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className={"cursor-pointer"}
+      className="cursor-pointer hover:brightness-110 hover:contrast-110 transition-opacity duration-300 ease-in-out rounded-lg overflow-hidden"
       onClick={() => navigate(`/events/${eventId}`)}
       key={eventId}
       style={containerStyle}
     >
-      <div
-        className="relative rounded-md overflow-hidden bg-transparent"
-        style={{
-          height: "430px",
-        }}
-      >
-        <EventPhoto img={img} eventId={Number(eventId)} />
-        <div className="p-1">
-          <h2 className="text-[11pt] font-bold my-1">
-            {title.length > 25 ? title.substring(0, 25) + "..." : title}
-          </h2>
-          <p className="text-[10pt] text-gray-600">
-            {desc.length > 45 ? desc.substring(0, 45) + "..." : desc}
-          </p>
-          <div className="text-gray-700 flex text-[9pt] font-mono font-semibold items-center mt-2">
+      <EventPhoto img={img} eventId={Number(eventId)} />
+      <div className="py-2 px-1 bg-white flex flex-col gap-2">
+        <div className="flex flex-col">
+          <h2 className="text-[13pt] font-extrabold truncate">{title}</h2>
+          <span className="text-gray-700 flex text-[11pt] font-semibold items-center">
             {formatDate(startDate, {
-              timeIncluded: true,
               endDate: endDate,
             })}
-          </div>
-          <p className="text-[11pt] mt-2 font-bold my-1">
-            {currency} {price}
-          </p>
+          </span>
+          <span className="text-gray-700 flex text-[11pt] font-semibold items-center">
+            {address?.city}, {address?.country}
+          </span>
+        </div>
+
+        <div className="flex flex-row gap-1">
+          <span className="text-[12pt] font-bold">
+            {currency}
+            {price}
+          </span>
+
+          <span className="text-[12pt] font-normal">per ticket</span>
         </div>
       </div>
     </div>
