@@ -38,7 +38,7 @@ const EventCard: React.FC<EventProps> = ({
       style={containerStyle}
     >
       <div
-        className="relative rounded-lg overflow-hidden bg-transparent"
+        className="relative rounded-md overflow-hidden bg-transparent"
         style={{
           height: "430px",
         }}

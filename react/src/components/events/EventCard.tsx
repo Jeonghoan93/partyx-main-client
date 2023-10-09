@@ -67,7 +67,7 @@ const EventCard: React.FC<EventCardProps> = ({
             w-full 
             relative 
             overflow-hidden 
-            rounded-xl
+            rounded-t-md
           "
         >
           <img
