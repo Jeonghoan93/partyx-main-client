@@ -39,9 +39,9 @@ const Button: React.FC<ButtonProps> = ({
             ? "bg-white border-black text-black"
             : "bg-blue-500 border-blue-500 text-white"
         }
-        ${small ? "text-[10pt]" : "text-[11pt]"}
+        ${small ? "text-[11pt]" : "text-[12pt]"}
         ${small ? "py-[7pt]" : "py-[8pt]"}
-        ${small ? "font-light" : "font-semibold"}
+        ${small ? "font-semibold" : "font-bold"}
       
       `}
     >

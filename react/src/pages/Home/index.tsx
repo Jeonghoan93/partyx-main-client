@@ -4,6 +4,7 @@ import { useWindowWidth } from "src/hooks/useWindowWidth";
 import CustomizedSection from "./Sections/CustomizedSection";
 import FeaturedSection from "./Sections/FeaturedSection";
 import FestivalSection from "./Sections/FestivalSection";
+import MainSection from "./Sections/MainSection";
 import NearSection from "./Sections/NearSection";
 import NewestSection from "./Sections/NewestSection";
 import TodaySection from "./Sections/TodaySection";
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
   return (
     <Container>
       <div className={isMobile ? `mt-20` : `mt-10`}>
+        <MainSection />
         {currentUser ? <CustomizedSection currentUser={currentUser} /> : null}
         <TodaySection />
         <NearSection />
