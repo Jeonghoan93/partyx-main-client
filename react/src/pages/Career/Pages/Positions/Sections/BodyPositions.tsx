@@ -8,22 +8,22 @@ const BodyPositions = () => {
     <div className="bg-gray-100 z-0 py-10 px-5 flex flex-col items-center">
       {/* Input Fields */}
       <div className="flex flex-col lg:flex-row gap-4 w-full lg:max-w-3xl">
-        {/* Search Job Titles */}
+        {/* Job Titles */}
         <div className="w-full lg:w-1/3">
           <input
             type="text"
             id="jobTitle"
-            placeholder="Search job titles"
+            placeholder="Title"
             className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
           />
         </div>
 
-        {/* All Teams */}
+        {/* Job Category */}
         <div className="relative w-full lg:w-1/3">
           <input
             type="text"
-            id="teams"
-            placeholder="Search teams"
+            id="locations"
+            placeholder="Department"
             className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 pl-6"
           />
           <span className="absolute cursor-pointer inset-y-0 right-6 flex items-center">
@@ -36,7 +36,7 @@ const BodyPositions = () => {
           <input
             type="text"
             id="locations"
-            placeholder="Search locations"
+            placeholder="Location"
             className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 pl-6"
           />
           <span className="absolute cursor-pointer inset-y-0 right-6 flex items-center">

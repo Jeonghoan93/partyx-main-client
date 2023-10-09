@@ -17,7 +17,7 @@ const HeaderCareer = () => {
 
           <span
             onClick={() => navigate("/careers/positions")}
-            className="cursor-pointer"
+            className="cursor-pointer underline text-[13pt] font-semibold"
           >
             Discover all opportunities
           </span>

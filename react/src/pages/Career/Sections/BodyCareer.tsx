@@ -15,20 +15,14 @@ const BodyCareer = () => {
             WE ARE PASSIONATE ABOUT PARTY EVERYDAY EVERYWHERE
           </span>
 
-          <div className="flex flex-col gap-3 text-gray-800">
-            <span className="text-[16pt]">
-              We are passionate about making every city we enter super fun.
-            </span>
-
-            <span className="text-[12pt]">
-              Everyone at PartyX has an important part to play. What’s yours
-              going to be?
-            </span>
-          </div>
+          <span className="text-[12pt]">
+            Everyone at PartyX has an important part to play. What’s yours going
+            to be?
+          </span>
 
           <span
             onClick={() => navigate("/careers/positions")}
-            className="cursor-pointer font-semibold text-[14pt]"
+            className="cursor-pointer font-semibold text-[14pt] underline"
           >
             LEARN MORE
           </span>
