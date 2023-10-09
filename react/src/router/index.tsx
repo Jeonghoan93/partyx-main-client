@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import AccountLayout from "src/layouts/AccountLayout";
 import CareerLayout from "src/layouts/CareerLayout";
 import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
@@ -14,11 +15,11 @@ import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/MyEvents";
 import Partner from "src/pages/Partner";
-import Account from "src/pages/User/Account";
-import LoginSecurity from "src/pages/User/Account/Pages/LoginSecurity";
-import Payments from "src/pages/User/Account/Pages/Payments";
-import PersonalInfo from "src/pages/User/Account/Pages/PersonalInfo";
-import Taxes from "src/pages/User/Account/Pages/Taxes";
+import Account from "src/pages/Account";
+import LoginSecurity from "src/pages/Account/Pages/LoginSecurity";
+import Payments from "src/pages/Account/Pages/Payments";
+import PersonalInfo from "src/pages/Account/Pages/PersonalInfo";
+import Taxes from "src/pages/Account/Pages/Taxes";
 import Favorites from "src/pages/User/Favorites";
 import Messages from "src/pages/User/Messages";
 import Notifications from "src/pages/User/Notifications";
@@ -49,11 +50,6 @@ const AppRoutes = () => {
 
           {/* User */}
           <Route path="profile/:email" element={<Profile />} />
-          <Route path="account" element={<Account />} />
-          <Route path="account/personal-info" element={<PersonalInfo />} />
-          <Route path="account/payments" element={<Payments />} />
-          <Route path="account/login-security" element={<LoginSecurity />} />
-          <Route path="account/taxes" element={<Taxes />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="tickets" element={<Tickets />} />
           <Route path="messages" element={<Messages />} />
@@ -77,6 +73,17 @@ const AppRoutes = () => {
         <Route path="careers" element={<CareerLayout />}>
           <Route index element={<Career />} />
           <Route path="positions" element={<Positions />} />
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For Account routes */}
+        <Route path="account" element={<AccountLayout />}>
+          <Route index element={<Account />} />
+          <Route path="personal-info" element={<PersonalInfo />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="login-security" element={<LoginSecurity />} />
+          <Route path="taxes" element={<Taxes />} />
+
           {/* Add other host specific routes here if any */}
         </Route>
       </Routes>

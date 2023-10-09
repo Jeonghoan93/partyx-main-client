@@ -74,8 +74,9 @@ const EventInfo: React.FC<EventInfoProps> = ({
             <h2 className="text-[13pt] font-bold">Location</h2>
 
             <span className="text-[11pt] text-gray-600 font-semibold">
-              {currentLocation.street || "Upplandsgatan 2"},{" "}
-              {currentLocation.city}, {currentLocation.country}
+              {currentLocation.street || "Upplandsgatan"},{" "}
+              {currentLocation.city || "Stockholm"},{" "}
+              {currentLocation.country || "Sweden"}
             </span>
           </div>
 

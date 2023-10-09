@@ -21,10 +21,17 @@ const NavbarMobile: React.FC = () => {
   const isFavoritesPage = isMatchingPath(pathname, "/favorites");
   const isTicketsPage = isMatchingPath(pathname, "/tickets");
   const isMessagesPage = isMatchingPath(pathname, "/messages");
+  const isAccountPage = isMatchingPath(pathname, "/account");
 
   const currentUser = useCurrentUser();
 
-  if (isEventDetailPage || isFavoritesPage || isTicketsPage || isMessagesPage) {
+  if (
+    isAccountPage ||
+    isEventDetailPage ||
+    isFavoritesPage ||
+    isTicketsPage ||
+    isMessagesPage
+  ) {
     return null;
   }
 

@@ -120,7 +120,7 @@ const FooterMobile: React.FC = () => {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("menu");
-            alert("not yet!");
+            navigate("/account");
           }}
         >
           <span>
