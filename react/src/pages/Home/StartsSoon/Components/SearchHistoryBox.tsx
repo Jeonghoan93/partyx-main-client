@@ -24,7 +24,7 @@ const SearchHistoryBox: React.FC<SearchHistoryBoxProps> = ({
     <div
       onClick={() => navigate(`/events/${eventId}`)}
       key={eventId}
-      className="flex flex-row gap-4 items-center"
+      className="cursor-pointer flex flex-row gap-4 items-center"
     >
       <span>
         <BiTime size={22} />

@@ -1,10 +1,10 @@
 import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
-import MainSection from "./Components/MainSection";
 import Customized from "./Customized";
 import Featured from "./Featured";
 import Festivals from "./Festivals";
+import Main from "./Main";
 import Near from "./Near";
 import StartsSoon from "./StartsSoon";
 import Suggestions from "./Suggestions";
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
               className="absolute object-cover w-full items-center justify-center flex flex-col gap-4 z-1"
             >
               <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
-                <MainSection />
+                <Main />
               </div>
             </section>
           </section>

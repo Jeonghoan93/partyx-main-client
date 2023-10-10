@@ -2,7 +2,7 @@ import Button from "src/components/Button";
 import Container from "src/components/Container";
 import useLoginModal from "src/hooks/useLoginModal";
 
-const MainSection = () => {
+const Main = () => {
   const loginModal = useLoginModal();
 
   return (
@@ -23,4 +23,4 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default Main;

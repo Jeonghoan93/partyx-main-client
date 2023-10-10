@@ -1,6 +1,7 @@
 import Container from "src/components/Container";
-import EventSlider from "src/pages/Home/Components/EventSlider";
-import { events } from "../../../services/api-examples/events";
+
+import { events } from "src/services/api-examples/events";
+import EventSlider from "./Components/EventSlider";
 
 const Featured = () => {
   return (

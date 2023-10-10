@@ -1,7 +1,7 @@
 import Container from "src/components/Container";
 import { User } from "src/interfaces/user";
-import EventSlider from "src/pages/Home/Components/EventSlider";
 import { events } from "src/services/api-examples/events";
+import EventSlider from "./Components/EventSlider";
 
 interface CustomizedProps {
   currentUser: User;

@@ -1,7 +1,7 @@
 import Container from "src/components/Container";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
-import EventSlider from "src/pages/Home/Components/EventSlider";
 import { events } from "../../../services/api-examples/events";
+import EventSlider from "./Components/EventSlider";
 
 const trendingEvents = events.slice(2, 6);
 

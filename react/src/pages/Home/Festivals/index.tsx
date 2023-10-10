@@ -9,7 +9,7 @@ const Festivals = () => {
     <Container>
       <section className="mt-4">
         <div className="mb-4">
-          <h2 className="text-[13pt] font-bold">Hottest Festivals</h2>
+          <h2 className="text-[13pt] font-bold">Festivals in Europe</h2>
         </div>
 
         <FestivalSlider festivals={festivals} />
