@@ -18,7 +18,7 @@ export default function RootLayout() {
       {!isMobile && <Navbar />}
       {isMobile && <NavbarMobile />}
 
-      <div className="pb-20 pt-28">
+      <div style={{ paddingTop: "140px" }} className="pb-20">
         <Outlet />
       </div>
       {isMobile && <FooterMobile />}

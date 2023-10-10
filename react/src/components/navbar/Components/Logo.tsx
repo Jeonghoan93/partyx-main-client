@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <div
       onClick={() => navigate("/")}
-      className={"cursor-pointer font-bold text-xl"}
+      className={"cursor-pointer font-extrabold text-[15pt]"}
     >
       PARTY<span className={"text-red-600"}>X</span>
     </div>

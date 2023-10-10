@@ -1,8 +1,6 @@
-import { HiOutlineUserCircle } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import useHandleScroll from "src/hooks/useHandleScroll";
-import useLoginModal from "src/hooks/useLoginModal";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 import Container from "../Container";
 import Categories from "./Components/Categories";
@@ -14,7 +12,7 @@ import UserMenu from "./Components/UserMenu";
 const NavbarMobile: React.FC = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  const loginModal = useLoginModal();
+
   const hideNav = useHandleScroll();
 
   const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
@@ -41,7 +39,7 @@ const NavbarMobile: React.FC = () => {
         hideNav ? "-translate-y-full" : ""
       }`}
     >
-      <div
+      {/* <div
         className="
           px-2
           pt-4 
@@ -72,7 +70,7 @@ const NavbarMobile: React.FC = () => {
             </div>
           </div>
         </Container>
-      </div>
+      </div> */}
 
       <div
         className="
@@ -90,10 +88,8 @@ const NavbarMobile: React.FC = () => {
             md:gap-0
           "
           >
-            <div className="relative hidden md:block">
-              <div className="flex flex-row">
-                <Logo />
-              </div>
+            <div className="relative ml-2 mr-2">
+              <Logo />
             </div>
             <Search />
             <div className="relative hidden md:block">

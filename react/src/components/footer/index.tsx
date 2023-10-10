@@ -33,13 +33,15 @@ const Footer: FC = () => {
               <Typography
                 className="cursor-pointer"
                 onClick={() => navigate("/")}
-                component="h2"
-                variant="h2"
-                sx={{ mb: 2 }}
               >
-                partyx
+                <span className="text-[18pt] font-bold">
+                  PARTY<span className="text-red-700">X</span>
+                </span>
               </Typography>
-              <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 2 }}>
+              <Typography variant="subtitle2" sx={{ letterSpacing: 2, mb: 0 }}>
+                <span className="text-gray-500">Party anytime, everywhere</span>
+              </Typography>
+              <Typography variant="subtitle1" sx={{ letterSpacing: 1, mb: 4 }}>
                 Stockholm, Sweden
               </Typography>
             </Box>

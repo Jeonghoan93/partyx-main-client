@@ -1,14 +1,15 @@
 import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
-import CustomizedSection from "./Sections/CustomizedSection";
-import FeaturedSection from "./Sections/FeaturedSection";
-import FestivalSection from "./Sections/FestivalSection";
-import MainSection from "./Sections/MainSection";
-import NearSection from "./Sections/NearSection";
-import NewestSection from "./Sections/NewestSection";
-import TodaySection from "./Sections/TodaySection";
-import TrendingSection from "./Sections/TrendingSection";
+import MainSection from "./Components/MainSection";
+import Customized from "./Customized";
+import Featured from "./Featured";
+import Festivals from "./Festivals";
+import Near from "./Near";
+import StartsSoon from "./StartsSoon";
+import Suggestions from "./Suggestions";
+import Today from "./Today";
+import { default as Trending } from "./Trending";
 
 const Home: React.FC = () => {
   const currentUser = useCurrentUser();
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
   const isMobile = windowWidth < 768;
 
   return (
-    <div className={isMobile ? `mt-20` : `mt-5`}>
+    <div>
       {!isMobile ? (
         <Container>
           <section className="w-full h-[50vh] overflow-hidden relative mb-3 rounded-md">
@@ -42,19 +43,17 @@ const Home: React.FC = () => {
             </section>
           </section>
         </Container>
-      ) : (
-        <MainSection />
-      )}
+      ) : null}
 
-      <Container>
-        {currentUser ? <CustomizedSection currentUser={currentUser} /> : null}
-        <TodaySection />
-        <NearSection />
-        <FestivalSection />
-        <FeaturedSection />
-        <TrendingSection />
-        <NewestSection />
-      </Container>
+      <Suggestions />
+      <StartsSoon />
+
+      {currentUser ? <Customized currentUser={currentUser} /> : null}
+      <Today />
+      <Near />
+      <Featured />
+      <Festivals />
+      <Trending />
     </div>
   );
 };
