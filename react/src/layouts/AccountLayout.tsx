@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from "src/components/footer";
+import FixedFooter from "src/components/footer/FixedFooter";
 import FooterMobile from "src/components/footerMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Account/Components/NavbarProfile";
@@ -20,7 +21,7 @@ export default function AccountLayout() {
         <Outlet />
       </div>
 
-      {isMobile && <FooterMobile />}
+      {isMobile ? <FooterMobile /> : <FixedFooter />}
       <Footer />
     </>
   );

@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from "src/components/footer";
+import FixedFooter from "src/components/footer/FixedFooter";
 import FooterMobile from "src/components/footerMobile";
 import Navbar from "src/components/navbar/Navbar";
 import NavbarMobile from "src/components/navbar/NavbarMobile";
@@ -21,7 +22,7 @@ export default function RootLayout() {
       <div style={{ paddingTop: "140px" }} className="pb-20">
         <Outlet />
       </div>
-      {isMobile && <FooterMobile />}
+      {isMobile ? <FooterMobile /> : <FixedFooter />}
       <Footer />
     </>
   );
