@@ -1,8 +1,9 @@
 import { AiOutlineSafety } from "react-icons/ai";
+import LineContainer from "src/components/LineContainer";
 
 const Safety = () => {
   return (
-    <div className="p-4 bg-gray-50 rounded-lg shadow border-[1px] border-neutral-200">
+    <LineContainer>
       <div
         onClick={() => alert("Not yet")}
         className="flex flex-row items-center gap-4 cursor-pointer"
@@ -17,7 +18,7 @@ const Safety = () => {
           </span>
         </div>
       </div>
-    </div>
+    </LineContainer>
   );
 };
 

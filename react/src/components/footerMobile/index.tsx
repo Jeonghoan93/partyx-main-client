@@ -81,7 +81,7 @@ const FooterMobile: React.FC = () => {
           onClick={() => {
             setActiveButton("booking");
             setTimeout(() => {
-              navigate("/tickets");
+              navigate("/activity");
             }, 0);
           }}
         >

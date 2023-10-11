@@ -130,7 +130,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem
                   semibold={true}
                   label="Tickets"
-                  onClick={() => navigate("/tickets")}
+                  onClick={() => navigate("/activity")}
                 />
                 <MenuItem
                   semibold={true}

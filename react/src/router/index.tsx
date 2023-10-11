@@ -23,10 +23,10 @@ import Favorites from "src/pages/User/Favorites";
 import Messages from "src/pages/User/Messages";
 import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
-import Tickets from "src/pages/User/Tickets";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import EventsList from "src/pages/EventsList";
+import Activity from "src/pages/Activity";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -51,7 +51,7 @@ const AppRoutes = () => {
           {/* User */}
           <Route path="profile/:email" element={<Profile />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="tickets" element={<Tickets />} />
+          <Route path="activity" element={<Activity />} />
           <Route path="messages" element={<Messages />} />
           <Route path="notifications" element={<Notifications />} />
         </Route>

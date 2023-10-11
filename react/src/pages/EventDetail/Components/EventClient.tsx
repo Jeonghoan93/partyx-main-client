@@ -69,7 +69,7 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
       if (res?.status === "success") {
         toast.success("Event reserved!");
         setDateRange(initialDateRange);
-        navigate("/tickets");
+        navigate("/activity");
       }
     } catch (err) {
       toast.error("Something went wrong.");
