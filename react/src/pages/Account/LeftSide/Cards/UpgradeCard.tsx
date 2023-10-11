@@ -23,7 +23,10 @@ const UpgradeCard = () => {
           <span className="text-[10pt] font-bold px-3 text-gray-100">
             Get exclusive access to the best parties in town
           </span>
-          <span className="cursor-pointer w-[100px] shadow-md rounded-xl py-1 bg-white text-black text-[10pt] font-semibold">
+          <span
+            onClick={() => alert("Coming soon!")}
+            className="cursor-pointer w-[100px] shadow-md rounded-xl py-1 bg-white text-black text-[10pt] font-semibold"
+          >
             Upgrade
           </span>
         </div>

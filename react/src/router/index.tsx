@@ -5,10 +5,11 @@ import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
 import RootLayout from "src/layouts/RootLayout";
 import Account from "src/pages/Account";
+import Favorites from "src/pages/Account/Pages/Favorites";
 import LoginSecurity from "src/pages/Account/Pages/LoginSecurity";
-import Payments from "src/pages/Account/Pages/Payments";
+import Messages from "src/pages/Account/Pages/Messages";
 import PersonalInfo from "src/pages/Account/Pages/PersonalInfo";
-import Taxes from "src/pages/Account/Pages/Taxes";
+import Taxes from "src/pages/Account/Pages/Tax";
 import BusinessPlan from "src/pages/BusinessPlan";
 import Career from "src/pages/Career";
 import Positions from "src/pages/Career/Pages/Positions";
@@ -19,14 +20,13 @@ import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/MyEvents";
 import Partner from "src/pages/Partner";
-import Favorites from "src/pages/User/Favorites";
-import Messages from "src/pages/User/Messages";
 import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
+import Activity from "src/pages/Account/Pages/Activity";
+import Payments from "src/pages/Account/Pages/Payments";
 import EventsList from "src/pages/EventsList";
-import Activity from "src/pages/Activity";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -50,9 +50,7 @@ const AppRoutes = () => {
 
           {/* User */}
           <Route path="profile/:email" element={<Profile />} />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="activity" element={<Activity />} />
-          <Route path="messages" element={<Messages />} />
+
           <Route path="notifications" element={<Notifications />} />
         </Route>
 
@@ -87,9 +85,12 @@ const AppRoutes = () => {
         <Route path="account" element={<AccountLayout />}>
           <Route index element={<Account />} />
           <Route path="personal-info" element={<PersonalInfo />} />
-          <Route path="payments" element={<Payments />} />
           <Route path="login-security" element={<LoginSecurity />} />
-          <Route path="taxes" element={<Taxes />} />
+          <Route path="tax" element={<Taxes />} />
+          <Route path="activity" element={<Activity />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="favorites" element={<Favorites />} />
 
           {/* Add other host specific routes here if any */}
         </Route>

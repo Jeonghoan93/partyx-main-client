@@ -120,7 +120,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem
                   semibold={true}
                   label="Messages"
-                  onClick={() => navigate("/messages/:userId")}
+                  onClick={() => navigate("/account/messages/:userId")}
                 />
                 <MenuItem
                   semibold={true}
@@ -130,12 +130,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem
                   semibold={true}
                   label="Tickets"
-                  onClick={() => navigate("/activity")}
+                  onClick={() => navigate("/account/activity")}
                 />
                 <MenuItem
                   semibold={true}
                   label="Favorites"
-                  onClick={() => navigate("/favorites")}
+                  onClick={() => navigate("/account/favorites")}
                 />
                 <hr />
                 <MenuItem

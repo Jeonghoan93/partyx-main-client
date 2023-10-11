@@ -19,7 +19,10 @@ const AddVideo = () => {
           </span>
         </div>
 
-        <span className="cursor-pointer border-[1pt] text-[10pt] font-semibold text-gray-800 rounded-xl py-2 px-4 border-gray-800">
+        <span
+          onClick={() => alert("Coming soon!")}
+          className="cursor-pointer border-[1pt] text-[10pt] font-semibold text-gray-800 rounded-xl py-2 px-4 border-gray-800"
+        >
           Add a Video Prompt
         </span>
       </section>

@@ -81,7 +81,7 @@ const FixedFooter: React.FC = () => {
             onClick={() => {
               setActiveButton("favorites");
               setTimeout(() => {
-                navigate("/favorites");
+                navigate("/account/favorites");
               }, 0);
             }}
           >
@@ -99,7 +99,7 @@ const FixedFooter: React.FC = () => {
             onClick={() => {
               setActiveButton("booking");
               setTimeout(() => {
-                navigate("/activity");
+                navigate("/account/activity");
               }, 0);
             }}
           >
