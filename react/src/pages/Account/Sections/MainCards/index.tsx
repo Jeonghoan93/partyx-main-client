@@ -1,7 +1,7 @@
 import Container from "src/components/Container";
 
-import LeftSide from "./Sections/LeftSide";
-import RightSide from "./Sections/RightSide";
+import LeftSide from "./LeftSide";
+import RightSide from "./RightSide";
 
 const MainCards: React.FC = () => {
   return (
