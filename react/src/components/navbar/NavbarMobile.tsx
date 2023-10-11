@@ -35,43 +35,10 @@ const NavbarMobile: React.FC = () => {
 
   return (
     <div
-      className={`fixed w-full bg-white z-10 shadow-sm transition-transform duration-500 ${
+      className={`fixed w-full shadow pb-3 bg-white z-10 transition-transform duration-500 ${
         hideNav ? "-translate-y-full" : ""
       }`}
     >
-      {/* <div
-        className="
-          px-2
-          pt-4 
-        "
-      >
-        <Container>
-          <div
-            className="
-            flex 
-            flex-row 
-            items-center 
-            justify-between
-            gap-3
-            md:gap-0
-          "
-          >
-            <Logo />
-            <div className="cursor-pointer flex flex-row gap-1 items-center">
-              <span>
-                <HiOutlineUserCircle size={20} />
-              </span>
-              <span
-                className="text-[10pt] font-semibold"
-                onClick={loginModal.onOpen}
-              >
-                Sign in
-              </span>
-            </div>
-          </div>
-        </Container>
-      </div> */}
-
       <div
         className="
           pt-3

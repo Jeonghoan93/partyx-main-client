@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div className="fixed w-full bg-white z-10 pb-3 shadow">
       <div
         className="
           pt-4

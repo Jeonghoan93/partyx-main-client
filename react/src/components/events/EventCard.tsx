@@ -67,7 +67,9 @@ const EventCard: React.FC<EventCardProps> = ({
             w-full 
             relative 
             overflow-hidden 
-            rounded-t-md
+            rounded-md
+            border-neutral-100
+            shadow-md
           "
         >
           <img
@@ -78,6 +80,7 @@ const EventCard: React.FC<EventCardProps> = ({
               w-full 
               group-hover:scale-110 
               transition
+              
             "
             src={data.img}
             alt="Event"
@@ -92,9 +95,10 @@ const EventCard: React.FC<EventCardProps> = ({
             <HeartButton eventId={data.eventId} currentUser={currentUser} />
           </div>
         </div>
-        <div className="px-2 flex flex-col gap-1">
+
+        <div className="px-1 flex flex-col gap-1">
           <div className="flex flex-row justify-between items-center">
-            <div className="font-semibold text-[12pt]">
+            <div className="font-extrabold text-[12pt]">
               {data.title.length > 18
                 ? `${data.title.slice(0, 18)}...`
                 : data.title}
@@ -103,19 +107,26 @@ const EventCard: React.FC<EventCardProps> = ({
               <span>
                 <AiFillHeart size={16} />
               </span>
-              <span className="font-normal text-[12pt]">{data.avgRating}</span>
+              <span className="font-semibold text-[12pt]">
+                {data.avgRating}
+              </span>
             </div>
           </div>
 
-          <div className="font-normal text-[11pt]"> {data.address.city}</div>
-          <div className="font-normal text-[11pt] text-neutral-800">
-            {formatDate(data.startDate, {
-              timeIncluded: true,
-              endDate: data.endDate,
-            })}
+          <div className="flex flex-col text-gray-800 text-[11pt]">
+            <span>
+              {data.address.street}, {data.address.city}
+            </span>
+            <span>
+              {formatDate(data.startDate, {
+                timeIncluded: true,
+                endDate: data.endDate,
+              })}
+            </span>
           </div>
+
           <div className="flex flex-row items-center gap-1">
-            <div className="font-semibold">
+            <div className="font-bold">
               {data.currency} {price}
             </div>
             {!booking && <div className="font-light">{""}</div>}
