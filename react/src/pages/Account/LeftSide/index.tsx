@@ -1,6 +1,6 @@
-import AddVideo from "./Components/AddVideo";
-import FriendsList from "./Components/FriendsList";
-import UpgradeCard from "./Components/UpgradeCard";
+import AddVideo from "./Cards/AddVideo";
+import FriendsList from "./Cards/FriendsList";
+import UpgradeCard from "./Cards/UpgradeCard";
 
 const LeftSide: React.FC = () => {
   return (

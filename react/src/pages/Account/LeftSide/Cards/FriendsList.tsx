@@ -4,7 +4,7 @@ const FriendsList = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
+    <div className="p-5 bg-gray-50 rounded-lg shadow border-[1px] border-neutral-200">
       <section className="flex flex-col gap-3">
         <div className="mb-2">
           <h2 className="text-[13pt] font-bold mb-2">Friends</h2>
