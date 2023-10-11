@@ -16,14 +16,14 @@ type ActiveButton =
 
 const FooterMobile: React.FC = () => {
   const navigate = useNavigate();
-
   const hideNav = useHandleScroll();
+
   const [activeButton, setActiveButton] = useState<ActiveButton>(null);
 
   return (
     <div
-      style={{ height: "65px" }}
-      className={`border-t-[1px] fixed bottom-0 w-full bg-gray-50 shadow-md transition-transform duration-500 ${
+      style={{ height: "62px" }}
+      className={`border-t-[2px] fixed bottom-0 w-full bg-gray-50 shadow-md transition-transform duration-500 ${
         hideNav ? "translate-y-full" : ""
       }`}
     >
@@ -32,13 +32,15 @@ const FooterMobile: React.FC = () => {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("search");
-            navigate("/");
+            setTimeout(() => {
+              navigate("/");
+            }, 0);
           }}
         >
           <span>
             <BiSolidHome
               size={18}
-              color={activeButton === "search" ? "red" : "gray"}
+              color={activeButton === "search" ? "black" : "gray"}
             />
           </span>
           <span
@@ -54,13 +56,15 @@ const FooterMobile: React.FC = () => {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("favorites");
-            navigate("/favorites");
+            setTimeout(() => {
+              navigate("/favorites");
+            }, 0);
           }}
         >
           <span>
             <AiOutlineHeart
               size={18}
-              color={activeButton === "favorites" ? "red" : "gray"}
+              color={activeButton === "favorites" ? "black" : "gray"}
             />
           </span>
           <span
@@ -76,13 +80,15 @@ const FooterMobile: React.FC = () => {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("booking");
-            navigate("/tickets");
+            setTimeout(() => {
+              navigate("/tickets");
+            }, 0);
           }}
         >
           <span>
             <PiNewspaperClippingBold
               size={18}
-              color={activeButton === "booking" ? "red" : "gray"}
+              color={activeButton === "booking" ? "black" : "gray"}
             />
           </span>
           <span
@@ -98,13 +104,15 @@ const FooterMobile: React.FC = () => {
           className="flex flex-col items-center gap-1 cursor-pointer"
           onClick={() => {
             setActiveButton("menu");
-            navigate("/account");
+            setTimeout(() => {
+              navigate("/account");
+            }, 0);
           }}
         >
           <span>
             <BsPersonFill
               size={18}
-              color={activeButton === "menu" ? "red" : "gray"}
+              color={activeButton === "menu" ? "black" : "gray"}
             />
           </span>
           <span

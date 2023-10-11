@@ -13,7 +13,7 @@ const getAccountItems = (navigate: (path: string) => void) => [
   {
     icon: <FaUser />,
     title: "Personal Info",
-    subtitle: "Provide your personal details, bio and where you're from.",
+    subtitle: "Provide personal details, bio and more.",
     onClick: () => {
       navigate("/account/personal-info");
     },
@@ -21,7 +21,7 @@ const getAccountItems = (navigate: (path: string) => void) => [
   {
     icon: <FaCreditCard />,
     title: "Payment & Payout",
-    subtitle: "Manage your payment and payout methods.",
+    subtitle: "Manage payment and payout methods.",
     onClick: () => {
       navigate("/account/payments");
     },

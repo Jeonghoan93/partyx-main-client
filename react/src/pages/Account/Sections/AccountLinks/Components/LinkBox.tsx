@@ -17,7 +17,7 @@ export const LinkBox: React.FC<LinkBoxProps> = ({
       style={{
         maxWidth: "400px",
       }}
-      className="cursor-pointer py-3 flex flex-row items-center gap-6"
+      className="cursor-pointer py-2 px-1 flex flex-row items-center gap-6"
     >
       <span className="">{icon}</span>
       <div className="flex flex-col">
