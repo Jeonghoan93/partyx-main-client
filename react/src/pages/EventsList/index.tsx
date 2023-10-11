@@ -1,11 +1,11 @@
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
-import EventCard from "src/components/events/EventCard";
 import { Event } from "src/interfaces/event";
+import EventCard from "src/pages/EventsList/Components/EventCard";
 import { events } from "src/services/api-examples/events";
 import { MockedUser } from "src/services/api-examples/user";
 
-const EventList: React.FC = () => {
+const EventsList: React.FC = () => {
   const currentUser = MockedUser;
 
   if (events.length === 0) {
@@ -31,4 +31,4 @@ const EventList: React.FC = () => {
   );
 };
 
-export default EventList;
+export default EventsList;

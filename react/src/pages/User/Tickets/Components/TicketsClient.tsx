@@ -7,8 +7,8 @@ import { User } from "src/interfaces/user";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import EventCard from "src/components/events/EventCard";
 import { Booking } from "src/interfaces/booking";
+import EventCard from "src/pages/EventsList/Components/EventCard";
 
 interface MyTicketsClientProps {
   bookings: Booking[];

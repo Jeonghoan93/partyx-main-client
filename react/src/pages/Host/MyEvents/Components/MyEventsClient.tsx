@@ -6,8 +6,8 @@ import { User } from "src/interfaces/user";
 import { useNavigate } from "react-router-dom";
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import EventCard from "src/components/events/EventCard";
 import { Event } from "src/interfaces/event";
+import EventCard from "src/pages/EventsList/Components/EventCard";
 import { deleteEvent } from "src/services/event";
 
 interface MyEventsClientProps {

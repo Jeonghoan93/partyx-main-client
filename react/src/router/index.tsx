@@ -14,8 +14,7 @@ import Career from "src/pages/Career";
 import Positions from "src/pages/Career/Pages/Positions";
 import EnterprisePage from "src/pages/Company";
 import Enterprise from "src/pages/Enterprise";
-import EventDetail from "src/pages/Event/EventDetail";
-import EventList from "src/pages/Event/EventList";
+import EventDetail from "src/pages/EventDetail";
 import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/MyEvents";
@@ -27,6 +26,7 @@ import Profile from "src/pages/User/Profile";
 import Tickets from "src/pages/User/Tickets";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
+import EventsList from "src/pages/EventsList";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -41,7 +41,7 @@ const AppRoutes = () => {
           <Route path="enterprise" element={<Enterprise />} />
 
           {/* Events */}
-          <Route path="events" element={<EventList />} />
+          <Route path="events" element={<EventsList />} />
 
           {/* Company */}
           <Route path="company" element={<EnterprisePage />} />

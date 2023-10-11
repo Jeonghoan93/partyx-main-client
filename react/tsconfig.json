@@ -24,9 +24,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/**/*",
-    "src/pages/Event/EventDetail/Components/EventBooking/.tsx"
-  ],
+  "include": ["src/**/*", "src/pages/EventDetail/Components/EventBooking/.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

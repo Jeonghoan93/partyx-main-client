@@ -6,8 +6,8 @@ import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";
-import Button from "../Button";
-import HeartButton from "../HeartButton";
+import Button from "../../../components/Button";
+import HeartButton from "../../../components/HeartButton";
 
 interface EventCardProps {
   data: Event;
@@ -96,7 +96,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </div>
         </div>
 
-        <div className="px-1 flex flex-col gap-1">
+        <div className="px-2 py-1 flex flex-col gap-1">
           <div className="flex flex-row justify-between items-center">
             <div className="font-extrabold text-[12pt]">
               {data.title.length > 18

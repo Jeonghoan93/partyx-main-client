@@ -1,8 +1,8 @@
 import { Outlet, useParams } from "react-router-dom";
 import Footer from "src/components/footer";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
-import FooterEventDetail from "src/pages/Event/EventDetail/Components/FooterEventDetail";
-import NavbarEventDetail from "src/pages/Event/EventDetail/Components/NavbarEventDetail";
+import FooterEventDetail from "src/pages/EventDetail/Components/FooterEventDetail";
+import NavbarEventDetail from "src/pages/EventDetail/Components/NavbarEventDetail";
 import ModalsProvider from "src/providers/ModalsProvider";
 
 import { MockedUser } from "src/services/api-examples/user";

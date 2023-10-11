@@ -1,8 +1,8 @@
 import Container from "src/components/Container";
 import Heading from "src/components/Heading";
-import EventCard from "src/components/events/EventCard";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
+import EventCard from "src/pages/EventsList/Components/EventCard";
 
 interface FavoritesClientProps {
   events: Event[];

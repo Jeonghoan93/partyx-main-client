@@ -1,6 +1,6 @@
 import Container from "src/components/Container";
 import EmptyState from "src/components/EmptyState";
-import EventCard from "src/components/events/EventCard";
+import EventCard from "src/pages/EventsList/Components/EventCard";
 
 import { Event } from "src/interfaces/event";
 import { getCurrentUser } from "src/services/auth";
