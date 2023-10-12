@@ -18,7 +18,7 @@ const UpgradeCard = () => {
       >
         <div className="text-white flex flex-col items-center text-center gap-2">
           <span className="text-[15pt] text-gray-50 font-extrabold">
-            PartyX
+            PartyX VIP
           </span>
           <span className="text-[10pt] font-bold px-3 text-gray-100">
             Get exclusive access to the best parties in town
