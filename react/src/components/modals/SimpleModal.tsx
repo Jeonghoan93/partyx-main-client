@@ -65,9 +65,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
         "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-neutral-800/70"
       }
     >
-      <div
-        className={"relative w-full max-w-screen-lg max-h-screen my-6 sm:py-3"}
-      >
+      <div className={"fixed w-full max-w-screen-lg"}>
         {/* Modal Box */}
         <div
           className={`relative overflow-hidden bg-gray-200 sm:rounded-lg shadow-lg ${animationClass} transform transition-transform duration-300 ease-in-out`}
