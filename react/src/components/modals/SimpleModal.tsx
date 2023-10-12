@@ -57,9 +57,8 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
   }
 
   return (
-    <>
-      <div
-        className="
+    <div
+      className="
           justify-center 
           items-center 
           flex 
@@ -72,30 +71,29 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           focus:outline-none
           bg-neutral-800/70
         "
-      >
-        <div
-          ref={modalRef}
-          className="
+    >
+      <div
+        ref={modalRef}
+        className="
           fixed 
           w-full
           max-w-screen-lg
           my-6
           mx-auto 
-          lg:h-auto
-          md:h-auto
+          h-[calc(95vh-0rem)]
           "
-        >
-          {/*content*/}
-          <div
-            className={`
+      >
+        {/*content*/}
+        <div
+          className={`
             translate
             duration-300
             ${showModal ? "translate-y-0" : "translate-y-full"}
             ${showModal ? "opacity-100" : "opacity-0"}
           `}
-          >
-            <div
-              className="
+        >
+          <div
+            className="
               translate
               h-full
               lg:h-auto
@@ -113,10 +111,10 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
               outline-none 
               focus:outline-none
             "
-            >
-              {/*header*/}
-              <div
-                className="
+          >
+            {/*header*/}
+            <div
+              className="
                 flex 
                 items-center 
                 p-5
@@ -125,9 +123,9 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
                 relative
                 border-b-[1px]
                 "
-              >
-                <button
-                  className="
+            >
+              <button
+                className="
                     p-1
                     border-0 
                     hover:opacity-70
@@ -135,27 +133,26 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
                     absolute
                     left-9
                   "
-                  onClick={onClose}
-                >
-                  <IoMdClose size={18} />
-                </button>
-                <span
-                  onClick={handleSubmit}
-                  className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
-                >
-                  Done
-                </span>
-                <div className="text-[12pt] font-bold">{title}</div>
-              </div>
-              {/*body*/}
-              <div className="pt-5 no-scrollbar w-full h-full max-h-[calc(100vh-0rem)] overflow-y-auto">
-                {body}
-              </div>
+                onClick={onClose}
+              >
+                <IoMdClose size={18} />
+              </button>
+              <span
+                onClick={handleSubmit}
+                className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
+              >
+                Done
+              </span>
+              <div className="text-[12pt] font-bold">{title}</div>
+            </div>
+            {/*body*/}
+            <div className="pt-5 no-scrollbar w-full h-full max-h-[calc(100vh-0rem)] overflow-y-auto">
+              {body}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
