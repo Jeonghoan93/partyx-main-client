@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import Container from "src/components/Container";
+import BusinessPlan from "src/pages/BusinessPlan";
 
 interface SettingsModalProps {
   isOpen?: boolean;
   onClose: () => void;
-  onSubmit?: () => void;
   body?: React.ReactElement;
   footer?: React.ReactElement;
   actionLabel?: string;
@@ -14,9 +13,9 @@ interface SettingsModalProps {
 }
 
 const SettingsModal: React.FC<SettingsModalProps> = ({
-  isOpen,
+  isOpen = false,
   onClose,
-  disabled,
+  disabled = false,
 }) => {
   const [showSettingsModal, setShowSettingsModal] = useState(isOpen);
 
@@ -25,136 +24,44 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   }, [isOpen]);
 
   const handleClose = useCallback(() => {
-    if (disabled) {
-      return;
+    if (!disabled) {
+      setShowSettingsModal(false);
+      setTimeout(onClose, 300);
     }
-
-    setShowSettingsModal(false);
-    setTimeout(() => {
-      onClose();
-    }, 300);
   }, [onClose, disabled]);
 
-  //   const handleSubmit = useCallback(() => {
-  //     if (disabled) {
-  //       return;
-  //     }
-
-  //     onSubmit();
-  //   }, [onSubmit, disabled]);
-
-  //   const handleSecondaryAction = useCallback(() => {
-  //     if (disabled || !secondaryAction) {
-  //       return;
-  //     }
-
-  //     secondaryAction();
-  //   }, [secondaryAction, disabled]);
-
-  if (!isOpen) {
+  if (!showSettingsModal) {
     return null;
   }
 
   return (
-    <>
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-neutral-800/70">
       <div
-        className="
-          justify-center 
-          items-center 
-          flex 
-          overflow-x-hidden 
-          overflow-y-auto 
-          fixed 
-          inset-0 
-          z-50 
-          outline-none 
-          focus:outline-none
-          bg-neutral-800/70
-        "
+        className={
+          "relative w-full max-w-screen-sm max-h-screen my-6 translate duration-400"
+        }
       >
-        <div
-          className="
-          relative 
-          w-full
-          md:w-[375pt]
-          lg:w-[386pt]
-          xl:w-[400pt]
-          my-6
-          mx-auto 
-          lg:h-auto
-          md:h-auto
-          "
-        >
-          {/*content*/}
-          <div
-            className={`
-            translate
-            duration-300
-            ${showSettingsModal ? "translate-y-0" : "translate-y-full"}
-            ${showSettingsModal ? "opacity-100" : "opacity-0"}
-          `}
-          >
-            <div
-              className="
-              translate
-              h-full
-              lg:h-auto
-              md:h-auto
-              max-h-[calc(100vh-0rem)]
-              overflow-y-auto
-              border-0 
-              rounded-lg 
-              shadow-lg 
-              relative 
-              flex 
-              flex-col 
-              w-full 
-              bg-white 
-              outline-none 
-              focus:outline-none
-            "
-            >
-              {/*header*/}
-              <div
-                className="
-                flex 
-                p-3
-                rounded-t
-                justify-center
-                relative
-                "
-              >
-                <div className="flex justify-center">
-                  <div className="text-[12pt] font-extrabold">Settings</div>
-                  <button
-                    className="
-                    p-1
-                    border-0 
-                    hover:opacity-70
-                    transition
-                    absolute
-                    right-4
-                  "
-                    onClick={handleClose}
-                  >
-                    <span className="text-blue-700 font-bold text-[10pt]">
-                      Done
-                    </span>
-                  </button>
-                </div>
-              </div>
+        {/* Modal Box */}
+        <div className="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+          {/* Header */}
+          <div className="absolute top-0 z-10 flex justify-center items-center w-full p-3 bg-white rounded-t">
+            <h2 className="text-[12pt] font-extrabold">Settings</h2>
 
-              {/*body*/}
-              <div className="h-screen relative bg-gray-100">
-                <Container>First item</Container>
-                <Container>First item</Container>
-                <Container>First item</Container>
-              </div>
-            </div>
+            <span
+              onClick={handleClose}
+              className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
+            >
+              Done
+            </span>
+          </div>
+
+          {/* Content */}
+          <div className="relative flex flex-col w-full h-full lg:h-auto md:h-auto max-h-[calc(100vh-0rem)] pt-5 overflow-y-auto">
+            <BusinessPlan />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
