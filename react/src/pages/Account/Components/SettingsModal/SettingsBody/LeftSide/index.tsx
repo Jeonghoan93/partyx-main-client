@@ -1,7 +1,7 @@
-import FriendsList from "./Cards/FriendsList";
+import Notifications from "./Cards/Notifications";
 import PhoneEmail from "./Cards/PhoneEmail";
 import Safety from "./Cards/Safety";
-import VerifyId from "./Cards/VerifyId";
+import Subscription from "./Cards/Subscription";
 
 const LeftSide: React.FC = () => {
   return (
@@ -9,8 +9,8 @@ const LeftSide: React.FC = () => {
       <div className="flex flex-col gap-3 col-span-4 mb-3">
         <Safety />
         <PhoneEmail />
-        <VerifyId />
-        <FriendsList />
+        <Notifications />
+        <Subscription />
       </div>
     </>
   );
