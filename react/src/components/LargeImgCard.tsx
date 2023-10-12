@@ -33,7 +33,7 @@ const LargeImgCard: React.FC<LargeImgCardProps> = ({
 
       <section
         style={{ width: "100%", height: "100%", top: 0, left: 0 }}
-        className="absolute object-cover w-full items-center justify-center flex flex-col gap-4 z-10"
+        className="absolute object-cover w-full items-center justify-center flex flex-col gap-4"
       >
         {children}
       </section>
