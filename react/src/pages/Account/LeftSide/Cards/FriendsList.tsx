@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import LineContainer from "src/components/LineContainer";
 
 const FriendsList = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-5 bg-gray-50 rounded-lg shadow border-[1px] border-neutral-200">
+    <LineContainer>
       <section className="flex flex-col gap-3">
         <div className="mb-2">
           <h2 className="text-[13pt] font-bold mb-2">Friends</h2>
@@ -46,7 +47,7 @@ const FriendsList = () => {
           </div>
         </div>
       </section>
-    </div>
+    </LineContainer>
   );
 };
 

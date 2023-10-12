@@ -1,8 +1,9 @@
 import { BiVideoPlus } from "react-icons/bi";
+import LineContainer from "src/components/LineContainer";
 
 const AddVideo = () => {
   return (
-    <div className="p-6 bg-gray-50 rounded-lg border-[1px] border-neutral-200 shadow">
+    <LineContainer>
       <section className="flex flex-col items-center gap-3">
         <span className="bg-gray-200 rounded-[100%] p-2">
           <BiVideoPlus size={26} />
@@ -26,7 +27,7 @@ const AddVideo = () => {
           Add a Video Prompt
         </span>
       </section>
-    </div>
+    </LineContainer>
   );
 };
 
