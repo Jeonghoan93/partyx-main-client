@@ -1,14 +1,11 @@
 import BodyCareer from "./Sections/BodyCareer";
-import HeaderCareer from "./Sections/HeaderCareer";
-import OfficesSection from "./Sections/OfficesSection";
+import HeaderInvestor from "./Sections/HeaderInvestor";
 
 const Career = () => {
   return (
     <>
-      <HeaderCareer />
+      <HeaderInvestor />
       <BodyCareer />
-
-      <OfficesSection />
     </>
   );
 };

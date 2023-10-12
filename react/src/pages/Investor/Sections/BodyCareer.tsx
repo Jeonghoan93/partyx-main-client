@@ -13,11 +13,6 @@ const BodyCareer = () => {
           WE ARE GOING TO MAKE PARTY EVERYDAY EVERYWHERE
         </span>
 
-        <span className="text-[12pt]">
-          Everyone at PartyX has an important part to play. What’s yours going
-          to be?
-        </span>
-
         <span
           onClick={() => navigate("/careers/positions")}
           className="cursor-pointer font-semibold text-[14pt] underline"
