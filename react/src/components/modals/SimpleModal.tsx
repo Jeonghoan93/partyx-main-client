@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import useOnClickOutside from "src/hooks/userOnClickOutside";
 
 interface SimpleModalProps {
   title?: string;
@@ -23,9 +24,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
-  useEffect(() => {
-    setShowModal(isOpen);
-  }, [isOpen]);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClose = useCallback(() => {
     if (disabled) {
@@ -38,6 +37,12 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
     }, 300);
   }, [onClose, disabled]);
 
+  useOnClickOutside([modalRef], handleClose);
+
+  useEffect(() => {
+    setShowModal(isOpen);
+  }, [isOpen]);
+
   const handleSubmit = useCallback(() => {
     if (disabled) {
       return;
@@ -45,6 +50,10 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
     handleClose();
     onSubmit();
   }, [disabled, handleClose, onSubmit]);
+
+  const animationClass = showModal
+    ? "translate-y-0"
+    : "translate-y-1/2 opacity-0";
 
   if (!showModal) {
     return null;
@@ -57,12 +66,13 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
       }
     >
       <div
-        className={
-          "relative w-full max-w-screen-sm max-h-screen my-6 sm:py-3 translate duration-400"
-        }
+        className={"relative w-full max-w-screen-sm max-h-screen my-6 sm:py-3"}
       >
         {/* Modal Box */}
-        <div className="relative overflow-hidden bg-gray-200 sm:rounded-lg shadow-lg">
+        <div
+          className={`relative overflow-hidden bg-gray-200 sm:rounded-lg shadow-lg ${animationClass} transform transition-transform duration-300 ease-in-out`}
+          ref={modalRef}
+        >
           {/* Header */}
           <div className="absolute top-0 z-10 flex justify-center items-center w-full p-3 bg-white sm:rounded-t">
             <h2 className="text-[12pt] font-extrabold">{title}</h2>
