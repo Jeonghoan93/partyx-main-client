@@ -1,8 +1,8 @@
 import SimpleModal from "src/components/modals/SimpleModal";
-import useSettingsModal from "src/hooks/useSettingsModal";
+import useProfileEditModal from "src/hooks/useProfileEditModal";
 import BusinessPlan from "src/pages/BusinessPlan";
 
-interface SettingsModalProps {
+interface ProfileEditModalProps {
   isOpen?: boolean;
   onClose: () => void;
   body?: React.ReactElement;
@@ -13,20 +13,20 @@ interface SettingsModalProps {
   secondaryActionLabel?: string;
 }
 
-const SettingsModal: React.FC<SettingsModalProps> = () => {
-  const settingsModal = useSettingsModal();
+const ProfileEditModal: React.FC<ProfileEditModalProps> = () => {
+  const profileEditModal = useProfileEditModal();
 
   const bodyContent = <BusinessPlan />;
 
   return (
     <SimpleModal
-      isOpen={settingsModal.isOpen}
-      title={"Settings"}
-      onClose={settingsModal.onClose}
+      isOpen={profileEditModal.isOpen}
+      title={"User name"}
+      onClose={profileEditModal.onClose}
       onSubmit={() => {}}
       body={bodyContent}
     />
   );
 };
 
-export default SettingsModal;
+export default ProfileEditModal;

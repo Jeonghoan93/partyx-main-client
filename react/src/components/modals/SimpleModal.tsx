@@ -52,20 +52,19 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-neutral-800/70 ${
-        showModal ? "opacity-100" : "opacity-0"
-      } transition-opacity duration-300`}
-      style={showModal ? {} : { pointerEvents: "none" }}
+      className={
+        "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-neutral-800/70"
+      }
     >
       <div
-        className={`relative w-full max-w-screen-sm max-h-screen my-6 translate duration-400 ${
-          showModal ? "translate-y-0" : "translate-y-full"
-        }`}
+        className={
+          "relative w-full max-w-screen-sm max-h-screen my-6 sm:py-3 translate duration-400"
+        }
       >
         {/* Modal Box */}
-        <div className="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+        <div className="relative overflow-hidden bg-gray-200 sm:rounded-lg shadow-lg">
           {/* Header */}
-          <div className="absolute top-0 z-10 flex justify-center items-center w-full p-3 bg-white rounded-t">
+          <div className="absolute top-0 z-10 flex justify-center items-center w-full p-3 bg-white sm:rounded-t">
             <h2 className="text-[12pt] font-extrabold">{title}</h2>
 
             <span
@@ -77,7 +76,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           </div>
 
           {/* Content */}
-          <div className="relative flex flex-col w-full h-full lg:h-auto md:h-auto max-h-[calc(100vh-0rem)] pt-5 overflow-y-auto">
+          <div className="no-scrollbar relative flex flex-col w-full h-full max-h-[calc(100vh-0rem)] pt-5 overflow-y-auto">
             {body}
           </div>
         </div>
