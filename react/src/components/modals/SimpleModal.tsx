@@ -22,7 +22,6 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
   title,
   body,
   disabled,
-  secondaryAction,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
   const modalRef = useRef<HTMLDivElement>(null);
