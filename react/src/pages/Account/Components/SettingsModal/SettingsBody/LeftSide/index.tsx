@@ -1,3 +1,4 @@
+import ConnectedAccounts from "./Cards/ConnectedAccounts";
 import Notifications from "./Cards/Notifications";
 import PhoneEmail from "./Cards/PhoneEmail";
 import Safety from "./Cards/Safety";
@@ -11,6 +12,7 @@ const LeftSide: React.FC = () => {
         <PhoneEmail />
         <Notifications />
         <Subscription />
+        <ConnectedAccounts />
       </div>
     </>
   );
