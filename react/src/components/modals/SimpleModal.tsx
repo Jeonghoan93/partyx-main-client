@@ -51,10 +51,6 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
     onSubmit();
   }, [disabled, handleClose, onSubmit]);
 
-  const animationClass = showModal
-    ? "translate-y-0"
-    : "translate-y-1/2 opacity-0";
-
   if (!showModal) {
     return null;
   }
@@ -65,12 +61,9 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
         "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-neutral-800/70"
       }
     >
-      <div className={"fixed w-full max-w-screen-lg"}>
+      <div className={"fixed w-full max-w-screen-lg"} ref={modalRef}>
         {/* Modal Box */}
-        <div
-          className={`relative overflow-hidden bg-gray-200 sm:rounded-lg shadow-lg ${animationClass} transform transition-transform duration-300 ease-in-out`}
-          ref={modalRef}
-        >
+        <div className={"relative bg-gray-200 sm:rounded-lg shadow-lg"}>
           {/* Header */}
           <div className="absolute top-0 z-10 flex justify-center items-center w-full p-3 bg-white sm:rounded-t">
             <h2 className="text-[12pt] font-extrabold">{title}</h2>
