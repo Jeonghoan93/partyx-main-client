@@ -13,6 +13,7 @@ interface SimpleModalProps {
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
+  closeHidden?: boolean;
 }
 
 const SimpleModal: React.FC<SimpleModalProps> = ({
@@ -22,6 +23,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
   title,
   body,
   disabled,
+  closeHidden,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -80,7 +82,6 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           max-w-screen-lg
           my-6
           mx-auto 
-          h-[calc(95vh-0rem)]
           "
       >
         {/*content*/}
@@ -95,10 +96,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           <div
             className="
               translate
-              h-full
-              lg:h-auto
-              md:h-auto
-              max-h-[calc(100vh-0rem)]
+              max-h-[calc(90vh-0rem)]
               overflow-y-auto
               border-0 
               rounded-lg 
@@ -124,8 +122,9 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
                 border-b-[1px]
                 "
             >
-              <button
-                className="
+              {closeHidden ? null : (
+                <button
+                  className="
                     p-1
                     border-0 
                     hover:opacity-70
@@ -133,10 +132,12 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
                     absolute
                     left-9
                   "
-                onClick={onClose}
-              >
-                <IoMdClose size={18} />
-              </button>
+                  onClick={onClose}
+                >
+                  <IoMdClose size={18} />
+                </button>
+              )}
+
               <span
                 onClick={handleSubmit}
                 className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
