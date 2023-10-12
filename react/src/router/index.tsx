@@ -24,9 +24,11 @@ import Notifications from "src/pages/User/Notifications";
 import Profile from "src/pages/User/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
+import InvestorLayout from "src/layouts/InvestorLayout";
 import Activity from "src/pages/Account/Pages/Activity";
 import Payments from "src/pages/Account/Pages/Payments";
 import EventsList from "src/pages/EventsList";
+import Investor from "src/pages/Investor";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -71,6 +73,13 @@ const AppRoutes = () => {
         <Route path="careers" element={<CareerLayout />}>
           <Route index element={<Career />} />
           <Route path="positions" element={<Positions />} />
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For Investor routes */}
+        <Route path="investor" element={<InvestorLayout />}>
+          <Route index element={<Investor />} />
+
           {/* Add other host specific routes here if any */}
         </Route>
 
