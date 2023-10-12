@@ -26,9 +26,6 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  // const [country, setCountry] = useState<CountrySelectValue>();
-  // const [city, setCity] = useState<CitySelectValue>();
-
   const [guestCount, setGuestCount] = useState(1);
 
   const [dateRange, setDateRange] = useState<Range>({
