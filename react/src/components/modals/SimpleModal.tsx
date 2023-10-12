@@ -66,7 +66,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
       }
     >
       <div
-        className={"relative w-full max-w-screen-sm max-h-screen my-6 sm:py-3"}
+        className={"relative w-full max-w-screen-lg max-h-screen my-6 sm:py-3"}
       >
         {/* Modal Box */}
         <div
@@ -86,7 +86,10 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           </div>
 
           {/* Content */}
-          <div className="no-scrollbar relative flex flex-col w-full h-full max-h-[calc(100vh-0rem)] pt-5 overflow-y-auto">
+          <div
+            style={{ paddingTop: "60px" }}
+            className="no-scrollbar w-full h-full max-h-[calc(100vh-0rem)] overflow-y-auto"
+          >
             {body}
           </div>
         </div>

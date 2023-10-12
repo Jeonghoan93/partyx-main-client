@@ -3,7 +3,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import SimpleModal from "src/components/modals/SimpleModal";
 import useSettingsModal from "src/hooks/useSettingsModal";
-import BusinessPlan from "src/pages/BusinessPlan";
+import SettingsBody from "./SettingsBody";
 
 const SettingsModal: React.FC = () => {
   const settingsModal = useSettingsModal();
@@ -25,8 +25,6 @@ const SettingsModal: React.FC = () => {
     }
   };
 
-  const bodyContent = <BusinessPlan />;
-
   return (
     <SimpleModal
       disabled={isLoading}
@@ -34,7 +32,7 @@ const SettingsModal: React.FC = () => {
       title={"Settings"}
       onClose={settingsModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      body={bodyContent}
+      body={<SettingsBody />}
     />
   );
 };
