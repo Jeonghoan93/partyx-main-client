@@ -18,7 +18,7 @@ const PhotoCard = () => {
   };
 
   return (
-    <div className="relative h-[40vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm">
+    <div className="relative h-[20vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm">
       <img
         src={imageSrc || "/images/placeholder.jpg"}
         alt="User upload"

@@ -1,5 +1,5 @@
 import LineContainer from "src/components/LineContainer";
-import PhotoCard from "src/components/PhotoCard";
+import PhotoUploadCard from "src/components/PhotoUploadCard";
 
 const PhotosVideos = () => {
   return (
@@ -12,13 +12,13 @@ const PhotosVideos = () => {
 
       <div className="flex flex-col gap-1">
         <div className="flex flex-row gap-1">
-          <PhotoCard />
-          <PhotoCard />
+          <PhotoUploadCard />
+          <PhotoUploadCard />
         </div>
 
         <div className="flex flex-row gap-1">
-          <PhotoCard />
-          <PhotoCard />
+          <PhotoUploadCard />
+          <PhotoUploadCard />
         </div>
 
         <div className="p-1">
