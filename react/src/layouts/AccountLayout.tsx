@@ -15,7 +15,7 @@ export default function AccountLayout() {
   const isMobile = windowWidth < 768;
 
   return (
-    <div className="flex flex-col h-screen">
+    <>
       <ModalsProvider />
 
       <NavbarProfile />
@@ -30,6 +30,6 @@ export default function AccountLayout() {
 
       {isMobile ? <FooterMobile /> : <FixedFooter />}
       <Footer />
-    </div>
+    </>
   );
 }

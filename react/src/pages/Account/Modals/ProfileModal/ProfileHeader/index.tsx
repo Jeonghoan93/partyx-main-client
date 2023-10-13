@@ -10,7 +10,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   return (
     <div className="pt-2 flex flex-row justify-evenly relative text-center text-[11pt] font-bold text-gray-400">
       <span
-        className={`px-20 sm:px-40 hover:underline cursor-pointer ${
+        className={`pr-20 sm:pr-40 hover:underline cursor-pointer ${
           mode === "edit" ? "text-gray-900" : ""
         }`}
         onClick={() => onToggleMode("edit")}
@@ -19,7 +19,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       </span>
       <span className="text-gray-300">/</span>
       <span
-        className={`px-20 sm:px-40 hover:underline cursor-pointer ${
+        className={`pl-20 sm:pl-40 hover:underline cursor-pointer ${
           mode === "view" ? "text-gray-900" : ""
         }`}
         onClick={() => onToggleMode("view")}
