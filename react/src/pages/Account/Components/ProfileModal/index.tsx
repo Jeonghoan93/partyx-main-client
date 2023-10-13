@@ -9,6 +9,7 @@ import ProfileHeader from "./ProfileHeader";
 const ProfileModal: React.FC = () => {
   const profileEditModal = useProfileModal();
   const [isLoading, setIsLoading] = useState(false);
+  const [mode, setMode] = useState<"edit" | "view">("edit");
 
   const { handleSubmit } = useForm<FieldValues>({
     defaultValues: {},
@@ -33,8 +34,8 @@ const ProfileModal: React.FC = () => {
       disabled={isLoading}
       onClose={profileEditModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      body={<ProfileBody />}
-      header={<ProfileHeader />}
+      body={<ProfileBody mode={mode} />}
+      header={<ProfileHeader onToggleMode={setMode} mode={mode} />}
     />
   );
 };

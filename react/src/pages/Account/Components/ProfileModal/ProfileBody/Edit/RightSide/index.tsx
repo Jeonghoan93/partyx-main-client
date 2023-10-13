@@ -1,6 +1,6 @@
 import ControlWho from "./Cards/ControlWho";
 
-const RightSide: React.FC = () => {
+const EditRightSide: React.FC = () => {
   return (
     <section className="flex flex-col gap-3">
       <ControlWho />
@@ -18,4 +18,4 @@ const RightSide: React.FC = () => {
   );
 };
 
-export default RightSide;
+export default EditRightSide;

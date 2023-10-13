@@ -1,9 +1,11 @@
 import Container from "src/components/Container";
 
-import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
+import EditLeftSide from "./Edit/LeftSide";
+import EditRightSide from "./Edit/RightSide";
+import ViewLeftSide from "./View/LeftSide";
+import ViewRightSide from "./View/RightSide";
 
-const ProfileBody: React.FC = () => {
+const ProfileBody: React.FC<{ mode: string }> = ({ mode }) => {
   return (
     <Container>
       <div
@@ -22,14 +24,14 @@ const ProfileBody: React.FC = () => {
               md:gap-3 
             "
           >
-            <LeftSide />
+            {mode === "edit" ? <EditLeftSide /> : <ViewLeftSide />}
             <div
               className="
                 md:order-last 
                 md:col-span-3
               "
             >
-              <RightSide />
+              {mode === "edit" ? <EditRightSide /> : <ViewRightSide />}
             </div>
           </div>
         </div>

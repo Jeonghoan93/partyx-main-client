@@ -5,7 +5,7 @@ import PhotosVideos from "./Cards/PhotosVideos";
 import Safety from "./Cards/Safety";
 import Subscription from "./Cards/Subscription";
 
-const LeftSide: React.FC = () => {
+const EditLeftSide: React.FC = () => {
   return (
     <>
       <div className="flex flex-col gap-3 col-span-4 mb-3">
@@ -20,4 +20,4 @@ const LeftSide: React.FC = () => {
   );
 };
 
-export default LeftSide;
+export default EditLeftSide;
