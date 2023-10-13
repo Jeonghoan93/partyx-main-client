@@ -81,8 +81,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           fixed 
           w-full
           max-w-screen-lg
-          mt-[10vh]
-          sm:my-[5vh]  
+          my-[10vh]  
           mx-auto 
           "
       >
@@ -98,7 +97,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           <div
             className="
               translate
-              max-h-[calc(90vh-0rem)]
+              max-h-[calc(80vh-0rem)]
               sm:max-h-[calc(95vh-0rem)]
               overflow-y-auto
               border-0 
