@@ -4,7 +4,7 @@ import { TbCircuitChangeover } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import useLoginModal from "src/hooks/useLoginModal";
-import useProfileEditModal from "src/hooks/useProfileEditModal";
+import useProfileEditModal from "src/hooks/useProfileModal";
 import useSettingsModal from "src/hooks/useSettingsModal";
 
 const NavbarProfile: React.FC = () => {

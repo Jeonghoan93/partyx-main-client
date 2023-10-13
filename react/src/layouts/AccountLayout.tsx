@@ -4,7 +4,7 @@ import FixedFooter from "src/components/footer/FixedFooter";
 import FooterMobile from "src/components/footerMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Account/Components/NavbarProfile";
-import ProfileEditModal from "src/pages/Account/Components/ProfileEditModal";
+import ProfileEditModal from "src/pages/Account/Components/ProfileModal";
 import SettingsModal from "src/pages/Account/Components/SettingsModal";
 import ModalsProvider from "src/providers/ModalsProvider";
 

@@ -2,18 +2,17 @@ import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import SimpleModal from "src/components/modals/SimpleModal";
-import useProfileEditModal from "src/hooks/useProfileEditModal";
-import BusinessPlan from "src/pages/BusinessPlan";
+import useProfileModal from "src/hooks/useProfileModal";
+import ProfileBody from "./ProfileBody";
+import ProfileHeader from "./ProfileHeader";
 
-const ProfileEditModal: React.FC = () => {
-  const profileEditModal = useProfileEditModal();
+const ProfileModal: React.FC = () => {
+  const profileEditModal = useProfileModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const { handleSubmit } = useForm<FieldValues>({
     defaultValues: {},
   });
-
-  const bodyContent = <BusinessPlan />;
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -34,9 +33,10 @@ const ProfileEditModal: React.FC = () => {
       disabled={isLoading}
       onClose={profileEditModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      body={bodyContent}
+      body={<ProfileBody />}
+      header={<ProfileHeader />}
     />
   );
 };
 
-export default ProfileEditModal;
+export default ProfileModal;

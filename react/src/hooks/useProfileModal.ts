@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-interface ProfileEditModalStore {
+interface ProfileModalStore {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-const ProfileEditModal = create<ProfileEditModalStore>((set) => ({
+const ProfileModal = create<ProfileModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
 
-export default ProfileEditModal;
+export default ProfileModal;

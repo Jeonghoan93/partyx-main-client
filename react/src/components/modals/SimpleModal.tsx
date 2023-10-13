@@ -8,12 +8,12 @@ interface SimpleModalProps {
   onSubmit: () => void;
   title?: string;
   body?: React.ReactElement;
-  footer?: React.ReactElement;
   actionLabel?: string;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
   closeHidden?: boolean;
+  header?: React.ReactElement;
 }
 
 const SimpleModal: React.FC<SimpleModalProps> = ({
@@ -22,6 +22,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
   onSubmit,
   title,
   body,
+  header,
   disabled,
   closeHidden,
 }) => {
@@ -113,19 +114,22 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           >
             {/*header*/}
             <div
-              className="
+              className={`
                 flex 
+                flex-col
+                gap-3
                 items-center 
-                p-5
+                px-5
+                pt-5
+                ${header ? "pb-3" : "pb-5"}
                 rounded-t
-                justify-center
-                relative
                 border-b-[1px]
-                "
+                `}
             >
-              {closeHidden ? null : (
-                <button
-                  className="
+              <div>
+                {closeHidden ? null : (
+                  <button
+                    className="
                     p-1
                     border-0 
                     hover:opacity-70
@@ -133,19 +137,21 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
                     absolute
                     left-9
                   "
-                  onClick={onClose}
-                >
-                  <IoMdClose size={18} />
-                </button>
-              )}
+                    onClick={onClose}
+                  >
+                    <IoMdClose size={18} />
+                  </button>
+                )}
 
-              <span
-                onClick={handleSubmit}
-                className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
-              >
-                Done
-              </span>
-              <div className="text-[12pt] font-bold">{title}</div>
+                <span
+                  onClick={handleSubmit}
+                  className="cursor-pointer absolute right-4 p-1 text-blue-700 font-bold text-[10pt] border-0 hover:underline transition"
+                >
+                  Done
+                </span>
+                <div className="text-[12pt] font-bold">{title}</div>
+              </div>
+              {header && <div>{header}</div>}
             </div>
             {/*body*/}
             <div className="pt-5 no-scrollbar w-full h-full max-h-[calc(100vh-0rem)] overflow-y-auto">
