@@ -72,6 +72,23 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "eu-north-1"
 
+      - name: Clean up old artifacts from S3
+        run: |
+          # Here, we'll assume that the S3 bucket has files/folders in a pattern such as artifact-YYYYMMDD
+          # We keep the last 5 days of artifacts and delete the rest.
+          current_date=$(date +%Y%m%d)
+          for folder in $(aws s3 ls s3://${AWS_S3_BUCKET}/ | awk '{print $2}' | sed 's/\/$//' | sort -r); do
+            if [[ "$folder" < "$(date -d "$current_date - 5 days" +%Y%m%d)" ]]; then
+              echo "Deleting older artifact: $folder"
+              aws s3 rm s3://${AWS_S3_BUCKET}/$folder/ --recursive
+            fi
+          done
+        env:
+          AWS_S3_BUCKET: "partyx-frontend"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "eu-north-1"
+
       - name: Invalidate CloudFront Distribution
         run: |
           aws cloudfront create-invalidation --distribution-id E1KAIII2BCH8CW --paths "/*"
