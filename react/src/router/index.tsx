@@ -20,8 +20,8 @@ import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/MyEvents";
 import Partner from "src/pages/Partner";
-import Notifications from "src/pages/User/Notifications";
-import Profile from "src/pages/User/Profile";
+import Profile from "src/pages/Profile";
+import Notifications from "src/pages/Notifications";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";

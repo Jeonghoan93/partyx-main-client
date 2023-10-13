@@ -1,6 +1,6 @@
 import Container from "src/components/Container";
-import LeftSide from "src/pages/User/Profile/Sections/LeftSide";
-import RightSide from "src/pages/User/Profile/Sections/RightSide";
+import LeftSide from "src/pages/Profile/Sections/LeftSide";
+import RightSide from "src/pages/Profile/Sections/RightSide";
 
 const Profile: React.FC = () => {
   return (
