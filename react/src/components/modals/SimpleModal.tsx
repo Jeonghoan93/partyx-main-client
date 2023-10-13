@@ -97,7 +97,7 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
           <div
             className="
               translate
-              max-h-[calc(100vh-0rem)]
+              max-h-[calc(80vh-0rem)]
               sm:max-h-[calc(95vh-0rem)]
               overflow-y-auto
               border-0 
