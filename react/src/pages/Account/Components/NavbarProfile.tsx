@@ -4,6 +4,7 @@ import { TbCircuitChangeover } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import useLoginModal from "src/hooks/useLoginModal";
+import usePreferencesModal from "src/hooks/usePreferencesModal";
 import useProfileEditModal from "src/hooks/useProfileModal";
 import useSettingsModal from "src/hooks/useSettingsModal";
 
@@ -14,6 +15,7 @@ const NavbarProfile: React.FC = () => {
 
   const settingsModal = useSettingsModal();
   const profileEditModal = useProfileEditModal();
+  const preferencesModal = usePreferencesModal();
 
   return (
     <div className="fixed z-10 w-full bg-white">
@@ -71,7 +73,7 @@ const NavbarProfile: React.FC = () => {
             <span onClick={profileEditModal.onOpen} className="cursor-pointer">
               <AiOutlineEdit size={25} />
             </span>
-            <span onClick={() => alert("Not yet!")} className="cursor-pointer">
+            <span onClick={preferencesModal.onOpen} className="cursor-pointer">
               <TbCircuitChangeover size={25} />
             </span>
             <span onClick={settingsModal.onOpen} className="cursor-pointer">

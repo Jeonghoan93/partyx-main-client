@@ -4,8 +4,9 @@ import FixedFooter from "src/components/footer/FixedFooter";
 import FooterMobile from "src/components/footerMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Account/Components/NavbarProfile";
-import ProfileEditModal from "src/pages/Account/Components/ProfileModal";
-import SettingsModal from "src/pages/Account/Components/SettingsModal";
+import PreferencesModal from "src/pages/Account/Modals/PreferencesModal";
+import ProfileEditModal from "src/pages/Account/Modals/ProfileModal";
+import SettingsModal from "src/pages/Account/Modals/SettingsModal";
 import ModalsProvider from "src/providers/ModalsProvider";
 
 export default function AccountLayout() {
@@ -24,7 +25,7 @@ export default function AccountLayout() {
       </div>
 
       <SettingsModal />
-
+      <PreferencesModal />
       <ProfileEditModal />
 
       {isMobile ? <FooterMobile /> : <FixedFooter />}
