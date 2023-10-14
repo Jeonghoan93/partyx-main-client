@@ -34,7 +34,6 @@ jobs:
         run: ls -la ${{ github.workspace }}/react/dist/
 
       - name: Archieve production artifacts
-        if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v2
         with:
           name: dist
