@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiSolidHome } from "react-icons/bi";
 import { BsPersonFill } from "react-icons/bs";
-import { FaRegStar } from "react-icons/fa";
 import { PiNewspaperClippingBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import useHandleScroll from "src/hooks/useHandleScroll";
@@ -51,30 +50,6 @@ const FooterMobile: React.FC = () => {
             }`}
           >
             Home
-          </span>
-        </div>
-
-        <div
-          className="flex flex-col items-center gap-1 cursor-pointer"
-          onClick={() => {
-            setActiveButton("standouts");
-            setTimeout(() => {
-              navigate("/standouts");
-            }, 0);
-          }}
-        >
-          <span>
-            <FaRegStar
-              size={18}
-              color={activeButton === "standouts" ? "black" : "gray"}
-            />
-          </span>
-          <span
-            className={`text-[8pt] font-semibold ${
-              activeButton === "favorites" ? "text-black" : "text-gray-600"
-            }`}
-          >
-            Standouts
           </span>
         </div>
 

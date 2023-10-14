@@ -5,6 +5,7 @@ import Featured from "./Featured";
 import Festivals from "./Festivals";
 import Main from "./Main";
 import Near from "./Near";
+import Standouts from "./Standouts";
 import StartsSoon from "./StartsSoon";
 import Suggestions from "./Suggestions";
 import Today from "./Today";
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
     <>
       {isLarge ? <Main /> : null}
 
+      <Standouts />
       <Suggestions />
       <StartsSoon />
 

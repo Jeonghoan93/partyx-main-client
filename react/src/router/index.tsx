@@ -25,12 +25,10 @@ import Profile from "src/pages/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";
-import StandoutsLayout from "src/layouts/StandoutsLayout";
 import Activity from "src/pages/Account/Pages/Activity";
 import Payments from "src/pages/Account/Pages/Payments";
 import EventsList from "src/pages/EventsList";
 import Investor from "src/pages/Investor";
-import Standouts from "src/pages/Standouts";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -81,13 +79,6 @@ const AppRoutes = () => {
         {/* For Investor routes */}
         <Route path="investor" element={<InvestorLayout />}>
           <Route index element={<Investor />} />
-
-          {/* Add other host specific routes here if any */}
-        </Route>
-
-        {/* For Standouts routes */}
-        <Route path="standouts" element={<StandoutsLayout />}>
-          <Route index element={<Standouts />} />
 
           {/* Add other host specific routes here if any */}
         </Route>

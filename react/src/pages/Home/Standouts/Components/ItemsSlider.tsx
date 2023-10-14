@@ -4,7 +4,12 @@ import ItemCard from "./ItemCard";
 
 const ItemsSlider: React.FC = () => {
   return (
-    <div className="mt-4 relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
+    <div
+      style={{
+        maxWidth: "600px",
+      }}
+      className="relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar"
+    >
       {events.slice(5, 12).map((event) => (
         <ItemCard
           src={event.img}

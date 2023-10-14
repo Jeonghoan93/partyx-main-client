@@ -1,11 +1,10 @@
-import { BsFilterRight } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 const NavbarStandouts: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed z-10 w-full bg-white">
+    <div className="relative w-full bg-white">
       <div
         className="
           p-4
@@ -16,7 +15,7 @@ const NavbarStandouts: React.FC = () => {
       >
         <div className="flex flex-row items-center justify-between">
           <span
-            onClick={() => navigate("/standouts")}
+            onClick={() => navigate("/")}
             className="cursor-pointer text-[20pt] font-extrabold"
           >
             Standouts
@@ -25,9 +24,9 @@ const NavbarStandouts: React.FC = () => {
           <div className="flex flex-row gap-3">
             <span
               onClick={() => alert("Coming soon!")}
-              className="cursor-pointer"
+              className="cursor-pointer text-[10pt] font-semibold text-gray-700 hover:underline"
             >
-              <BsFilterRight size={25} />
+              Show more
             </span>
           </div>
         </div>
