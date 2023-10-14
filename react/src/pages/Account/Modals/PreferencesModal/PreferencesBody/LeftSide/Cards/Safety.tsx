@@ -1,6 +1,6 @@
 import { BiChevronRight } from "react-icons/bi";
 import { BsPatchCheck } from "react-icons/bs";
-import LineContainer from "src/components/LineContainer";
+import LineContainer from "src/Components/LineContainer";
 
 const Safety = () => {
   return (

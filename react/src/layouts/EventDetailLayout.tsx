@@ -1,5 +1,5 @@
 import { Outlet, useParams } from "react-router-dom";
-import Footer from "src/components/footer";
+import MainFooter from "src/Components/Footers/MainFooter";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import FooterEventDetail from "src/pages/EventDetail/Components/FooterEventDetail";
 import NavbarEventDetail from "src/pages/EventDetail/Components/NavbarEventDetail";
@@ -26,7 +26,7 @@ export default function EventDetailLayout() {
       </div>
 
       {isMobile && <FooterEventDetail />}
-      <Footer />
+      <MainFooter />
     </>
   );
 }

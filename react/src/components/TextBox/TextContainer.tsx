@@ -1,6 +1,6 @@
-import { Avatar } from "@mui/material";
 import { useState } from "react";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
+import Avatar from "../Avatar";
 import TextModal from "./TextModal";
 
 interface TextContainerProps {

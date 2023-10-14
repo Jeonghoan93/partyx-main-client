@@ -5,7 +5,7 @@ import useCountries from "src/hooks/useCountries";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
 import About from "../Components/About";
 
-const Map = lazy(() => import("src/components/Map"));
+const Map = lazy(() => import("src/Components/Map"));
 
 const LeftSide: React.FC = () => {
   const { getCountryByValue } = useCountries();

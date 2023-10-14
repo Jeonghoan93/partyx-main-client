@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import MenuBox from "src/components/MenuBox";
+import MenuBox from "src/Components/MenuBox";
 
 interface MenusProps {
   page: string;

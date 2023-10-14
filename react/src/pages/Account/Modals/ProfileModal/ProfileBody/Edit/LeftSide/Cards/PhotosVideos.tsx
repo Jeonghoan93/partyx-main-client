@@ -1,5 +1,5 @@
-import LineContainer from "src/components/LineContainer";
-import PhotoUploadCard from "src/components/PhotoUploadCard";
+import LineContainer from "src/Components/LineContainer";
+import PhotoUploadCard from "src/Components/PhotoUploadCard";
 
 const PhotosVideos = () => {
   return (

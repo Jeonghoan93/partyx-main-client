@@ -1,6 +1,6 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 
 const NavbarInvestor = () => {
   const navigate = useNavigate();

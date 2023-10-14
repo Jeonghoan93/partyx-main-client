@@ -6,8 +6,8 @@ import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";
-import Button from "../../../components/Button";
-import HeartButton from "../../../components/HeartButton";
+import Button from "../../../Components/Button";
+import HeartButton from "../../../Components/HeartButton";
 
 interface EventCardProps {
   data: Event;

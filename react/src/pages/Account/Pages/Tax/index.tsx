@@ -1,7 +1,7 @@
 import { AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import Button from "src/components/Button";
-import Container from "src/components/Container";
+import Button from "src/Components/Button";
+import Container from "src/Components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import useLoginModal from "src/hooks/useLoginModal";
 

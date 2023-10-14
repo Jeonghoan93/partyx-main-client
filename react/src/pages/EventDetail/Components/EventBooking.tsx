@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Button from "src/components/Button";
+import Button from "src/Components/Button";
 import { formatDate } from "src/utils/formatDate";
 
 interface EventBookingProps {

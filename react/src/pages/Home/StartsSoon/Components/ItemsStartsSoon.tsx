@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 import SearchHistoryBox from "../Components/SearchHistoryBox";

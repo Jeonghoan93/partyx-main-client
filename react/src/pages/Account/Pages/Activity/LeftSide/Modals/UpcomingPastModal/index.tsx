@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import SimpleModal from "src/components/modals/SimpleModal";
+import SimpleModal from "src/Components/modals/SimpleModal";
 import useUpcomingPastModal from "src/hooks/useUpcomingPastModal";
 import Body from "./Body";
 import Header from "./Header";

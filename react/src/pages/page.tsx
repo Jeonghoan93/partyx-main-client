@@ -1,5 +1,5 @@
-import Container from "src/components/Container";
-import EmptyState from "src/components/EmptyState";
+import Container from "src/Components/Container";
+import EmptyState from "src/Components/EmptyState";
 import EventCard from "src/pages/EventsList/Components/EventCard";
 
 import { Event } from "src/interfaces/event";

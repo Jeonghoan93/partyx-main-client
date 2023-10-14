@@ -1,7 +1,7 @@
-import LoginModal from "src/components/modals/LoginModal";
-import RegisterModal from "src/components/modals/RegisterModal";
-import RentModal from "src/components/modals/RentModal";
-import SearchModal from "src/components/modals/SearchModal";
+import LoginModal from "src/Components/modals/LoginModal";
+import RegisterModal from "src/Components/modals/RegisterModal";
+import RentModal from "src/Components/modals/RentModal";
+import SearchModal from "src/Components/modals/SearchModal";
 
 const ModalsProvider = () => {
   return (

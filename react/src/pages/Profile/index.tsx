@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import LeftSide from "src/pages/Profile/Sections/LeftSide";
 import RightSide from "src/pages/Profile/Sections/RightSide";
 

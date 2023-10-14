@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 
 import EditLeftSide from "./Edit/LeftSide";
 import EditRightSide from "./Edit/RightSide";

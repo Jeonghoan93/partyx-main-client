@@ -2,8 +2,8 @@ import { User } from "src/interfaces/user";
 
 import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import Container from "src/components/Container";
-import HeartButton from "src/components/HeartButton";
+import Container from "src/Components/Container";
+import HeartButton from "src/Components/HeartButton";
 
 interface NavbarProps {
   eventId: number;

@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Footer from "src/components/footer";
-import FixedFooter from "src/components/footer/FixedFooter";
-import FooterMobile from "src/components/footerMobile";
-import Navbar from "src/components/navbar/Navbar";
-import NavbarMobile from "src/components/navbar/NavbarMobile";
+import FixedFooter from "src/Components/Footers/FixedFooter";
+import MainFooter from "src/Components/Footers/MainFooter";
+import FooterMobile from "src/Components/Footers/MobileFooter";
+import Navbar from "src/Components/navbar/Navbar";
+import NavbarMobile from "src/Components/navbar/NavbarMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import ModalsProvider from "src/providers/ModalsProvider";
 
@@ -23,7 +23,7 @@ export default function RootLayout() {
         <Outlet />
       </div>
       {isMobile ? <FooterMobile /> : <FixedFooter />}
-      <Footer />
+      <MainFooter />
     </>
   );
 }

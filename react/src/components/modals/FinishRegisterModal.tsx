@@ -3,10 +3,10 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useFinishRegister from "src/hooks/useFinishRegister";
 
-import { Checkbox } from "@mui/material";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "src/services/auth";
+import Toggle from "../Toggle";
 import Input from "../inputs/Input";
 import Modal from "./Modal";
 
@@ -141,7 +141,7 @@ const FinishRegisterModal = () => {
       </span>
 
       <div className="flex flex-start items-center">
-        <Checkbox />
+        <Toggle id={""} />
         <span className="text-[9pt] text-gray-800">
           I don't want to receive marketing messages from PartyX.
         </span>

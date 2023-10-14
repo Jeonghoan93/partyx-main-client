@@ -1,4 +1,4 @@
-import EmptyState from "src/components/EmptyState";
+import EmptyState from "src/Components/EmptyState";
 
 import { useParams } from "react-router-dom";
 import { Event } from "src/interfaces/event";

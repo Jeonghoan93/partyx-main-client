@@ -1,5 +1,5 @@
 import { BsPersonVcard } from "react-icons/bs";
-import LineContainer from "src/components/LineContainer";
+import LineContainer from "src/Components/LineContainer";
 
 const VerifyId = () => {
   return (

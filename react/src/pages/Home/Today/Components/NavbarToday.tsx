@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import { formatDate } from "src/utils/formatDate";
 
 const NavbarToday: React.FC = () => {

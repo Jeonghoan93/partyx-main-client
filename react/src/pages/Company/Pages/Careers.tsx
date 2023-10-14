@@ -1,5 +1,5 @@
-import Container from "src/components/Container";
-import TextContainer from "src/components/TextBox/TextContainer";
+import Container from "src/Components/Container";
+import TextContainer from "src/Components/TextBox/TextContainer";
 
 const mockedData = [
   {

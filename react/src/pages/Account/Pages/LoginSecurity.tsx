@@ -1,6 +1,6 @@
-import { Container } from "@mui/material";
 import { AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Container from "src/Components/Container";
 
 const LoginSecurity: React.FC = () => {
   const navigate = useNavigate();

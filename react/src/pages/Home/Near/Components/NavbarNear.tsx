@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
 
 const NavbarNear: React.FC = () => {

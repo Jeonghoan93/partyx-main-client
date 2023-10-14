@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import LineContainer from "src/components/LineContainer";
+import LineContainer from "src/Components/LineContainer";
 
 const FriendsList = () => {
   const navigate = useNavigate();

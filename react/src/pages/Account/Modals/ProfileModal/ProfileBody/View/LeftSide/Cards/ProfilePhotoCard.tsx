@@ -1,4 +1,4 @@
-import PhotoCard from "src/components/PhotoCard";
+import PhotoCard from "src/Components/PhotoCard";
 
 const ProfilePhotoCard = () => {
   return <PhotoCard />;

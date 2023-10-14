@@ -1,4 +1,4 @@
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import { User } from "src/interfaces/user";
 import { events } from "src/services/api-examples/events";
 import EventSlider from "./Components/EventSlider";

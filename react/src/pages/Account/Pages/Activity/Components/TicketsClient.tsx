@@ -5,8 +5,8 @@ import { toast } from "react-hot-toast";
 import { User } from "src/interfaces/user";
 
 import { useNavigate } from "react-router-dom";
-import Container from "src/components/Container";
-import Heading from "src/components/Heading";
+import Container from "src/Components/Container";
+import Heading from "src/Components/Heading";
 import { Booking } from "src/interfaces/booking";
 import EventCard from "src/pages/EventsList/Components/EventCard";
 

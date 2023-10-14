@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import FooterMobile from "src/components/footerMobile";
+import FooterMobile from "src/Components/Footers/MobileFooter";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarReservation from "src/pages/Reservation/Components/NavbarReservation";
 import ModalsProvider from "src/providers/ModalsProvider";

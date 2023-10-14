@@ -1,6 +1,6 @@
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Button from "src/components/Button";
+import Button from "src/Components/Button";
 
 const RightSide: React.FC = () => {
   return (

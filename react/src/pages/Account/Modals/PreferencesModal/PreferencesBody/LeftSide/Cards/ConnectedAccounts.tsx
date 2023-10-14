@@ -1,5 +1,5 @@
-import LineContainer from "src/components/LineContainer";
-import Toggle from "src/components/Toggle";
+import LineContainer from "src/Components/LineContainer";
+import Toggle from "src/Components/Toggle";
 
 const ConnectedAccounts = () => {
   return (

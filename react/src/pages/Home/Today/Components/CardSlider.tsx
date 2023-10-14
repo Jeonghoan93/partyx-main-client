@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "src/components/Container";
+import Container from "src/Components/Container";
 import ItemCard, { EventProps } from "./ItemCard";
 
 const CardSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {

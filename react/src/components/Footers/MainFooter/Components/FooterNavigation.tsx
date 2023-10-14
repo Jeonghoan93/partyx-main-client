@@ -1,8 +1,6 @@
-import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import FooterSectionTitle from "src/components/footer/footer-section-title";
+import FooterSectionTitle from "./FooterSectionTitle";
 
 export interface Navigation {
   label: string;
@@ -11,17 +9,11 @@ export interface Navigation {
 
 const NavigationItem: FC<Navigation> = ({ label, path }) => {
   return (
-    <div className="cursor-pointer" onClick={path}>
-      <MuiLink
-        underline="hover"
-        sx={{
-          display: "block",
-          mb: 1,
-          color: "#333",
-        }}
-      >
-        {label}
-      </MuiLink>
+    <div
+      className="cursor-pointer mb-1 block text-gray-900 hover:underline"
+      onClick={path}
+    >
+      {label}
     </div>
   );
 };
@@ -32,10 +24,7 @@ const FooterNavigation: FC = () => {
   const companyMenu: Array<Navigation> = [
     { label: "Investor", path: () => navigate("/investor") },
     { label: "Business Plan", path: () => navigate("/investor/business-plan") },
-    {
-      label: "Careers",
-      path: () => navigate("/careers"),
-    },
+    { label: "Careers", path: () => navigate("/careers") },
   ];
 
   const partnerMenu: Array<Navigation> = [
@@ -62,26 +51,26 @@ const FooterNavigation: FC = () => {
   ];
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={4}>
+    <div className="flex flex-wrap -mx-2">
+      <div className="w-full md:w-1/3 p-3">
         <FooterSectionTitle title="Company" />
         {companyMenu.map(({ label, path }, index) => (
           <NavigationItem key={index} label={label} path={path} />
         ))}
-      </Grid>
-      <Grid item xs={12} md={4}>
+      </div>
+      <div className="w-full md:w-1/3 p-3">
         <FooterSectionTitle title="Contact" />
         {contactMenu.map(({ label, path }, index) => (
           <NavigationItem key={index} label={label} path={path} />
         ))}
-      </Grid>
-      <Grid item xs={12} md={4}>
+      </div>
+      <div className="w-full md:w-1/3 p-3">
         <FooterSectionTitle title="Partnerships" />
         {partnerMenu.map(({ label, path }, index) => (
           <NavigationItem key={index} label={label} path={path} />
         ))}
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
 

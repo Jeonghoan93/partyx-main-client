@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Footer from "src/components/footer";
-import FixedFooter from "src/components/footer/FixedFooter";
-import FooterMobile from "src/components/footerMobile";
+import FixedFooter from "src/Components/Footers/FixedFooter";
+import MainFooter from "src/Components/Footers/MainFooter";
+import FooterMobile from "src/Components/Footers/MobileFooter";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarInvestor from "src/pages/Investor/Components/NavbarInvestor";
 import ModalsProvider from "src/providers/ModalsProvider";
@@ -22,7 +22,7 @@ export default function CareerLayout() {
       </div>
 
       {isMobile ? <FooterMobile /> : <FixedFooter />}
-      <Footer />
+      <MainFooter />
     </>
   );
 }
