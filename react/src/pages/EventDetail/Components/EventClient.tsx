@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import useLoginModal from "src/hooks/useLoginModal";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Booking } from "src/interfaces/booking";

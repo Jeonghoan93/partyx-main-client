@@ -1,9 +1,9 @@
-import EmptyState from "src/Components/EmptyState";
+import EmptyState from "src/components/EmptyState";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import Button from "src/Components/Button";
-import Container from "src/Components/Container";
+import Button from "src/components/Button";
+import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { useEvents } from "src/hooks/useEvents";
 import useLoginModal from "src/hooks/useLoginModal";

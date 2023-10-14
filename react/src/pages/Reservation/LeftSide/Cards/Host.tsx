@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import LineContainer from "src/Components/LineContainer";
+import LineContainer from "src/components/LineContainer";
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 

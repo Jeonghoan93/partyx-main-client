@@ -1,7 +1,7 @@
 import { User } from "src/interfaces/user";
 
 import { useLocation } from "react-router-dom";
-import HeartButton from "src/Components/HeartButton";
+import HeartButton from "src/components/HeartButton";
 import { isMatchingPath } from "src/utils/isMatchingPath";
 
 interface PhotoSectionProps {

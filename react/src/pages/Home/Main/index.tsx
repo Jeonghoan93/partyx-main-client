@@ -1,4 +1,4 @@
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import FindTechno from "./Cards/FindTechno";
 import ListParty from "./Cards/ListParty";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Event } from "src/interfaces/event";
 import FestivalCard from "./FestivalCard";

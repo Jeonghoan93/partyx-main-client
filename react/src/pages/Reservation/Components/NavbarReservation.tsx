@@ -1,6 +1,6 @@
 import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
 import { useNavigate, useParams } from "react-router-dom";
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 

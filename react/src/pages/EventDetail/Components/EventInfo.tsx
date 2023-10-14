@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { FcOvertime } from "react-icons/fc";
 import { FiExternalLink } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import InfoCard from "src/Components/TextBox/InfoCard";
+import InfoCard from "src/components/TextBox/InfoCard";
 import useCurrentLocation from "src/hooks/useCurrentLocation";
 
 const InfoTexts = [
@@ -28,7 +28,7 @@ const InfoTexts = [
   },
 ];
 
-const Map = lazy(() => import("src/Components/Map"));
+const Map = lazy(() => import("src/components/Map"));
 
 interface EventInfoProps {
   title: string;

@@ -1,5 +1,5 @@
 import { Outlet, useParams } from "react-router-dom";
-import MainFooter from "src/Components/Footers/MainFooter";
+import MainFooter from "src/components/footers/MainFooter";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import FooterEventDetail from "src/pages/EventDetail/Components/FooterEventDetail";
 import NavbarEventDetail from "src/pages/EventDetail/Components/NavbarEventDetail";

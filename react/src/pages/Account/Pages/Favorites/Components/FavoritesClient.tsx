@@ -1,5 +1,5 @@
-import Container from "src/Components/Container";
-import Heading from "src/Components/Heading";
+import Container from "src/components/Container";
+import Heading from "src/components/Heading";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 import EventCard from "src/pages/EventsList/Components/EventCard";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import EmptyState from "src/Components/EmptyState";
+import EmptyState from "src/components/EmptyState";
 
 interface ErrorStateProps {
   error: Error;

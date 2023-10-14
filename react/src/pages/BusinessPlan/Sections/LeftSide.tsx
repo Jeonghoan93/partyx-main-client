@@ -1,7 +1,7 @@
 import { Suspense, lazy, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import InfoCard from "src/Components/TextBox/InfoCard";
-import InfoTextBox from "src/Components/TextBox/InfoTextBox";
+import InfoCard from "src/components/TextBox/InfoCard";
+import InfoTextBox from "src/components/TextBox/InfoTextBox";
 import useCountries from "src/hooks/useCountries";
 import FundingPlan from "../Components/FundingPlan";
 import {
@@ -14,7 +14,7 @@ import {
 } from "../Constants";
 import { WhySweden } from "../Constants/index";
 
-const Map = lazy(() => import("src/Components/Map"));
+const Map = lazy(() => import("src/components/Map"));
 
 const LeftSide: React.FC = () => {
   const navigate = useNavigate();

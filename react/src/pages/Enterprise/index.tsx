@@ -1,8 +1,8 @@
 import { AiOutlineMoneyCollect } from "react-icons/ai";
 import { MdExplore } from "react-icons/md";
 import { RiShieldCheckLine } from "react-icons/ri";
-import Container from "src/Components/Container";
-import LargeImgCard from "src/Components/LargeImgCard";
+import Container from "src/components/Container";
+import LargeImgCard from "src/components/LargeImgCard";
 
 const Enterprise = () => {
   return (

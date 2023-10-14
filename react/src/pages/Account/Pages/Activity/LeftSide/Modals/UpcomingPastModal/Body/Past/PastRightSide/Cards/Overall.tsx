@@ -1,4 +1,4 @@
-import LineContainer from "src/Components/LineContainer";
+import LineContainer from "src/components/LineContainer";
 
 const Overall = () => {
   return (

@@ -1,4 +1,4 @@
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 
 const NavbarFeatured: React.FC = () => {
   return (

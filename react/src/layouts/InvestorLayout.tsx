@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import FixedFooter from "src/Components/Footers/FixedFooter";
-import MainFooter from "src/Components/Footers/MainFooter";
-import FooterMobile from "src/Components/Footers/MobileFooter";
+import FixedFooter from "src/components/footers/FixedFooter";
+import MainFooter from "src/components/footers/MainFooter";
+import FooterMobile from "src/components/footers/MobileFooter";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarInvestor from "src/pages/Investor/Components/NavbarInvestor";
 import ModalsProvider from "src/providers/ModalsProvider";

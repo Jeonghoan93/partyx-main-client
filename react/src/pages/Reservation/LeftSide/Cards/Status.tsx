@@ -1,5 +1,5 @@
 import { BsCheckLg } from "react-icons/bs";
-import LineContainer from "src/Components/LineContainer";
+import LineContainer from "src/components/LineContainer";
 
 const Status = () => {
   return (

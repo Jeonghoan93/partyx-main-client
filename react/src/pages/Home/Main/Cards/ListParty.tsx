@@ -1,5 +1,5 @@
-import Button from "src/Components/Button";
-import Container from "src/Components/Container";
+import Button from "src/components/Button";
+import Container from "src/components/Container";
 import useLoginModal from "src/hooks/useLoginModal";
 
 const ListParty = () => {

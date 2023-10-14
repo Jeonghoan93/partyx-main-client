@@ -1,4 +1,4 @@
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import ClubOwner from "./Pages/ClubOwner";
 import FestivalOrganizer from "./Pages/FestivalOrganizer";
 import RaveOrganizer from "./Pages/RaveOrganizer";

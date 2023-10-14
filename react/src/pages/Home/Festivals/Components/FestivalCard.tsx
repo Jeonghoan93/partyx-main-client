@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import HeartButton from "src/Components/HeartButton";
+import HeartButton from "src/components/HeartButton";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 import { formatDate } from "src/utils/formatDate";

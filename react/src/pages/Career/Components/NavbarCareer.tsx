@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 
 const NavbarCareer = () => {
   const navigate = useNavigate();

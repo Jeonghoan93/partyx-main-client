@@ -1,4 +1,4 @@
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 
 import PastLeftSide from "./Past/PastLeftSide";
 import PastRightSide from "./Past/PastRightSide";

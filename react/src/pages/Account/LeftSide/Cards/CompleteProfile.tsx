@@ -1,5 +1,5 @@
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
-import LineContainer from "src/Components/LineContainer";
+import LineContainer from "src/components/LineContainer";
 
 const CompleteProfile = () => {
   return (

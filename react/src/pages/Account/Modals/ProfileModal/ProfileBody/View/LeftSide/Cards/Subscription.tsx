@@ -1,5 +1,5 @@
 import { BiChevronRight } from "react-icons/bi";
-import LineContainer from "src/Components/LineContainer";
+import LineContainer from "src/components/LineContainer";
 
 const Subscription = () => {
   return (

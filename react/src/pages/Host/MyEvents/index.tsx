@@ -1,6 +1,6 @@
-import EmptyState from "src/Components/EmptyState";
+import EmptyState from "src/components/EmptyState";
 
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { useEvents } from "src/hooks/useEvents";
 import MyEventsClient from "./Components/MyEventsClient";

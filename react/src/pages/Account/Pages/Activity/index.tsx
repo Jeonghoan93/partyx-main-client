@@ -1,8 +1,8 @@
-import EmptyState from "src/Components/EmptyState";
+import EmptyState from "src/components/EmptyState";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import Container from "src/Components/Container";
+import Container from "src/components/Container";
 import { useBookings } from "src/hooks/useBookings";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
 import TicketsClient from "./Components/TicketsClient";

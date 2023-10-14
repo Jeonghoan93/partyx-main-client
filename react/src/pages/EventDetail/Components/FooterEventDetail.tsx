@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Button from "src/Components/Button";
+import Button from "src/components/Button";
 
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
