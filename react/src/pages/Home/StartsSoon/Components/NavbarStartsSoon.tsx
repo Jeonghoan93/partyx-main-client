@@ -1,7 +1,6 @@
 import Container from "src/components/Container";
-import { formatDate } from "src/utils/formatDate";
 
-const NavbarToday: React.FC = () => {
+const NavbarStartsSoon: React.FC = () => {
   return (
     <Container>
       <div className="relative w-full bg-white">
@@ -15,10 +14,7 @@ const NavbarToday: React.FC = () => {
         >
           <div className="flex flex-row items-center justify-between">
             <span className="text-[14pt] sm:text-[18pt] font-extrabold text-gray-400">
-              {" "}
-              {formatDate(new Date(), {
-                full: true,
-              })}
+              Starts soon
             </span>
           </div>
         </div>
@@ -27,4 +23,4 @@ const NavbarToday: React.FC = () => {
   );
 };
 
-export default NavbarToday;
+export default NavbarStartsSoon;

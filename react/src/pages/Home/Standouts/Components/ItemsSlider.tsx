@@ -1,10 +1,11 @@
 import React from "react";
+import Container from "src/components/Container";
 import { events } from "src/services/api-examples/events";
 import ItemCard from "./ItemCard";
 
 const ItemsSlider: React.FC = () => {
   return (
-    <div className="p-1">
+    <Container>
       <div className="relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
         {events.slice(5, 12).map((event) => (
           <ItemCard
@@ -17,7 +18,7 @@ const ItemsSlider: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
