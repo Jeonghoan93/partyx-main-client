@@ -15,7 +15,7 @@ type ActiveButton =
   | "standouts"
   | null;
 
-const FooterMobile: React.FC = () => {
+const MobileFooter: React.FC = () => {
   const navigate = useNavigate();
   const hideNav = useHandleScroll();
 
@@ -129,4 +129,4 @@ const FooterMobile: React.FC = () => {
   );
 };
 
-export default FooterMobile;
+export default MobileFooter;

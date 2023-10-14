@@ -8,7 +8,6 @@ import ModalsProvider from "src/providers/ModalsProvider";
 
 export default function CareerLayout() {
   const windowWidth = useWindowWidth();
-
   const isMobile = windowWidth < 768;
 
   return (

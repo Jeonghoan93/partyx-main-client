@@ -1,9 +1,8 @@
-import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useIsCertainPage } from "src/hooks/useIsCertainPage";
 import FooterNavigation from "./Components/FooterNavigation";
 
-const MainFooter: FC = () => {
+const MainFooter: React.FC = () => {
   const navigate = useNavigate();
   const isEventsPage = useIsCertainPage("/events", {
     startsWith: true,

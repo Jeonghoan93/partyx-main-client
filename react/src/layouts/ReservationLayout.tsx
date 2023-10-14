@@ -11,7 +11,6 @@ const ReservationLayout = () => {
   return (
     <>
       <ModalsProvider />
-
       <NavbarReservation />
 
       <div style={{ paddingTop: "75px" }}>

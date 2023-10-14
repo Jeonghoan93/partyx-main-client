@@ -18,7 +18,6 @@ export default function EventDetailLayout() {
   return (
     <>
       <ModalsProvider />
-
       <NavbarEventDetail eventId={Number(eventId)} currentUser={currentUser} />
 
       <div style={{ paddingTop: "75px" }}>
