@@ -10,7 +10,7 @@ export interface Navigation {
 const NavigationItem: FC<Navigation> = ({ label, path }) => {
   return (
     <div
-      className="cursor-pointer mb-1 block text-gray-900 hover:underline"
+      className="cursor-pointer font-semibold mb-1 block text-gray-600 hover:underline"
       onClick={path}
     >
       {label}

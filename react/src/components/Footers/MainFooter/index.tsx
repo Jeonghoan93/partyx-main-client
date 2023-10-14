@@ -24,7 +24,7 @@ const MainFooter: FC = () => {
         md:px-10
         sm:px-2
         px-4
-        py-10
+        py-20
         "
     >
       <div className="flex flex-wrap">
