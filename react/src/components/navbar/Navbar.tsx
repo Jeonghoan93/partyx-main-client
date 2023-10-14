@@ -13,7 +13,10 @@ const Navbar: React.FC = () => {
   const pathname = location.pathname;
 
   const isEventDetailPage = isMatchingPath(pathname, "/events/:eventId");
-  const isBusinessPlanPage = isMatchingPath(pathname, "/business-plan");
+  const isBusinessPlanPage = isMatchingPath(
+    pathname,
+    "/investor/business-plan"
+  );
 
   const currentUser = useCurrentUser();
 

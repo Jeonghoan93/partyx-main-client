@@ -17,7 +17,7 @@ const Activity = () => {
   if (!currentUser) {
     return (
       <Container>
-        <div className="py-6 text-gray-700 text-[10pt] font-semibold flex flex-row gap-1 items-center">
+        <div className="pb-3 text-gray-700 text-[10pt] font-semibold flex flex-row gap-1 items-center">
           <span
             onClick={() => navigate("/account")}
             className="hover:underline cursor-pointer"

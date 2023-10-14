@@ -25,10 +25,12 @@ import Profile from "src/pages/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";
+import ReservationLayout from "src/layouts/ReservationLayout";
 import Activity from "src/pages/Account/Pages/Activity";
 import Payments from "src/pages/Account/Pages/Payments";
 import EventsList from "src/pages/EventsList";
 import Investor from "src/pages/Investor";
+import Reservation from "src/pages/Reservation";
 import ScrollToTop from "src/utils/ScrollToTop";
 
 const AppRoutes = () => {
@@ -48,7 +50,6 @@ const AppRoutes = () => {
           {/* Company */}
           <Route path="company" element={<EnterprisePage />} />
           <Route path="partner" element={<Partner />} />
-          <Route path="business-plan" element={<BusinessPlan />} />
 
           {/* User */}
           <Route path="profile/:email" element={<Profile />} />
@@ -79,6 +80,7 @@ const AppRoutes = () => {
         {/* For Investor routes */}
         <Route path="investor" element={<InvestorLayout />}>
           <Route index element={<Investor />} />
+          <Route path="business-plan" element={<BusinessPlan />} />
 
           {/* Add other host specific routes here if any */}
         </Route>
@@ -86,6 +88,13 @@ const AppRoutes = () => {
         {/* For EventDetail routes */}
         <Route path="events/:eventId" element={<EventDetailLayout />}>
           <Route index element={<EventDetail />} />
+
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For Reservation routes */}
+        <Route path="reservation/:eventId" element={<ReservationLayout />}>
+          <Route index element={<Reservation />} />
 
           {/* Add other host specific routes here if any */}
         </Route>

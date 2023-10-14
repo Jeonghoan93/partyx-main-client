@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 interface ItemCardProps {
   img: string;
   title: string;
   street: string;
   city: string;
   date: string;
+  eventId: number;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -12,11 +15,17 @@ const ItemCard: React.FC<ItemCardProps> = ({
   street,
   city,
   date,
+  eventId,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gray-50 rounded-lg shadow border-[1px] border-neutral-200">
       <div className="flex flex-row gap-2">
-        <div className="h-[60pt] w-[70pt] rounded-l-lg">
+        <div
+          onClick={() => navigate(`/reservation/${eventId}`)}
+          className="cursor-pointer h-[60pt] w-[70pt] rounded-l-lg"
+        >
           <img
             src={img}
             alt="User upload"
@@ -30,8 +39,8 @@ const ItemCard: React.FC<ItemCardProps> = ({
               <span className="font-extrabold text-[10pt]">{title}</span>
 
               <span
-                onClick={() => alert("Not yet!")}
-                className="cursor-pointer font-bold text-[10pt] text-gray-700"
+                onClick={() => navigate(`/reservation/${eventId}`)}
+                className="cursor-pointer font-bold text-[9pt] text-gray-700"
               >
                 View detail
               </span>

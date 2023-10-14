@@ -7,8 +7,9 @@ const ItemsSlider: React.FC = () => {
   return (
     <Container>
       <div className="relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
-        {events.slice(5, 12).map((event) => (
+        {events.slice(5, 12).map((event, index) => (
           <ItemCard
+            key={index}
             src={event.img}
             title={event.title}
             location={event.address?.city || "Unknown"}
