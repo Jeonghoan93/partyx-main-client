@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { animated, useSprings } from "react-spring";
-import { useSwipeable } from "react-swipeable";
+import { useDrag } from "react-use-gesture";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { events } from "src/services/api-examples/events";
 import ItemCard from "./Components/ItemCard";
@@ -11,28 +11,31 @@ const Standouts = () => {
   const [currentCard, setCurrentCard] = useState(0);
 
   const [springs, set] = useSprings(events.length, (index) => ({
-    x: (index - currentCard) * windowWidth, // x determines the offset from the left.
+    x: (index - currentCard) * windowWidth,
   }));
 
-  const bind = useSwipeable({
-    onSwiped: ({ dir }) => {
-      let next = currentCard + (dir === "Left" ? 1 : -1);
-      if (next < 0) next = events.length - 1; // Cyclic behavior
-      if (next >= events.length) next = 0; // Cyclic behavior
-      setCurrentCard(next);
-      set((index) => ({
-        x: (index - next) * windowWidth,
-      }));
+  const bind = useDrag(
+    ({ movement: [mx], direction: [xDir], distance, cancel }) => {
+      if (distance > windowWidth / 4) {
+        cancel();
+        if (xDir > 0) {
+          setCurrentCard((prev) => (prev - 1 + events.length) % events.length);
+        } else {
+          setCurrentCard((prev) => (prev + 1) % events.length);
+        }
+      } else {
+        set((index) => ({
+          x:
+            (index - currentCard) * windowWidth +
+            (index === currentCard ? mx : 0),
+        }));
+      }
     },
-    onSwiping: ({ deltaX }) => {
-      set((index) => ({
-        x: (index - currentCard) * windowWidth + deltaX,
-      }));
-    },
-
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-  });
+    {
+      rubberband: true,
+      axis: "x",
+    }
+  );
 
   if (!isMobile) return null;
 
@@ -42,10 +45,10 @@ const Standouts = () => {
         {springs.map(({ x }, index) => (
           <animated.div
             key={events[index].eventId}
+            {...bind()}
             style={{
               transform: x.to((xValue) => `translateX(${xValue}px)`),
             }}
-            {...bind}
           >
             <ItemCard
               src={events[index].img}
