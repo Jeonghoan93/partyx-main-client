@@ -14,7 +14,7 @@ const NavbarStandouts: React.FC = () => {
           gap-3
         "
       >
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center text-center justify-between">
           <span className="text-[14pt] sm:text-[18pt] font-extrabold text-gray-400">
             Standouts
           </span>
@@ -22,9 +22,9 @@ const NavbarStandouts: React.FC = () => {
           <div className="flex flex-row gap-3">
             <span
               onClick={() => navigate("/events")}
-              className="cursor-pointer text-[9pt] sm:text-[10pt] font-semibold text-gray-700 hover:underline"
+              className="cursor-pointer text-[8pt] sm:text-[9pt] font-bold text-gray-700 hover:underline"
             >
-              Show more
+              MORE
             </span>
           </div>
         </div>

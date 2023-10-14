@@ -31,7 +31,7 @@ const FestivalCard: React.FC<FestivalCardProps> = ({
       onClick={() => navigate(`/events/${event.eventId}`)}
     >
       <div
-        className="relative rounded-lg overflow-hidden bg-transparent"
+        className="relative rounded-lg shadow overflow-hidden bg-transparent"
         style={{
           height: "375px",
         }}

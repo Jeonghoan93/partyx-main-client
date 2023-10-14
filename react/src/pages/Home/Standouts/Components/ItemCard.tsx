@@ -27,9 +27,10 @@ const ItemCard: React.FC<ItemCardProps> = ({
       className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
     >
       <img src={src} alt={title} className={`w-full h-full rounded-lg `} />
+
       <div className="absolute bottom-0 left-0 p-4 bg-opacity-50 bg-black text-white w-full">
         <div className="flex flex-col gap-2 items-start">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col">
             <span className="font-extrabold">{title}</span>
             <span className="text-[10pt] text-gray-200 font-semibold">
               {location}

@@ -16,7 +16,7 @@ const NavbarTrending: React.FC = () => {
         "
         >
           <div className="flex flex-row items-center justify-between">
-            <span className="text-[14pt] sm:text-[18pt] font-extrabold text-gray-400">
+            <span className="text-[12pt] sm:text-[16pt] font-extrabold text-gray-400">
               Trending in {currentLocation.city || "your city"}
             </span>
           </div>
