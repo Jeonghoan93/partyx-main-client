@@ -7,7 +7,6 @@ import Main from "./Main";
 import Near from "./Near";
 import Standouts from "./Standouts";
 import StartsSoon from "./StartsSoon";
-import Suggestions from "./Suggestions";
 import Today from "./Today";
 import { default as Trending } from "./Trending";
 
@@ -20,13 +19,11 @@ const Home: React.FC = () => {
   return (
     <>
       {isLarge ? <Main /> : null}
+      {currentUser ? <Customized currentUser={currentUser} /> : null}
 
       <Standouts />
-      <Suggestions />
-      <StartsSoon />
-
-      {currentUser ? <Customized currentUser={currentUser} /> : null}
       <Today />
+      <StartsSoon />
       <Near />
       <Featured />
       <Festivals />

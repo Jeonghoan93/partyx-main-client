@@ -21,7 +21,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
     <div
       style={{
         display: "inline-block",
-        maxWidth: "80vw",
+        maxWidth: "320px",
         marginRight: "0.5rem",
       }}
       className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
