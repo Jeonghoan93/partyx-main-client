@@ -12,8 +12,8 @@ const CardSlider: React.FC<{ events: EventProps[] }> = ({ events }) => {
             key={event.title}
             containerStyle={{
               display: "inline-block",
-              maxWidth: "375px",
-              marginRight: "1rem",
+              width: "170px",
+              marginRight: "0.5rem",
             }}
           />
         ))}
