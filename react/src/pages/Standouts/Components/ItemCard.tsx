@@ -1,5 +1,26 @@
 import React from "react";
 
+export type EventProps = {
+  eventId?: number;
+  title: string;
+  img: string;
+  price: number;
+  desc: string;
+  currency: string;
+  HostName?: string;
+  hostPhoto?: string;
+  address?: {
+    country: string;
+    street: string;
+    postalCode: string;
+    state: string;
+    city: string;
+  };
+  startDate: Date;
+  endDate: Date;
+  containerStyle?: React.CSSProperties;
+};
+
 interface ItemCardProps {
   src: string;
   title: string;
@@ -7,7 +28,6 @@ interface ItemCardProps {
   attendees: number;
   currency: string;
   price: number;
-  visible: boolean;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -17,21 +37,17 @@ const ItemCard: React.FC<ItemCardProps> = ({
   attendees,
   currency,
   price,
-  visible,
 }) => {
   return (
     <div
-      className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden ${
-        visible ? "" : "hidden"
-      }`}
+      style={{
+        display: "inline-block",
+        maxWidth: "80vw",
+        marginRight: "1rem",
+      }}
+      className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
     >
-      <img
-        src={src}
-        alt={title}
-        className={`w-full h-full rounded-lg ${
-          visible ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-200`}
-      />
+      <img src={src} alt={title} className={`w-full h-full rounded-lg `} />
       <div className="absolute bottom-0 left-0 p-4 bg-opacity-50 bg-black text-white w-full">
         <div className="flex flex-col gap-2 items-start">
           <div className="flex flex-col gap-1">
