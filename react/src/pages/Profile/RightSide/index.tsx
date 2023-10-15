@@ -13,9 +13,9 @@ const RightSide: React.FC = () => {
               <MiniProfile
                 userId={host.host.userId}
                 key={index}
-                name={host.name}
+                name={host.host.firstName}
                 img={host.img}
-                desc={host.desc}
+                desc={host.host.desc}
                 hostedEvents={host.hostedEvents}
               />
             ))}

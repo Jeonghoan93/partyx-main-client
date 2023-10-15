@@ -11,7 +11,7 @@ interface ItemCardProps {
   eventId: number;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({
+const ItemCardStandouts: React.FC<ItemCardProps> = ({
   src,
   title,
   location,
@@ -26,7 +26,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
     <div
       style={{
         display: "inline-block",
-        maxWidth: "320px",
+        width: "350px",
         marginRight: "0.5rem",
       }}
       onClick={() => navigate(`/events/${eventId}`)}
@@ -55,4 +55,4 @@ const ItemCard: React.FC<ItemCardProps> = ({
   );
 };
 
-export default ItemCard;
+export default ItemCardStandouts;

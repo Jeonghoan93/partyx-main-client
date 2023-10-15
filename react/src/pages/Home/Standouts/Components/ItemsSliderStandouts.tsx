@@ -1,14 +1,14 @@
 import React from "react";
 import Container from "src/components/Container";
 import { events } from "src/services/api-examples/events";
-import ItemCard from "./ItemCard";
+import ItemCardStandouts from "./ItemCardStandouts";
 
-const ItemsSlider: React.FC = () => {
+const ItemsSliderStandouts: React.FC = () => {
   return (
     <Container>
       <div className="relative overflow-x-auto h-auto whitespace-nowrap no-scrollbar">
         {events.slice(5, 12).map((event, index) => (
-          <ItemCard
+          <ItemCardStandouts
             eventId={event.eventId}
             key={index}
             src={event.img}
@@ -24,4 +24,4 @@ const ItemsSlider: React.FC = () => {
   );
 };
 
-export default ItemsSlider;
+export default ItemsSliderStandouts;

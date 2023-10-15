@@ -22,7 +22,7 @@ const FestivalSlider: React.FC<FestivalSliderProps> = ({ festivals }) => {
 
   return (
     <Container>
-      <div className="rrelative overflow-hidden h-auto">
+      <div className="relative overflow-hidden h-auto">
         <div
           className="flex transition-transform duration-500"
           style={{

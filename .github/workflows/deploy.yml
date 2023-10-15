@@ -38,7 +38,6 @@ jobs:
         with:
           name: dist
           path: ${{ github.workspace }}/react/dist/
-          retention-days: 7
 
   deploy:
     needs: build

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import FixedFooter from "src/components/footers/FixedFooter.tsx.tsx";
+import FixedFooter from "src/components/footers/FixedFooter";
 import MainFooter from "src/components/footers/MainFooter";
 
 import MobileFooter from "src/components/footers/MobileFooter.tsx";

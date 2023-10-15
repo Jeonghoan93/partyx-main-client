@@ -1,11 +1,11 @@
-import ItemsSlider from "./Components/ItemsSlider";
+import ItemsSliderStandouts from "./Components/ItemsSliderStandouts";
 import NavbarStandouts from "./Components/NavbarStandouts";
 
 const Standouts = () => {
   return (
     <>
       <NavbarStandouts />
-      <ItemsSlider />
+      <ItemsSliderStandouts />
     </>
   );
 };
