@@ -1,9 +1,9 @@
 import { Suspense, lazy, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LineContainer from "src/components/LineContainer";
 import InfoCard from "src/components/TextBox/InfoCard";
 import InfoTextBox from "src/components/TextBox/InfoTextBox";
 import useCountries from "src/hooks/useCountries";
-import FundingPlan from "../Components/FundingPlan";
 import {
   EarningMechanism,
   ExpansionIdeas,
@@ -13,6 +13,7 @@ import {
   SafetyTrust,
 } from "../Constants";
 import { WhySweden } from "../Constants/index";
+import FundingPlan from "./Cards/FundingPlan";
 
 const Map = lazy(() => import("src/components/Map"));
 
@@ -28,7 +29,7 @@ const LeftSide: React.FC = () => {
     <div className="flex flex-col gap-3 col-span-4 mb-3">
       <FundingPlan />
 
-      <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
+      <LineContainer>
         <section className="flex flex-col gap-3">
           <div className="mb-2">
             <h2 className="text-[13pt] font-bold">Location</h2>
@@ -62,9 +63,9 @@ const LeftSide: React.FC = () => {
             </section>
           )}
         </section>
-      </div>
+      </LineContainer>
 
-      <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
+      <LineContainer>
         <section className="flex flex-col gap-3">
           <div className="mb-2">
             <h2 className="text-[13pt] font-bold mb-2">Founder</h2>
@@ -106,7 +107,7 @@ const LeftSide: React.FC = () => {
             </div>
           </div>
         </section>
-      </div>
+      </LineContainer>
 
       <InfoCard title={"FAQ"} infoTexts={InfoTexts} />
       <InfoCard

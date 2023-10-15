@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
+import LineContainer from "src/components/LineContainer";
 
 const FundingPlan = () => {
   const [activeSection, setActiveSection] = useState<string | null>("");
 
   return (
-    <div className="p-5 bg-gray-50 rounded-xl border-[1px] border-neutral-200">
+    <LineContainer>
       <section>
         <div className="mb-2">
           <h2 className="text-[13pt] font-bold">Funding plan</h2>
@@ -371,7 +372,7 @@ const FundingPlan = () => {
           </div>
         </section>
       </section>
-    </div>
+    </LineContainer>
   );
 };
 

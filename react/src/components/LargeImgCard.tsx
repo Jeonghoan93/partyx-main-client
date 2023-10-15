@@ -14,7 +14,7 @@ const LargeImgCard: React.FC<LargeImgCardProps> = ({
   return (
     <section
       style={style}
-      className="w-full h-[40vh] overflow-hidden rounded-xl relative"
+      className="w-full h-[40vh] overflow-hidden rounded-lg shadow border-neutral-700 relative"
     >
       <section className="w-full h-[50vh] overflow-hidden rounded-xl relative">
         <img
@@ -25,7 +25,7 @@ const LargeImgCard: React.FC<LargeImgCardProps> = ({
         />
         <div
           className={`absolute inset-0 bg-black ${
-            dark ? "opacity-70" : "opacity-10"
+            dark ? "opacity-60" : "opacity-10"
           }`}
         ></div>{" "}
         {/* This div acts as the overlay */}

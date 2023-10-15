@@ -20,6 +20,7 @@ export interface User {
   isHost?: boolean;
   hashedPassword: string;
   bio?: string;
+  role?: string;
 
   address?: Address;
 

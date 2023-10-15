@@ -1,27 +1,27 @@
 import { BsRocketTakeoff } from "react-icons/bs";
 import Container from "src/components/Container";
 import LargeImgCard from "src/components/LargeImgCard";
-import LeftSide from "src/pages/BusinessPlan/Sections/LeftSide";
-import RightSide from "src/pages/BusinessPlan/Sections/RightSide";
+import LeftSide from "src/pages/Investor/BusinessPlan/LeftSide";
+import RightSide from "src/pages/Investor/BusinessPlan/RightSide";
 
 const BusinessPlan: React.FC = () => {
   return (
     <Container>
       <div
         className="
-          pt-5
+          py-5
           max-w-screen-xl 
           mx-auto
         "
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <LargeImgCard dark={true} img={"/images/businessPlan.jpeg"}>
             <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
               <span>
                 <BsRocketTakeoff />
               </span>
 
-              <span>Be one of the first</span>
+              <span className="font-extrabold">Be one of the first</span>
             </div>
           </LargeImgCard>
 
