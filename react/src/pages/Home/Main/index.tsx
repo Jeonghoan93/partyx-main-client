@@ -14,7 +14,7 @@ const Main = () => {
               md:gap-3 
             "
         >
-          <section className="w-full h-[50vh] overflow-hidden relative mb-3 border-neutral-100 border-[1px] rounded-lg shadow">
+          <section className="w-full h-[50vh] overflow-hidden relative mb-3 border-neutral-50 border-[1px] rounded-lg shadow">
             <section className="w-full h-[50vh] overflow-hidden relative">
               <div className={"absolute inset-0 bg-gray-50 opacity-50"}></div>{" "}
               {/* This div acts as the overlay */}
