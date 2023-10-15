@@ -17,7 +17,7 @@ const HostMenu: React.FC<HostMenuProps> = ({ currentUser }) => {
         </div>
 
         <div className="flex flex-row items-center gap-2 cursor-pointer">
-          <span>{currentUser.name}</span>
+          <span>{currentUser.firstName}</span>
           <span className="mt-1/2">
             <AiOutlineDown size={16} />
           </span>

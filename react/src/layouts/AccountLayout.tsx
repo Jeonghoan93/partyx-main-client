@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import FixedFooter from "src/components/footers/FixedFooter";
-import FooterMobile from "src/components/footers/MobileFooter";
+import MobileFooter from "src/components/footers/MobileFooter";
+
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Account/Components/NavbarAccount";
 import PreferencesModal from "src/pages/Account/Modals/PreferencesModal";
@@ -29,7 +30,7 @@ export default function AccountLayout() {
 
       <UpcomingPastModal />
 
-      {isMobile ? <FooterMobile /> : <FixedFooter />}
+      {isMobile ? <MobileFooter /> : <FixedFooter />}
     </>
   );
 }

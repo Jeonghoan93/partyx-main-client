@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import FixedFooter from "src/components/footers/FixedFooter";
 import MainFooter from "src/components/footers/MainFooter";
-import FooterMobile from "src/components/footers/MobileFooter";
+import MobileFooter from "src/components/footers/MobileFooter";
 import Navbar from "src/components/navbar/Navbar";
 import NavbarMobile from "src/components/navbar/NavbarMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
@@ -21,7 +21,7 @@ export default function RootLayout() {
       <div style={{ paddingTop: "150px" }} className="pb-20">
         <Outlet />
       </div>
-      {isMobile ? <FooterMobile /> : <FixedFooter />}
+      {isMobile ? <MobileFooter /> : <FixedFooter />}
       <MainFooter />
     </>
   );

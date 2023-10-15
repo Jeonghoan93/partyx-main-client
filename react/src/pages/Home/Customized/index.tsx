@@ -8,12 +8,14 @@ interface CustomizedProps {
 }
 
 const Customized: React.FC<CustomizedProps> = ({ currentUser }) => {
-  console.log("customised section user:", currentUser);
+  console.log("customized section user:", currentUser);
   return (
     <Container>
       <section className="mt-4">
         <div className="mb-2">
-          <h2 className="text-[13pt] font-bold">Hello {currentUser.name}</h2>
+          <h2 className="text-[13pt] font-bold">
+            Hello {currentUser.firstName}
+          </h2>
           <span className="text-[11pt] text-gray-600 font-semibold">
             These are customized for you
           </span>
