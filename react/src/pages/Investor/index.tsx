@@ -9,6 +9,7 @@ const Career = () => {
         className="
           py-5
           sm:py-10
+          md:py-20
           max-w-screen-xl 
           mx-auto
         "

@@ -8,15 +8,15 @@ const images = [
 ];
 
 const HeaderInvestor = () => {
-  const handleOnChange = (index) => {
+  const handleOnChange = () => {
     // Handle the change event if required
   };
 
-  const handleClickItem = (index, item) => {
+  const handleClickItem = () => {
     // Handle the item click event if required
   };
 
-  const handleClickThumb = (index) => {
+  const handleClickThumb = () => {
     // Handle the thumbnail click event if required
   };
 
@@ -24,7 +24,7 @@ const HeaderInvestor = () => {
     <div className="flex flex-col gap-3 col-span-4 mb-3">
       <div
         style={{
-          maxWidth: "700px",
+          maxWidth: "500px",
         }}
         className="py-3"
       >
