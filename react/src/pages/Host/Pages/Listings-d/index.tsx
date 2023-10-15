@@ -5,7 +5,7 @@ import { useCurrentUser } from "src/hooks/useCurrentUser";
 import { useEvents } from "src/hooks/useEvents";
 import MyEventsClient from "./Components/MyEventsClient";
 
-const MyEvents = () => {
+const ListingsD = () => {
   const currentUser = useCurrentUser();
   const events = useEvents(currentUser?.userId ?? null);
 
@@ -35,4 +35,4 @@ const MyEvents = () => {
   );
 };
 
-export default MyEvents;
+export default ListingsD;

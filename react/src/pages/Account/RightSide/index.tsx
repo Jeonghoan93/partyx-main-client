@@ -1,6 +1,7 @@
 import { AiOutlineCreditCard, AiOutlineSafety } from "react-icons/ai";
-import { BiBook, BiBookContent, BiMessageSquareDetail } from "react-icons/bi";
+import { BiBookContent, BiMessageSquareDetail } from "react-icons/bi";
 import { GrSecure } from "react-icons/gr";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { PiNewspaperClippingBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import LinkBox from "./Components/LinkBox";
@@ -11,6 +12,12 @@ const RightSide: React.FC = () => {
   return (
     <section className="flex flex-col gap-3">
       <LinkBox
+        icon={<MdOutlineSpaceDashboard size={28} />}
+        title="Host Dashboard"
+        desc="Manage your events"
+        onClick={() => navigate("/host")}
+      />
+      <LinkBox
         icon={<PiNewspaperClippingBold size={28} />}
         title="Activity"
         desc="Your tickets and booking"
@@ -20,12 +27,6 @@ const RightSide: React.FC = () => {
         icon={<BiMessageSquareDetail size={28} />}
         title="Messages"
         onClick={() => navigate("/account/messages")}
-      />
-      <LinkBox
-        icon={<BiBook size={28} />}
-        title="Tax"
-        desc="Tax details and settings."
-        onClick={() => navigate("/account/tax")}
       />
       <LinkBox
         icon={<AiOutlineCreditCard size={28} />}

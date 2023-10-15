@@ -6,7 +6,7 @@ const BodyCareer = () => {
 
   return (
     <LineContainer>
-      <div className="p-6">
+      <div className="p-3">
         <div className="flex flex-col gap-6">
           <span
             style={{ maxWidth: "400px" }}

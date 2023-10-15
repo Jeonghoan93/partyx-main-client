@@ -17,10 +17,10 @@ const Tax = () => {
         <div className="pb-6">
           <div className="pb-6 text-gray-700 text-[10pt] font-semibold flex flex-row gap-1 items-center">
             <span
-              onClick={() => navigate("/account")}
+              onClick={() => navigate("/host")}
               className="hover:underline cursor-pointer"
             >
-              Account
+              Host
             </span>
             <span>
               <AiOutlineRight size={11} color={"gray"} />

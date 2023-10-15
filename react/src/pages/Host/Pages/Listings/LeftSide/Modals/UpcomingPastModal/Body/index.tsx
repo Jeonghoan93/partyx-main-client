@@ -1,8 +1,11 @@
 import Container from "src/components/Container";
-import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
 
-const Host: React.FC = () => {
+import PastLeftSide from "./Past/PastLeftSide";
+import PastRightSide from "./Past/PastRightSide";
+import UpcomingLeftSide from "./Upcoming/UpcomingLeftSide";
+import UpcomingRightSide from "./Upcoming/UpcomingRightSide";
+
+const UpcomingPastBody: React.FC<{ mode: string }> = ({ mode }) => {
   return (
     <Container>
       <div
@@ -21,14 +24,14 @@ const Host: React.FC = () => {
               md:gap-3 
             "
           >
-            <LeftSide />
+            {mode === "upcoming" ? <UpcomingLeftSide /> : <PastLeftSide />}
             <div
               className="
                 md:order-last 
                 md:col-span-3
               "
             >
-              <RightSide />
+              {mode === "upcoming" ? <UpcomingRightSide /> : <PastRightSide />}
             </div>
           </div>
         </div>
@@ -37,4 +40,4 @@ const Host: React.FC = () => {
   );
 };
 
-export default Host;
+export default UpcomingPastBody;

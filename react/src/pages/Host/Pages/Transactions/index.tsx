@@ -1,6 +1,6 @@
-import TransactionItem from "../Components/TransactionItem";
+import TransactionItem from "./Components/TransactionItem";
 
-const TransactionSection = () => {
+const TransactionsHost = () => {
   return (
     <section className="mt-4">
       <div className="mb-2">
@@ -16,4 +16,4 @@ const TransactionSection = () => {
   );
 };
 
-export default TransactionSection;
+export default TransactionsHost;

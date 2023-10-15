@@ -6,7 +6,7 @@ const HeaderCareer = () => {
 
   return (
     <LineContainer dark={true}>
-      <div className="text-gray-50 p-6">
+      <div className="text-gray-50 p-3">
         <div className="flex flex-col gap-6">
           <span
             style={{ maxWidth: "400px" }}

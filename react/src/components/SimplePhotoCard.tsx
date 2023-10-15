@@ -7,7 +7,7 @@ const SimplePhotoCard: React.FC<SimplePhotoCardProps> = ({ img, text }) => {
   return (
     <div
       className={
-        "relative h-[40vh] overflow-hidden mb-3 md:mb-0 bg-gray-50 border-neutral-200 rounded-lg shadow border-[1px]"
+        "relative h-[40vh] overflow-hidden md:mb-0 bg-gray-50 border-neutral-200 rounded-lg shadow border-[1px]"
       }
     >
       <img
