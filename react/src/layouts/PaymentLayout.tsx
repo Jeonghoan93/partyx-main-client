@@ -6,13 +6,11 @@ import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
 import SearchModal from "src/components/modals/SearchModal";
 import Navbar from "src/components/navbar/Navbar";
-import FullPageModal from "src/pages/AnimationPage/FullPageModal";
 import ToasterProvider from "src/providers/ToasterProvider";
 
 export default function PaymentLayout() {
   return (
     <>
-      <FullPageModal />
       <ToasterProvider />
       <LoginModal />
       <FinishRegister />

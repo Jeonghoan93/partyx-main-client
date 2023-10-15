@@ -7,7 +7,6 @@ import RegisterModal from "src/components/modals/RegisterModal";
 import RentModal from "src/components/modals/RentModal";
 import SearchModal from "src/components/modals/SearchModal";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
-import FullPageModal from "src/pages/AnimationPage/FullPageModal";
 import NavbarHost from "src/pages/Host/Components/NavbarHost";
 import SideBar from "src/pages/Host/Components/SideBar";
 import ToasterProvider from "src/providers/ToasterProvider";
@@ -18,11 +17,9 @@ export default function HostLayout() {
 
   return (
     <>
-      <FullPageModal />
       <ToasterProvider />
       <LoginModal />
       <RegisterModal />
-
       <FinishRegister />
       <CreateProfileModal />
 
