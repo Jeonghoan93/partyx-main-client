@@ -30,7 +30,7 @@ const ItemCardStandouts: React.FC<ItemCardProps> = ({
         marginRight: "0.5rem",
       }}
       onClick={() => navigate(`/events/${eventId}`)}
-      className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
+      className={`cursor-pointer relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
     >
       <img src={src} alt={title} className={`w-full h-full rounded-lg `} />
 
