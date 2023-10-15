@@ -1,3 +1,6 @@
+import { Event } from "src/interfaces/event";
+import { users } from "./user";
+
 // Get the current date/time for startDate
 const startDate = new Date();
 
@@ -9,8 +12,9 @@ const endDate = new Date(
   startDate.getTime() + randomHoursToAdd * 60 * 60 * 1000
 ); // 1 hour = 60 * 60 * 1000 milliseconds
 
-export const events = [
+export const events: Event[] = [
   {
+    host: users[0],
     eventId: 1,
     img: "https://cdn.pixabay.com/photo/2017/08/03/21/48/drinks-2578446_1280.jpg",
     avgRating: 4.92,
@@ -41,20 +45,14 @@ export const events = [
         reviewId: 1,
         reviewDesc:
           "A great place to go for the weekend. The cottage is very small but well-designed. I was worried about if it is going to be fun, but it was amazing.",
-        user: {
-          img: "https://i.pravatar.cc/300",
-          name: "Sabina",
-        },
+        user: users[0],
         reviewDate: new Date(),
       },
       {
         rating: 5,
         reviewId: 2,
         reviewDesc: "Host is an awesome person, would go again!",
-        user: {
-          img: "https://via.placeholder.com/50?text=E",
-          name: "Eric",
-        },
+        user: users[1],
         reviewDate: new Date(),
       },
     ],
@@ -72,6 +70,7 @@ export const events = [
     safety: ["Smoke alarm installed", "No carbon monoxide alarm"],
   },
   {
+    host: users[1],
     eventId: 2,
     img: "https://cdn.pixabay.com/photo/2018/07/04/00/19/champagne-3515140_1280.jpg",
     avgRating: 4.5,
@@ -96,10 +95,7 @@ export const events = [
         rating: 5,
         reviewId: 3,
         reviewDesc: "Amazing wine selection!",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Lucy",
-        },
+        user: users[2],
         reviewDate: new Date(),
       },
     ],
@@ -114,6 +110,7 @@ export const events = [
     safety: ["Fire extinguisher", "First aid kit"],
   },
   {
+    host: users[2],
     eventId: 3,
     img: "https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_1280.jpg",
     avgRating: 4.3,
@@ -138,10 +135,7 @@ export const events = [
         rating: 5,
         reviewId: 4,
         reviewDesc: "Incredible vibe and atmosphere!",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Riley",
-        },
+        user: users[3],
         reviewDate: new Date(),
       },
     ],
@@ -156,6 +150,7 @@ export const events = [
     safety: ["Security on-site", "Emergency exits"],
   },
   {
+    host: users[3],
     eventId: 4,
     img: "https://cdn.pixabay.com/photo/2016/11/23/13/45/celebration-1852926_1280.jpg",
     avgRating: 4.7,
@@ -180,10 +175,7 @@ export const events = [
         rating: 5,
         reviewId: 5,
         reviewDesc: "A magical night I won't forget.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Tom",
-        },
+        user: users[4],
         reviewDate: new Date(),
       },
     ],
@@ -198,6 +190,7 @@ export const events = [
     safety: ["Staff trained in first aid", "Well-lit pathways"],
   },
   {
+    host: users[4],
     eventId: 5,
     img: "https://cdn.pixabay.com/photo/2018/06/17/10/38/artist-3480274_1280.jpg",
     avgRating: 4.6,
@@ -222,10 +215,7 @@ export const events = [
         rating: 5,
         reviewId: 6,
         reviewDesc: "Loved the art! Such a unique event.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Wendy",
-        },
+        user: users[5],
         reviewDate: new Date(),
       },
     ],
@@ -243,6 +233,7 @@ export const events = [
     safety: ["Surveillance cameras", "Security personnel"],
   },
   {
+    host: users[5],
     eventId: 6,
     img: "https://cdn.pixabay.com/photo/2019/12/18/04/11/dj-4702977_1280.jpg",
     avgRating: 4.9,
@@ -267,10 +258,7 @@ export const events = [
         rating: 5,
         reviewId: 7,
         reviewDesc: "Best party I've been to this year!",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Danny",
-        },
+        user: users[6],
         reviewDate: new Date(),
       },
     ],
@@ -285,6 +273,7 @@ export const events = [
     safety: ["On-site medical staff", "Security checkpoints"],
   },
   {
+    host: users[6],
     eventId: 7,
     img: "https://cdn.pixabay.com/photo/2014/10/17/22/18/alcohol-492871_1280.jpg",
     avgRating: 4.2,
@@ -309,10 +298,7 @@ export const events = [
         rating: 5,
         reviewId: 8,
         reviewDesc: "A beach party to remember!",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Nina",
-        },
+        user: users[7],
         reviewDate: new Date(),
       },
     ],
@@ -327,6 +313,7 @@ export const events = [
     safety: ["Life guards on duty", "First aid available"],
   },
   {
+    host: users[7],
     eventId: 8,
     img: "https://cdn.pixabay.com/photo/2016/11/29/07/36/audience-1868137_1280.jpg",
     avgRating: 4.5,
@@ -351,10 +338,7 @@ export const events = [
         rating: 5,
         reviewId: 1,
         reviewDesc: "Amazing experience! Will come back next year.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "User A",
-        },
+        user: users[3],
         reviewDate: new Date("2023-10-12T00:00:00Z"),
       },
     ],
@@ -369,6 +353,7 @@ export const events = [
     updatedAt: new Date("2023-08-12T00:00:00Z"),
   },
   {
+    host: users[8],
     eventId: 9,
     img: "https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_1280.jpg",
     avgRating: 4.8,
@@ -397,10 +382,7 @@ export const events = [
         rating: 5,
         reviewId: 2,
         reviewDesc: "Never had such a jazzy experience! Kudos.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Harry",
-        },
+        user: users[8],
         reviewDate: new Date("2023-10-16T00:00:00Z"),
       },
     ],
@@ -419,6 +401,7 @@ export const events = [
     updatedAt: new Date("2023-07-18T00:00:00Z"),
   },
   {
+    host: users[9],
     eventId: 10,
     img: "https://cdn.pixabay.com/photo/2016/11/22/19/15/audience-1850119_1280.jpg",
     avgRating: 4.2,
@@ -443,10 +426,7 @@ export const events = [
         rating: 4,
         reviewId: 3,
         reviewDesc: "A soothing country experience with some of the best.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Susan",
-        },
+        user: users[9],
         reviewDate: new Date("2023-10-27T00:00:00Z"),
       },
     ],
@@ -461,6 +441,7 @@ export const events = [
     updatedAt: new Date("2023-06-07T00:00:00Z"),
   },
   {
+    host: users[10],
     eventId: 11,
     img: "https://cdn.pixabay.com/photo/2016/11/29/06/17/audience-1867754_1280.jpg",
     avgRating: 4.5,
@@ -485,10 +466,7 @@ export const events = [
         rating: 4.8,
         reviewId: 5,
         reviewDesc: "The energy was unmatched! Loved every bit.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Euclid",
-        },
+        user: users[5],
         reviewDate: new Date("2023-10-13T00:00:00Z"),
       },
     ],
@@ -503,6 +481,7 @@ export const events = [
     updatedAt: new Date("2023-07-15T00:00:00Z"),
   },
   {
+    host: users[11],
     eventId: 12,
     img: "https://cdn.pixabay.com/photo/2016/11/23/18/05/concert-1854113_1280.jpg",
     avgRating: 5.0,
@@ -527,10 +506,7 @@ export const events = [
         rating: 5,
         reviewId: 6,
         reviewDesc: "A therapeutic experience with mesmerizing tunes.",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "Fred",
-        },
+        user: users[6],
         reviewDate: new Date("2023-10-16T12:00:00Z"),
       },
     ],
@@ -569,10 +545,7 @@ export const events = [
         rating: 3.9,
         reviewId: 7,
         reviewDesc: "Chilled vibes and great music. The fest was dope!",
-        user: {
-          img: "https://i.pravatar.cc/200",
-          name: "George",
-        },
+        user: users[7],
         reviewDate: new Date("2023-10-16T14:00:00Z"),
       },
     ],

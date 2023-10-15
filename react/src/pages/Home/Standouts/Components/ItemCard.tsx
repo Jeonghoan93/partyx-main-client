@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ItemCardProps {
   src: string;
@@ -7,6 +8,7 @@ interface ItemCardProps {
   attendees: number;
   currency: string;
   price: number;
+  eventId: number;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -16,7 +18,10 @@ const ItemCard: React.FC<ItemCardProps> = ({
   attendees,
   currency,
   price,
+  eventId,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -24,6 +29,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
         maxWidth: "320px",
         marginRight: "0.5rem",
       }}
+      onClick={() => navigate(`/events/${eventId}`)}
       className={`relative h-[50vh] w-full border-[1px] border-neutral-200 rounded-lg shadow-sm overflow-hidden `}
     >
       <img src={src} alt={title} className={`w-full h-full rounded-lg `} />

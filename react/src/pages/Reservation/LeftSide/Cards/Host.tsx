@@ -19,7 +19,7 @@ const Host = () => {
           <h2 className="text-[13pt] font-bold mb-2">Event organizer</h2>
           <div className="flex flex-row justify-between items-center">
             <div
-              onClick={() => navigate("/profile/jimmy")}
+              onClick={() => navigate(`/profile/${eventData?.host?.userId}`)}
               className="cursor-pointer flex flex-row items-center gap-2"
             >
               {/* host photo */}

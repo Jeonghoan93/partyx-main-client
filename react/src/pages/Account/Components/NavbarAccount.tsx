@@ -8,7 +8,7 @@ import usePreferencesModal from "src/hooks/usePreferencesModal";
 import useProfileEditModal from "src/hooks/useProfileModal";
 import useSettingsModal from "src/hooks/useSettingsModal";
 
-const NavbarProfile: React.FC = () => {
+const NavbarAccount: React.FC = () => {
   const currentUser = useCurrentUser();
   const LoginModal = useLoginModal();
   const navigate = useNavigate();
@@ -47,12 +47,12 @@ const NavbarProfile: React.FC = () => {
                 onClick={() => navigate("/account")}
                 className="cursor-pointer text-[16pt] font-bold"
               >
-                {currentUser ? currentUser.name : "Account"}
+                {currentUser ? currentUser.firstName : "Account"}
               </span>
 
               {currentUser ? (
                 <div className="flex flex-row gap-1 text-[11pt] text-gray-600 font-normal">
-                  <span className="font-bold">{currentUser.name}</span>·
+                  <span className="font-bold">{currentUser.firstName}</span>·
                   <span>{currentUser.email}</span>·
                   <span className="underline cursor-pointer font-semibold">
                     Go to profile
@@ -86,4 +86,4 @@ const NavbarProfile: React.FC = () => {
   );
 };
 
-export default NavbarProfile;
+export default NavbarAccount;

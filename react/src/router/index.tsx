@@ -25,6 +25,7 @@ import Profile from "src/pages/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";
+import ProfileLayout from "src/layouts/ProfileLayout";
 import ReservationLayout from "src/layouts/ReservationLayout";
 import Activity from "src/pages/Account/Pages/Activity";
 import Payments from "src/pages/Account/Pages/Payments";
@@ -50,9 +51,6 @@ const AppRoutes = () => {
           {/* Company */}
           <Route path="company" element={<EnterprisePage />} />
           <Route path="partner" element={<Partner />} />
-
-          {/* User */}
-          <Route path="profile/:email" element={<Profile />} />
 
           <Route path="notifications" element={<Notifications />} />
         </Route>
@@ -88,6 +86,13 @@ const AppRoutes = () => {
         {/* For EventDetail routes */}
         <Route path="events/:eventId" element={<EventDetailLayout />}>
           <Route index element={<EventDetail />} />
+
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For Profile routes */}
+        <Route path="profile/:userId" element={<ProfileLayout />}>
+          <Route index element={<Profile />} />
 
           {/* Add other host specific routes here if any */}
         </Route>

@@ -5,7 +5,7 @@ import { Event } from "src/interfaces/event";
 import { getMockedBookings } from "src/services/api-examples/booking";
 import { events } from "src/services/api-examples/events";
 import { MockedUser } from "src/services/api-examples/user";
-import EventClient from "./Components/EventClient";
+import EventClient from "./EventClient";
 
 const EventDetail: React.FC = () => {
   const { eventId } = useParams<{ eventId: string }>();

@@ -10,10 +10,10 @@ import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
 import { createBooking } from "src/services/booking";
-import EventBooking from "./EventBooking";
-import EventInfo from "./EventInfo";
-import PhotoSection from "./PhotoSection";
-import ReviewSection from "./ReviewSection";
+import EventBooking from "../Components/EventBooking";
+import PhotoSection from "../Components/PhotoSection";
+import ReviewSection from "../Components/ReviewSection";
+import EventInfo from "./LeftSide";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -130,8 +130,9 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
             >
               <EventInfo
                 title={event.title}
-                hostName={event.hostName}
-                hostProfilePhoto={event.hostProfilePhoto}
+                hostName={event.host?.firstName}
+                hostId={event.host?.userId}
+                hostProfilePhoto={event.host?.img}
                 desc={event.desc}
                 minGuests={event.minGuests}
                 maxGuests={event.maxGuests}

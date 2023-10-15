@@ -16,7 +16,7 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, containerStyle }) => {
       className={
         " border border-gray-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
       }
-      onClick={() => navigate(`/profile/${review.user.name}`)}
+      onClick={() => navigate(`/profile/${review.user?.userId}`)}
       key={review.reviewId}
       style={containerStyle}
     >
@@ -40,12 +40,12 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, containerStyle }) => {
         </div>
         <div className="flex p-2 items-center">
           <img
-            src={review.user.img}
-            alt={review.user.name}
+            src={review.user?.img}
+            alt={review.user?.firstName}
             className="w-10 h-10 rounded-full"
           />
           <div className="ml-2">
-            <p className="font-bold">{review.user.name}</p>
+            <p className="font-bold">{review.user?.firstName}</p>
             <p className="text-xs">{formatDate(review.reviewDate, {})}</p>
           </div>
         </div>

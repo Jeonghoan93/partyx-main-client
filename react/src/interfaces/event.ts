@@ -1,5 +1,6 @@
 import { Booking } from "./booking";
 import { Review } from "./review";
+import { User } from "./user";
 
 export interface Address {
   street: string;
@@ -14,6 +15,7 @@ export interface Location {
 }
 
 export interface Event {
+  host?: User;
   eventId: number;
   img: string;
   avgRating: number;

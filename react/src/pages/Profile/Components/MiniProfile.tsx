@@ -7,6 +7,7 @@ interface MiniProfileProps {
   img: string;
   desc: string;
   hostedEvents?: Event[];
+  userId?: number;
 }
 
 const MiniProfile: React.FC<MiniProfileProps> = ({
@@ -14,6 +15,7 @@ const MiniProfile: React.FC<MiniProfileProps> = ({
   img,
   desc,
   hostedEvents,
+  userId,
 }) => {
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ const MiniProfile: React.FC<MiniProfileProps> = ({
       </div>
 
       <div
-        onClick={() => navigate("/profile/" + name)}
+        onClick={() => navigate(`/profile/${userId}`)}
         className="cursor-pointer flex flex-row gap-1 items-center text-[11pt]"
       >
         <span className="underline">Visit</span>
