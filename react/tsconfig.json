@@ -4,6 +4,19 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@types/*": ["src/types/*"],
+      "@images/*": ["src/images/*"],
+      "@fonts/*": ["src/fonts/*"],
+      "@public/*": ["public/*"]
+    },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -24,6 +37,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "src/pages/EventDetail/Components/EventBooking/.tsx"],
+  "include": [
+    "src/**/*",
+    "src/pages/EventDetail/Components/EventBooking/.tsx",
+    "src/components/footers/.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import MobileFooter from "src/components/footers/MobileFooter";
+import MobileFooter from "src/components/footers/MobileFooter.tsx";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Profile/Components/NavbarProfile";
 import ModalsProvider from "src/providers/ModalsProvider";
