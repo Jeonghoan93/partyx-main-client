@@ -11,6 +11,8 @@ const ItemsSliderStandouts: React.FC = () => {
           <ItemCardStandouts
             eventId={event.eventId}
             key={index}
+            rating={event.avgRating}
+            date={event.startDate}
             src={event.img}
             title={event.title}
             location={event.address?.city || "Unknown"}

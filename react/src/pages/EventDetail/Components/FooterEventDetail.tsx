@@ -33,7 +33,7 @@ const FooterEventDetail: React.FC = () => {
         </div>
 
         <span style={{ minWidth: "120px" }}>
-          <Button label={"Find Ticket"} onClick={() => alert("No ticket")} />
+          <Button small={true} label={"Find ticket"} onClick={() => {}} />
         </span>
       </div>
     </div>

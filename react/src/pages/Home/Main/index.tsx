@@ -5,7 +5,7 @@ import ListParty from "./Cards/ListParty";
 const Main = () => {
   return (
     <Container>
-      <div className="flex flex-col gap-4">
+      <div className="pt-[20px] flex flex-col gap-4">
         <div
           className="
               grid 

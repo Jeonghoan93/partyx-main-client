@@ -21,6 +21,10 @@ export interface User {
   hashedPassword: string;
   bio?: string;
   role?: string;
+  age?: number;
+  job?: string;
+  homeTown?: string;
+  lookingFor?: string;
 
   address?: Address;
 

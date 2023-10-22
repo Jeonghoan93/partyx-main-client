@@ -1,6 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 
+import useModalState from "src/hooks/useModalState";
+import useToggleBodyOverflow from "src/hooks/useToggleBodyOverflow";
+import useOnClickOutside from "src/hooks/userOnClickOutside";
 import Button from "../Button";
 
 interface ModalProps {
@@ -28,22 +31,20 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryActionLabel,
 }) => {
-  const [showModal, setShowModal] = useState(isOpen);
+  const [showModal] = useModalState(isOpen ?? false);
+  useToggleBodyOverflow(isOpen ?? false);
 
-  useEffect(() => {
-    setShowModal(isOpen);
-  }, [isOpen]);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClose = useCallback(() => {
     if (disabled) {
       return;
     }
 
-    setShowModal(false);
-    setTimeout(() => {
-      onClose();
-    }, 300);
+    onClose();
   }, [onClose, disabled]);
+
+  useOnClickOutside([modalRef], handleClose);
 
   const handleSubmit = useCallback(() => {
     if (disabled) {
@@ -83,16 +84,14 @@ const Modal: React.FC<ModalProps> = ({
         "
       >
         <div
+          ref={modalRef}
           className="
-          relative 
+          fixed 
           w-full
-          md:w-[375pt]
-          lg:w-[386pt]
-          xl:w-[400pt]
-          my-6
+          max-w-screen-lg
+          my-[5vh]
+          sm:my-[10vh]  
           mx-auto 
-          lg:h-auto
-          md:h-auto
           "
         >
           {/*content*/}
@@ -107,10 +106,8 @@ const Modal: React.FC<ModalProps> = ({
             <div
               className="
               translate
-              h-full
-              lg:h-auto
-              md:h-auto
-              max-h-[calc(100vh-0rem)]
+              max-h-[calc(90vh-0rem)]
+              sm:max-h-[calc(95vh-0rem)]
               overflow-y-auto
               border-0 
               rounded-lg 
@@ -128,11 +125,11 @@ const Modal: React.FC<ModalProps> = ({
               <div
                 className="
                 flex 
+                flex-col
+                gap-3
                 items-center 
                 p-5
                 rounded-t
-                justify-center
-                relative
                 border-b-[1px]
                 "
               >
@@ -152,7 +149,9 @@ const Modal: React.FC<ModalProps> = ({
                 <div className="text-[12pt] font-bold">{title}</div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">{body}</div>
+              <div className="max-h-[calc(100vh-0rem)] overflow-y-auto no-scrollbar w-full h-full p-6 flex-auto">
+                {body}
+              </div>
               {/*footer*/}
               <div className="flex flex-col gap-2 p-6">
                 <div

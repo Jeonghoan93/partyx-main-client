@@ -1,9 +1,20 @@
 import Container from "src/components/Container";
 
+import { useParams } from "react-router-dom";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
+export interface ReservationProps {
+  reservationId: number;
+}
+
 const Reservation: React.FC = () => {
+  const { reservationId: reservationIdString } = useParams<{
+    reservationId: string;
+  }>();
+
+  const reservationId = Number(reservationIdString);
+
   return (
     <Container>
       <div
@@ -22,14 +33,14 @@ const Reservation: React.FC = () => {
               md:gap-3 
             "
           >
-            <LeftSide />
+            <LeftSide reservationId={reservationId} />
             <div
               className="
                 md:order-last 
                 md:col-span-3
               "
             >
-              <RightSide />
+              <RightSide reservationId={reservationId} />
             </div>
           </div>
         </div>

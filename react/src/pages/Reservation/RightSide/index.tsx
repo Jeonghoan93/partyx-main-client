@@ -1,9 +1,10 @@
 import { MdFreeCancellation } from "react-icons/md";
 import { TbExchange } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import { ReservationProps } from "..";
 import LinkBox from "./Components/LinkBox";
 
-const RightSide: React.FC = () => {
+const RightSide: React.FC<ReservationProps> = () => {
   const navigate = useNavigate();
 
   return (

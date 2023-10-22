@@ -9,7 +9,7 @@ import { useWindowWidth } from "src/hooks/useWindowWidth";
 import { Booking } from "src/interfaces/booking";
 import { Event } from "src/interfaces/event";
 import { User } from "src/interfaces/user";
-import { createBooking } from "src/services/booking";
+import { createBooking } from "src/services/reservation";
 import EventBooking from "../Components/EventBooking";
 import PhotoSection from "../Components/PhotoSection";
 import ReviewSection from "../Components/ReviewSection";
@@ -103,7 +103,7 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
       {isMobile ? (
         <section
           className="
-          w-full mt-[-37pt] shadow-md mb-[-10pt]
+          w-full my-[-10pt] shadow-md
         "
         >
           <img src={event.img} className="w-full h-[370px]" alt="Image" />

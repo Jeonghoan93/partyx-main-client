@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
+import useModalState from "src/hooks/useModalState";
+import useToggleBodyOverflow from "src/hooks/useToggleBodyOverflow";
 import useOnClickOutside from "src/hooks/userOnClickOutside";
 
 interface SimpleModalProps {
@@ -26,7 +28,9 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
   disabled,
   closeHidden,
 }) => {
-  const [showModal, setShowModal] = useState(isOpen);
+  const [showModal] = useModalState(isOpen ?? false);
+  useToggleBodyOverflow(isOpen ?? false);
+
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClose = useCallback(() => {
@@ -34,28 +38,8 @@ const SimpleModal: React.FC<SimpleModalProps> = ({
       return;
     }
 
-    setShowModal(false);
-    setTimeout(() => {
-      onClose();
-    }, 300);
+    onClose();
   }, [onClose, disabled]);
-
-  useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-
-    setShowModal(isOpen);
-
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = originalOverflow;
-    }
-
-    // Cleanup: Set the overflow back to its original value if the component unmounts
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [isOpen]);
 
   useOnClickOutside([modalRef], handleClose);
 

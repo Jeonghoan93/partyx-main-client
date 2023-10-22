@@ -136,6 +136,7 @@ const RentModal = () => {
           md:grid-cols-2 
           gap-3
           max-h-[50vh]
+          no-scrollbar
           overflow-y-auto
         "
       >

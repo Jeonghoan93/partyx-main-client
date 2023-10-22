@@ -47,17 +47,15 @@ const NavbarAccount: React.FC = () => {
                 onClick={() => navigate("/account")}
                 className="cursor-pointer text-[16pt] font-bold"
               >
-                {currentUser ? currentUser.firstName : "Account"}
+                {currentUser && currentUser.firstName != null
+                  ? currentUser.firstName
+                  : "Account"}
               </span>
 
               {currentUser ? (
-                <div className="flex flex-row gap-1 text-[11pt] text-gray-600 font-normal">
-                  <span className="font-bold">{currentUser.firstName}</span>·
-                  <span>{currentUser.email}</span>·
-                  <span className="underline cursor-pointer font-semibold">
-                    Go to profile
-                  </span>
-                </div>
+                <span className="font-semibold text-[10pt]">
+                  {currentUser.email}
+                </span>
               ) : (
                 <span
                   onClick={LoginModal.onOpen}

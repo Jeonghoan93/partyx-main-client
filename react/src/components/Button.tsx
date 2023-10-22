@@ -24,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       onClick={onClick}
       className={`
+
         relative
         disabled:opacity-70
         disabled:cursor-not-allowed
@@ -32,18 +33,17 @@ const Button: React.FC<ButtonProps> = ({
         hover:opacity-90
         transition
         w-full
+        font-bold
         border-[1pt]
         ${
           black
             ? "bg-gray-900 border-gray-900 text-white"
             : outline
             ? "bg-white border-black text-black"
-            : "bg-blue-500 border-blue-500 text-white"
+            : "bg-blue-600 border-blue-600 text-white"
         }
-        ${small ? "text-[11pt]" : "text-[12pt]"}
+        ${small ? "text-[11pt]" : "text-[11pt]"}
         ${small ? "py-[7pt]" : "py-[8pt]"}
-        ${small ? "font-semibold" : "font-bold"}
-      
       `}
     >
       {Icon && (
