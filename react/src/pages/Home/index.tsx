@@ -20,9 +20,8 @@ const Home: React.FC = () => {
     <>
       {isLarge ? <Main /> : null}
       {currentUser ? <Customized currentUser={currentUser} /> : null}
-
-      <Standouts />
       <Today />
+      <Standouts />
       <StartsSoon />
       <Near />
       <Featured />

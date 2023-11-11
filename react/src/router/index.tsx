@@ -3,7 +3,7 @@ import AccountLayout from "src/layouts/AccountLayout";
 import CareerLayout from "src/layouts/CareerLayout";
 import HostLayout from "src/layouts/HostLayout";
 import PaymentLayout from "src/layouts/PaymentLayout";
-import RootLayout from "src/layouts/RootLayout";
+import SearchLayout from "src/layouts/SearchLayout";
 import Account from "src/pages/Account";
 import Favorites from "src/pages/Account/Pages/Favorites";
 import LoginSecurity from "src/pages/Account/Pages/LoginSecurity";
@@ -36,14 +36,22 @@ import PaymentsHost from "src/pages/Host/Pages/Payments";
 import Investor from "src/pages/Investor";
 import Reservation from "src/pages/Reservation";
 import ScrollToTop from "src/utils/ScrollToTop";
+import HomeLayout from "src/layouts/HomeLayout";
 
 const AppRoutes = () => {
   return (
     <Router>
       <ScrollToTop />
       <Routes>
-        {/* For RootLayout routes */}
-        <Route path="/" element={<RootLayout />}>
+        {/* For Home routes */}
+        <Route path="/" element={<HomeLayout />}>
+          <Route index element={<Home />} />
+
+          {/* Add other host specific routes here if any */}
+        </Route>
+
+        {/* For SearchLayout routes */}
+        <Route path="search" element={<SearchLayout />}>
           <Route index element={<Home />} />
           {/* Enterprise */}
           <Route path="enterprise" element={<Enterprise />} />

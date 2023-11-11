@@ -7,7 +7,7 @@ import NavbarMobile from "src/components/navbar/NavbarMobile";
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import ModalsProvider from "src/providers/ModalsProvider";
 
-export default function RootLayout() {
+export default function SearchLayout() {
   const windowWidth = useWindowWidth();
   const isMobile = windowWidth < 768;
 
@@ -18,7 +18,7 @@ export default function RootLayout() {
       {!isMobile && <Navbar />}
       {isMobile && <NavbarMobile />}
 
-      <div className="pb-20 pt-[135px]">
+      <div className="pb-20 pt-[80px]">
         <Outlet />
       </div>
       {isMobile ? <MobileFooter /> : <FixedFooter />}

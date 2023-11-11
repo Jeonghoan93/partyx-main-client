@@ -13,9 +13,9 @@ const Categories = () => {
     startsWith: true,
   });
 
-  const isHomePage = useIsCertainPage("/");
+  const isSearchPage = useIsCertainPage("/search");
 
-  if (!isEventsPage && !isHomePage) {
+  if (!isEventsPage && !isSearchPage) {
     return null;
   }
 
