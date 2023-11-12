@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import Button from "src/components/Button";
 import Container from "src/components/Container";
 import { useCurrentUser } from "src/hooks/useCurrentUser";
-import { useEvents } from "src/hooks/useEvents";
+import useGetEventsByUserId from "src/hooks/useGetEventsByUserId";
 import useLoginModal from "src/hooks/useLoginModal";
 import FavoritesClient from "./Components/FavoritesClient";
 
 const Favorites = () => {
   const currentUser = useCurrentUser();
-  const events = useEvents(currentUser?.userId ?? null);
+  const events = useGetEventsByUserId(currentUser?.userId ?? null);
   const navigate = useNavigate();
 
   const loginModal = useLoginModal();

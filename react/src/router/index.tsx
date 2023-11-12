@@ -15,7 +15,7 @@ import EnterprisePage from "src/pages/Company";
 import Enterprise from "src/pages/Enterprise";
 import EventDetail from "src/pages/EventDetail";
 import Host from "src/pages/Host";
-import MyEvents from "src/pages/Host/Pages/Listings-d";
+import MyEvents from "src/pages/Host/Pages/Listings";
 import Taxes from "src/pages/Host/Pages/Tax";
 import BusinessPlan from "src/pages/Investor/BusinessPlan";
 import Notifications from "src/pages/Notifications";
