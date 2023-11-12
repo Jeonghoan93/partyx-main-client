@@ -1,10 +1,11 @@
 import Container from "src/components/Container";
 
-import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
-import Products from "../Products";
+import PastLeftSide from "./Past/PastLeftSide";
+import PastRightSide from "./Past/PastRightSide";
+import UpcomingLeftSide from "./Upcoming/UpcomingLeftSide";
+import UpcomingRightSide from "./Upcoming/UpcomingRightSide";
 
-const Home: React.FC = () => {
+const UpcomingPastBody: React.FC<{ mode: string }> = ({ mode }) => {
   return (
     <Container>
       <div
@@ -18,20 +19,19 @@ const Home: React.FC = () => {
           <div
             className="
               grid 
-              grid-cols-1
+              grid-cols-1 
               md:grid-cols-7 
-              md:gap-3
+              md:gap-3 
             "
           >
-            <LeftSide />
+            {mode === "upcoming" ? <UpcomingLeftSide /> : <PastLeftSide />}
             <div
               className="
                 md:order-last 
                 md:col-span-3
               "
             >
-              <Products />
-              <RightSide />
+              {mode === "upcoming" ? <UpcomingRightSide /> : <PastRightSide />}
             </div>
           </div>
         </div>
@@ -40,4 +40,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default UpcomingPastBody;

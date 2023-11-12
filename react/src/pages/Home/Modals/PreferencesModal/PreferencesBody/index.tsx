@@ -2,9 +2,8 @@ import Container from "src/components/Container";
 
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
-import Products from "../Products";
 
-const Home: React.FC = () => {
+const PreferencesBody: React.FC = () => {
   return (
     <Container>
       <div
@@ -18,9 +17,9 @@ const Home: React.FC = () => {
           <div
             className="
               grid 
-              grid-cols-1
+              grid-cols-1 
               md:grid-cols-7 
-              md:gap-3
+              md:gap-3 
             "
           >
             <LeftSide />
@@ -30,7 +29,6 @@ const Home: React.FC = () => {
                 md:col-span-3
               "
             >
-              <Products />
               <RightSide />
             </div>
           </div>
@@ -40,4 +38,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default PreferencesBody;

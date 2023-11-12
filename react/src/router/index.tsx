@@ -14,7 +14,6 @@ import Positions from "src/pages/Career/Pages/Positions";
 import EnterprisePage from "src/pages/Company";
 import Enterprise from "src/pages/Enterprise";
 import EventDetail from "src/pages/EventDetail";
-import Home from "src/pages/Home";
 import Host from "src/pages/Host";
 import MyEvents from "src/pages/Host/Pages/Listings-d";
 import Taxes from "src/pages/Host/Pages/Tax";
@@ -37,6 +36,7 @@ import Investor from "src/pages/Investor";
 import Reservation from "src/pages/Reservation";
 import ScrollToTop from "src/utils/ScrollToTop";
 import HomeLayout from "src/layouts/HomeLayout";
+import Home from "src/pages/Home";
 
 const AppRoutes = () => {
   return (
@@ -47,23 +47,16 @@ const AppRoutes = () => {
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
 
-          {/* Add other host specific routes here if any */}
+          {/* Company */}
+          <Route path="company" element={<EnterprisePage />} />
+          <Route path="partner" element={<Partner />} />
+          <Route path="enterprise" element={<Enterprise />} />
+          <Route path="notifications" element={<Notifications />} />
         </Route>
 
         {/* For SearchLayout routes */}
         <Route path="search" element={<SearchLayout />}>
-          <Route index element={<Home />} />
-          {/* Enterprise */}
-          <Route path="enterprise" element={<Enterprise />} />
-
-          {/* Events */}
-          <Route path="events" element={<EventsList />} />
-
-          {/* Company */}
-          <Route path="company" element={<EnterprisePage />} />
-          <Route path="partner" element={<Partner />} />
-
-          <Route path="notifications" element={<Notifications />} />
+          <Route index element={<EventsList />} />
         </Route>
 
         {/* For PaymentLayout routes */}
@@ -124,7 +117,6 @@ const AppRoutes = () => {
           <Route index element={<Account />} />
           <Route path="personal-info" element={<PersonalInfo />} />
           <Route path="login-security" element={<LoginSecurity />} />
-
           <Route path="activity" element={<Activity />} />
           <Route path="messages" element={<Messages />} />
           <Route path="payments" element={<Payments />} />

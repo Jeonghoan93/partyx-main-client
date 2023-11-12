@@ -18,7 +18,7 @@ export default function SearchLayout() {
       {!isMobile && <Navbar />}
       {isMobile && <NavbarMobile />}
 
-      <div className="pb-20 pt-[80px]">
+      <div className="pb-20 pt-[140px]">
         <Outlet />
       </div>
       {isMobile ? <MobileFooter /> : <FixedFooter />}
