@@ -1,4 +1,4 @@
-import { events } from "../../../services/api-examples/events";
+import { events } from "../../../../services/api-examples/events";
 import CardSlider from "./Components/CardSlider";
 import NavbarNear from "./Components/NavbarNear";
 
