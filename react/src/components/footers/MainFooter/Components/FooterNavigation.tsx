@@ -26,20 +26,20 @@ const FooterNavigation: FC = () => {
     { label: "Careers", path: () => navigate("/careers") },
   ];
 
-  const partnerMenu: Array<Navigation> = [
-    {
-      label: "Club owners",
-      path: () => navigate("/partner?menu=Club%20Owner"),
-    },
-    {
-      label: "Festival organizations",
-      path: () => navigate("/partner?menu=Festival%20Organizer"),
-    },
-    {
-      label: "Rave organizers",
-      path: () => navigate("/partner?menu=Rave%20Organizer"),
-    },
-  ];
+  // const partnerMenu: Array<Navigation> = [
+  //   {
+  //     label: "Club owners",
+  //     path: () => navigate("/partner?menu=Club%20Owner"),
+  //   },
+  //   {
+  //     label: "Festival organizations",
+  //     path: () => navigate("/partner?menu=Festival%20Organizer"),
+  //   },
+  //   {
+  //     label: "Rave organizers",
+  //     path: () => navigate("/partner?menu=Rave%20Organizer"),
+  //   },
+  // ];
 
   const contactMenu = [
     {
@@ -63,12 +63,12 @@ const FooterNavigation: FC = () => {
           <NavigationItem key={index} label={label} path={path} />
         ))}
       </div>
-      <div className="w-full md:w-1/3 p-3">
+      {/* <div className="w-full md:w-1/3 p-3">
         <FooterSectionTitle title="Partnerships" />
         {partnerMenu.map(({ label, path }, index) => (
           <NavigationItem key={index} label={label} path={path} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
