@@ -1,6 +1,4 @@
-import { BsRocketTakeoff } from "react-icons/bs";
 import Container from "src/components/Container";
-import LargeImgCard from "src/components/LargeImgCard";
 import LeftSide from "src/pages/Investor/BusinessPlan/LeftSide";
 import RightSide from "src/pages/Investor/BusinessPlan/RightSide";
 
