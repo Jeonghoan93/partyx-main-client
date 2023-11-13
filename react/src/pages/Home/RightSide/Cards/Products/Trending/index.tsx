@@ -13,7 +13,7 @@ const Trending = () => {
       <TextBox
         text={
           currentLocation.city
-            ? "Treading in" + currentLocation.city
+            ? "Trending in " + currentLocation.city
             : "Your city"
         }
       />
