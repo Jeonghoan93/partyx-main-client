@@ -15,16 +15,6 @@ const BusinessPlan: React.FC = () => {
         "
       >
         <div className="flex flex-col gap-3">
-          <LargeImgCard dark={true} img={"/images/businessPlan.jpeg"}>
-            <div className="text-white flex flex-row items-center gap-3 font-bold text-[14pt]">
-              <span>
-                <BsRocketTakeoff />
-              </span>
-
-              <span className="font-extrabold">Be one of the first</span>
-            </div>
-          </LargeImgCard>
-
           <div
             className="
               grid 

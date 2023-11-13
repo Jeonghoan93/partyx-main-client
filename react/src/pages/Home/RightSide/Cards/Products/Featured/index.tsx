@@ -1,12 +1,11 @@
 import { events } from "src/services/api-examples/events";
 import EventSlider from "./Components/EventSlider";
-import NavbarFeatured from "./Components/NavbarFeatured";
+import TextBox from "../../../Components/TextBox";
 
 const Featured = () => {
   return (
     <>
-      <NavbarFeatured />
-
+      <TextBox text="Featured" />
       <EventSlider events={events} />
     </>
   );

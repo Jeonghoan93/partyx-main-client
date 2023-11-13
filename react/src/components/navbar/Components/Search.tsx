@@ -59,13 +59,12 @@ const Search = () => {
       onClick={searchModal.onOpen}
       className="
         border-[1px] 
-        border-gray-400
         w-full 
         md:w-auto 
         py-2
         rounded-full 
-        shadow-sm 
-        hover:shadow-md 
+        shadow-sm
+        hover:shadow-lg
         transition 
         cursor-pointer
       "
@@ -127,13 +126,12 @@ const Search = () => {
           </div>
           <div
             className="
-              p-2 
-              bg-gray-500 
+              p-1
               rounded-full 
-              text-white
+              text-black
             "
           >
-            <BiSearch size={18} />
+            <BiSearch size={20} />
           </div>
         </div>
       </div>

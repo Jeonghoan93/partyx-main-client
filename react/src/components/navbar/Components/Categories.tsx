@@ -23,13 +23,13 @@ const Categories = () => {
     <Container>
       <div
         className="
-          pt-3
+          pt-5
           flex 
           flex-row 
           items-center 
           justify-between
           overflow-y-auto
-          gap-2
+          gap-3
           no-scrollbar
          
         "
