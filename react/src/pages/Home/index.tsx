@@ -1,37 +1,40 @@
+import Container from "src/components/Container";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
 const Home: React.FC = () => {
   return (
-    <div
-      className="
+    <Container>
+      <div
+        className="
           pb-10
           max-w-screen-xl 
           mx-auto
         "
-    >
-      <div className="flex flex-col gap-4">
-        <div
-          className="
+      >
+        <div className="flex flex-col gap-4">
+          <div
+            className="
               grid 
               grid-cols-1
               md:grid-cols-7 
               md:gap-3
             "
-        >
-          <LeftSide />
+          >
+            <LeftSide />
 
-          <div
-            className="
+            <div
+              className="
                 md:order-last 
                 md:col-span-3
               "
-          >
-            <RightSide />
+            >
+              <RightSide />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
