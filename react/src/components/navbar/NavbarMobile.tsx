@@ -7,7 +7,7 @@ import Categories from "./Components/Categories";
 import Logo from "./Components/Logo";
 import Menus from "./Components/Menus";
 import Search from "./Components/Search";
-import UserMenu from "./Components/UserMenu";
+import MenusRight from "./MenusRight";
 
 const NavbarMobile: React.FC = () => {
   const location = useLocation();
@@ -61,7 +61,7 @@ const NavbarMobile: React.FC = () => {
             <Search />
             <div className="relative hidden md:block">
               <div className="flex flex-row">
-                <UserMenu currentUser={currentUser} />
+                <MenusRight currentUser={currentUser} />
               </div>
             </div>
           </div>

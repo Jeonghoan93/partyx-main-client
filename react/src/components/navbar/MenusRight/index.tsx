@@ -1,6 +1,4 @@
 import { useCallback, useRef, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useCreateProfileModal from "src/hooks/useCreateProfile";
@@ -10,14 +8,16 @@ import useRentModal from "src/hooks/useRentModal";
 import useOnClickOutside from "src/hooks/userOnClickOutside";
 import { User } from "src/interfaces/user";
 import { logout } from "src/services/auth";
-import Avatar from "../../Avatar";
-import MenuItem from "./MenuItem";
+import MenuItem from "../Components/MenuItem";
+import ListParty from "./Items/ListParty";
+import MenuBar from "./Items/MenuBar";
+import UserMenu from "./Items/UserMenu";
 
-interface UserMenuProps {
+interface MenusRightProps {
   currentUser?: User | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+const MenusRight: React.FC<MenusRightProps> = ({ currentUser }) => {
   const navigate = useNavigate();
 
   const loginModal = useLoginModal();
@@ -26,22 +26,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
   const createProfileModal = useCreateProfileModal();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenUser, setIsOpenUser] = useState(false);
 
   const menuRef = useRef(null);
-  useOnClickOutside([menuRef], () => setIsOpen(false));
+  useOnClickOutside([menuRef], () => setIsOpenUser(false));
 
-  const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
+  const toggleOpenUser = useCallback(() => {
+    setIsOpenUser((value) => !value);
   }, []);
-
-  const onRent = useCallback(() => {
-    if (!currentUser) {
-      return loginModal.onOpen();
-    }
-
-    rentModal.onOpen();
-  }, [loginModal, rentModal, currentUser]);
 
   const handleSignOut = async () => {
     try {
@@ -56,48 +48,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div
-          onClick={onRent}
-          className="
-            hidden
-            lg:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          List your party
+        <div className="hidden md:block">
+          <ListParty currentUser={currentUser} />
         </div>
-        <div
-          onClick={toggleOpen}
-          className="
-          p-4
-          md:py-1
-          md:px-2
-          border-[1px] 
-          border-neutral-200 
-          flex 
-          flex-row 
-          items-center 
-          gap-3 
-          rounded-full 
-          cursor-pointer 
-          hover:shadow-md 
-          transition
-          "
-        >
-          <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.img} />
-          </div>
-        </div>
+        <UserMenu currentUser={currentUser} toggleOpen={toggleOpenUser} />
+        <MenuBar toggleOpen={toggleOpenUser} />
       </div>
-      {isOpen && (
+      {isOpenUser && (
         <div
           ref={menuRef}
           className="
@@ -220,4 +177,4 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   );
 };
 
-export default UserMenu;
+export default MenusRight;

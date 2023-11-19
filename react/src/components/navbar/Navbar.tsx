@@ -6,7 +6,7 @@ import Categories from "./Components/Categories";
 import Logo from "./Components/Logo";
 import Menus from "./Components/Menus";
 import Search from "./Components/Search";
-import UserMenu from "./Components/UserMenu";
+import MenusRight from "./MenusRight";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -52,7 +52,9 @@ const Navbar: React.FC = () => {
               </div>
             </div>
             <Search />
-            <UserMenu currentUser={currentUser} />
+            <div className="flex flex-row gap-2">
+              <MenusRight currentUser={currentUser} />
+            </div>
           </div>
         </Container>
       </div>
