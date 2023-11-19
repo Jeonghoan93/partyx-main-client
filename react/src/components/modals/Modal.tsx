@@ -88,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({
           className="
           fixed 
           w-full
-          max-w-screen-lg
+          max-w-screen-sm
           my-[5vh]
           sm:my-[10vh]  
           mx-auto 
