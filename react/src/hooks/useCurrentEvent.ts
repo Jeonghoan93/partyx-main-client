@@ -5,7 +5,6 @@ import { getEventById } from "src/services/event";
 export function useCurrentEvent(eventId: number | null) {
   const [eventData, setEventData] = useState<Event>({} as Event);
   const [eventLoading, setEventLoading] = useState(false);
-  const [eventError, setEventError] = useState(null);
 
   useEffect(() => {
     if (eventId !== null) {
@@ -16,7 +15,7 @@ export function useCurrentEvent(eventId: number | null) {
           const data = await response.json();
           setEventData(data);
         } catch (err) {
-          setEventError(err);
+          console.log(err);
         } finally {
           setEventLoading(false);
         }
@@ -26,5 +25,5 @@ export function useCurrentEvent(eventId: number | null) {
     }
   }, [eventId]);
 
-  return { eventData, eventLoading, eventError };
+  return { eventData, eventLoading };
 }

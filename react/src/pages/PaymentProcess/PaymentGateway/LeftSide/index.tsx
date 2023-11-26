@@ -1,4 +1,3 @@
-import AddVideo from "./Cards/AddVideo";
 import TicketInfoCard from "./Cards/TicketInfoCard";
 
 const LeftSide: React.FC = () => {

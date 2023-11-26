@@ -1,4 +1,3 @@
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import LineContainer from "src/components/LineContainer";
 
 const TicketInfoCard = () => {
