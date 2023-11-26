@@ -21,7 +21,6 @@ import BusinessPlan from "src/pages/Investor/BusinessPlan";
 import Notifications from "src/pages/Notifications";
 import Partner from "src/pages/Partner";
 import Profile from "src/pages/Profile";
-
 import EventDetailLayout from "src/layouts/EventDetailLayout";
 import HomeLayout from "src/layouts/HomeLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";
@@ -52,7 +51,10 @@ const AppRoutes = () => {
           <Route index element={<Home />} />
 
           {/* For Payment-gateway routes */}
-          <Route path="payment-gateway" element={<PaymentGatewayLayout />}>
+          <Route
+            path="payment-gateway/:eventId"
+            element={<PaymentGatewayLayout />}
+          >
             <Route index element={<PaymentGateway />} />
             <Route path="methods" element={<PaymentMethods />} />
             <Route path="confirmation" element={<PaymentConfirmation />} />

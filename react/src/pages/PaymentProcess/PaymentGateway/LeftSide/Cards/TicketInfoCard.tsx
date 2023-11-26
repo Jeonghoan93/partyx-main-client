@@ -1,24 +1,35 @@
 import LineContainer from "src/components/LineContainer";
+import { Event } from "src/interfaces/event";
 
-const TicketInfoCard = () => {
+interface Props {
+  eventData: Event | undefined;
+}
+
+const TicketInfoCard: React.FC<Props> = ({ eventData }) => {
   return (
     <LineContainer>
       <section className="flex flex-col items-start gap-3">
         <div className="flex flex-row gap-1 text-[11pt]">
           <span>1</span>
           <span>×</span>
-          <span className="">Hozier Regular</span>
+          <span className="font-semibold">{eventData?.title}</span>
         </div>
 
         <div className="flex flex-row gap-1 text-[11pt] text-gray-600">
-          <span>Today</span>
+          <span>
+            {eventData?.startDate?.toLocaleDateString("en-US", {
+              weekday: "short",
+            })}
+          </span>
           <span>•</span>
-          <span className="">Avicii Arena</span>
+          <span className="">
+            {eventData?.address?.street}, {eventData?.address?.city}
+          </span>
         </div>
 
         <div className="flex flex-row gap-1 text-[11pt]">
-          <span className="text-gray-800 font-bold">SEK</span>
-          <span className="text-gray-800 font-bold">540</span>
+          <span className="text-gray-800 font-bold">{eventData?.currency}</span>
+          <span className="text-gray-800 font-bold">{eventData?.price}</span>
 
           <span className="text-gray-600">/</span>
           <span className="text-gray-600">ticket</span>

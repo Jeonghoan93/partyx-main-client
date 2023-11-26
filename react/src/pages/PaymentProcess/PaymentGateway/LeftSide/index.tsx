@@ -1,9 +1,14 @@
 import TicketInfoCard from "./Cards/TicketInfoCard";
+import { Event } from "src/interfaces/event";
 
-const LeftSide: React.FC = () => {
+interface Props {
+  eventData: Event | undefined;
+}
+
+const LeftSide: React.FC<Props> = ({ eventData }) => {
   return (
     <div className="flex flex-col gap-3 col-span-4 mb-3">
-      <TicketInfoCard />
+      <TicketInfoCard eventData={eventData} />
     </div>
   );
 };

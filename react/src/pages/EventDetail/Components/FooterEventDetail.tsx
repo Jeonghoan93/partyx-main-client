@@ -37,7 +37,7 @@ const FooterEventDetail: React.FC = () => {
           <Button
             small={true}
             label={"Find ticket"}
-            onClick={() => navigate("/payment-gateway")}
+            onClick={() => navigate(`/payment-gateway/${eventId}`)}
           />
         </span>
       </div>

@@ -1,9 +1,17 @@
 import Container from "src/components/Container";
-
+import { Event } from "src/interfaces/event";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
+import { useParams } from "react-router-dom";
+import { events } from "src/services/api-examples/events";
 
 const PaymentGateway: React.FC = () => {
+  const { eventId } = useParams<{ eventId: string }>();
+
+  const eventData = events.find(
+    (event: Event) => event.eventId === Number(eventId)
+  );
+
   return (
     <Container>
       <div
@@ -14,7 +22,7 @@ const PaymentGateway: React.FC = () => {
         "
       >
         <div className="flex flex-col gap-4">
-          <section className="w-full h-[12vh] overflow-hidden relative rounded-lg">
+          <section className="w-full overflow-hidden relative rounded-lg">
             <div className="flex flex-col gap-2">
               <span className="font-bold text-[21pt]">Cart</span>
 
@@ -31,14 +39,14 @@ const PaymentGateway: React.FC = () => {
               md:gap-3 
             "
           >
-            <LeftSide />
+            <LeftSide eventData={eventData} />
             <div
               className="
                 md:order-last 
                 md:col-span-3
               "
             >
-              <RightSide />
+              <RightSide ticketCount={3} eventData={eventData} />
             </div>
           </div>
         </div>

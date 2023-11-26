@@ -14,7 +14,7 @@ const PaymentConfirmation: React.FC = () => {
         "
       >
         <div className="flex flex-col gap-4">
-          <section className="w-full h-[12vh] overflow-hidden relative rounded-lg">
+          <section className="w-full overflow-hidden relative rounded-lg">
             <div className="flex flex-col gap-2">
               <span className="font-bold text-[21pt]">
                 Payment confirmation

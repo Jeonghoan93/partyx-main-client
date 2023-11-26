@@ -11,7 +11,7 @@ const SwishCard = () => {
         <div className="flex flex-row gap-1 items-center">
           <span>
             <img
-              src={"/images/swish.png"}
+              src={"/images/swish.svg"}
               alt="swish"
               className={"w-[20px] h-[27px] rounded-lg"}
             />

@@ -4,7 +4,7 @@ import { User } from "src/interfaces/user";
 export interface Booking {
   bookingId: number;
 
-  bookBy?: User;
+  bookBy?: User | null;
   bookingDate: Date;
   numberOfTickets: number;
 

@@ -33,7 +33,7 @@ const PaymentMethods: React.FC = () => {
     setIsPaymentProcessing(true);
 
     if (!currentUser) {
-      return loginModal.onOpen();
+      loginModal.onOpen();
     }
 
     if (!dateRange.startDate || !dateRange.endDate) {
@@ -60,12 +60,12 @@ const PaymentMethods: React.FC = () => {
       if (res?.status === "success") {
         toast.success("Event reserved!");
         setDateRange(initialDateRange);
+        () => navigate(`/payment-gateway/${eventId}/confirmation`);
         navigate("/account/activity");
       }
     } catch (err) {
       toast.error("Something went wrong.");
     } finally {
-      () => navigate("/payment-gateway/confirmation");
       setIsPaymentProcessing(false);
     }
   }, [
@@ -76,6 +76,7 @@ const PaymentMethods: React.FC = () => {
     totalPrice,
     eventData,
     navigate,
+    eventId,
   ]);
 
   useEffect(() => {
@@ -100,7 +101,7 @@ const PaymentMethods: React.FC = () => {
         "
       >
         <div className="flex flex-col gap-4">
-          <section className="w-full h-[12vh] overflow-hidden relative rounded-lg">
+          <section className="w-full overflow-hidden relative rounded-lg">
             <div className="flex flex-col gap-2">
               <span className="font-bold text-[21pt]">Payment method</span>
 
