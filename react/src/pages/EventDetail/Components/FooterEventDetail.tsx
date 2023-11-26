@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "src/components/Button";
-
 import { Event } from "src/interfaces/event";
 import { events } from "src/services/api-examples/events";
 import { formatDate } from "src/utils/formatDate";
+
 const FooterEventDetail: React.FC = () => {
   const { eventId } = useParams<{ eventId: string }>();
+  const navigate = useNavigate();
 
   const eventData = events.find(
     (event: Event) => event.eventId === Number(eventId)
@@ -33,7 +34,11 @@ const FooterEventDetail: React.FC = () => {
         </div>
 
         <span style={{ minWidth: "120px" }}>
-          <Button small={true} label={"Find ticket"} onClick={() => {}} />
+          <Button
+            small={true}
+            label={"Find ticket"}
+            onClick={() => navigate("/payment-gateway")}
+          />
         </span>
       </div>
     </div>

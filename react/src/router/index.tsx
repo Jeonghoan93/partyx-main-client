@@ -23,20 +23,24 @@ import Partner from "src/pages/Partner";
 import Profile from "src/pages/Profile";
 
 import EventDetailLayout from "src/layouts/EventDetailLayout";
+import HomeLayout from "src/layouts/HomeLayout";
 import InvestorLayout from "src/layouts/InvestorLayout";
+import PaymentGatewayLayout from "src/layouts/PaymentGatewayLayout";
 import ProfileLayout from "src/layouts/ProfileLayout";
 import ReservationLayout from "src/layouts/ReservationLayout";
 import Activity from "src/pages/Account/Pages/Activity";
 import Payments from "src/pages/Account/Pages/Payments";
 import EventsList from "src/pages/EventsList";
+import Home from "src/pages/Home";
 import Listings from "src/pages/Host/Pages/Listings";
 import MessagesHost from "src/pages/Host/Pages/Messages";
 import PaymentsHost from "src/pages/Host/Pages/Payments";
 import Investor from "src/pages/Investor";
+import PaymentConfirmation from "src/pages/PaymentProcess/PaymentConfirmation";
+import PaymentGateway from "src/pages/PaymentProcess/PaymentGateway";
+import PaymentMethods from "src/pages/PaymentProcess/PaymentMethods";
 import Reservation from "src/pages/Reservation";
 import ScrollToTop from "src/utils/ScrollToTop";
-import HomeLayout from "src/layouts/HomeLayout";
-import Home from "src/pages/Home";
 
 const AppRoutes = () => {
   return (
@@ -46,6 +50,13 @@ const AppRoutes = () => {
         {/* For Home routes */}
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
+
+          {/* For Payment-gateway routes */}
+          <Route path="payment-gateway" element={<PaymentGatewayLayout />}>
+            <Route index element={<PaymentGateway />} />
+            <Route path="methods" element={<PaymentMethods />} />
+            <Route path="confirmation" element={<PaymentConfirmation />} />
+          </Route>
 
           {/* Company */}
           <Route path="company" element={<EnterprisePage />} />
