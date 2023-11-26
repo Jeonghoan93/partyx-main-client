@@ -1,4 +1,3 @@
-import { CiLocationOn } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";
 import { MdOutlineLocationOn } from "react-icons/md";
 import LineContainer from "src/components/LineContainer";
