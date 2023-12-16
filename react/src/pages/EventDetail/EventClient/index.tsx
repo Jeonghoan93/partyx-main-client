@@ -106,7 +106,7 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
           w-full my-[-10pt] shadow-md
         "
         >
-          <img src={event.img} className="w-full h-[370px]" alt="Image" />
+          <img src={event.img} className="w-full h-[30vh]" alt="Image" />
         </section>
       ) : null}
 
@@ -129,6 +129,7 @@ const EventClient: React.FC<EventClientProps> = ({ event, currentUser }) => {
             "
             >
               <EventInfo
+                startDate={event.startDate}
                 title={event.title}
                 hostName={event.host?.firstName}
                 hostId={event.host?.userId}

@@ -34,6 +34,7 @@ interface EventInfoProps {
   hostId?: number;
   minGuests?: number;
   maxGuests?: number;
+  startDate: Date;
 }
 
 const LeftSide: React.FC<EventInfoProps> = ({
@@ -44,10 +45,11 @@ const LeftSide: React.FC<EventInfoProps> = ({
   minGuests,
   maxGuests,
   hostId,
+  startDate,
 }) => {
   return (
     <div className="flex flex-col gap-3 col-span-4 mb-3">
-      <NameDesc title={title} desc={desc} />
+      <NameDesc startTime={startDate} title={title} desc={desc} />
       <Location />
       <Host
         hostName={hostName}
