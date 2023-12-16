@@ -40,7 +40,7 @@
   "include": [
     "src/**/*",
     "src/pages/EventDetail/Components/EventBooking/.tsx",
-    "src/components/footers/.tsx"
+    "src/components/Footers/.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

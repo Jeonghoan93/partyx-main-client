@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import FixedFooter from "src/components/footers/FixedFooter";
-import MobileFooter from "src/components/footers/MobileFooter.tsx";
+import FixedFooter from "src/components/Footers/FixedFooter";
+import MobileFooter from "src/components/Footers/MobileFooter";
 
 import { useWindowWidth } from "src/hooks/useWindowWidth";
 import NavbarProfile from "src/pages/Account/Components/NavbarAccount";

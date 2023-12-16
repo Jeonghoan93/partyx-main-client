@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import MobileFooter from "src/components/footers/MobileFooter";
+import MobileFooter from "src/components/Footers/MobileFooter";
 import CreateProfileModal from "src/components/modals/CreateProfileModal";
 import FinishRegister from "src/components/modals/FinishRegisterModal";
 import LoginModal from "src/components/modals/LoginModal";
